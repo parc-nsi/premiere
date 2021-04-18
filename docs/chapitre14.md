@@ -7,12 +7,12 @@ layout: parc
 
 
 
-[Retour à la page d'accueil](https://parc-nsi.github.io/premiere-nsi/index.html)
+Cours de Pierre Duclosson.
 
 
 
 
 ## Cours 
 
-* [Cours version pdf](chapitre14/Cours_13_Complexite.pdf)
+* [Cours version pdf](Cours_13_Complexite.pdf)
 * Référence : <https://www.bigocheatsheet.com/>

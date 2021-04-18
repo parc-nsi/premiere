@@ -1,0 +1,18 @@
+\contentsline {section}{Crédits}{1}{section*.2}%
+\contentsline {section}{Préambule}{1}{section*.3}%
+\contentsline {section}{\numberline {1}Portes logiques}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Le transistor porte logique de base}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}D'autres portes logiques}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Transistors en série ou en parallèle}{4}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Portes logiques et fonctions logiques élémentaires}{5}{subsubsection.1.2.2}%
+\contentsline {section}{\numberline {2}Fonctions booléennes}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Fonctions booléennes}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}QCM types E3C}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Pour aller plus loin (hors programme de première NSI)}{12}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Dresser la table de vérité d'une fonction booléenne}{12}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Exprimer une fonction booléenne à partir de sa table de vérité}{13}{subsubsection.2.3.2}%
+\contentsline {section}{\numberline {3}Circuits combinatoires}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Définition}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Décodeur avec 2 bits d'entrées}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Demi-additionneur et additionneur 1 bit}{15}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Opérations bit à bit en \texttt {Python} (hors programme de première NSI)}{17}{section.4}%

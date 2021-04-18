@@ -6,17 +6,13 @@ layout: parc
 
 
 
-[Retour à la page d'accueil](https://parc-nsi.github.io/premiere-nsi/index.html)
-
-
-
-
+Cours de Frédéric Junier.
 
 
 ## Cours 
 
 * [Cours version pdf](chapitre13/cours-circuits-logiques-.pdf)
-* [Cours version markdown](chapitre13/cours-circuits-logiques-git.md)  
+* [Cours version markdown](chapitre13/cours-circuits-logiques-git2.md)  
 * [Archive avec les circuits logisim](chapitre13/circuits_logisim.zip)  
 * [Corrigés des exercices 1 à 6](chapitre13/corrige/corrige-circuits-logiques.pdf)
 * [Corrigés des exercices de programmation du cours (en HTML)](chapitre13/notebook/Circuits_logiques_2020.html)

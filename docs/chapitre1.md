@@ -4,6 +4,7 @@ title:  Chapitre 1  variables et affectations
 
 
 
+Cours de Pierre Duclosson.
 
 
 ## Cours

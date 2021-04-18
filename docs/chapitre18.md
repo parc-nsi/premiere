@@ -5,8 +5,8 @@ layout: parc
 
 
 
-[Retour à la page d'accueil](https://parc-nsi.github.io/premiere-nsi/index.html)
 
+Cours de Frédéric Junier.
 
 
 ## TP 

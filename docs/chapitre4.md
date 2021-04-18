@@ -3,6 +3,7 @@ title:  Chapitre 4  boucles conditionnelles et tests
 ---
 
 
+Cours de Pierre Duclosson.
 
 ## Cours
 

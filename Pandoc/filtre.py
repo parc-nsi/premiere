@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """
 Pandoc filter to convert divs with latex="true" to LaTeX
@@ -89,7 +90,7 @@ def convertdivs(key, value, format, meta):
             elif classes[0] == "rque":
                 return  [{'t': 'Plain', 'c': [{'t': 'Str', 'c' : '!!! warning "À retenir ' + str('"')}]}]      + contents         
                 compteur_remarque += 1
-            elif classes[0] == "synthese":
+            elif classes[0] in ["synthese","memo"]:
                 return  [{'t': 'Plain', 'c': [{'t': 'Str', 'c' : '!!! abstract "Synthèse ' + str('"')}]}]     + contents               
             elif "minipage" or "center" in classes:
                 return   contents
@@ -105,7 +106,7 @@ compteur_cours = 0
 compteur_methode = 0
 compteur_activite = 0
 compteur_histoire = 0
-f = open('sortie3.txt', 'w') #deboggage
+#f = open('sortie3.txt', 'w') #deboggage
 
 if __name__ == "__main__":
     toJSONFilter(convertdivs)

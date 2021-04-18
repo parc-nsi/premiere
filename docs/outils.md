@@ -29,6 +29,13 @@ title:  "Outils et ressources techniques pour le cours de NSI"
 
 Pour accéder aux Notebook Jupyter (fichiers d'extension ipynb dans les dossiers ressources ou corrige) du dépôt en mode interactif, cliquez sur le lien Binder ci-dessous.
 
+<p>Binder Jupyter Notebook du site : 
+  <a href="https://mybinder.org/v2/gh/parc-nsi/premiere-nsi/HEAD"> 
+    <img src="https://mybinder.org/badge_logo.svg" alt="Binder"> </a>
+    </p>
+
+
+
 ## Éditeurs de textes 
 
 Il est indispensable d'installer un éditeur de textes sur sa plateforme, pour éditer des fichier sources en Python, Javascript ou HTML.
@@ -39,10 +46,13 @@ Il est indispensable d'installer un éditeur de textes sur sa plateforme, pour �
 ## Plateformes d'entraînement 
 
 * [France IOI](http://www.france-ioi.org/) : l'inscription est fortement recommandée, nous avons créé un groupe ParcPremiereNSI.
-   <iframe width="300" height="169" sandbox="allow-same-origin allow-scripts allow-popups" src="presentation-franceioi.mp4" frameborder="0" allowfullscreen></iframe>
 
+<div> <iframe width="300" height="169" sandbox="allow-same-origin allow-scripts allow-popups" src="../assets/presentation-franceioi.mp4" frameborder="0" allowfullscreen></iframe>
+</div>
 * Pour s'entraîner sur les constructions élémentaires (boucles, tests, variables, procédures, listes), France IOI propose désormais un parcours en ligne avec le module `turtle`  : <http://www.france-ioi.org/progresser/>
 
 * [Codin Game](https://www.codingame.com) : l'inscription est libre, une orientation plus ludique mais attention ce  site comporte des publicités.
-* Le site de préparation du  concours [Prologin](https://prologin.org/) destiné initialement plutôt à des étudiants en première ou deuxième année postbac, mais c'était avant l'ouverture de la spécialité NSI ... [![Prologin](prologin.png "logo prologin")](https://prologin.org/)
+* Le site de préparation du  concours [Prologin](https://prologin.org/) destiné initialement plutôt à des étudiants en première ou deuxième année postbac, mais c'était avant l'ouverture de la spécialité NSI ... 
+
+[![Prologin](../assets/prologin.png "logo prologin")](https://prologin.org/)
     

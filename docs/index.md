@@ -4,7 +4,8 @@ layout: parc
 ---
 
 
-
+> Bienvenue sur le site de ressources de la classe de première NSI du [lycée du Parc à Lyon](https://lyceeduparc.fr/ldp/), l'enseignement est assuré par deux professeurs : Pierre Duclosson et Frédéric Junier.
+> 
 >L'image `gif` ci-dessous présente  différentes étapes du déroulement d'un algorithme de rotation d'images inspiré d'un travail présenté par Laurent Abbal du lycée français de Tokyo. Le  programme assez court peut être réalisé par un élève  de terminale (récursivité, approche _diviser pour régner_).
 >L'image source représente l'oeuvre _Matsuri Yatai Dragon_ du peintre japonais [Hokusai](https://en.wikipedia.org/wiki/en:Hokusai). Elle est dans le domaine public et disponible sur [https://commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Hokusai_Dragon.jpg).
 

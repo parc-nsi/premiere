@@ -2,14 +2,44 @@ site_name: "Première NSI Lycée du Parc"
 
 nav:
   - Progression: index.md
-  - Langages et programmation :
+  - Types de bases :
+    - Chapitre 8 représentation des entiers : chapitre8.md
+    - Chapitre 12 codage des caractères : chapitre12.md
+    - Chapitre 15 les flottants : chapitre16.md
+  - Types construits :
+    - Chapitre 6  tableaux à 1 dimension : chapitre6.md
+    - Chapitre 7 tableaux à 2 dimensions : chapitre7.md
+    - Chapitre 15 p-uplets : chapitre15.md
+    - Chapitre 18 dictionnaires : chapitre18.md
+    - Chapitre 19 traitement de données en tables : chapitre19.md
+  - Architecture  :
+    - Chapitre 9 système d'exploitation et ligne de commandes  : chapitre9.md
+    - Chapitre 13 portes logiques et circuits combinatoires : chapitre13.md
+    - Chapitre 17 architecture de Von Neumann : chapitre17.md
+  - Réseau / Web :
+    - Chapitre 2 HTML/CSS : chapitre2.md
+    - Chapitre 21  HTTP et formulaires : chapitre21.md
+  - Langages :
     - Chapitre 1 affectations et types : chapitre1.md
     - Chapitre 3 boucles inconditionnelles : chapitre3.md
-    - Chapitre 4 boucles conditionnelles et tests : chapitre4.md
-  - Types construits :
-    - Chapitre 6  les tableaux : chapitre6.md
-  - Interactions homme / machine sur le Web :
-    - Chapitre 2 HTML/CSS : chapitre2.md
+    - Chapitre 4 boucles conditionnelles et tests : chapitre4.md  
+    - Chapitre 5 fonctions et portée d'une variable : chapitre5.md  
+  - Algorithmique:
+    - Chapitre 10  recherches séquentielle et dichotomique : chapitre10.md
+    - Chapitre 11  algorithmes de tri : chapitre11.md
+    - Chapitre 14  complexité : chapitre14.md
+    - Chapitre 20  correction : chapitre20.md
+    - Chapitre 22  algorithme KNN : chapitre22.md
+  - Séances : seances.md
+  - Automatismes : automatismes.md
+  - Projets : projets.md
+  - Divers:
+    - QCM: qcm.md    
+    - Ressources : ressources.md
+    - Outils : outils.md
+    - Capytale: capytale.md
+    
+    
     
 
 
@@ -89,7 +119,13 @@ extra:
   social:
     - icon: fontawesome/solid/paper-plane
       link: mailto:admin@frederic-junier.org
-      name: Frédéric Junier
+      name: mail
+    - icon: fontawesome/brands/github
+      link: https://github.com/parc-nsi/premiere
+      name: dépôt git
+    - icon: fontawesome/solid/university
+      link: https://lyceeduparc.fr/ldp/
+      name: Lycée du Parc
 
 copyright:  Sous licence CC BY-NC-SA 4.0
 

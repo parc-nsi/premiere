@@ -6,9 +6,7 @@ layout: parc
 
 
 
-
-[Retour à la page d'accueil](https://parc-nsi.github.io/premiere-nsi/index.html)
-
+Cours de Pierre Duclosson.
 
 
 
@@ -18,3 +16,9 @@ layout: parc
 * [Cours version pdf](chapitre22/KNN.pdf)
 
 
+## Matériel non utilisé
+
+* [Cours non utilisé (markdown)](chapitre22/knn-cours-git.md)
+* [Cours non utilisé (pdf)](chapitre22/knn-cours-.pdf)
+* [TP non utilisé (markdown)](chapitre22/TP/knn-tp-git.md)
+* [TP non utilisé (pdfn)](chapitre22/TP/knn-tp-.pdf)

@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Crédits}{1}{section.1}%
+\contentsline {section}{\numberline {2}p-uplets nommés et dictionnaires}{1}{section.2}%
+\contentsline {section}{\numberline {3}Un exemple de dictionnaire : les metadonnées EXIF d'une photo numérique}{3}{section.3}%
+\contentsline {section}{\numberline {4}Création de dictionnaire}{5}{section.4}%
+\contentsline {section}{\numberline {5}Accès, ajout, suppression d'élément dans un dictionnaire}{6}{section.5}%
+\contentsline {section}{\numberline {6}Parcours de dictionnaire}{10}{section.6}%
+\contentsline {section}{\numberline {7}Références partagées et mutabilité}{12}{section.7}%
+\contentsline {section}{\numberline {8}Performance}{12}{section.8}%
+\contentsline {section}{\numberline {9}Synthèse}{14}{section.9}%

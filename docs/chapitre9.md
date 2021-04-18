@@ -4,8 +4,7 @@ layout: parc
 ---
 
 
-
-[Retour à la page d'accueil](https://parc-nsi.github.io/premiere-nsi/index.html)
+Cours de Frédéric Junier.
 
 
 
@@ -15,8 +14,8 @@ layout: parc
 * [Enoncé TP1 version markdown](chapitre9/TP1/NSI-TP1-systeme-2020-git.md)
 * [Matériel TP1](chapitre9/TP1/materiel/sandbox.zip)
 * Corrigés du TP1 :
-  * [Corrigés en video](https://tube.ac-lyon.fr/videos/watch/playlist/273385c8-9e8e-464a-9662-12577455cb9a?videoId=70d46929-8772-4882-a606-ac7f9949f066)
-  * [archive zip](chapitre9/TP1/corrige.zip)
+    * [Corrigés en video](https://tube.ac-lyon.fr/videos/watch/playlist/273385c8-9e8e-464a-9662-12577455cb9a?videoId=70d46929-8772-4882-a606-ac7f9949f066)
+    * [archive zip](chapitre9/TP1/corrige.zip)
   
 ## Memento shell
 

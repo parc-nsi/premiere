@@ -5,8 +5,7 @@ layout: parc
 
 
 
-[Retour à la page d'accueil](https://parc-nsi.github.io/premiere-nsi/index.html)
-
+Cours de Frédéric Junier.
 
 ## Cours 
 
@@ -15,7 +14,7 @@ layout: parc
 * [Archive avec les exemples du cours](chapitre19/Cours/exemples_cours_tables.zip)
 
 
-## TP Recherche et tri :
+## TP Recherche et tri 
 
 * [TP version pdf](chapitre19/TP-Recherche-Tri/tp-recherche-tri-.pdf)
 * [TP version markdown](chapitre19/TP-Recherche-Tri/tp-recherche-tri-git.md)
@@ -25,7 +24,7 @@ layout: parc
 * [Correction du TP version notebook](https://mybinder.org/v2/gh/parc-nsi/premiere-nsi/master?filepath=chapitre19/TP-Recherche-Tri/Correction/TP_Recherche_Tris_Correction.ipynb)
 
 
-## TP Fusion de tables :
+## TP Fusion de tables 
 
 * [TP version pdf](chapitre19/TP-Fusion/tp-fusion-.pdf)
 * [TP version markdown](chapitre19/TP-Fusion/tp-fusion-git.md)
