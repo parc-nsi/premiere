@@ -1,125 +1,49 @@
-# Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-!!! note
-
-    * `mkdocs new [dir-name]` - Create a new project.
-    * `mkdocs serve` - Start the live-reloading docs server.
-    * `mkdocs build` - Build the documentation site.
-    * `mkdocs -h` - Print help message and exit.
-
-## Project layout 
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+---
+title:  Progression
+layout: parc
+---
 
 
-~~~python
-from rurple import *
 
-def parcourir_ligne():
-    "Parcourt une ligne"
-    while not mur_devant():
-        avance()
-        
-#parcourir_ligne()
-        
-def tour_grille(n):
-    "Effectue n tours d'une grille rectangulaire"
-    for i in range(n):
-        for j in range(4):
-            parcourir_ligne()
-            gauche()
+>L'image `gif` ci-dessous présente  différentes étapes du déroulement d'un algorithme de rotation d'images inspiré d'un travail présenté par Laurent Abbal du lycée français de Tokyo. Le  programme assez court peut être réalisé par un élève  de terminale (récursivité, approche _diviser pour régner_).
+>L'image source représente l'oeuvre _Matsuri Yatai Dragon_ du peintre japonais [Hokusai](https://en.wikipedia.org/wiki/en:Hokusai). Elle est dans le domaine public et disponible sur [https://commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Hokusai_Dragon.jpg).
 
-def tour_grille2(n):
-    "Effectue n tours d'une grille rectangulaire"
-    for i in range(4 * n):
-        parcourir_ligne()
-        gauche()
+[![Dragon](assets/rotation-dragon-2.gif "dragon-hokusai")](https://commons.wikimedia.org/wiki/File:Hokusai_Dragon.jpg)
 
 
-#tour_grille(6)
+## Présentation
+
+* Voir notre [présentation de la spécialité NSI](presentation_parc_2021/presentation_spe_nsi.html).
+
+## Programme 
+
+* Le  [programme officiel](Programme/PPL18_Numerique-sciences-informatiques_SPE_1eGen_1025707.pdf)
+* [Carte mentale du programme](Programme/PremièreNSI.jpg)
 
 
-def mystere():
-    "Ramasse toutes les billes sur une case"
-    while bille_au_sol():
-        prends()
-    
-#mystere()
+
+## Progression
 
 
-def aspirateur_ligne():
-    "Ramasse toutes les billes sur une ligne"
-    mystere()
-    while not mur_devant():
-        avance()
-        mystere()
-        
-    
-#aspirateur_ligne()
-
-
-def droite():
-    "Fait tourner le robot à droite"
-    for k in range(3):
-        gauche()
-        
-def quart_tour(ligne):
-    if ligne % 2 == 1:
-        gauche()
-    else:
-        droite()
-
-def aspirateur_grille():
-    "Ramasse toutes les billes sur une grille"
-    ligne = 1
-    aspirateur_ligne()
-    quart_tour(ligne)
-    while not mur_devant():
-        avance()
-        quart_tour(ligne)
-        aspirateur_ligne()
-        ligne = ligne + 1
-        quart_tour(ligne)
-        
-
-#aspirateur_grille()
-
-def demi_tour():
-    gauche()
-    gauche()
-    
-def bille_devant():
-    "Détermine si la case devant contient une bille"
-    avance()
-    reponse = bille_au_sol()
-    demi_tour()
-    avance()
-    demi_tour()
-    return reponse
-    
-
-def petit_poucet():
-    """Le robot parcourt toutes les cases d'une grille carré nxn avec n impair
-    et dépose 1 billes sur chaque case """
-    while bille_en_poche():
-        depose()
-        if mur_devant() or bille_devant():
-            gauche()
-        if not bille_devant():
-            avance()            
-
-petit_poucet()
-~~~
-
-
-# Mathématiques 
-
-
-$\frac{a^{12}}{b}$
+* [Chapitre 1 : variables et affectations en Python](chapitre1.md)
+* [Chapitre 2 : HTML/CSS](chapitre2.md)
+* [Chapitre 3 : boucles inconditionnelles en Python](chapitre3.md) avec en TP une approche de l'entrée du programme _IHM et périphériques d'entrée/sortie_ à travers la plateforme [Quickpi](https://amazon.quick-pi.org/) et une [synthèse de cours](IHM-peripheriques/NSI-IHM-Cours2020V1.pdf) sur la partie capteurs/actionneurs du thème IHM.
+* [Chapitre 4 : boucles conditionnelles et tests](chapitre4.md)
+* [Chapitre 5 : fonctions et portée d'une variable](chapitre5.md)
+* [Chapitre 6 : tableaux à une dimension](chapitre6.md)
+* [Chapitre 7 : tableaux à deux dimensions](chapitre7.md)
+* [Chapitre 8 : représentation des entiers](chapitre8.md)
+* [Chapitre 9 : système d'exploitation et ligne de commandes](chapitre9.md)
+* [Chapitre 10 : recherche séquentielle ou dichotomique](chapitre10.md)
+* [Chapitre 11 : algorithmes de tri](chapitre11.md)
+* [Chapitre 12 : codage des caractères](chapitre12.md)
+* [Chapitre 13 : circuits logiques et fonctions booléennes](chapitre13.md)
+* [Chapitre 14 : complexité](chapitre14.md)
+* [Chapitre 15 : p-uplets](chapitre15.md)
+* [Chapitre 16 : flottants](chapitre16.md)
+* [Chapitre 17 : architecture de Von Neumann](chapitre17.md)
+* [Chapitre 18 : les dictionnaires](chapitre18.md)
+* [Chapitre 19 : traitement de données en table](chapitre19.md)
+* [Chapitre 20 : correction d'algorithmes](chapitre20.md)
+* [Chapitre 21 : Interaction Homme Machine sur le Web partie 1, protocole HTTP et formulaires](chapitre21.md)
+* [Chapitre 22 : Algorithme de classification des K plus proches voisins](chapitre22.md)  

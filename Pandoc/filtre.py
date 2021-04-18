@@ -73,10 +73,10 @@ def convertdivs(key, value, format, meta):
                 return  [{'t': 'Plain', 'c': [{'t': 'Str', 'c' : '!!! note "Propriété ' + str(compteur_propriete) + str('"')}]}]      + contents
             elif classes[0] == "cours":
                 compteur_cours += 1
-                return  [{'t': 'Plain', 'c': [{'t': 'Str', 'c' : '!!! note "Point de cours' + str(compteur_cours) + str('"')}]}]       + contents
+                return  [{'t': 'Plain', 'c': [{'t': 'Str', 'c' : '!!! note "Point de cours ' + str(compteur_cours) + str('"')}]}]       + contents
             elif classes[0] == "exemple":
                 compteur_exemple += 1
-                return  [{'t': 'Plain', 'c':[{'t': 'Str', 'c' : '!!! example "Example ' + str(compteur_exemple) + str('"')}]}]       + contents
+                return  [{'t': 'Plain', 'c':[{'t': 'Str', 'c' : '!!! example "Exemple ' + str(compteur_exemple) + str('"')}]}]       + contents
             elif classes[0] == "activite":
                 compteur_activite += 1
                 return  [{'t': 'Plain', 'c': [{'t': 'Str', 'c' : '!!! info "Activité ' + str(compteur_activite) + str('"')}]}]     + contents

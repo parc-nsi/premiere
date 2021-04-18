@@ -1,11 +1,17 @@
 site_name: "Première NSI Lycée du Parc"
 
 nav:
-  - Section 1:
-    - section/index.md
-  - Section 2:
-    - Page 1: section/automatismes.md
-    - Page 2: section/cours-tables-indexation-git.md
+  - Progression: index.md
+  - Langages et programmation :
+    - Chapitre 1 affectations et types : chapitre1.md
+    - Chapitre 3 boucles inconditionnelles : chapitre3.md
+    - Chapitre 4 boucles conditionnelles et tests : chapitre4.md
+  - Types construits :
+    - Chapitre 6  les tableaux : chapitre6.md
+  - Interactions homme / machine sur le Web :
+    - Chapitre 2 HTML/CSS : chapitre2.md
+    
+
 
 
 theme:
@@ -82,8 +88,10 @@ plugins:
 extra:
   social:
     - icon: fontawesome/solid/paper-plane
-      link: mailto:mon_prénom.mon_nom@chez.moi
-      name: Écrire à l'auteur
+      link: mailto:admin@frederic-junier.org
+      name: Frédéric Junier
+
+copyright:  Sous licence CC BY-NC-SA 4.0
 
 extra_javascript:
   - javascripts/config.js
