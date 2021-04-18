@@ -7,9 +7,17 @@ Voir https://mooc-forums.inria.fr/moocnsi/t/mkdocs-une-solution-ideale/1758
 
 def define_env(env):
     "Hook function"
+    
+
+    env.variables['compteur_exo'] = 0
+    
+    @env.macro
+    def exercice(): #G Connan
+       env.variables['compteur_exo'] += 1
+       return f"tip \"Recherche { env.variables['compteur_exo']}\""
 
     @env.macro
-    def basthon(exo: str, hauteur: int) -> str:
+    def basthon(exo: str, hauteur: int) -> str: #F Chambon
         "Renvoie du HTML pour embarquer un fichier `exo` dans Basthon"
         return f"""<iframe src="https://console.basthon.fr/?from={env.variables.io_url}{env.variables.page.url}../{exo}" width=100% height={hauteur}></iframe>
 
@@ -17,19 +25,19 @@ def define_env(env):
 """
 
     @env.macro
-    def script(lang: str, nom: str) -> str:
+    def script(lang: str, nom: str) -> str: #F Chambon
         "Renvoie le script dans une balise bloc avec langage spécifié"
         return f"""```{lang}
 --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{nom}"
 ```"""
 
     @env.macro
-    def py(nom: str) -> str:
+    def py(nom: str) -> str: #F Chambon
         "macro python rapide"
         return script('python', "scripts/" + nom + ".py")
 
     @env.macro
-    def html_fig(num: int) -> str:
+    def html_fig(num: int) -> str: #F Chambon
         "Renvoie le code HTML de la figure n° `num`"
         return f'--8<-- "docs/' + os.path.dirname(env.variables.page.url.rstrip('/')) + f'/figures/fig_{num}.html"'
 
@@ -37,7 +45,7 @@ def define_env(env):
    
 
     @env.macro
-    def table_a():
+    def table_a():  #F Chambon
         a = [1, 1, 2, 3]
         b = [1, 1, 3, 4]
         c = [1, 1, 2, 3]
