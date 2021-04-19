@@ -117,7 +117,7 @@ assert image_noire(2,1) == [[0,0]]
 assert image_noire(1,2) == [[0], [0]]
 assert image_noire(3,2) == [[0,0,0], [0,0,0]]
 
-
+ 
 #postconditions pour la fonction dimensions 
 assert dimensions([[], []]) == [2,0]
 assert dimensions([[0,1,2], [3,4,5]]) == [2,3]
