@@ -10,7 +10,7 @@ Cours de Pierre Duclosson.
 ## Cours
 
 * [Pdf du cours](chapitre1/cours/Intro_var.pdf)
-* [Correction des entraînements](chapitre1/cours/Corrigé_Ent_C1.pdf)
+* [Correction des entraînements](chapitre1/cours/Corrige_Ent_C1.pdf)
 
 ## TP 
 

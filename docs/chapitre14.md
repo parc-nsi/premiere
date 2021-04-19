@@ -14,5 +14,5 @@ Cours de Pierre Duclosson.
 
 ## Cours 
 
-* [Cours version pdf](Cours_13_Complexite.pdf)
+* [Cours version pdf](chapitre14/Cours_13_Complexite.pdf)
 * Référence : <https://www.bigocheatsheet.com/>

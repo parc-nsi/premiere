@@ -10,7 +10,7 @@ Les QCM sont disponibles sur les sites [Genumsi](https://genumsi.inria.fr)  ou [
 ## QCM Genumsi 
 
 
-* [Chapitre 1](../chapitre1/chapitre1.md) :
+* [Chapitre 1](chapitre1.md) :
     * Affectations et types de base :
       * [Énoncé](https://genumsi.inria.fr/qcm.php?h=e74b6446b2fb9380f06fe87ff3289bf4>)
       * [Corrigé](https://genumsi.inria.fr/qcm-corrige.php?cle=MTg7MTExOzEzNTsxMjE7MTM4MjsxMzgz>)
@@ -46,7 +46,7 @@ Les QCM sont disponibles sur les sites [Genumsi](https://genumsi.inria.fr)  ou [
 
 * QCM sur l'architecture de Von Neumann et l'histoire de l'informatique :
     * [Énoncé](https://genumsi.inria.fr/qcm.php?h=caeabd1b53486bab12353bf123440254)
-    * [Corrigé](chapitre1/TP1/1NSI-Chap1-Variables-TP1-git.mdhttps://genumsi.inria.fr/qcm-corrige.php?cle=Mzs0Ozg7MzM7NDc7NTA7NTM7NTU7NTY7NTc7MTIzOzE1NjsyMjg7Mjg1OzI4NjsyODc7Mjg5OzI5MDsyOTE7MjkyOzI5MzszMjI7MzMwOzMzMTszMzI7MzMzOzMzNDszNjU7MzkwOzM5MTszOTU7NDI3OzQ4NjsxMzQyOzEzNTA7MTM2NjsxNDMwOzE0MzE7MTQzMjsxNDM0OzE0NDE7MTQ0OTsxNDUwOzE0NTE7MTQ1MzsxNDU0OzE0NTU7MTUyOA==)
+    * [Corrigé](https://genumsi.inria.fr/qcm-corrige.php?cle=Mzs0Ozg7MzM7NDc7NTA7NTM7NTU7NTY7NTc7MTIzOzE1NjsyMjg7Mjg1OzI4NjsyODc7Mjg5OzI5MDsyOTE7MjkyOzI5MzszMjI7MzMwOzMzMTszMzI7MzMzOzMzNDszNjU7MzkwOzM5MTszOTU7NDI3OzQ4NjsxMzQyOzEzNTA7MTM2NjsxNDMwOzE0MzE7MTQzMjsxNDM0OzE0NDE7MTQ0OTsxNDUwOzE0NTE7MTQ1MzsxNDU0OzE0NTU7MTUyOA==)
 
 * QCM sur les dictionnaires :
     * [Énoncé](https://genumsi.inria.fr/qcm.php?h=31354f43ef77d9869b4c25491040252d)

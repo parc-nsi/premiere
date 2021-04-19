@@ -54,5 +54,5 @@ Il est indispensable d'installer un éditeur de textes sur sa plateforme, pour �
 * [Codin Game](https://www.codingame.com) : l'inscription est libre, une orientation plus ludique mais attention ce  site comporte des publicités.
 * Le site de préparation du  concours [Prologin](https://prologin.org/) destiné initialement plutôt à des étudiants en première ou deuxième année postbac, mais c'était avant l'ouverture de la spécialité NSI ... 
 
-[![Prologin](../assets/prologin.png "logo prologin")](https://prologin.org/)
+[![Prologin](assets/prologin.png "logo prologin")](https://prologin.org/)
     
