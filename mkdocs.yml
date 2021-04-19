@@ -49,6 +49,7 @@ theme:
   font: false
   language: fr
   logo: assets/logo-parc.png
+  favicon: assets/logo-parc.png
   features:
     - navigation.instant
     - navigation.tabs
