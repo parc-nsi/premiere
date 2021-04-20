@@ -36,14 +36,29 @@ bottles:
   * <https://facelessuser.github.io/pymdown-extensions/>
 
 
+~~~mermaid
+
+%%{init: {'theme': 'dark' } }%%
+graph TD
+A --> B
+
+~~~
+
 ```mermaid
 graph TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
+    A[Hard] -->|Text| B(Round)
+    B --> C{Decision}
+    C -->|One| D[Result 1]
+    C -->|Two| E[Result 2]
 ```
+
+???- note "Collapsed"
+    ```mermaid
+    graph TD
+    A[Client] --> B[Load Balancer]
+    ```
+    This is additional text.
+
 
 
 
