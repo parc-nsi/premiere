@@ -14,6 +14,7 @@ jobs:
           python-version: 3.x
       - run: pip install mkdocs-material
       - run: pip install mkdocs-macros-plugin
+      - run: pip install graphviz
       - run: mkdocs gh-deploy --force
 
       # Runs a set of commands using the runners shell

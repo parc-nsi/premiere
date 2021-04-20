@@ -5,6 +5,7 @@ Voir https://mooc-forums.inria.fr/moocnsi/t/mkdocs-une-solution-ideale/1758
 
 """
 
+
 def define_env(env):
     "Hook function"
     
