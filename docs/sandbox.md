@@ -35,6 +35,19 @@ bottles:
   * <https://github.com/facelessuser/pymdown-extensions/issues/928>
   * <https://facelessuser.github.io/pymdown-extensions/>
 
+
+```mermaid
+graph TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+
+
+
 ```graphviz engine="dot"
 digraph G {
   node [shape=box]
