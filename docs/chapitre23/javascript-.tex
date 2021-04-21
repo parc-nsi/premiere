@@ -1,0 +1,2001 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{
+\usepackage{hyperref}
+}
+\hypersetup{
+  pdftitle={Web et Interaction Homme Machine, programmation côté client},
+  pdfauthor={Première NSI, Lycée du Parc},
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[top=20mm,left=20mm,right=20mm,heightrounded]{geometry}
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=[5.3]Lua}
+\lstset{defaultdialect=[x86masm]Assembler}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+\title{Web et Interaction Homme Machine, programmation côté client}
+\author{Première NSI, \href{https://frederic-junier.org/}{Lycée du
+Parc}}
+\date{}
+
+%%%jolis boites
+
+\usepackage{fancybox, graphicx}
+
+
+
+%%%%%%%%%%%%%%%%Packages et Macros Frederic%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%Insertion de liens hypertextes %%%%
+
+            
+%%%%%%%%%%PSTricks%%%%%%%%%%%%
+
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pst-eps,pst-fill,pst-node,pst-math,pstricks-add,pst-xkey,pst-eucl}
+
+
+%%%%%%%Tikz%%%%%%%%%%%%%%%
+\usepackage{pgf,tikz,tkz-tab}
+% Pour les tableaux de signes ou de variations avec tkz-tab voir https://zestedesavoir.com/tutoriels/439/des-tableaux-de-variations-et-de-signes-avec-latex/#1-13389_tikz-un-package-qui-en-a-dans-le-ventre
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{petri}
+\usetikzlibrary{decorations}
+\usetikzlibrary{arrows}
+\usetikzlibrary{math}
+ %Variables must be declared in a tikzmath environment but
+       % can be used outside
+%       \tikzmath{int \n; \n = 508; \x1 = 1; \y1 =1; 
+%                   %computations are also possible
+%                    \x2 = \x1 + 1; \y2 =\y1 +3; } 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Commandes Tikz Perso%%%%%%%%%%%%%%%
+
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+% Valeurs par défaut : -3, 3, -3, 3
+\tikzset{
+xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+% Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}[2]
+{\draw[help lines,black, thick] (\xmin,\ymin) grid[xstep=#1, ystep=#2] (\xmax,\ymax);}
+% Commande \axes
+\newcommand {\axes} {
+\draw[->,very thick] (\xmin,0) -- (\xmax,0);
+\draw[->,very thick] (0,\ymin) -- (0,\ymax);
+\draw (0.95*\xmax, 0) node[above] {};
+\draw (0, 0.95*\ymax) node[left] {};
+}
+% Commande qui limite l?affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}
+{\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+
+%Exemple d'utilisation
+
+%\begin{center}
+%\begin{tikzpicture} [xmin=-2,xmax=2,ymin=0,ymax=5]
+%\grille{1} \axes \fenetre
+%\draw plot[smooth] (\x,\x^2);
+%\end{tikzpicture}
+%\end{center}
+
+%style pour la perspective cavalière française
+%voir Tikz pour l'impatient page 68
+\tikzset{math3d/.style=
+{x= {(-0.353cm,-0.353cm)}, z={(0cm,1cm)},y={(1cm,0cm)}}}
+
+%%%%%%%Symbole pour code calculatrice%%%%%%
+
+%Flèche remplie pour défilement de menu
+
+\newcommand{\flechefillright}{
+\begin{tikzpicture}[scale=0.15] \fill (0,0)--(2,1)--(0,2)--cycle;
+\end{tikzpicture}}
+
+%%%%%%%%%%%%%Symboles pour calculatrice Casio%%%%
+\newcommand{\execasio}{\Pisymbol{psy}{191}} %Retour chariot
+\newcommand{\dispcasio}{\begin{pspicture}(.1,.1)\pspolygon*(.1,0)(.1,.1)\end{pspicture}} %Triangle Â« Disp Â»
+\newcommand{\dispcasiotikz}{\begin{tikzpicture}[scale=0.2]
+\fill (0,0) -- (1,0) -- (1,1) -- cycle;
+\end{tikzpicture}} %Triangle Â« Disp Â»
+%
+
+%Fleche entre deux lignes, d'apres 'un bon petit' : http://forum.mathematex.net/latex-f6/fleches-entre-deux-lignes-pour-resolution-d-equation-t10283.html#p99817
+\newcommand\addnode[1]{\Rnode{#1}{}}
+\newcommand\linknode[3]{\ncbar[angleA=0,angleB=0,nodesep=1ex,arm=10ex,offset=-2pt]{->}{#1}{#2}\Aput{\vphantom{x}#3}}
+
+
+%%Commande pour touche de calculatrice
+
+\newcommand\tc[1]{%
+{
+\begin{tikzpicture}
+\node[draw,rectangle,rounded corners=3pt] (P) at (0,0){#1};
+\end{tikzpicture}
+}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Fin Commandes Tikz%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%Specifiques%%%%%%%%%%%
+\usepackage{wrapfig}
+%pour insérer une figure à droite ou à gauche d'un texte
+%\begin{wrapfigure}[nb lignes]{placement l,r,c,i(inside),o(outside)}[overhang]{width}
+%ce package fonctionne mal à proximité des listes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%Environnements et symboles spéciaux pour faire joli%%%%%%
+
+%%%Bclogo, pour des environnements + jolis avec insertion de logo%%%%
+%Dépendances de  bclogo
+\usepackage{xkeyval}  
+\usepackage{etoolbox}
+\usepackage{ifpdf}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage[tikz]{bclogo}
+
+%\newcommand\bcpython{\includegraphics[width=17pt]{/home/fjunier/Maths/python-logo.eps}}
+\newcommand\bcpython{\includegraphics[width=17pt]{/home/fjunier/Maths/python-logo.png}}
+%\newcommand\bcpython{\includegraphics[width=17pt]{/home/frederic/Maths/python-logo.png}}
+
+%% Framed
+\usepackage{framed}  %Le package « framed» Crée 3 nouveaux environnements, qui se comportent comme des minipage de largeur \linewidth, mais permettant en plus de se casser entre plusieurs pages.     * framed : avec un cadre autour;     * shaded : avec un fonc coloré (il faut définir la couleur shadecolor);     * leftbar : avec une barre le long du côté gauche.
+
+%%%%%%%%%%%%%%%%%%%Présentation de codes sources%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+%On utilise l?environnement lstlisting pour insérer
+%un code source.
+%En plus de l?environnement lstlisting, on peut également utiliser la
+%commande \lstinline qui fonctionne comme la commande \verb, en ce
+%sens qu?on peut utiliser n?importe quel caractère comme délimiteur. Enfin,
+%la commande \lstinputlisting permet de charger un code source depuis
+%un fichier externe.
+%Il y a deux manières de préciser des options : soit via l?option de l?envi-
+%ronnement ou de la commande, soit en utilisant la commande \lstset
+%qui permet de définir des options de manière globale.
+
+\lstset{ %
+  language=Python,                % the language of the code
+  basicstyle=\ttfamily,           % the size of the fonts that are used for the code
+  %numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny,  % the style that is used for the line-numbers
+  %stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  %numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  tabsize=4,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  %title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  breakindent=1cm,
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{red},       % comment style
+  %stringstyle=\ttfamily\color{green},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  morekeywords={*,...},              % if you want to add more keywords to the set
+  deletekeywords={...}              % if you want to delete keywords from the given language
+  upquote=true,columns=flexible,
+xleftmargin=1cm,xrightmargin=1cm,
+ inputencoding=utf8,			%Les lignes qui suivent sont pour le codage utf8
+  extendedchars=true,
+  literate=%
+            {é}{{\'{e}}}1
+            {è}{{\`{e}}}1
+            {ê}{{\^{e}}}1
+            {ë}{{\¨{e}}}1
+            {û}{{\^{u}}}1
+            {ù}{{\`{u}}}1
+            {â}{{\^{a}}}1
+            {à}{{\`{a} }}1
+            {î}{{\^{i}}}1
+            {ô}{{\^{o}}}1
+            {ç}{{\c{c}}}1
+            {Ç}{{\c{C}}}1
+            {É}{{\'{E}}}1
+            {Ê}{{\^{E}}}1
+            {À}{{\`{A}}}1
+            {Â}{{\^{A}}}1
+            {Î}{{\^{I}}}1
+}
+
+\lstdefinestyle{rond}{
+  numbers=none,
+  backgroundcolor=\color{gristclair},
+  frameround =tttt
+}
+
+\lstdefinestyle{compil}{
+  numbers=none,
+  backgroundcolor=\color{gristclair}
+}
+%\lstset{language=Python,basicstyle=\small , frame=single,tabsize=4,showspaces=false,showtabs=false,showstringspaces=false,numbers=left,numberstyle=\tiny , extendedchars=true}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%Environnements persos%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Syntaxe :
+%\newenvironment{nom}[nombre d'args][defaut]{definitions initiales}{definitions finales}
+%definitions intiales sont les commandes appelées par \begin{nom}
+%Definitions finales sont les commandes appelées par \end{nom}
+
+%%%%%%%%%%%%%%%%Définitions des environnemts persostheoreme, exemple ..%%%%
+%%%% Exercice avec encadré %%%%
+\newcounter{exo}
+\newenvironment{exercice}[1]
+{\par \medskip   \addtocounter{exo}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,   noborder = true, logo=\bccrayon, marge=4]{~\textbf{Exercice} \textbf{\theexo} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+%%Axiomes, Theoremes, Propriété, Définition, Methode, Preuve
+
+
+\newenvironment{axiome}[1]
+{\par \medskip   \begin{leftbar} \noindent \underline{\textbf{Axiome}}\hspace{0.5cm}{\itshape #1}   \vspace*{10pt} \par }
+{\end{leftbar}  \par \medskip }
+
+
+\newcounter{thme}
+\newenvironment{theoreme}[1]
+{\par \medskip  \addtocounter{thme}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Théorème} \textbf{\thethme} {\itshape #1} }   \par}
+{
+\end{bclogo}
+ \par \bigskip}
+
+ \newenvironment{theoremedef}[1]
+{\par \medskip   \addtocounter{thme}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Théorème-Définition} \textbf{\thethme} {\itshape #1} }   \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+\newcounter{prop}
+\newenvironment{propriete}[1]
+{\par \medskip   \addtocounter{prop}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Propriété} \textbf{\theprop} {\itshape #1} }   \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newenvironment{corollaire}[1]
+{\par \medskip   \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Corollaire} {\itshape #1} } \par }
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newenvironment{demo}[1]
+{\par \medskip   \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=zigzag, noborder = true, logo=\bcloupe, marge=0]{~\textbf{Démonstration} {\itshape #1} } \par \vspace{10pt}}
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{activite}
+\newenvironment{activite}[1]
+{\par \medskip   \noindent   \addtocounter{activite}{1}
+\begin{bclogo}[arrondi =0.1,   noborder = true, logo=\bcvelo, marge=4]{~\textbf{Activité} \textbf{\theactivite} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newenvironment{synthese}
+{\par \medskip   \noindent   
+\begin{bclogo}[arrondi =0.1,   noborder = true, logo=\bccle, marge=4]{~\textbf{Synthèse}   }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+ 
+\newcounter{rque}
+\newenvironment{remarque}
+{\par \medskip    \addtocounter{rque}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=snake, noborder = true, logo=\bcinfo, marge=0]{~\textbf{Remarque} \textbf{\therque}}  \par }
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{def}
+\newenvironment{definition}[1]
+{\par \medskip   \addtocounter{def}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Définition} \textbf{\thedef} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+ 
+ \newcounter{cours}
+\newenvironment{cours}[1]
+{\par \medskip   \addtocounter{cours}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bcbook, marge=4]{~\textbf{Point de cours} \textbf{\thecours} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+ 
+
+\newenvironment{introduction}
+{\par \medskip    \noindent  
+ \begin {bclogo}[couleur = blue!5 , arrondi =0.1,logo=\bcrosevents, marge=4] {~\textbf{Introduction}    }
+ \par }
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+\newenvironment{memo}[1]
+{\par \medskip    \noindent  
+\begin{bclogo}[arrondi =0.1,  ombre = true, barre=none, logo=\bccle, marge=4]{~\textbf{À retenir}  {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+\newcounter{exple}
+\newenvironment{exemple}[1]
+{\par \medskip   \addtocounter{exple}{1} \noindent  
+\begin{bclogo}[arrondi =0.1,   noborder = true, logo=\bclampe, marge=4]{~\textbf{Exemple} \textbf{\theexple} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+
+
+\newcounter{alg}
+\newenvironment{algorithme}[1]
+{\par \medskip   \addtocounter{alg}{1} \noindent  
+ \begin {bclogo}[noborder = true, barre=zigzag,logo=\bcpython, marge=4] {~\textbf{Algorithmique} \textbf{\thealg} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+\newcounter{prog}
+\newenvironment{programme}[1]
+{\par \medskip   \addtocounter{prog}{1} \noindent  
+ \begin {bclogo}[noborder = true, barre=zigzag,logo=\bcpython, marge=4] {~\textbf{Programme} \textbf{\theprog} {\itshape #1} }  \par  \bigskip}
+{
+\end{bclogo}
+ \par \bigskip }
+ 
+\newcounter{logi}
+\newenvironment{logique}[1]
+{\par \medskip   \addtocounter{logi}{1} \noindent  
+ \begin {bclogo}[noborder = true, barre=zigzag,logo=\bclampe, marge=4] {~\textbf{Logique} \textbf{\thelogi} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newenvironment{methode}[1]
+{\par \medskip    \noindent  
+ \begin {bclogo}[arrondi =0.1,logo=\bcoutil, marge=4,noborder = true] {~\textbf{Méthode}   {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+\newcounter{histo}
+\newenvironment{histoire}[1]
+{\par \medskip   \addtocounter{histo}{1} \noindent  
+ \begin {bclogo}[couleur = blue!10 , arrondi =0.1,logo=\bchorloge, marge=4] {~\textbf{Histoire} \textbf{\thehisto} {\itshape #1} }  \par}
+{
+\end{bclogo}
+ \par \bigskip }
+
+
+
+
+%Environnement contenu pour un document présentant une progression annuelle
+\newenvironment{contenu}
+{\par \medskip   \begin {bclogo}[ noborder = true,logo=\bccrayon] \noindent {\large \textbf{Contenu de la séance}} \vspace*{10pt} \par  }
+{\end{bclogo}  \par \medskip }
+
+%Environnement programme pour un document présentant une progression annuelle
+%\newenvironment{programme}
+%{\par \medskip   \begin {bclogo}[ noborder = true, barre=zigzag,logo=\bcinfo] \noindent {\large \textbf{Programme officiel}} \vspace*{10pt} \par  }
+%{\end{bclogo}  \par \medskip }
+
+%Environnement programme pour un document présentant une progression annuelle
+\newenvironment{ressource}
+{\par \medskip   \begin {bclogo}[ noborder = true,logo=\bcbook] \noindent {\large \textbf{Ressources}}\\vspace*{10pt} \par }
+{\end{bclogo}  \par \medskip }
+
+
+
+
+%%%%%%%%%%%%%%%%%%Maths divers%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%Nombres%%%%%%%%%%%%%%%%
+
+%Ensemble prive de...
+%\newcommand{\prive}{\boi}%{\backslash}
+
+%Ensembles de nombres%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+%\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{~\ensuremath{]0;+\infty[}~}
+\newcommand{\K}{\mathbb{K}}
+
+%%%%%%%%Arithmetique%%%%%%%%%%
+%PGCD, PPCM
+\newcommand{\PGCD}{\mathop{\rm PGCD}\nolimits}
+\newcommand{\PPCM}{\mathop{\rm PPCM}\nolimits}
+
+%Intervalles
+\newcommand{\interoo}[2]{]#1\, ;\, #2[}
+\newcommand{\Interoo}[2]{\left]#1\, ;\, #2\right[}
+\newcommand{\interof}[2]{]#1\, ;\, #2]}
+\newcommand{\Interof}[2]{\left]#1\, ;\, #2\right]}
+\newcommand{\interfo}[2]{[#1\, ;\, #2[}
+\newcommand{\Interfo}[2]{\left[#1\, ;\, #2\right[}
+\newcommand{\interff}[2]{[#1\, ;\, #2]}
+\newcommand{\Interff}[2]{\left[#1\, ;\, #2\right]}
+%\newcommand\interentiers #1#2{[\! [#1\, ;\, #2]\! ]}
+\newcommand{\interentiers}[2]{\llbracket #1\, ;\, #2\rrbracket}
+%
+
+
+%%%%%%%%%%%%%%Nombres complexes%%%%%
+
+\newcommand{\ic}{\text{i}}
+%\newcommand{\I}{\text{i}}
+\newcommand{\im}[1]{\text{Im}\left(#1\right)}
+\newcommand{\re}[1]{\text{Re}\left(#1\right)}
+\newcommand{\Arg}[1]{\text{arg}\left(#1\right)}
+\newcommand{\Mod}[1]{\left[#1\right]}
+%Parties entiÃ¨re, rÃ©elle, imaginaire, nombre i
+\newcommand{\ent}[1]{\text{E}\left(#1\right)}
+\renewcommand{\Re}{\mathop{\rm Re}\nolimits}
+\renewcommand{\Im}{\mathop{\rm Im}\nolimits}
+\renewcommand{\i}{\textrm{i}}
+
+%%%%%%%%%%%Probabilites et statistiques%%%%%
+\newcommand{\loibinom}[2]{\mathcal{B}\left(#1\ ; \ #2 \right)}
+\newcommand{\loinorm}[2]{\mathcal{N}\left(#1\ ; \ #2 \right)}
+\newcommand{\loiexp}[1]{\mathcal{E}\left(#1\right)}
+\newcommand{\proba}[1]{\mathbb{P}\big(#1\big)}
+\newcommand{\probacond}[2]{\mathbb{P}_{#2}\big(#1\big)}
+\newcommand{\esperance}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\variance}[1]{\mathbb{V}\left(#1\right)}
+\newcommand{\ecart}[1]{\sigma\left(#1\right)}
+\newcommand{\dnormx}{\frac{1}{\sqrt{2\pi}} \text{e}^{-\frac{x^2}{2}}}
+\newcommand{\dnormt}{\frac{1}{\sqrt{2\pi}} \text{e}^{-\frac{t^2}{2}}}
+
+%Covariance
+\newcommand{\cov}{\mathop{\rm cov}\nolimits}
+%
+
+
+%%%%%%%%%%Analyse%%%%%%%%%%%
+
+%%%%%%%%%%%Courbe%%%%%%%%%%%%
+\newcommand{\courbe}[1]{\ensuremath{\mathcal{C}_{#1}}}
+
+%%%%%%%Fonction exponentielle%%%%%
+\newcommand{\fe}{~fonction exponentielle~}
+\newcommand{\e}{\text{e}}
+
+%Fonction cotangente
+\newcommand{\cotan}{\mathop{\rm cotan}\nolimits}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Fonctions hyperboliques
+\newcommand{\ch}{\mathop{\rm ch}\nolimits}
+\newcommand{\sh}{\mathop{\rm sh}\nolimits}
+
+
+%%%%%%%%%%%%%%Limites%%%%%%
+\newcommand{\limite}[2]{\lim\limits
+_{x \to #1} #2}
+\newcommand{\limitesuite}[1]{\lim\limits
+_{n \to +\infty} #1}
+\newcommand{\limiteg}[2]{\lim\limits
+_{\substack{x \to #1 \\ x < #1 }} #2}
+\newcommand{\limited}[2]{\lim\limits
+_{\substack{x \to #1 \\ x > #1 }} #2}
+
+%%%%%%%%%%Continuité%%%%%%%%%%%
+\newcommand{\TVI}{théorème des valeurs intermédiaires}
+
+%%%%%%%%%%%Suites%%%%%%%%%%%%
+\newcommand{\suite}[1]{\ensuremath{\left(#1_{n}\right)}}
+\newcommand{\Suite}[2]{\ensuremath{\left(#1\right)_{#2}}}
+%
+
+%%%%%%%%%%%%%%%Calcul intégral%%%%%%
+\newcommand{\dx}{\ensuremath{\text{d}x}}		% dx
+\newcommand{\dt}{\ensuremath{\text{d}t}}		% dt
+\newcommand{\dtheta}{\ensuremath{\text{d}\theta}}		% dtheta
+\newcommand{\dy}{\ensuremath{\text{d}y}}		% dy
+\newcommand{\dq}{\ensuremath{\text{d}q}}		% dq
+
+%%%Intégrale%%%
+\newcommand{\integralex}[3]{\int_{#1}^{#2} #3 \ \dx}
+\newcommand{\integralet}[3]{\int_{#1}^{#2} #3 \ \dt}
+\newcommand{\integraletheta}[3]{\int_{#1}^{#2} #3 \ \dtheta}
+
+%%%%%Equivalent%%
+\newcommand{\equivalent}[1]{\build\sim_{#1}^{}}
+
+%o et O%%%%
+\renewcommand{\o}[2]{\build o_{#1\to #2}^{}}
+\renewcommand{\O}[2]{\build O_{#1\to #2}^{}}
+
+
+
+%%%%%%%%%%%%%%%Geometrie%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%Reperes%%%%%%%%%%%%%%
+\def\Oij{\ensuremath{\left(\text{O},~\vect{\imath},~\vect{\jmath}\right)}}
+\def\Oijk{\ensuremath{\left(\text{O},~\vect{\imath},~ \vect{\jmath},~ \vect{k}\right)}}
+\def\Ouv{\ensuremath{\left(\text{O},~\vect{u},~\vect{v}\right)}}
+\renewcommand{\ij}{(\vec\imath\, ;\vec\jmath\,)}
+\newcommand{\ijk}{(\vec\imath\, ;\vec\jmath\, ;\vec k\,)}
+\newcommand{\OIJ}{(O\,;\, I\,;\, J\,)}
+\newcommand{\repere}[3]{\big(#1\, ;\,\vect{#2} ;\vect{#3}\big)}
+\newcommand{\reperesp}[4]{\big(#1\, ;\,\vect{#2} ;\vect{#3} ;\vect{#4}\big)}
+
+%%%%%%%%%Coordonnees%%%%%%%%%%%%%%
+\newcommand{\coord}[2]{(#1\, ;\, #2)}
+\newcommand{\bigcoord}[2]{\big(#1\, ;\, #2\big)}
+\newcommand{\Coord}[2]{\left(#1\, ;\, #2\right)}
+\newcommand{\coordesp}[3]{(#1\, ;\, #2\, ;\, #3)}
+\newcommand{\bigcoordesp}[3]{\big(#1\, ;\, #2\, ;\, #3\big)}
+\newcommand{\Coordesp}[3]{\left(#1\, ;\, #2\, ;\, #3\right)}
+\newcommand{\Vcoord}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+%Symboles entre droites
+%\newcommand{\paral}{\sslash}
+\newcommand{\paral}{\mathop{/\!\! /}}
+%
+
+%%%%%%%%%Produit scalaire, Angles%%%%%%%%%%
+\newcommand{\scal}[2]{\vect{#1} \, \cdot \, \vect{#2}}
+\newcommand{\Angle}[2]{\left(\vect{#1} \, , \, \vect{#2}\right)}
+\newcommand{\Anglegeo}[2]{\left(\widehat{\vect{#1} \, ; \, \vect{#2}}\right)}
+\renewcommand{\angle}[1]{\widehat{#1}}
+\newcommand{\anglevec}[2]{\left(\vect {#1}\, ,\,\vect {#2} \right)}
+\newcommand{\anglevecteur}[2]{(#1\, , \, #2)}
+\newcommand{\Anglevec}[2]{(\vecteur{#1}\, ,\,\vecteur{#2})}
+\newcommand{\prodscal}[2]{#1 \, \cdot \, #2}
+%
+
+
+%Arc
+%\newcommand{\arc}[1]{\wideparen{#1}}
+\newcommand{\arcoriente}[1]{\overset{\curvearrowright}{#1}}
+%
+%
+
+
+%%%%%%%%%%%%%%%Normes%%%%%%%%%%%%%%%%
+\newcommand{\norme}[1]{\left\| #1\right\|}
+\newcommand{\normebis}[1]{\delim{2pt}{\|}{9pt}\! #1\delim{2pt}{\|}{9pt}}
+\newcommand{\normetriple}[1]{\left |\kern -.07em\left\| #1\right |\kern -.07em\right\|}
+\newcommand{\valabs}[1]{\big| \, #1 \, \big|}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%Degré%%%%%%
+%\newcommand{\Degre}{\ensuremath{^\circ}}
+%La commande \degre est déjà définie dans le package babel
+
+%%%%%%%%%%Vecteurs%%%%%%%%%%%
+\newcommand{\vect}[1]{\mathchoice%
+{\overrightarrow{\displaystyle\mathstrut#1\,\,}}%
+{\overrightarrow{\textstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptscriptstyle\mathstrut#1\,\,}}}
+
+
+
+%%%%%%%%%%%%%Algebre%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%Systemes%%%%%%%%%%%
+%Systemes
+\newcommand{\sys}[2]{
+\left\lbrace
+ \begin{array}{l}
+  \negthickspace\negthickspace #1\\
+  \negthickspace\negthickspace #2\\
+ \end{array}
+\right.\negthickspace\negthickspace}
+\newcommand{\Sys}[3]{
+\left\lbrace
+ \begin{array}{l}
+  #1\\
+  #2\\
+  #3\\
+ \end{array}
+\right.}
+\newcommand{\Sysq}[4]{
+\left\lbrace
+ \begin{array}{l}
+  #1\\
+  #2\\
+  #3\\
+  #4\\
+ \end{array}
+\right.}
+%
+%
+
+%%%%%%%%%%%%%%%%Matrices%%%%%%%%%%%%%%%%%%
+%Comatrice
+\newcommand{\com}{\mathop{\rm com}\nolimits}
+%
+%
+%Trace
+\newcommand{\tr}{\mathop{\rm tr}\nolimits}
+%
+%
+%Transposee
+\newcommand{\transposee}[1]{{\vphantom{#1}}^t\negmedspace #1}
+%
+%
+%Noyau
+\newcommand{\Ker}{\mathop{\rm Ker}\nolimits}
+%
+%
+
+%
+%Matrices
+\newcommand{\Mn}{\mathcal M_n}
+\newcommand{\matrice}[4]{
+\left(
+ \begin{array}{cc}
+  #1 & #2 \\
+  #3 & #4
+ \end{array}
+\right)}
+
+\newcommand{\Matrice}[9]{
+\left(
+ \begin{array}{ccc}
+  #1 & #2 & #3\\
+  #4 & #5 & #6\\
+  #7 & #8 & #9
+ \end{array}
+\right)}
+\newcommand{\Vect}[3]{
+\left(\negmedspace
+ \begin{array}{c}
+  #1\\
+  #2\\
+  #3
+ \end{array}\negmedspace
+\right)}
+\newcommand{\Ideux}{\matrice{1}{0}{0}{1}}
+\newcommand{\Itrois}{\Matrice{1}{0}{0}{0}{1}{0}{0}{0}{1}}
+%
+%
+%Determinants
+\newcommand{\determinant}[4]{
+\left|
+ \begin{array}{cc}
+  #1 & #2 \\
+  #3 & #4
+ \end{array}
+\right|}
+\newcommand{\Determinant}[9]{
+\left|
+ \begin{array}{ccc}
+  #1 & #2 & #3\\
+  #4 & #5 & #6\\
+  #7 & #8 & #9
+ \end{array}
+\right|}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table des matières}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\hypertarget{cruxe9dits}{%
+\section*{Crédits}\label{cruxe9dits}}
+\addcontentsline{toc}{section}{Crédits}
+
+\emph{Ce cours est largement inspiré du chapitre 29 du manuel NSI de la
+collection Tortue chez Ellipse, auteurs : Ballabonski, Conchon,
+Filliatre, N'Guyen. J'ai également consulté le prepabac Première NSI de
+Guillaume Connan chez Hatier, la documentation en ligne de la fondation
+Mozilla \url{https://developer.mozilla.org/fr/docs/Apprendre/JavaScript}
+et le tutoriel de w3schools
+\url{https://www.w3schools.com/js/default.asp}.}
+
+\hypertarget{javascriptjavascript-et-la-programmation-uxe9vuxe9nementielle-cuxf4tuxe9-client}{%
+\section{\texorpdfstring{\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+et la programmation événementielle côté
+client}{Javascript et la programmation événementielle côté client}}\label{javascriptjavascript-et-la-programmation-uxe9vuxe9nementielle-cuxf4tuxe9-client}}
+
+\begin{cours}{}
+
+Dans le chapitre précédent, on a présenté des exemples de pages Web
+\textbf{dynamiques} générées par des programmes en
+\href{https://developer.mozilla.org/fr/docs/Glossaire/PHP}{PHP} ou
+\href{https://docs.python.org/3.7/library/cgi.html}{Python}. Chaque mise
+à jour de la page nécessite donc un nouveau cycle requête/réponse entre
+le client et le serveur. C'est indispensable s'il s'agit de modifier
+l'état d'une ressource côté serveur (une base de données par exemple),
+mais les changements peuvent n'être que temporaires et n'affecter que
+des éléments de la page côté client. C'est le cas de l'exemple déjà
+traité en
+\href{https://developer.mozilla.org/fr/docs/Glossaire/PHP}{PHP} de la
+conversion d'unité pour une mesure de température.
+
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+est un langage interprété qui répond à ce besoin qui s'exécute dans le
+navigateur du client.
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+s'est imposé depuis son apparition en 1995 dans le navigateur
+\href{https://fr.wikipedia.org/wiki/Netscape_Navigator}{Netscape} comme
+le principal langage de développement Web en \emph{frontend} (côté
+client) et depuis une dizaine d'années, sa variante
+\href{https://developer.mozilla.org/fr/docs/Glossaire/Node.js}{Node.js}
+concurence les langages de développement \emph{backend} (côté serveur)
+comme \href{https://developer.mozilla.org/fr/docs/Glossaire/PHP}{PHP} ou
+\href{https://docs.python.org/3.7/library/cgi.html}{Python}.
+
+Une page Web moderne, reçue par un client, comporte au moins trois
+composants logiciels :
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} pour
+  la structure du document.
+\item
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS} pour
+  le paramétrage de l'apparence des éléments et leur positionnement.
+\item
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  pour la définition de programmes qui vont réagir à des événements
+  déclenchés par l'utilisateur de la page et modifier la structure de
+  données de la page ( éléments
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} et
+  styles
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS}) à
+  travers
+  l'\href{https://developer.mozilla.org/fr/docs/Glossaire/API}{API}
+  \footnote{Note :
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/API}{API} est
+    l'acronyme d'Application Programming Interface} nommée
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM}
+  \footnote{Note :
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM} est
+    l'acronyme de Document Object Model}. Le
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM} est
+  une représentation de l'ensemble de la structure de la page Web sous
+  la forme d'un arbre : les noeuds sont les éléments
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} et
+  ils ont une liste de propriétés : contenu, style, événements associés
+  \ldots{} L'inspecteur des outils de développement, accessibles avec la
+  touche \passthrough{\lstinline!F12!} dans un navigateur, permet de
+  visualiser et modifier les propriétés des éléments du
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM}.
+\end{itemize}
+
+L'environnement d'exécution d'un code
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+est confiné à l'onglet de la page Web où il est chargé. Pour des raisons
+de sécurité il ne doit pas interagir avec d'autres pages ou des
+ressources du poste client. Par ailleurs, si on recharge la page auprès
+du serveur, l'environnement
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+est réinitialisé et les modifications de la page effectuées par un code
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+ne sont pas répercutées sur la page source disponible sur le serveur.
+
+Le schéma ci-dessous illustre le fonctionnement du
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+qui correspond à un paradigme de
+\href{https://fr.wikipedia.org/wiki/Programmation_\%C3\%A9v\%C3\%A9nementielle}{programmation
+événementielle}.
+
+\end{cours}
+
+\begin{figure}
+\centering
+\includegraphics{images/schema-dom.png}
+\caption{``Javascript et DOM''}
+\end{figure}
+
+\hypertarget{premiers-pas-dans-la-console-javascriptjavascript}{%
+\section{\texorpdfstring{Premiers pas dans la console
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}}{Premiers pas dans la console Javascript}}\label{premiers-pas-dans-la-console-javascriptjavascript}}
+
+\begin{cours}{}
+
+Compléter ce tableau sur les opérateurs en
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+à partir de la page
+\url{https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Expressions_et_Op\%C3\%A9rateurs}.
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+Opérateurs & Description\tabularnewline
+\midrule
+\endhead
+\passthrough{\lstinline!=!} &\tabularnewline
+\passthrough{\lstinline!*!} &\tabularnewline
+\passthrough{\lstinline!/!} &\tabularnewline
+\passthrough{\lstinline!**!} &\tabularnewline
+\passthrough{\lstinline!==!} ou \passthrough{\lstinline!===!}
+&\tabularnewline
+\passthrough{\lstinline"!="} ou \passthrough{\lstinline"!==="}
+&\tabularnewline
+\passthrough{\lstinline!\&\&!} &\tabularnewline
+\passthrough{\lstinline!||!} &\tabularnewline
+\passthrough{\lstinline"!"} &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{cours}
+
+\begin{exercice}{}
+
+Ouvrir un nouvel onglet dans un navigateur Web.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Ouvrir la console
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  dans la fenêtre des outils de développement avec
+  \passthrough{\lstinline!F12!} ou
+  \passthrough{\lstinline!CTRL + SHIFT + K!} sous Firefox. On va
+  exécuter de façon interactive, une séquence d'instructions
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  pour présenter quelques constructions élémentaires et propriétés du
+  langage. Chaque instruction pourra modifier l'état du
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM} et
+  donc le rendu graphique de la page Web.
+\item
+  On commence par quelques manipulations de variables et calculs :
+\end{enumerate}
+
+\begin{lstlisting}
+>>> let a = 1
+undefined
+>>> (a * 3 + 1) ** 2 / 5 - 1
+2.2
+  >>> (a * 3 + 1) ** 2 // commentaire !
+16
+>>> let b = "Hello"
+undefined
+>>> b + " World"
+"Hello World"
+>>> typeof(a)
+"number"
+>>> typeof(b)
+"string"
+>>> a = b + a
+"Hello1"
+>> typeof(a)
+"string"
+\end{lstlisting}
+
+\begin{itemize}
+\tightlist
+\item
+  Barrer les propositions fausses : en
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  est à typage \emph{(fort \textbar{} faible)} et \emph{(dynamique
+  \textbar{} statique)} et une variable égale à 5 se déclare avec
+  \emph{(let a = 5 \textbar{} a = 5)}.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Examinons un exemple avec une fonction, une structure conditionnelle
+  et une boucle. Dans la console, passer en mode éditeur multiligne avec
+  \passthrough{\lstinline!CTRL + B!} et saisir le code ci-dessous :
+\end{enumerate}
+
+\begin{lstlisting}
+function valabs(x){
+  if (x < 0){
+    return -x;
+  }
+  else {
+    return x;
+  }
+}
+
+for (let i = -4; i < 5; i = i + 1){
+  if (valabs(i) > 2){
+    alert(i);
+  }
+  else {
+    console.log(i);
+  }
+}
+\end{lstlisting}
+
+\begin{itemize}
+\tightlist
+\item
+  Barrer les propositions fausses : en
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript},
+  les blocs d'instructions sont délimités par \emph{(l'indentation
+  \textbar{} des accolades)}, les fonctions sont déclarées avec le mot
+  clef \emph{(def \textbar{} function)} et une boucle inconditionnelle
+  sur les entiers entre 1 et 10 commence par l'instruction \emph{( for k
+  in range(1, 11) \textbar{} for (let k = 1; k \textless{} 11; k = k +
+  1) )}
+\item
+  Barrer les propositions fausses : la fonction
+  \passthrough{\lstinline!alert!} affiche son paramètre dans \emph{(une
+  fenêtre pop-up \textbar{} la console)} tandis que la fonction
+  \passthrough{\lstinline!console.log!} affiche son paramètre dans
+  \emph{(une fenêtre pop-up \textbar{} la console)}.
+\end{itemize}
+
+\end{exercice}
+
+\begin{exercice}{}
+
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+dispose de toutes les constructions permettant de progammer les mêmes
+algorithmes qu'en
+\href{https://docs.python.org/3.7/library/cgi.html}{Python}, mais s'il a
+été inventé par les développeurs de
+\href{https://fr.wikipedia.org/wiki/Netscape_Navigator}{Netscape} c'est
+pour manipuler les éléments
+\href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}, à
+travers l'interface du
+\href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM}. Il
+existe plusieurs façons de capturer un élément
+\href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}, la
+plus simple s'il s'agit d'un élément particulier est
+\href{https://www.w3schools.com/js/js_htmldom_methods.asp}{l'accès par
+son identifiant unique \passthrough{\lstinline!id!}} (à condition qu'il
+soit défini).\\
+Ouvrir un navigateur Web et charger la page
+\url{https://frederic-junier.org/NSI/sandbox/bac.html}. Le code source
+\href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} de la
+page est donné ci-dessous :
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<head>
+  <title> "Bac à sable"  </title>
+   <meta charset="utf-8">
+<body>
+<ul id="langages">
+    <li> HTML </li>
+    <li> CSS </li>
+</ul>
+</body>
+</html>
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Saisir successivement les instructions ci-dessous dans la console,
+  observer ce qu'il se passe dans la page étape par étape. Caractériser
+  le rôle de chaque instruction puis saisir des instructions qui
+  permettent de modifier le contenu
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} et
+  le style du second item de la liste.
+\end{enumerate}
+
+\begin{lstlisting}
+>>> let list = document.getElementById("langages")
+undefined
+>>> list.style.color = "red"
+"red"
+>>> let item1 = list.children[0]
+undefined
+>>> item1
+<li>
+>>> item1.innerHTML = 'HTML5'
+"HTML5"
+\end{lstlisting}
+
+\includegraphics{images/exo2-fig1.png}\\
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Saisir successivement les instructions ci-dessous dans la console,
+  observer ce qu'il se passe dans la page étape par étape. Caractériser
+  le rôle de chaque instruction puis saisir des instructions qui
+  permettent de rajouter un quatrième item à la liste dont le contenu
+  est \href{https://fr.wikipedia.org/wiki/Kotlin_(langage)}{Kotlin}.
+\end{enumerate}
+
+\begin{lstlisting}
+>>> let item3 = document.createElement("li")
+undefined
+>>> list.appendChild(item3)
+<li>
+>>> item3.innerHTML = "Javascript"
+"Javascript"
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Passer la console en mode mutliligne avec
+  \passthrough{\lstinline!CTRL + B!} puis saisir et exécuter le code
+  ci-dessous. Survoler la liste ou cliquer dessus avec la souris et
+  observer ce qui se passe dans la page. Caractériser le rôle de chaque
+  instruction en vous appuyant sur la lecture de l'article
+  \url{https://developer.mozilla.org/fr/docs/Web/API/GlobalEventHandlers/onclick}.
+\end{enumerate}
+
+\begin{lstlisting}
+function apparition(){
+  list.style.visibility = "visible";
+}
+
+function disparition(){
+  list.style.visibility = "hidden";
+}
+
+list.onmouseover = disparition ;  
+//le symbole ; est le séparateur d'instruction en Javascript
+list.onmouseleave = apparition ;
+list.onclick = function() { alert("Clic !") ; } ;  //définition d'une fonction anonyme
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Recharger la page avec \passthrough{\lstinline!F5!}. L'environnement
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  a-t-il été conservé ?
+\end{enumerate}
+
+\end{exercice}
+
+\hypertarget{approfondissement-ruxe9daction-de-scripts-et-gestionnaires-duxe9vuxe9nements}{%
+\section{Approfondissement : rédaction de scripts et gestionnaires
+d'événements}\label{approfondissement-ruxe9daction-de-scripts-et-gestionnaires-duxe9vuxe9nements}}
+
+\begin{exemple}{}
+
+Ouvrir un navigateur Web et accéder à la page
+\url{https://frederic-junier.org/NSI/sandbox/compteur-clic.html}.
+
+On donne ci-dessous le code source de la page Web.
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head><!-- Début en-tête -->
+  <title>Compteur de clics </title>
+  <meta charset="utf-8">
+  <!-- Début script JS --> 
+  <script>  
+
+      let compteur = 0;
+
+      function suivant(){
+          compteur = compteur + 1;
+          let v = document.getElementById("valeur");
+          if (compteur <= 1) {
+            v.innerHTML = compteur + " clic";
+          }
+          else {
+            v.innerHTML = compteur + " clics";
+          }          
+      }
+
+      function reinitialiser(){
+          compteur = 0;
+          let v = document.getElementById("valeur");
+          v.innerHTML = compteur + " clic";
+      }
+
+  </script>  <!-- Fin script JS -->
+</head><!-- Fin en-tête -->
+ 
+<body><!-- Début corps -->   
+  <h1>Compteur de clics en Javascript </h1>
+    <button onclick="suivant();">Clic !</button>
+    <br>
+    <span id="valeur">0</span>
+    <br>
+    <button onclick="reinitialiser();">Réinitialiser !</button>
+</body><!-- Fin corps -->
+
+</html> 
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  On peut interagir avec la page en cliquant sur le bouton \emph{Clic !}
+  puis réinitialiser le compteur en cliquant sur le bouton
+  \emph{Réinitialiser}.
+\item
+  Ouvrir l'onglet inspecteur dans la fenêtre des outils de développement
+  et afficher la structure de la page comme ci-dessous.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Repérer l'étiquette \passthrough{\lstinline!event!} attachée au
+    bouton de contenu \emph{Clic !} et déplier son contenu.
+  \end{itemize}
+
+  \includegraphics{images/exo3-fig1.png}~
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Pour cet élément \passthrough{\lstinline!button!}, l'attribut
+    \passthrough{\lstinline!onclick="suivant()"!} a défini une fonction
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    \passthrough{\lstinline!function onclick(event) \{suivant();\}!} qui
+    prend en paramètre un \textbf{événement utilisateur} (ici un click)
+    et réagit en appelant la fonction \passthrough{\lstinline!suivant!}.
+    La fonction \passthrough{\lstinline!suivant!} est appelée
+    \textbf{gestionnaire d'événement}.
+  \item
+    Le code de la fonction \passthrough{\lstinline!suivant!} se trouve
+    dans la balise \passthrough{\lstinline!<script>!}. Placée dans
+    l'en-tête, celle-ci rassemble tout le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    chargé dans la page.
+  \item
+    On a vu précédemment que la fonction est appelée dès qu'un événement
+    \passthrough{\lstinline!click!} se produit sur le premier élément
+    \passthrough{\lstinline!<button>!}. En examinant le code de
+    \passthrough{\lstinline!suivant!}, on voit qu'un lien est d'abord
+    créé entre l'élément \passthrough{\lstinline!<span>!} d'identifiant
+    \passthrough{\lstinline!"valeur"!} et une variable
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    à l'aide d'une méthode
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM} par
+    l'instruction :
+  \end{itemize}
+
+\begin{lstlisting}
+let v = document.getElementById("valeur");
+\end{lstlisting}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Ensuite on peut manipuler l'élément
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} et
+    modifier son contenu avec :
+  \end{itemize}
+
+\begin{lstlisting}
+v.innerHTML = compteur + " clic";
+\end{lstlisting}
+
+  \begin{itemize}
+  \item
+    La variable \passthrough{\lstinline!compteur!} est définie en dehors
+    de \passthrough{\lstinline!suivant!} car c'est une variable globale.
+    Les variables globales sont essentielles en
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript},
+    c'est l'un des défauts du langage.
+  \item
+    Identifier et analyser de même \textbf{le gestionnaire d'événement}
+    \passthrough{\lstinline!click!} qui est attaché au second élément
+    \passthrough{\lstinline!<button>!}.
+  \end{itemize}
+\end{enumerate}
+
+\end{exemple}
+
+\begin{exemple}{}
+
+Ouvrir un navigateur Web et accéder à la page
+\url{https://replit.com/@fredericjunier/1NSI-Javascript-Ex1-Eleve\#index.html}.
+
+On arrive dans un environnement de développement Web en
+\href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}/\href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS}/\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+sur la plateforme \url{https://repl.it}.
+
+\includegraphics{images/exo4-fig1.png}\\
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  L'interface se divise en trois zones :
+
+  \begin{itemize}
+  \item
+    À droite la fenêtre d'affichage du site et en-dessous une console
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}.
+  \item
+    Au centre l'éditeur avec le fichier courant.
+  \item
+    À gauche l'explorateur de fichiers avec une séparation des trois
+    composants logiciels nécessaires à l'affichage dans la fenêtre en
+    haut à droite :
+
+    \begin{itemize}
+    \tightlist
+    \item
+      la structure du document en
+      \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}
+      dans \passthrough{\lstinline!index.html!}
+    \item
+      le code
+      \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+      dans \passthrough{\lstinline!script.js!}
+    \item
+      la feuille de style
+      \href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS}
+      dans \passthrough{\lstinline!style.css!}
+    \end{itemize}
+
+    Par rapport à l'exemple précédent, le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    est donc clairement séparé du code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}.
+    Le navigateur du client reçoit d'abord le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}.
+    Pour charger le
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript},
+    on procède comme pour une feuille de style
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS} en
+    plaçant une balise de lien dans l'en-tête du fichier
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} :
+
+\begin{lstlisting}[language=HTML]
+<script src="script.js" defer>
+</script>
+\end{lstlisting}
+
+    L'attribut \passthrough{\lstinline!src!} donne le chemin vers le
+    fichier contenant le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    et l'attribut \passthrough{\lstinline!defer!} précise que le
+    chargement du
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    doit se faire après que la page
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}
+    soit totalement chargée. En effet,
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    peut modifier la page à travers l'interface
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM},
+    donc il faut ordonnancer le chargement des différentes ressources.
+    Des anciennes pratiques recommandaient ainsi de placer les balises
+    \passthrough{\lstinline!<script>!} à la fin du code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}.
+    Des attributs comme \passthrough{\lstinline!defer!} permettent de
+    gérer plus finement les priorités, surtout lorsque plusieurs scripts
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javacript}
+    sont appelés.
+  \end{itemize}
+\item
+  On donne ci-dessous le code du fichier
+  \passthrough{\lstinline!script.js!} :
+\end{enumerate}
+
+\begin{lstlisting}
+let compteur = 0;
+
+function suivant(){
+    compteur = compteur + 1;
+    let v = document.getElementById("valeur");
+    if (compteur <= 1) {
+      v.innerHTML = compteur + " clic";
+    }
+    else {
+      v.innerHTML = compteur + " clics";
+    }          
+}
+
+function reinitialiser(){
+    compteur = 0;
+    let v = document.getElementById("valeur");
+    v.innerHTML = compteur + " clic";
+}
+
+
+let bouton_clic = document.getElementById("bouton_clic");
+bouton_clic.addEventListener("click", suivant);
+let bouton_reset = document.getElementById("bouton_reset");
+bouton_reset.addEventListener("click", reinitialiser);
+\end{lstlisting}
+
+\begin{itemize}
+\item
+  Les définitions de la variable \passthrough{\lstinline!compteur!} et
+  des gestionnaires d'événements \passthrough{\lstinline!suivant!} et
+  \passthrough{\lstinline!reinitialiser!} sont identiques à celles du
+  code de l'exemple 1. Ce qui change est la façon dont les gestionnaires
+  sont attachés aux boutons. Prenons le bouton de \emph{Clic !}, dans
+  l'exemple 1 la liaison se faisait dans la balise
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} avec
+  l'ajout de l'attribut \passthrough{\lstinline!onclick = "suivant()"!}
+  alors qu'ici la liaison est déportée dans le fichier
+  \passthrough{\lstinline!script.js!} avec :
+
+\begin{lstlisting}
+//récupération de l'élément <button> ciblé par son identifiant et la méthode DOM
+let bouton_clic = document.getElementById("bouton_clic");
+//ajout sur cet élément du  gestionnaire d'événement suivant pour l'événement click
+bouton_clic.addEventListener("click", suivant);
+\end{lstlisting}
+\item
+  L'architecture présentée dans l'exemple 2 est préférable car elle
+  respecte un principe de \textbf{séparation des composants logiciels}
+  selon leur fonctionnalité et facilite donc la \textbf{lisibilité}, la
+  \textbf{factorisation} et la \textbf{maintenance} du code.
+\item
+  Il faut noter deux autres différences entre les méthodes des exemples
+  1 et 2 :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    les parenthèses après \passthrough{\lstinline!suivant!} (qui est une
+    fonction) sont présentes dans
+    \passthrough{\lstinline!<button onclick = "suivant()">!} mais
+    absentes dans
+    \passthrough{\lstinline!bouton\_clic.addEventListener("click", suivant);!}
+  \item
+    la liaison avec l'élément
+    \passthrough{\lstinline'<button id="bouton\_clic"> Clic !</button>'}
+    se fait dans \passthrough{\lstinline!script.js!} grâce à
+    l'identifiant \passthrough{\lstinline!id="bouton\_clic"!} qui
+    n'était pas nécessaire dans l'exemple 1 lorsque le gestionnaire
+    était attaché directement à la balise.
+  \end{itemize}
+\end{itemize}
+
+\end{exemple}
+
+\begin{cours}{}
+
+\begin{itemize}
+\item
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  permet grâce à l'interface
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/DOM}{DOM}
+  d'attacher une fonction \textbf{gestionnaire d'événement} à un élément
+  d'un document
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}.
+
+  Ce gestionnaire est lié à un \textbf{événement}, qui est une action de
+  l'utilisateur (déplacement de la souris, pression sur une touche du
+  clavier) ou une modification d'un autre élément du document.
+
+  Lorsque l'événement ciblé atteint l'élément surveillé par le
+  gestionnaire, celui-ci le capture et délenche une action.
+\item
+  Pour attacher un \textbf{gestionnaire d'événement} nommé
+  \passthrough{\lstinline!gestionnaire!}, à un élément, nommé
+  \passthrough{\lstinline!element!}, et le lier à un événement, par
+  exemple \passthrough{\lstinline!click!},on peut procéder de deux
+  façons :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Méthode 1 (voir exemple 1), directement dans le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML} :}
+  \end{itemize}
+
+\begin{lstlisting}[language=HTML]
+<element id="id_element" onclick="gestionnaire()"> ... </element>
+\end{lstlisting}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Méthode 2 (voir exemple 2), dans un fichier externe
+    \passthrough{\lstinline!script.js!} :}
+  \end{itemize}
+
+\begin{lstlisting}
+//la balise element doit être repérée par un id 
+let v = document.getElementById("id_element");
+v.addEventListener("click", gestionnaire);
+\end{lstlisting}
+\item
+  Il existe plusieurs métodes pour cibler un élément
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML},
+  nous utiliserons principalement le ciblage par identifiant unique
+  \passthrough{\lstinline!id!} :
+\end{itemize}
+
+\begin{longtable}[]{@{}cc@{}}
+\caption{Différentes façons de cibler un élément
+\href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.47\columnwidth}\centering
+Type de cible\strut
+\end{minipage} & \begin{minipage}[b]{0.47\columnwidth}\centering
+Syntaxe\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.47\columnwidth}\centering
+Type de cible\strut
+\end{minipage} & \begin{minipage}[b]{0.47\columnwidth}\centering
+Syntaxe\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.47\columnwidth}\centering
+Identifiant unique \passthrough{\lstinline!id!}\strut
+\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering
+\passthrough{\lstinline!document.getElementById('id') //retourne un élément!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.47\columnwidth}\centering
+Classe
+\href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS}\strut
+\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering
+\passthrough{\lstinline!document.getElementByClass('classname') //retourne une liste d'éléments!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.47\columnwidth}\centering
+Sélecteur
+\href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS} (par
+exemple titre \passthrough{\lstinline!h1!})\strut
+\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\centering
+\passthrough{\lstinline!document.querySelector('h1') //retourne une liste d'éléments!}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  Dans le tableau ci-dessous on présente une sélection d'
+  \textbf{événements} avec sa description et les deux façons de le lier
+  à un gestionnaire \passthrough{\lstinline!gest!} : directement dans
+  l'élément
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}
+  \passthrough{\lstinline!tag!} ou dans un fichier externe où la
+  variable \passthrough{\lstinline!v!} désigne cet élément.
+\end{itemize}
+
+\begin{longtable}[]{@{}cccc@{}}
+\caption{Événements et gestionnaires associés}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.22\columnwidth}\centering
+Événement\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\centering
+Signification\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\centering
+Gestionnaire interne\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\centering
+Gestionnaire externe\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.22\columnwidth}\centering
+Événement\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\centering
+Signification\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\centering
+Gestionnaire interne\strut
+\end{minipage} & \begin{minipage}[b]{0.22\columnwidth}\centering
+Gestionnaire externe\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!click!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+dispositif de pointage pressé sur l'élément\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!<tag onclick="gest()">!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!v.addEventListener('click', gest)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!mouseover!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+dispositif de pointage déplacé sur l'élément\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!<tag onmouseover="gest()">!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!v.addEventListener('mouseover', gest)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!mouseout!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+dispositif de pointage déplacé hors de l'élément\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!<tag      onmouseout="gest()">!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!v.addEventListener('mouseover', gest)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!keydown!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+une touche du clavier est pressée\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!<tag   onkeydown="gest()">!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!v.addEventListener('keydown', gest)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!keydown!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+une touche du clavier est pressée\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!<tag   onkeydown="gest()">!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!v.addEventListener('keydown', gest)!}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!input!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+à chaque changement de valeur réalisé par l'utilisateur dans
+\passthrough{\lstinline!<input>!} ou
+\passthrough{\lstinline!<select>!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!<tag      oninput="gest()">!}\strut
+\end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
+\passthrough{\lstinline!v.addEventListener('input', gest)!}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{cours}
+
+\hypertarget{travaux-pratiques}{%
+\section{Travaux pratiques}\label{travaux-pratiques}}
+
+\begin{exercice}{}
+
+Ouvrir un navigateur Web et accéder à la page
+\url{https://repl.it/@fredericjunier/1NSI-Javascript-Ex3-Eleve}.
+
+On arrive dans un environnement de développement Web en
+\href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML}/\href{https://developer.mozilla.org/fr/docs/Glossaire/CSS}{CSS}/\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+sur la plateforme \url{https://repl.it}.
+
+\includegraphics{images/exo-replit.png}\\
+
+La page d'accueil contient une liste de liens vers des pages dynamiques
+qui contiennent ou sont liés à des codes
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+à compléter. À une exception près, ces activités présentées ont déjà été
+implémentés à l'aide de formulaires et de scritps côté serveur dans le
+chapitre précédent. Ici l'interactivité sera assurée côté client par
+\href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Depuis la page d'accueil, suivre le lien vers l'activité
+  \textbf{Calcul d'âge} de la page \passthrough{\lstinline!age.html!}.
+
+  \begin{itemize}
+  \item
+    Quel élément
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTM} a
+    reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+  \item
+    Compléter le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    dans le fichier \passthrough{\lstinline!code-age.js!} afin que la
+    page puisse calculer l'âge de l'utilisateur à partir de sa date de
+    naissance?
+  \end{itemize}
+\item
+  Revenir sur la page d'accueil et suivre le lien vers l'activité
+  \textbf{Jouer avec les événements I}. Compléter le code
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  qui se trouve dans l'en-tête du fichier
+  \passthrough{\lstinline!evenements.html!} pour :
+
+  \begin{itemize}
+  \item
+    attacher un gestionnaire d'événement \passthrough{\lstinline!click!}
+    à l'élément d'identifiant \passthrough{\lstinline!titre!}
+  \item
+    un clic sur cet élément doit déclencher l'apparition d'une fenêtre
+    pop-up avec le message ``Attention, je peux griffer !''
+  \end{itemize}
+\item
+  Revenir sur la page d'accueil et suivre le lien vers l'activité
+  \textbf{Jouer avec les événements II}. Compléter le code
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  qui se trouve dans l'en-tête du fichier
+  \passthrough{\lstinline!evenements2html!} pour :
+
+  \begin{itemize}
+  \item
+    attacher un gestionnaire d'événement \passthrough{\lstinline!click!}
+    à l'élément \passthrough{\lstinline!img!} d'identifiant
+    \passthrough{\lstinline!chat!}
+  \item
+    un clic sur cet élément doit déclencher le changement de sa
+    propriété \passthrough{\lstinline!src!}, qui doit prendre pour
+    valeur le chemin ``images/chat-bonjour.png'', ainsi un clic sur
+    l'image devra provoquer son changement.
+  \end{itemize}
+\item
+  Revenir sur la page d'accueil et suivre le lien vers l'activité
+  \textbf{Colorpicker}. La page \passthrough{\lstinline!rgb.html!}
+  propose d'afficher une couleur dans un carré à partir de ses
+  composantes (R,G,B). Le code
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  se trouve dans le fichier \passthrough{\lstinline!code-rgb.js!}.
+
+  \begin{itemize}
+  \item
+    Quel élément
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTM} a
+    reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+  \item
+    Compléter le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    qui se trouve dans le fichier \passthrough{\lstinline!code-rgb.js!}
+    pour rendre la page \passthrough{\lstinline!rgb.html!}
+    fonctionnelle.
+  \end{itemize}
+\item
+  Revenir sur la page d'accueil et suivre le lien vers l'activité
+  \textbf{Conversion d'unité de température}. La page
+  \passthrough{\lstinline!temperature.html!} propose de convertir une
+  mesure de température de Celsius en Fahrenheit ou réciproquement. Le
+  code
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  se trouve dans le fichier
+  \passthrough{\lstinline!code-temperature.js!}.
+
+  \begin{itemize}
+  \item
+    Quel élément
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTM} a
+    reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+  \item
+    Compléter le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    qui se trouve dans le fichier
+    \passthrough{\lstinline!code-temperature.js!} pour rendre la page
+    \passthrough{\lstinline!temperature.html!} fonctionnelle.
+  \end{itemize}
+\item
+  Revenir sur la page d'accueil et suivre le lien vers l'activité
+  \textbf{Calcul de la force d'un mot de passe}. La page
+  \passthrough{\lstinline!force-mot-passe.html!} propose de tester la
+  force d'un mot de passe en fonction de son nombre de caractères et de
+  la taille de l'alphabet où sont choisis les caractères.\\
+  Le code
+  \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+  se trouve dans le fichier
+  \passthrough{\lstinline!code-force-mot-passe.js!}.\\
+  Tester d'abord le formulaire de l'ANSSI qui a inspiré cette activité :
+  \url{https://www.ssi.gouv.fr/administration/precautions-elementaires/calculer-la-force-dun-mot-de-passe/}.
+
+  \begin{itemize}
+  \item
+    Quel élément
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTM} a
+    reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+  \item
+    Compléter le code
+    \href{https://developer.mozilla.org/fr/docs/Glossaire/JavaScript}{Javascript}
+    qui se trouve dans le fichier
+    \passthrough{\lstinline!code-force-mot-passe.js!} pour rendre la
+    page \passthrough{\lstinline!force-mot-passe.html!} fonctionnelle.
+  \end{itemize}
+\end{enumerate}
+
+\includegraphics[width=0.6\textwidth,height=\textheight]{images/force-mot-passe.png}\\
+
+\end{exercice}
+
+\hypertarget{qcm-e3c2}{%
+\section{QCM E3C2}\label{qcm-e3c2}}
+
+\begin{exercice}{}
+
+\emph{QCM} de type E3C2.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  On souhaite qu'un menu apparaisse à chaque fois que l'utilisateur
+  passe sa souris sur l'image de bannière du site. L'attribut de la
+  balise \passthrough{\lstinline!img!} dans lequel on doit mettre un
+  code Javascript à cet effet est~:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A : \passthrough{\lstinline!onclick!}
+  \item
+    Réponse B : \passthrough{\lstinline!src!}
+  \item
+    Réponse C : \passthrough{\lstinline!alt!}
+  \item
+    Réponse D : \passthrough{\lstinline!onmouseover!}
+  \end{itemize}
+\item
+  Lors de la consultation d'une page HTML contenant un bouton auquel est
+  associée la fonction suivante, que se passe-t-il quand on clique sur
+  ce bouton ?
+
+\begin{lstlisting}
+function action(event) {
+  this.style.color = "blue"
+  }
+\end{lstlisting}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A : le texte de la page passe en bleu
+  \item
+    Réponse B : le texte du bouton passe en bleu
+  \item
+    Réponse C : le texte du bouton est changé et affiche maintenant le
+    mot ``bleu''
+  \item
+    Réponse D : le pointeur de la souris devient bleu quand il arrive
+    sur le bouton
+  \end{itemize}
+\item
+  Parmi les propriétés suivantes d'une balise
+  \passthrough{\lstinline!<button>!} dans une page HTML, laquelle doit
+  être rédigée en langage JavaScript ?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A : la propriété \passthrough{\lstinline!name!}
+  \item
+    Réponse B : la propriété \passthrough{\lstinline!type!}
+  \item
+    Réponse C : la propriété \passthrough{\lstinline!onclick!}
+  \item
+    Réponse D : la propriété \passthrough{\lstinline!id!}
+  \end{itemize}
+\item
+  Dans une page HTML, lequel de ces codes permet la présence d'un bouton
+  qui appelle la fonction javascript
+  \passthrough{\lstinline!afficher\_reponse()!} lorsque l'utilisateur
+  clique dessus ?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A :
+    \passthrough{\lstinline!<a href="afficher\_reponse()">Cliquez ici</a>!}
+  \item
+    Réponse B :
+    \passthrough{\lstinline!<button if\_clicked="afficher\_reponse()">Cliquez ici</button>!}
+  \item
+    Réponse C :
+    \passthrough{\lstinline!<button value="Cliquez ici"><a>afficher\_reponse()</a></button>!}
+  \item
+    Réponse D :
+    \passthrough{\lstinline!<button onclick="afficher\_reponse()">Cliquez ici</button>!}
+  \end{itemize}
+\item
+  Quel est le nom de l'événement généré lorsque l'utilisateur clique sur
+  un bouton de type button dans une page HTML ?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A : \passthrough{\lstinline!action!}
+  \item
+    Réponse B : \passthrough{\lstinline!mouse!}
+  \item
+    Réponse C : \passthrough{\lstinline!submit!}
+  \item
+    Réponse D : \passthrough{\lstinline!click!}
+  \end{itemize}
+\item
+  Un navigateur affiche la page HTML suivante :
+
+\begin{lstlisting}[language=HTML]
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<title>Un bouton</title>
+</head>
+<body>
+<button onclick="maFonction()">Cliquer ici</button>
+</body>
+<script src="script.js"></script>
+</html>
+\end{lstlisting}
+
+  Lorsque l'on clique sur le bouton, l'action déclenchée par
+  \passthrough{\lstinline!maFonction()!} est définie :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A : dans le fichier HTML seul
+  \item
+    Réponse B : dans le fichier \passthrough{\lstinline!style.css!}
+  \item
+    Réponse C : dans une bibliothèque prédéfinie du navigateur
+  \item
+    Réponse D : dans le fichier \passthrough{\lstinline!script.js!}
+  \end{itemize}
+\item
+  Voici un extrait d'une page HTML :
+
+\begin{lstlisting}[language=HTML]
+<script>
+function sommeNombres(formulaire) {
+var somme = formulaire.n1.value + formulaire.n2.value;
+console.log(somme);
+}
+</script>
+
+<form>
+Nombre 1 : <input name="n1" value="30"> <br>
+Nombre 2 : <input name="n2" value="10"> <br>
+<input type="button" value="Somme"
+onclick="sommeNombres(this.form)">
+</form>
+\end{lstlisting}
+
+  Quand l'utilisateur clique sur le bouton Somme, le calcul de la
+  fonction \passthrough{\lstinline!sommeNombre()!} se fait~:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A : uniquement dans le navigateur
+  \item
+    Réponse B : uniquement sur le serveur qui héberge la page
+  \item
+    Réponse C : à la fois dans le navigateur et sur le serveur
+  \item
+    Réponse D : si le calcul est complexe, le navigateur demande au
+    serveur de faire le calcul
+  \end{itemize}
+\item
+  On considère cet extrait de fichier HTML représentant les onglets
+  d'une barre de navigation :
+
+\begin{lstlisting}
+function BoutonGris() {
+
+var btn = document.createElement(\"BUTTON\");
+
+btn.innerHTML = \"Annulation\";
+
+document.getElementById(\"DIV\").appendChild(btn);
+
+}
+\end{lstlisting}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Réponse A : elle remplace un élément DIV par un bouton
+  \item
+    Réponse B : elle annule l'élément BUTTON
+  \item
+    Réponse C : elle crée un bouton comportant le texte ``Annulation''
+  \item
+    Réponse D : elle recherche le bouton ``BUTTON'' et crée une copie
+    appelée ``btn''
+  \end{itemize}
+\end{enumerate}
+
+\end{exercice}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\textwidth,height=\textheight]{images/types.png}
+\caption{``\href{https://xkcd.com/1537/}{XKCD 1537 : Types}''}
+\end{figure}
+
+\end{document}
