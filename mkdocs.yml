@@ -125,9 +125,9 @@ markdown_extensions:
 plugins:
   - search
   - macros
-  #- mermaid2
-  #- mkdocs-jupyter:
-  #    include_source: True
+  - mermaid2
+  - mkdocs-jupyter:
+      include_source: True
 
 extra:
   social:
