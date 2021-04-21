@@ -49,6 +49,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   font: false
   language: fr
   logo: assets/logo-parc.png
@@ -124,6 +125,8 @@ plugins:
   - search
   - macros
   - mermaid2
+  - mkdocs-jupyter:
+      include_source: True
 
 extra:
   social:

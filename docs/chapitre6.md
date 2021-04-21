@@ -20,7 +20,10 @@ Cours de Frédéric Junier.
 
 * [Corrigé des exemples du cours en version pdf](chapitre6/Cours/ressources/PremiereNSI-Cours-Tableaux-Corriges.pdf)   
   
-* [Corrigé des exemples du cours en version notebook](https://mybinder.org/v2/gh/parc-nsi/premiere-nsi/master?filepath=chapitre6/Cours/ressources/PremiereNSI-Cours-Tableaux-Corriges.ipynb)
+* [Corrigé des exemples du cours en version notebook](chapitre6/Cours/ressources/PremiereNSI-Cours-Tableaux-Corriges.ipynb)
+
+* [Corrigé des exemples du cours en version notebook (Binder)](https://mybinder.org/v2/gh/parc-nsi/premiere-nsi/master?filepath=chapitre6/Cours/ressources/PremiereNSI-Cours-Tableaux-Corriges.ipynb)
+
 
 * [Brouillon des exemples du cours](chapitre6/Cours/brouillon-prof-cours-tableaux.py)
 
