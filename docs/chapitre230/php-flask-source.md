@@ -291,8 +291,7 @@ internet, on dispose du code suivant :
 
       * Réponse A : Il suffit que la page HTML contienne des champs de la forme `<textarea>`
       * Réponse B : Il suffit que la page HTML contienne des champs de la forme `<textarea>` et d'utiliser JavaScript pour enregistrer les commentaires
-      * Réponse C : Il faut un programme en PHP ou un script Python sur le serveur pour
-   traiter les données
+      * Réponse C : Il faut un programme en PHP ou un script Python sur le serveur pour  traiter les données
       * Réponse D : Non, ce n'est pas possible avec la technologie actuelle
 
 5. Dans quels langages les balises `<img>` et `<form>` sont-elles utilisées ?
