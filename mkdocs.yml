@@ -19,6 +19,7 @@ nav:
   - Réseau / Web :
     - Chapitre 2 HTML/CSS : chapitre2.md
     - Chapitre 21  HTTP et formulaires : chapitre21.md
+    - Chapitre non traité  Interactions côté serveur, PHP et Flask : chapitre230.md
     - Chapitre 23  Interactions dans le navigateur, Javascript : chapitre23.md
   - Langages :
     - Chapitre 1 affectations et types : chapitre1.md
@@ -124,9 +125,9 @@ markdown_extensions:
 plugins:
   - search
   - macros
-  - mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+  #- mermaid2
+  #- mkdocs-jupyter:
+  #    include_source: True
 
 extra:
   social:
