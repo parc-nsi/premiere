@@ -124,7 +124,7 @@ plugins:
   - search
   - macros
   - mermaid2
-  - mkdocs-jupyter
+  #- mkdocs-jupyter
 
 
 extra:
