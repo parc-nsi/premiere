@@ -7,6 +7,8 @@
 
 <!-- Définition des hyperliens  -->
 
+{% include abbreviations.md %}
+
 # Crédits
 
 *TP directement inspiré des livres Manuel de première NSI chez Ellipses

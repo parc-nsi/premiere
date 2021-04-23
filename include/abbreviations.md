@@ -72,3 +72,21 @@
 [programmation événementielle]:https://fr.wikipedia.org/wiki/Programmation_%C3%A9v%C3%A9nementielle
 
 [Kotlin]:https://fr.wikipedia.org/wiki/Kotlin_(langage)
+
+[Python-tutor]:http://pythontutor.com/visualize.html#mode=edit
+
+[Laurent Bloch]:https://laurentbloch.net/MySpip3/IMG/pdf/histsys-screen-20200727.pdf
+
+[BASH]:https://fr.wikipedia.org/wiki/Bourne-Again_shell
+
+[Linux]:https://fr.wikipedia.org/wiki/Linux
+
+[FreeBSD]:https://fr.wikipedia.org/wiki/FreeBSD
+
+[MacOS]:https://fr.wikipedia.org/wiki/MacOS
+
+[Windows]:https://fr.wikipedia.org/wiki/Microsoft_Windows
+
+[UNIX]:https://fr.wikipedia.org/wiki/Unix
+
+[URL]:https://fr.wikipedia.org/wiki/Uniform_Resource_Locator

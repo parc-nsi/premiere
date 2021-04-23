@@ -65,11 +65,15 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
 {{ script('python', 'solution_scrabble.py') }}
 
 
-!!! warning "Remarque"
-    >Pour insérer un script Python, la macro `script` définie dans `main.py` (Franck Chambon) prend en argument le chemin relatif  du script par rapport au fichier ma_page.md. Ci-dessous on donne un autre exemple avec , un fichier Python dans sous-répertoire `'automatismes/automatismes.py'`, on écrit alors   `\{\{ script('python', 'automatismes/automatismes.py') \}\}` (sans les \).
-    >     En revanche, avec la macro `basthon` définie dans `main.py` (Franck Chambon), l'insertion ne se fait pas dans le fichier markdown mais plus tard dans le fichier HTML généré et là le chemin relatif a changé (voir explication [ici](https://mkdocs-macros-plugin.readthedocs.io/en/latest/tips/#how-do-i-deal-with-relative-links-to-documentsimages)).
-    > Si `mkdocs-jupyter` n'est pas activé, on écrira `\{\{ basthon('../solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes.py',800) \}\}`.
-    > Si `mkdocs-jupyter` est  activé, lors de la compilation celui-ci a créé un répertoire par fichier `.py` ou `.ipynb` avec un `index.html` (export en HTML) et le fichier source (si option `include_source` à `true`), dans ce cas il faut rajouter un répertoire dans le chemin relati. Ici par exemple : `\{\{ basthon('../solution_scrabble/solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes/automatismes.py',800) \}\}`.
+!!! warning "Remarque" 
+
+    * Pour insérer un script Python, la macro `script` définie dans `main.py` (Franck Chambon) prend en argument le chemin relatif  du script par rapport au fichier ma_page.md. Ci-dessous on donne un autre exemple avec , un fichier Python dans sous-répertoire `'automatismes/automatismes.py'`, on écrit alors   `\{\{ script('python', 'automatismes/automatismes.py') \}\}` (sans les \).
+
+    * En revanche, avec la macro `basthon` définie dans `main.py` (Franck Chambon), l'insertion ne se fait pas dans le fichier markdown mais plus tard dans le fichier HTML généré et là le chemin relatif a changé (voir explication [ici](https://mkdocs-macros-plugin.readthedocs.io/en/latest/tips/#how-do-i-deal-with-relative-links-to-documentsimages)).
+
+    * Si `mkdocs-jupyter` n'est pas activé, on écrira `\{\{ basthon('../solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes.py',800) \}\}`.
+    
+    * Si `mkdocs-jupyter` est  activé, lors de la compilation celui-ci a créé un répertoire par fichier `.py` ou `.ipynb` avec un `index.html` (export en HTML) et le fichier source (si option `include_source` à `true`), dans ce cas il faut rajouter un répertoire dans le chemin relati. Ici par exemple : `\{\{ basthon('../solution_scrabble/solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes/automatismes.py',800) \}\}`.
 
 {{ script('python', 'automatismes/automatismes.py') }}
 
