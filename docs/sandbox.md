@@ -20,7 +20,7 @@ bottles:
 ~~~
 
 En écrivant `\{\{ page.meta.bottles.whine \}\}` (sans les \ ), on obtient :
-{{ page.meta.bottles.whine }}
+{{ page.meta.bottles.whine }}. Voir <https://mkdocs-macros-plugin.readthedocs.io/en/latest/#variables>
 
 # Abréviations
 
@@ -66,11 +66,18 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
 
 
 !!! warning "Remarque"
-    Dans l'exemple précédent `'solution_scrabble.py'` est dans le même répertoire
-    que le fichier source de cette page. Si le script est dans un dossier, il faut remonter dans le répertoire parent (explication [ici](https://mkdocs-macros-plugin.readthedocs.io/en/latest/tips/#how-do-i-deal-with-relative-links-to-documentsimages)). Un exemple ci-dessous avec `'automatismes.py'`  qui se trouve dans `'automatismes/automatismes.py'`. Il faut alors écrire `\{\{ script('python', '../automatismes/automatismes.py') \}\}` (sans les \ )
+    >Pour insérer un script Python, la macro `script` définie dans `main.py` (Franck Chambon) prend en argument le chemin relatif  du script par rapport au fichier ma_page.md. Ci-dessous on donne un autre exemple avec , un fichier Python dans sous-répertoire `'automatismes/automatismes.py'`, on écrit alors   `\{\{ script('python', 'automatismes/automatismes.py') \}\}` (sans les \).
+    >     En revanche, avec la macro `basthon` définie dans `main.py` (Franck Chambon), l'insertion ne se fait pas dans le fichier markdown mais plus tard dans le fichier HTML généré et là le chemin relatif a changé (voir explication [ici](https://mkdocs-macros-plugin.readthedocs.io/en/latest/tips/#how-do-i-deal-with-relative-links-to-documentsimages)).
+    > Si `mkdocs-jupyter` n'est pas activé, on écrira `\{\{ basthon('../solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes.py',800) \}\}`.
+    > Si `mkdocs-jupyter` est  activé, lors de la compilation celui-ci a créé un répertoire par fichier `.py` ou `.ipynb` avec un `index.html` (export en HTML) et le fichier source (si option `include_source` à `true`), dans ce cas il faut rajouter un répertoire dans le chemin relati. Ici par exemple : `\{\{ basthon('../solution_scrabble/solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes/automatismes.py',800) \}\}`.
 
-{{ script('python', '../automatismes/automatismes.py') }}
+{{ script('python', 'automatismes/automatismes.py') }}
 
+
+{{ basthon('../solution_scrabble/solution_scrabble.py', 800) }}
+
+
+{{ basthon('../automatismes/automatismes/automatismes.py',800) }}
 
 # Blocs personnalisés avec super_fences
 

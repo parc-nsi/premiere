@@ -1,6 +1,6 @@
 site_name: "Première NSI Lycée du Parc"
 
-use_directory_urls: true
+#use_directory_urls: true
 #voir https://www.mkdocs.org/user-guide/configuration/#docs_dir
 
 nav:
