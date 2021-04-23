@@ -1,5 +1,8 @@
 site_name: "Première NSI Lycée du Parc"
 
+use_directory_urls: true
+#voir https://www.mkdocs.org/user-guide/configuration/#docs_dir
+
 nav:
   - Progression: index.md
   - Types de bases :
@@ -40,6 +43,7 @@ nav:
     - Ressources : ressources.md
     - Outils : outils.md
     - Capytale: capytale.md
+  - Sandbox : sandbox.md
   #- Python file: solution_scrabble.py
   #- Notebook : PremiereNSI-Cours-Tableaux-Corriges.ipynb
     
@@ -124,7 +128,9 @@ markdown_extensions:
 
 plugins:
   - search
-  - macros
+  - macros:
+      verbose: True
+      include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
   - mermaid2
   - mkdocs-jupyter:
       include_source: True

@@ -9,7 +9,9 @@ Voir https://mooc-forums.inria.fr/moocnsi/t/mkdocs-une-solution-ideale/1758
 def define_env(env):
     "Hook function"
     
-
+    # activate trace
+    chatter = env.start_chatting("Simple module")# activate trace
+    #voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/troubleshooting/
     env.variables['compteur_exo'] = 0
     
     @env.macro
@@ -30,6 +32,7 @@ def define_env(env):
         return f"""```{lang}
 --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{nom}"
 ```"""
+    #voir https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#snippets
 
     @env.macro
     def py(nom: str) -> str: #F Chambon
