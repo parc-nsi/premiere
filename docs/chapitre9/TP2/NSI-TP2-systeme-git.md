@@ -7,7 +7,7 @@
 
 <!-- Définition des hyperliens  -->
 
-{% include abbreviations.md %}
+{% include 'abbreviations.md' %}
 
 # Crédits
 
