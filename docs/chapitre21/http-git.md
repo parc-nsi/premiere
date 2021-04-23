@@ -48,7 +48,7 @@ et [HTML](HTML).
 
 !!! note "Point de cours 1"
 
-    * Dans un échange sur le  Web, le  __client__  envoie une demande ou __requête__  à l'aide d'un logiciel appelé __navigateur__ ^[Note : Ne pas confondre navigateurs comme Firefox, Edge, Chrome et moteurs de recherche comme Qwant, Google search, Bing] : le __serveur__ est un logiciel installé sur une machine reliée en réseau à la machine du client.
+    * Dans un échange sur le  Web, le  __client__  envoie une demande ou __requête__  à l'aide d'un logiciel appelé __navigateur__[^1] : le __serveur__ est un logiciel installé sur une machine reliée en réseau à la machine du client.
     * Le protocole [HTTP][HTTP], acronyme d'`Hypertext Transfer Protocol`, est un protocole de la couche application qui décrit le format des échanges de données entre un client et un serveur sur le Web. Un échange HTTP s'établit selon le schéma suivant :
         * Le client saisit une [URL][URL] dans la barre d'adresse du navigateur, elle est résolue en adresse [IP][IP] par le service [DNS][DNS].
         * Mise en place d'une connexion [TCP](TCP) entre le client et le serveur.
@@ -75,6 +75,8 @@ et [HTML](HTML).
     ![Un élément HTML](images/anatomie-element-html.png "Un élément HTML"){width=100%}\
 
     _Source :_ https://developer.mozilla.org/fr/docs/Glossaire/HTML
+
+[^1]: Ne pas confondre navigateurs comme Firefox, Edge, Chrome et moteurs de recherche comme Qwant, Google search, Bing
 
 !!! tip "Exercice 1"
 
