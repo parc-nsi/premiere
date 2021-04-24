@@ -76,7 +76,7 @@ On travaille sur des tableaux à deux dimensions qui représentent des images bi
 
 Compléter les fonctions ci-dessous en respectant leurs spécifications, les postconditions doivent être vérifiées.
 
-{{ basthon('ressources/automatisme7/automatisme7.py', 800) }}
+{{ basthon('automatismes/ressources/automatisme7/automatisme7.py', 800) }}
 
 ~~~python
 def image_noire(largeur, hauteur):
@@ -132,7 +132,7 @@ assert dimensions([[], []]) == 0
 
 Modifier les expressions "à modifier"  dans la fonction Python ci-dessous pour que la spécification soit vérifiée.
 
-{{ basthon('ressources/automatisme8/automatisme8.py', 800) }}
+{{ basthon('automatismes/ressources/automatisme8/automatisme8.py', 800) }}
 
 Décommenter  `#test_indice_maximum(indice_maximum)`  en ligne 63 pour soumettre votre fonction au test unitaire. 
 

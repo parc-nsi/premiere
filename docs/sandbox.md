@@ -66,22 +66,41 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
 
 
 !!! warning "Remarque" 
-
-    * Pour insérer un script Python, la macro `script` définie dans `main.py` (Franck Chambon) prend en argument le chemin relatif  du script par rapport au fichier ma_page.md. Ci-dessous on donne un autre exemple avec , un fichier Python dans sous-répertoire `'automatismes/automatismes.py'`, on écrit alors   `\{\{ script('python', 'automatismes/automatismes.py') \}\}` (sans les \).
-
-    * En revanche, avec la macro `basthon` définie dans `main.py` (Franck Chambon), l'insertion ne se fait pas dans le fichier markdown mais plus tard dans le fichier HTML généré et là le chemin relatif a changé (voir explication [ici](https://mkdocs-macros-plugin.readthedocs.io/en/latest/tips/#how-do-i-deal-with-relative-links-to-documentsimages)).
-
-    * Si `mkdocs-jupyter` n'est pas activé, on écrira `\{\{ basthon('../solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes.py',800) \}\}`.
     
-    * Si `mkdocs-jupyter` est  activé, lors de la compilation celui-ci a créé un répertoire par fichier `.py` ou `.ipynb` avec un `index.html` (export en HTML) et le fichier source (si option `include_source` à `true`), dans ce cas il faut rajouter un répertoire dans le chemin relati. Ici par exemple : `\{\{ basthon('../solution_scrabble/solution_scrabble.py', 800) \}\}` et `\{\{ basthon('../automatismes/automatismes/automatismes.py',800) \}\}`.
+    Si on veut insérer du texte dans une page avec une macro définie dans `main.py`, on peut distinguer les cas où l'insertion se fait dans le fichier source `ma_page.md` ou dans le fichier HTML généré `ma_page.html` :
+
+    * L'insertion du  code source d'un script Python avec  la macro `script` définie dans `main.py` (Franck Chambon) se fait dans le fichier Markdown et prend en argument le chemin relatif  du script par rapport au fichier `ma_page.md`. Ci-dessous on donne un autre exemple avec , un fichier Python dans sous-répertoire `'automatismes/automatismes.py'`, on écrit alors   `\{\{ script('python', 'automatismes/automatismes.py') \}\}` (sans les \).
+
+    * La macro `basthon` définie dans `main.py` (Franck Chambon), insère une balise HTML, l'insertion aura lieu dans la page HTML généréee. Or Mkdocs construit à partir de al source Markdown  `ma_page.md` un réperotoire `map_page` contenant un fichier `index.html` avec le code HTML de la page générée. C'est pourquoi le chemin relatif vers la ressource change et il faut remonter d'un répertoire pour y accéder par rapport au chemin relatif depuis `ma_page.md` . Voir une explication [ici](https://mkdocs-macros-plugin.readthedocs.io/en/latest/tips/#how-do-i-deal-with-relative-links-to-documentsimages).
+
+        ~~~python
+            @env.macro
+            def basthon(exo: str, hauteur: int) -> str: #F Chambon
+                "Renvoie du HTML pour embarquer un fichier `exo` dans Basthon"
+                return f"""<iframe src="https://console.basthon.fr/?from={env.variables.io_url}{env.variables.page.url}../{exo}" width=100% height={hauteur}></iframe>
+        [Lien dans une autre page](https://console.basthon.fr/?from={env.variables.io_url}{env.variables.page.url}../{exo})
+        """
+
+            @env.macro
+            def script(lang: str, nom: str) -> str: #F Chambon
+                "Renvoie le script dans une balise bloc avec langage spécifié"
+                return f"""```{lang}
+        --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{nom}"
+        ```"""
+            #voir https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#snippets
+        ~~~
+
+    * Si `mkdocs-jupyter` n'est pas activé, on écrira par exemple `\{\{ basthon('solution_scrabble.py', 800) \}\}` et `\{\{ basthon('automatismes/automatismes.py',800) \}\}`, comme pour `script` puisque la remontée de répertoire avec `../`  est codée dans la macro .
+    
+    * Mais si `mkdocs-jupyter` est  activé, lors de la compilation celui-ci a créé un répertoire par fichier `.py` ou `.ipynb` avec un `index.html` (export en HTML) et le fichier source (si option `include_source` à `true`), dans ce cas il faut rajouter un répertoire dans le chemin relati. Ici par exemple : `\{\{ basthon('solution_scrabble/solution_scrabble.py', 800) \}\}` et `\{\{ basthon('automatismes/automatismes/automatismes.py',800) \}\}`.
 
 {{ script('python', 'automatismes/automatismes.py') }}
 
 
-{{ basthon('../solution_scrabble/solution_scrabble.py', 800) }}
+{{ basthon('solution_scrabble/solution_scrabble.py', 800) }}
 
 
-{{ basthon('../automatismes/automatismes/automatismes.py',800) }}
+{{ basthon('automatismes/automatismes/automatismes.py',800) }}
 
 # Blocs personnalisés avec super_fences
 
