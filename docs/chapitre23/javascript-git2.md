@@ -27,7 +27,7 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
 
     Dans le chapitre précédent, on a présenté des exemples de pages Web __dynamiques__ générées par des programmes en [PHP][PHP] ou [Python][Python]. Chaque mise à jour de la page nécessite donc un nouveau cycle requête/réponse entre le client et le serveur. C'est indispensable s'il s'agit de modifier l'état d'une ressource côté serveur (une base de données par exemple), mais  les changements peuvent n'être que temporaires et n'affecter que des éléments de la page côté client. C'est le cas de l'exemple déjà traité en [PHP][PHP]  de la conversion d'unité pour une mesure de température.
     
-    [Javascript][Javascript] est un langage interprété qui répond à ce besoin  qui s'exécute dans le navigateur du client. [Javascript][Javascript] s'est imposé depuis son apparition en  1995 dans le navigateur [Netscape][Netscape] comme le principal langage de développement Web en _frontend_ (côté client) et depuis une dizaine d'années, sa variante [Node.js][Node.js] concurence les langages de développement _backend_ (côté serveur) comme [PHP][PHP] ou [Python][Python].
+    [Javascript][Javascript] est un langage interprété répondant à ce besoin,  qui s'exécute dans le navigateur du client. [Javascript][Javascript] s'est imposé depuis son apparition en  1995 dans le navigateur [Netscape][Netscape] comme le principal langage de développement Web en _frontend_ (côté client) et depuis une dizaine d'années, sa variante [Node.js][Node.js] concurence les langages de développement _backend_ (côté serveur) comme [PHP][PHP] ou [Python][Python].
     
     Une page Web moderne, reçue par un client,  comporte  au moins trois composants logiciels : 
     
@@ -44,7 +44,7 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
 [^1]: API est l'acronyme d'Application Programming Interface
 [^2]: Note : DOM est l'acronyme de Document Object Model
 
-![“Javascript et DOM”](images/schema-dom.png "Javascript et DOM")
+[![“Javascript et DOM”](images/schema-dom.svg "Javascript et DOM")](images/schema-dom.svg)
 
 # Premiers pas dans la console Javascript
 
@@ -63,6 +63,22 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
     `&&` |
     `||` |
     `!`|
+
+
+    ??? help  "Réponse"
+
+        Opérateurs|Description
+        :--:|:--:
+        `=`| affectation
+        `*`| multiplication 
+        `/`| division
+        `**`| exponentiation
+        `==` ou `===` | égalité
+        `!=` ou `!===`| différence
+        `&&` | et logique
+        `||` | ou logique
+        `!`|   négation logique
+
 
 !!! tip "Exercice 1"
 
@@ -95,6 +111,11 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
       
         * Barrer les propositions fausses : en [Javascript][Javascript]  est  à typage _(fort | faible)_ et _(dynamique | statique)_ et une variable égale à 5  se déclare avec _(let a = 5 | a = 5)_.
     
+        ??? help "Réponse"
+
+            en [Javascript][Javascript]  est  à typage _faible_ et _dynamique_ et une variable égale à 5  se déclare avec _let a = 5_.
+           
+
     3. Examinons un exemple  avec une fonction, une structure conditionnelle et une boucle. Dans la console, passer en mode éditeur multiligne avec `CTRL + B` et saisir le code ci-dessous :
           ~~~javascript
           function valabs(x){
@@ -117,7 +138,17 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
           ~~~
     
         * Barrer les propositions fausses : en Javascript, les blocs d'instructions sont délimités par _(l'indentation | des accolades)_,  les fonctions sont déclarées avec le mot clef _(def | function)_ et une boucle inconditionnelle sur les entiers entre 1 et 10 commence par l'instruction _( for k in range(1, 11)  | for (let k = 1; k < 11; k = k + 1) )_
+
+            ??? help "Réponse"
+
+                en Javascript, les blocs d'instructions sont délimités par _des accolades_,  les fonctions sont déclarées avec le mot clef _function_ et une boucle inconditionnelle sur les entiers entre 1 et 10 commence par l'instruction _for (let k = 1; k < 11; k = k + 1)_
+
         * Barrer les propositions fausses : la fonction `alert` affiche son paramètre dans _(une fenêtre pop-up | la console)_ tandis que  la fonction `console.log` affiche son paramètre dans _(une fenêtre pop-up | la console)_.
+
+            ??? help "Réponse"
+            
+                la fonction `alert` affiche son paramètre dans _une fenêtre pop-up_ tandis que  la fonction `console.log` affiche son paramètre dans _la console_.
+
 
 !!! tip "Exercice 2"
 
@@ -137,7 +168,50 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
     </body>
     </html>
     ~~~
-    
+
+    ??? warning "Alternative : utilisation de Capytale"
+
+        Une alternative pour traiter cet exercice : ouvrez l'activité Capytale en suivant ce [lien](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/751d-17442).
+
+        Dans ce cas, le code [HTML][HTML] est saisi dans la fenêtre de gauche et vous saisirez le code [Javascript][Javascript] dans la fenêtre de droite.
+
+        Par exemple , pour la question 1, vous saisirez ce code :
+
+        ~~~javascript
+        let list = document.getElementById("langages");
+        list.style.color = "red";
+        let item1 = list.children[0];
+        item1.innerHTML = 'HTML5';
+        ~~~
+
+        Pour la question 2, vous compléterez ainsi :
+
+
+        ~~~javascript
+        let item3 = document.createElement("li")
+        list.appendChild(item3)
+        item3.innerHTML = "Javascript"
+        ~~~
+
+        Et pour la question 3 : 
+
+        ~~~javascript
+        function apparition(){
+          list.style.visibility = "visible";
+        }
+      
+        function disparition(){
+          list.style.visibility = "hidden";
+        }
+      
+        list.onmouseover = disparition ;  
+        //le symbole ; est le séparateur d'instruction en Javascript
+        list.onmouseleave = apparition ;
+        list.onclick = function() { alert("Clic !") ; } ;  //définition d'une fonction anonyme
+        ~~~
+        
+
+
     1. Saisir successivement les instructions ci-dessous dans la console,  observer ce qu'il se passe dans la page étape par étape.  Caractériser le rôle de chaque instruction puis saisir des instructions qui permettent de modifier le contenu HTML et le style du second item  de la liste.
       
         ~~~javascript
@@ -264,6 +338,26 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
       
         * Identifier et analyser de même __le gestionnaire d'événement__  `click` qui est attaché au second élément `<button>`.
 
+        ??? help "Réponse"
+
+            * Pour cet élément `button`, l'attribut `onclick="reinitialiser()"` a défini une fonction Javascript  `function onclick(event) {reinitialiser();}` qui prend en paramètre un __événement utilisateur__ (ici un click) et réagit en  appelant la fonction `reinitialiser`. La fonction `reinitialiser` est appelée __gestionnaire d'événement__.
+
+            * Le code de la fonction `reinitialiser` se trouve dans la balise `<script>`. Placée dans l'en-tête, celle-ci rassemble tout le code Javascript chargé dans la page. 
+
+            * On a vu précédemment que la fonction est appelée dès qu'un événement `click` se produit sur le premier élément  `<button>`. En examinant le code de `reinitialiser`, on voit qu'un lien est d'abord créé entre l'élément `<span>` d'identifiant `"valeur"` et une variable Javascript à l'aide d'une méthode DOM  par l'instruction :
+
+                ~~~javascript
+                let v = document.getElementById("valeur");
+                ~~~
+
+            * Puis le contenu HTML de cet élément est modifié par la même méthode que la fonction `suivant` :
+
+                ~~~javascript
+                v.innerHTML = compteur + " clic";
+                ~~~
+
+      
+
 !!! example "Exemple 2"
 
     Ouvrir un navigateur Web et accéder à la page <https://replit.com/@fredericjunier/1NSI-Javascript-Ex1-Eleve#index.html>.
@@ -271,6 +365,12 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
     On arrive dans un environnement de développement Web en HTML/CSS/Javascript sur la plateforme [https://repl.it](https://repl.it).
     
     !["Développement Web sur repl.it"](images/exo4-fig1.png "Développement Web sur repl.it")\
+
+
+    !!! warning "Alternative : utilisation de Capytale"
+
+        Une alternative pour traiter cet exercice : ouvrez l'activité Capytale en suivant ce [lien](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/60c9-17454).
+
     
     1. L'interface se divise en trois zones :
     
@@ -359,9 +459,9 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         //la balise element doit être repérée par un id 
         let v = document.getElementById("id_element");
         v.addEventListener("click", gestionnaire);
-      ~~~
+        ~~~
     
-    * Il existe plusieurs métodes pour cibler un élément [HTML][HTML], nous utiliserons principalement le ciblage par identifiant unique `id` :
+    * Il existe plusieurs méthodes pour cibler un élément [HTML][HTML], nous utiliserons principalement le ciblage par identifiant unique `id` :
     
     Type de cible|Syntaxe
     :--:|:--:
@@ -377,9 +477,9 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
     :--:|:--:|:--:|:--:
     `click`|dispositif de pointage pressé sur  l'élément| `<tag onclick="gest()">`| `v.addEventListener('click', gest)`
     `mouseover`|dispositif de pointage déplacé sur l'élément| `<tag onmouseover="gest()">`|`v.addEventListener('mouseover', gest)`
-    `mouseout`|dispositif de pointage déplacé hors de  l'élément|`<tag      onmouseout="gest()">`|`v.addEventListener('mouseover', gest)`
+    `mouseout`|dispositif de pointage déplacé hors de  l'élément|`<tag      onmouseout="gest()">`|`v.addEventListener('mouseout', gest)`
     `keydown`|une touche du clavier est pressée|`<tag   onkeydown="gest()">`|`v.addEventListener('keydown', gest)`
-    `keydown`|une touche du clavier est pressée|`<tag   onkeydown="gest()">`|`v.addEventListener('keydown', gest)`
+    `keydown`|une touche du clavier est relâchée|`<tag   onkeyup="gest()">`|`v.addEventListener('keyup', gest)`
     `input`|à chaque changement de valeur réalisé par l'utilisateur dans `<input>` ou `<select>`|`<tag      oninput="gest()">`|`v.addEventListener('input', gest)`
  
 
@@ -395,6 +495,10 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
     !["TP replit"](images/exo-replit.png "TP replit")\
     
     La page d'accueil contient une liste de liens vers des pages dynamiques qui contiennent ou sont liés à des codes Javascript à compléter. À une exception près, ces  activités présentées ont déjà été implémentés à l'aide de formulaires et de scritps côté serveur dans le chapitre précédent. Ici l'interactivité sera assurée côté client par Javascript.
+
+    !!! warning 
+
+        Si vous n'avez pas de compte [https://repl.it](https://repl.it), téléchargez [l'archive](../ressources/1NSI-Javascript-Ex3-Eleve.zip) avec tous les fichiers nécessaires.
     
     1. Depuis la page d'accueil, suivre le lien vers l'activité  __Calcul d'âge__ de la page `age.html`.
     
@@ -436,6 +540,10 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
       
         !["Force d'un mot de passe"](images/force-mot-passe.png "Force d'un mot de passe"){width=60%}\
 
+    ??? help "Réponse"
+
+        Un corrigé  est visible [ici](https://replit.com/@fredericjunier/1NSI-Javascript-Ex3-Correction#index.html). Téléchargez [l'archive](../ressources/1NSI-Javascript-Ex3-Correction.zip)
+
 # QCM E3C2
 
 !!! tip "Exercice 4"
@@ -448,10 +556,16 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         * Réponse B :  `src`
         * Réponse C : `alt`
         * Réponse D : `onmouseover`
+
+        ??? help "Réponse"
+
+            __Réponse D__
     
     2. Lors de la consultation d'une page HTML contenant un bouton auquel est associée la fonction suivante, que se passe-t-il quand on clique sur ce bouton ?
     
         ~~~javascript
+        // this référence l'élément HTML qui reçoit l'événement
+
         function action(event) {
           this.style.color = "blue"
           }
@@ -461,6 +575,11 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         * Réponse B :  le texte du bouton passe en bleu
         * Réponse C : le texte du bouton est changé et affiche maintenant le mot "bleu"
         * Réponse D : le pointeur de la souris devient bleu quand il arrive sur le bouton
+
+        ??? help "Réponse"
+
+            __Réponse B__ 
+
     
     3. Parmi les propriétés suivantes d'une balise `<button>` dans une page HTML, laquelle doit être rédigée en langage JavaScript ?
     
@@ -469,6 +588,10 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         * Réponse B :  la propriété `type`
         * Réponse C : la propriété `onclick`
         * Réponse D : la propriété `id`
+
+        ??? help "Réponse"
+
+            __Réponse C__  
     
     4. Dans une page HTML, lequel de ces codes permet la présence d'un bouton qui appelle la fonction javascript `afficher_reponse()` lorsque l'utilisateur clique dessus ?
     
@@ -476,13 +599,22 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         * Réponse B :  `<button if_clicked="afficher_reponse()">Cliquez ici</button>`
         * Réponse C : `<button value="Cliquez ici"><a>afficher_reponse()</a></button>`
         * Réponse D : `<button onclick="afficher_reponse()">Cliquez ici</button>`
+
+
+        ??? help "Réponse"
+
+            __Réponse D__ 
     
-    5. Quel est le nom de l'événement généré lorsque l'utilisateur clique sur un bouton de type button dans une page HTML ?
+    5. Quel est le nom de l'événement généré lorsque l'utilisateur clique sur un bouton de type `button` dans une page HTML ?
     
         * Réponse A : `action`
         * Réponse B : `mouse`
         * Réponse C : `submit`
         * Réponse D : `click`
+
+        ??? help "Réponse"
+
+            __Réponse D__ 
     
     6. Un navigateur affiche la page HTML suivante :
     
@@ -507,6 +639,10 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         * Réponse C : dans une bibliothèque prédéfinie du navigateur
         * Réponse D : dans le fichier `script.js`
     
+        ??? help "Réponse"
+
+            __Réponse D__ 
+
     7. Voici un extrait d'une page HTML :
     
         ~~~html
@@ -531,17 +667,21 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         * Réponse B : uniquement sur le serveur qui héberge la page
         * Réponse C : à la fois dans le navigateur et sur le serveur
         * Réponse D : si le calcul est complexe, le navigateur demande au serveur de faire le calcul
+
+        ??? help "Réponse"
+
+            __Réponse A__ 
     
     8. On considère cet extrait de fichier HTML représentant les onglets d'une barre de navigation :
     
         ~~~javascript
         function BoutonGris() {
 
-        var btn = document.createElement(\"BUTTON\");
+        var btn = document.createElement("BUTTON");
 
-        btn.innerHTML = \"Annulation\";
+        btn.innerHTML = "Annulation";
 
-        document.getElementById(\"DIV\").appendChild(btn);
+        document.getElementById("DIV").appendChild(btn);
 
         }
         ~~~
@@ -550,6 +690,11 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
         * Réponse B : elle annule l'élément BUTTON
         * Réponse C : elle crée un bouton comportant le texte "Annulation"
         * Réponse D : elle recherche le bouton "BUTTON" et crée une copie appelée "btn"
+
+
+        ??? help "Réponse"
+
+            __Réponse C__ 
 
 ![“[XKCD 1537 : Types](https://xkcd.com/1537/)”](images/types.png
 "[XKCD 1537 : Types](https://xkcd.com/1537/)")

@@ -97,7 +97,7 @@ _Ce cours est largement inspiré du chapitre 29 du manuel NSI de la collection T
 :::cours
     Dans le chapitre précédent, on a présenté des exemples de pages Web __dynamiques__ générées par des programmes en [PHP][PHP] ou [Python][Python]. Chaque mise à jour de la page nécessite donc un nouveau cycle requête/réponse entre le client et le serveur. C'est indispensable s'il s'agit de modifier l'état d'une ressource côté serveur (une base de données par exemple), mais  les changements peuvent n'être que temporaires et n'affecter que des éléments de la page côté client. C'est le cas de l'exemple déjà traité en [PHP][PHP]  de la conversion d'unité pour une mesure de température.
     
-    [Javascript][Javascript] est un langage interprété qui répond à ce besoin  qui s'exécute dans le navigateur du client. [Javascript][Javascript] s'est imposé depuis son apparition en  1995 dans le navigateur [Netscape][Netscape] comme le principal langage de développement Web en _frontend_ (côté client) et depuis une dizaine d'années, sa variante [Node.js][Node.js] concurence les langages de développement _backend_ (côté serveur) comme [PHP][PHP] ou [Python][Python].
+    [Javascript][Javascript] est un langage interprété répondant à ce besoin,  qui s'exécute dans le navigateur du client. [Javascript][Javascript] s'est imposé depuis son apparition en  1995 dans le navigateur [Netscape][Netscape] comme le principal langage de développement Web en _frontend_ (côté client) et depuis une dizaine d'années, sa variante [Node.js][Node.js] concurence les langages de développement _backend_ (côté serveur) comme [PHP][PHP] ou [Python][Python].
     
     Une page Web moderne, reçue par un client,  comporte  au moins trois composants logiciels : 
     

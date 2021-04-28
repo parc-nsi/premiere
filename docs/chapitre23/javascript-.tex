@@ -1502,7 +1502,7 @@ let v = document.getElementById("id_element");
 v.addEventListener("click", gestionnaire);
 \end{lstlisting}
 \item
-  Il existe plusieurs métodes pour cibler un élément
+  Il existe plusieurs méthodes pour cibler un élément
   \href{https://developer.mozilla.org/fr/docs/Glossaire/HTML}{HTML},
   nous utiliserons principalement le ciblage par identifiant unique
   \passthrough{\lstinline!id!} :
@@ -1611,7 +1611,7 @@ dispositif de pointage déplacé hors de l'élément\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
 \passthrough{\lstinline!<tag      onmouseout="gest()">!}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
-\passthrough{\lstinline!v.addEventListener('mouseover', gest)!}\strut
+\passthrough{\lstinline!v.addEventListener('mouseout', gest)!}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.22\columnwidth}\centering
 \passthrough{\lstinline!keydown!}\strut
@@ -1623,13 +1623,13 @@ une touche du clavier est pressée\strut
 \passthrough{\lstinline!v.addEventListener('keydown', gest)!}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.22\columnwidth}\centering
-\passthrough{\lstinline!keydown!}\strut
+\passthrough{\lstinline!keyup!}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
 une touche du clavier est pressée\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
-\passthrough{\lstinline!<tag   onkeydown="gest()">!}\strut
+\passthrough{\lstinline!<tag   onkeyup="gest()">!}\strut
 \end{minipage} & \begin{minipage}[t]{0.22\columnwidth}\centering
-\passthrough{\lstinline!v.addEventListener('keydown', gest)!}\strut
+\passthrough{\lstinline!v.addEventListener('keyup', gest)!}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.22\columnwidth}\centering
 \passthrough{\lstinline!input!}\strut

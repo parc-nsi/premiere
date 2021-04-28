@@ -4,7 +4,7 @@ TARGET=$(FILE:source.md=.pdf) $(FILE:source.md=.tex) $(FILE:source.md=tmp-mkdocs
 all: $(TARGET)
 
 %.pdf: %source.md
-	pandoc -s $< --listings --template="../../Pandoc/template-pandocV1.tex" --filter ../../Pandoc/filtre.py -V colorlinks -f markdown+table_captions+link_attributes+multiline_tables --toc -V toc-title:"Table des matières" -o $@
+	pandoc -s $< --listings --template="../../Pandoc/template-pandocV1.tex" --filter ../../Pandoc/filtre.py -V colorlinks -f markdown+table_captions+link_attributes+pipe_tables+multiline_tables --toc -V toc-title:"Table des matières" -o $@
 	
 %.tex: %source.md
 	pandoc -s $< --listings --template="../../Pandoc/template-pandocV1.tex" --filter ../../Pandoc/filtre.py -V colorlinks -f markdown+table_captions+link_attributes+multiline_tables --toc -V toc-title:"Table des matières" -o $@
