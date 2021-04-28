@@ -107,7 +107,7 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
 
 # Blocs personnalisés avec super_fences
 
-Graphiques avec mermaid2 : `https://github.com/fralau/mkdocs-mermaid2-plugin` :
+Graphiques avec mermaid2 : <https://github.com/fralau/mkdocs-mermaid2-plugin> :
 
     ```mermaid
     graph TB
@@ -124,6 +124,7 @@ Graphiques avec mermaid2 : `https://github.com/fralau/mkdocs-mermaid2-plugin` :
     ```
 
 donne
+
 
 ```mermaid
 graph TB
