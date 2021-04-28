@@ -14,4 +14,4 @@ Cours de Pierre Duclosson.
 ## Cours 
 
 * [Cours version pdf](chapitre24/Glouton.pdf)
-* [Corrigé Python](../chapitre24/glouton.py)
+* [Corrigé Python](chapitre24/glouton.py)
