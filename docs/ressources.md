@@ -21,6 +21,7 @@ title:  "Ressources pour le cours de NSI"
 ## Ressources pour le cours de première NSI
 
 * L'excellente [chaîne peertube de Pierre Marquestaut](https://peertube.lyceeconnecte.fr/video-channels/pierre.marquestaut_channel/videos).
+
 ## Langages de programmation (thème 6) 
 
 * Conférence de Judicael Courant : "Une brève histoire des langages de programmation"

@@ -20,7 +20,7 @@
   }
   .md-typeset .video > .admonition-title,
   .md-typeset .video > summary {
-    background-color: rgb(177, 75, 16);
+    background-color: rgba(43, 101, 155, 0.1);
     border-color: rgb(177, 75, 16);
   }
   .md-typeset .video > .admonition-title::before,
