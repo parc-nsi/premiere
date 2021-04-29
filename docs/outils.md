@@ -47,8 +47,11 @@ Il est indispensable d'installer un éditeur de textes sur sa plateforme, pour �
 
 * [France IOI](http://www.france-ioi.org/) : l'inscription est fortement recommandée, nous avons créé un groupe ParcPremiereNSI.
 
-<div> <iframe width="300" height="169" sandbox="allow-same-origin allow-scripts allow-popups" src="../assets/presentation-franceioi.mp4" frameborder="0" allowfullscreen></iframe>
-</div>
+??? video
+
+    <div> <iframe width="300" height="169" sandbox="allow-same-origin allow-scripts allow-popups" src="../assets/presentation-franceioi.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
 * Pour s'entraîner sur les constructions élémentaires (boucles, tests, variables, procédures, listes), France IOI propose désormais un parcours en ligne avec le module `turtle`  : <http://www.france-ioi.org/progresser/>
 
 * [Codin Game](https://www.codingame.com) : l'inscription est libre, une orientation plus ludique mais attention ce  site comporte des publicités.

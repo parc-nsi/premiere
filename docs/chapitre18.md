@@ -20,7 +20,12 @@ Cours de Frédéric Junier.
 * [Cours version markdown](chapitre18/Cours/dictionnaires-cours-git.md)
 * [Exemples du cours en python](chapitre18/Cours/exemples_cours_dictionnaires_eleves.py)
   
-## Video
+## Videos
 
-* [Présentation par Pierre Marquestaut](https://peertube.lyceeconnecte.fr/videos/watch/86be0059-a3c1-41ec-952a-79dea6310c87)
-* [Video Lumni de Charles Poulmaire](https://www.lumni.fr/video/les-dictionnaires)
+??? video
+
+    * [Présentation par Pierre Marquestaut](https://peertube.lyceeconnecte.fr/videos/watch/86be0059-a3c1-41ec-952a-79dea6310c87)
+
+    <iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.lyceeconnecte.fr/videos/embed/86be0059-a3c1-41ec-952a-79dea6310c87" frameborder="0" allowfullscreen></iframe>
+
+    * [Video Lumni de Charles Poulmaire](https://www.lumni.fr/video/les-dictionnaires)

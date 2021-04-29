@@ -15,4 +15,9 @@ Cours de Pierre Duclosson.
 
 ## Tutoriels vidéo 
 
-* [Algorithmes de tri par Pierre Marquestaut](https://peertube.lyceeconnecte.fr/videos/watch/cffa5c51-e0fa-4ef7-9437-743a683fc937)
+
+??? video
+
+    [Algorithmes de tri par Pierre Marquestaut](https://peertube.lyceeconnecte.fr/videos/watch/cffa5c51-e0fa-4ef7-9437-743a683fc937).
+
+    <iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.lyceeconnecte.fr/videos/embed/cffa5c51-e0fa-4ef7-9437-743a683fc937" frameborder="0" allowfullscreen></iframe>
