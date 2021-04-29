@@ -18,7 +18,7 @@ def index_min(t):
     Valeur renvoyée : un tableau contenant les positions (index) où le minimum de t est atteint
     """
 ~~~
-
+ 
 ## Automatisme 2 
 
 Programmer la fonction dont on donne la spécification :
