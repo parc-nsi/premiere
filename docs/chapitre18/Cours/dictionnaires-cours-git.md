@@ -30,7 +30,7 @@ et le livre **Fluent Python**.*
 
     Dans le TP sur les __p-uplets__ (nommés aussi __tuples__) on a travaillé sur un fichier `airports-reduit.csv` qui contient les  enregistrements `nom;latitude;longitude;altitude;code_pays` pour  57302  aéroports et on a extrait cette série dans un tableau de __tuples__. Par exemple le __tuple__ correspondant à l'aéroport Saint-Exupéry est :
 
-    ~~~python
+    ~~~python  linenums="1"
     >>> p_uplet = tab_tuple_airports[32478]
     >>> p_uplet
     ('Lyon Saint-Exupéry Airport', '45.725556', '5.081111', '821', 'FR')
@@ -42,7 +42,7 @@ et le livre **Fluent Python**.*
 
     Il serait plus lisible de disposer d'un __tuple__ à _champs nommés_  et de pouvoir accéder à la valeur d'un champ par son nom. C'est le  dernier __type construit__ de données que nous allons étudier.
 
-    ~~~python
+    ~~~python  linenums="1"
     >>> p_uplet_nomme = tab_dico_airports[32478]
     >>> p_uplet_nomme
     {'nom': 'Lyon Saint-Exupéry Airport', 'latitude': '45.725556', 'longitude': '5.081111', 'altitude': '821', 'code_pays': 'FR'}
