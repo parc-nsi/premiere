@@ -92,31 +92,32 @@ theme:
 markdown_extensions:
   - meta
   - abbr
-  - admonition
-  - def_list
-  - attr_list
-  - footnotes
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.snippets
-  - pymdownx.details
-  - pymdownx.highlight:
+  - def_list     # Les listes de définition.
+  - attr_list    # Un peu de CSS et des attributs HTML.
+  - admonition   # Blocs colorés  !!! info "ma remarque"
+  - pymdownx.details  #   qui peuvent se plier/déplier.  
+  - footnotes    # Notes[^1] de bas de page.  [^1]: ma note.
+  - pymdownx.caret  # Passage ^^souligné^^ ou en ^exposant^.
+  - pymdownx.mark  # Passage ==surligné==.
+  - pymdownx.tilde   # Passage ~~barré~~ ou en ~indice~.
+  - pymdownx.snippets   # Inclusion de fichiers externe.
+  - pymdownx.highlight:  # Coloration syntaxique du code
       #linenums: true
-  - pymdownx.tasklist:
-      custom_checkbox: false
-  - pymdownx.inlinehilite
-  - pymdownx.superfences:
+  - pymdownx.tasklist:  # Cases à cocher  - [ ]  et - [x]
+      custom_checkbox:    false   #   avec cases d'origine
+      clickable_checkbox: true    #   et cliquables.
+  - pymdownx.inlinehilite # pour  `#!python  <python en ligne>`
+  - pymdownx.superfences: # Imbrication de blocs.
       preserve_tabs: true
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format        
-  - pymdownx.keys
+  - pymdownx.keys   # Touches du clavier.  ++ctrl+d++
   - pymdownx.tabbed
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.emoji:
+  - pymdownx.emoji:   # Émojis  :boom:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.arithmatex:
@@ -141,14 +142,17 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:admin@frederic-junier.org
       name: mail
+
     - icon: fontawesome/brands/github
       link: https://github.com/parc-nsi/premiere
       name: dépôt git
+
     - icon: fontawesome/solid/university
       link: https://lyceeduparc.fr/ldp/
       name: Lycée du Parc
   raw_url: https://parc-nsi.github.io/premiere/-/raw/master/docs/
   io_url: https://parc-nsi.github.io/premiere/
+  site_url: https://parc-nsi.github.io/premiere/
 
 
 

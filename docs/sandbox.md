@@ -55,6 +55,51 @@ donne
 {% endfor %}
 
 
+# Formatage de code
+
+Voir <https://squidfunk.github.io/mkdocs-material/reference/code-blocks/>
+
+
+
+        ``` python linenums="1"
+        def bubble_sort(items):
+            for i in range(len(items)):
+                for j in range(len(items) - 1 - i):
+                    if items[j] > items[j + 1]:
+                        items[j], items[j + 1] = items[j + 1], items[j]
+        ```
+
+donne 
+
+``` python linenums="1"
+        def bubble_sort(items):
+            for i in range(len(items)):
+                for j in range(len(items) - 1 - i):
+                    if items[j] > items[j + 1]:
+```
+
+
+
+
+        ``` python hl_lines="2 3"
+        def bubble_sort(items):
+            for i in range(len(items)):
+                for j in range(len(items) - 1 - i):
+                    if items[j] > items[j + 1]:
+                        items[j], items[j + 1] = items[j + 1], items[j]
+        ```
+
+donne
+
+``` python hl_lines="2 3"
+def bubble_sort(items):
+    for i in range(len(items)):
+        for j in range(len(items) - 1 - i):
+            if items[j] > items[j + 1]:
+                items[j], items[j + 1] = items[j + 1], items[j]
+```
+
+
 # Insertion de scripts
 
 
@@ -95,6 +140,8 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
     * Mais si `mkdocs-jupyter` est  activé, lors de la compilation celui-ci a créé un répertoire par fichier `.py` ou `.ipynb` avec un `index.html` (export en HTML) et le fichier source (si option `include_source` à `true`), dans ce cas il faut rajouter un répertoire dans le chemin relatif. Ici par exemple : `\{\{ basthon('../solution_scrabble/solution_scrabble.py', 800) \}\}` et `\{\{ basthon('automatismes/automatismes/automatismes.py',800) \}\}`.
 
      * On peut changer la façon dont Mkdocs crée les URL à partir des sources en Markdown ; https://www.mkdocs.org/user-guide/configuration/#docs_dir mais ce n'est pas forcément recommandé par la doc. Par défaut à partir de `ma_page.md` il créé `ma_page/index.html` qui s'affiche en  `ma_page` et si on change le paramètre `use_directory_urls` ce sera `ma_page.html`
+
+
 
 
 {{ script('python', 'automatismes/automatismes.py') }}
