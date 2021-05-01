@@ -5,14 +5,7 @@ bottles:
   beer: 123
 ---
 
-```dot
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
+
 
 
 Référence pour les macros Mkdocs : <https://mkdocs-macros-plugin.readthedocs.io>
