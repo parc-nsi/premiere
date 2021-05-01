@@ -7,6 +7,12 @@ bottles:
 
 Référence pour les macros Mkdocs : <https://mkdocs-macros-plugin.readthedocs.io>
 
+Tutoriel de référence par Franck Chambon : 
+
+* <https://gitlab.com/ens-fr/mkdocs> 
+
+* <https://ens-fr.gitlab.io/mkdocs/>
+
 
 # Variables définies dans l'en-tête yaml :
 
