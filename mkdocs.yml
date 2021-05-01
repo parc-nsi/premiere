@@ -126,6 +126,7 @@ markdown_extensions:
   - toc:
       permalink: ⚓︎
       toc_depth: 3
+  - mkdocs_markdown_graphviz  #https://pypi.org/project/mkdocs-markdown-graphviz/
 
 
 plugins:
@@ -136,6 +137,8 @@ plugins:
   - mermaid2
   - mkdocs-jupyter:
       include_source: True
+
+  
 
 extra:
   social:
