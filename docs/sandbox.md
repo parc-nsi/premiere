@@ -8,7 +8,7 @@ digraph G {
 }
 ```
 
-
+  
 ```graphviz dot attack_plan.png
 digraph G {
     rankdir=LR
