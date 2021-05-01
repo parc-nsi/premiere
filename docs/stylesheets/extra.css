@@ -73,3 +73,52 @@
   position:relative;
   top:1px;
 }
+
+/*
+
+   STYLΕ TRANSPARENT (emprunt G.Connan)
+   
+ */
+
+ :root > * {
+  --md-code-bg-color:rgba(0, 0, 0, 0.85);
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap"); */
+
+
+textarea {
+  background-color:  rgba(0, 0, 0, 0.85);
+  color: var(--md-code-fg-color);
+  font-weight: bold;
+  display: block;
+  font-family: var(--md-code-font-family,_),SFMono-Regular,Consolas,Menlo,monospace;
+}
+
+textarea#output {
+  background-color:  rgba(158, 155, 202, 0.85);
+  overflow:auto;
+}
+
+/* TEXTAREA AUTO RESIZE STYLES BEGIN */
+
+/* The .hiddendiv styles are added with JS.
+ You can remove the JS lines and use CSS instead*/
+.hiddendiv {
+display: none;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+
+/* the styles for 'txta' are applied to both the textarea and the hidden clone */
+/* these must be the same for both */
+.txta {
+width: 100%;
+max-width: 500px;
+min-height: 100px;
+/*font-family: Arial, sans-serif;
+font-size: 16px;*/
+overflow: hidden;
+line-height: 1.4;
+}
+/* TEXTAREA AUTO RESIZE STYLES END */
