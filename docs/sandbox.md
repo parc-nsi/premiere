@@ -62,8 +62,16 @@ graph TB
 
 Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-graphviz/> et <https://gitlab.com/rodrigo.schwencke/mkdocs-markdown-graphviz>.
 
-Exemples ci-dessous :
+Exemples ci-dessous avec les trois syntaxes 
 
+```dot
+digraph G {
+    rankdir=LR
+    Earth [peripheries=2]
+    Mars
+    Earth -> Mars
+}
+```
 
 ```graphviz dot attack_plan.svg
 digraph G {
