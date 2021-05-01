@@ -48,7 +48,7 @@
   /*classe pour bouton de la macro pyodide (dans main.py)  de Guillaume Connan
   */
 
-.button {
+.execution {
     background:linear-gradient(to bottom, #7892c2 5%, #354d6b 100%);
     background-color:#7892c2;
     border-radius:28px;
@@ -64,12 +64,12 @@
     text-shadow:0px 1px 0px #283966;
 }
 
-.button:hover {
+.execution:hover {
     background:linear-gradient(to bottom, #354d6b 5%, #7892c2 100%);
     background-color:#354d6b;
 }
 
-.button:active {
+.execution:active {
   position:relative;
   top:1px;
 }
