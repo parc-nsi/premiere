@@ -16,6 +16,73 @@ Tutoriel de référence par Franck Chambon :
 
 * <https://ens-fr.gitlab.io/mkdocs/>
 
+# Blocs personnalisés avec super_fences
+
+Graphiques avec mermaid2 : <https://github.com/fralau/mkdocs-mermaid2-plugin> :
+
+    ```mermaid
+    graph TB
+        c1-->a2
+        subgraph one
+        a1-->a2
+        end
+        subgraph two
+        b1-->b2
+        end
+        subgraph three
+        c1-->c2
+        end
+    ```
+
+donne
+
+
+```mermaid
+graph TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+```
+
+* Références : 
+  * <https://github.com/facelessuser/pymdown-extensions/issues/928>
+  * <https://facelessuser.github.io/pymdown-extensions/>
+
+
+
+
+# Insertion de graphiques en langages dot 
+
+Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-graphviz/> et <https://gitlab.com/rodrigo.schwencke/mkdocs-markdown-graphviz>.
+
+Exemples ci-dessous :
+
+
+```graphviz dot attack_plan.svg
+digraph G {
+    rankdir=LR
+    Earth [peripheries=2]
+    Mars
+    Earth -> Mars
+}
+```
+
+
+```graphviz dot attack_plan.png
+digraph G {
+    rankdir=LR
+    Earth [peripheries=2]
+    Mars
+    Earth -> Mars
+}
+```
 
 # Variables définies dans l'en-tête yaml :
 
@@ -173,69 +240,4 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
 
 {{ basthon('automatismes/automatismes/automatismes.py',800) }}
 
-# Blocs personnalisés avec super_fences
 
-Graphiques avec mermaid2 : <https://github.com/fralau/mkdocs-mermaid2-plugin> :
-
-    ```mermaid
-    graph TB
-        c1-->a2
-        subgraph one
-        a1-->a2
-        end
-        subgraph two
-        b1-->b2
-        end
-        subgraph three
-        c1-->c2
-        end
-    ```
-
-donne
-
-
-```mermaid
-graph TB
-    c1-->a2
-    subgraph one
-    a1-->a2
-    end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end
-```
-
-* Références : 
-  * <https://github.com/facelessuser/pymdown-extensions/issues/928>
-  * <https://facelessuser.github.io/pymdown-extensions/>
-
-
-
-
-# Insertion de graphiques en langages dot 
-
-Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-graphviz/> et <https://gitlab.com/rodrigo.schwencke/mkdocs-markdown-graphviz>.
-
-Ne fonctionne pas sous Github pour l'instant.
-
-```graphviz dot attack_plan.svg
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
-
-
-```graphviz dot attack_plan.png
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
