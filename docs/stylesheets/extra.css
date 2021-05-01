@@ -74,17 +74,7 @@
   top:1px;
 }
 
-/*
 
-   STYLΕ TRANSPARENT (emprunt G.Connan)
-   
- */
-
- :root > * {
-  --md-code-bg-color:rgba(0, 0, 0, 0.85);
-}
-
-/* @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap"); */
 
 
 textarea {
