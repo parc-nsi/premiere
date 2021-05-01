@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block libs %}
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+{% endblock %}
+
 {% block content %}
 {% if page.nb_url %}
     <a href="{{ page.nb_url }}" title="Download Notebook" class="md-content__button md-icon">

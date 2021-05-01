@@ -106,6 +106,18 @@ def bubble_sort(items):
 ```
 
 
+# Insertion de console Pyodide 
+
+Guillaume Connan voir <https://mooc-forums.inria.fr/moocnsi/t/du-python-cote-client-dans-une-page-web/1961/7>
+
+`\{\{console()\}\}` 
+
+
+donne
+
+
+{{console()}}
+
 # Insertion de scripts
 
 

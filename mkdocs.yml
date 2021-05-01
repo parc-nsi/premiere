@@ -162,6 +162,7 @@ extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  #- https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js    #chargé dans l'extension du template html overrides/main.html
 
 extra_css:
   - stylesheets/extra.css
