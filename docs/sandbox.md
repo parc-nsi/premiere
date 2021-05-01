@@ -5,7 +5,14 @@ bottles:
   beer: 123
 ---
 
-
+```dot
+digraph G {
+    rankdir=LR
+    Earth [peripheries=2]
+    Mars
+    Earth -> Mars
+}
+```
 
 
 Référence pour les macros Mkdocs : <https://mkdocs-macros-plugin.readthedocs.io>
@@ -62,7 +69,8 @@ graph TB
 
 Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-graphviz/> et <https://gitlab.com/rodrigo.schwencke/mkdocs-markdown-graphviz>.
 
-Exemples ci-dessous avec les trois syntaxes 
+Exemples ci-dessous avec les trois syntaxes :
+
 
 ```dot
 digraph G {
