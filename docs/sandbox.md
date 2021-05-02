@@ -91,7 +91,7 @@ graph TB
 
 Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-graphviz/> et <https://gitlab.com/rodrigo.schwencke/mkdocs-markdown-graphviz>.
 
-Exemples ci-dessous avec les trois syntaxes. Il y a visiblement un problème d'indentation avec la syntaxe suivante. Ce problème n'apparait pas si on place le bloc en début de document.
+Exemples ci-dessous avec les trois syntaxes. Il y a visiblement un problème d'indentation avec la syntaxe suivante qui commence par dot. Je n'arrive pas non plus à obtenir l'affichage du bloc en le plaçant dans un bloc de code. Ce problème n'apparait pas si on place le bloc en début de document.
 
 ~~~
     ```dot
