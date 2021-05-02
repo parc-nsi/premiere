@@ -93,6 +93,7 @@ Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-gra
 
 Exemples ci-dessous avec les trois syntaxes. Il y a visiblement un problème d'indentation avec la syntaxe suivante. Ce problème n'apparait pas si on place le bloc en début de document.
 
+~~~
     ```dot
     digraph G {
         rankdir=LR
@@ -101,6 +102,7 @@ Exemples ci-dessous avec les trois syntaxes. Il y a visiblement un problème d'i
         Earth -> Mars
     }
     ```
+~~~
 
 
 ```graphviz dot attack_plan.png
