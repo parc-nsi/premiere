@@ -44,7 +44,28 @@
     -webkit-mask-image: var(--md-admonition-icon--video);
             mask-image: var(--md-admonition-icon--video);
   }
-   
+
+  :root {
+    --md-admonition-icon--console: url('data:image/svg+xml;charset=utf-8,  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>')
+  }
+  .md-typeset .admonition.console,
+  .md-typeset details.console{
+    border-color: rgb(68, 138, 255);
+  }
+  .md-typeset .code > .admonition-title,
+  .md-typeset .code > summary {
+    background-color: rgba(43, 101, 155, 0.1);
+    border-color: rgb(68, 138, 255);
+  }
+  .md-typeset .console > .admonition-title::before,
+  .md-typeset .console > summary::before {
+    background-color: rgb(68, 138, 255);
+     animation: heart 1000ms infinite;
+    -webkit-mask-image: var(--md-admonition-icon--console);
+            mask-image: var(--md-admonition-icon--console);
+  
+  }
+
   /*classe pour bouton de la macro pyodide (dans main.py)  de Guillaume Connan
   */
 

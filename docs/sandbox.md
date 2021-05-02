@@ -14,6 +14,28 @@ digraph G {
 }
 ```
 
+Pas de souci ci-dessus avec la syntaxe dot de l'extension <https://pypi.org/project/mkdocs-markdown-graphviz/>. 
+
+```dot
+digraph G {
+    rankdir=LR
+    Earth [peripheries=2]
+    Mars
+    Earth -> Mars
+}
+```
+
+Encore un essai.
+
+```dot
+    digraph G {
+        rankdir=LR
+        Earth [peripheries=2]
+        Mars
+        Earth -> Mars
+    }
+```
+
 
 Référence pour les macros Mkdocs : <https://mkdocs-macros-plugin.readthedocs.io>
 
@@ -69,7 +91,37 @@ graph TB
 
 Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-graphviz/> et <https://gitlab.com/rodrigo.schwencke/mkdocs-markdown-graphviz>.
 
-Exemples ci-dessous avec les trois syntaxes.
+Exemples ci-dessous avec les trois syntaxes. Il y a visiblement un problème d'indentation avec la syntaxe suivante. Ce problème n'apparait pas si on place le bloc en début de document.
+
+    ```dot
+    digraph G {
+        rankdir=LR
+        Earth [peripheries=2]
+        Mars
+        Earth -> Mars
+    }
+    ```
+
+
+```graphviz dot attack_plan.png
+digraph G {
+    rankdir=LR
+    Earth [peripheries=2]
+    Mars
+    Earth -> Mars
+}
+```
+
+```graphviz dot attack_plan.svg
+digraph G {
+    rankdir=LR
+    Earth [peripheries=2]
+    Mars
+    Earth -> Mars
+}
+```
+
+
 
 ```dot
 digraph G {
@@ -200,8 +252,9 @@ Guillaume Connan voir <https://mooc-forums.inria.fr/moocnsi/t/du-python-cote-cli
 
 donne
 
+??? console
 
-{{console()}}
+    {{console()}}
 
 # Insertion de scripts
 
