@@ -247,7 +247,7 @@ def bubble_sort(items):
 
 # Insertion de console Pyodide 
 
-Guillaume Connan voir <https://mooc-forums.inria.fr/moocnsi/t/du-python-cote-client-dans-une-page-web/1961/7>
+Guillaume Connan voir <https://mooc-forums.inria.fr/moocnsi/t/du-python-cote-client-dans-une-page-web/1961/7> et <https://giyom.gitlab.io/ecs1/2020_21/bac_a_sable/>.
 
 `\{\{console()\}\}` 
 
@@ -299,6 +299,7 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
 
      * On peut changer la façon dont Mkdocs crée les URL à partir des sources en Markdown ; https://www.mkdocs.org/user-guide/configuration/#docs_dir mais ce n'est pas forcément recommandé par la doc. Par défaut à partir de `ma_page.md` il créé `ma_page/index.html` qui s'affiche en  `ma_page` et si on change le paramètre `use_directory_urls` ce sera `ma_page.html`
 
+    * Noter que les iframes basthon font crasher le chargement de la page sur mobile.
 
 
 
