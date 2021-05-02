@@ -52,8 +52,8 @@
   .md-typeset details.console{
     border-color: rgb(68, 138, 255);
   }
-  .md-typeset .code > .admonition-title,
-  .md-typeset .code > summary {
+  .md-typeset .console > .admonition-title,
+  .md-typeset .console > summary {
     background-color: rgba(43, 101, 155, 0.1);
     border-color: rgb(68, 138, 255);
   }
@@ -65,6 +65,12 @@
             mask-image: var(--md-admonition-icon--console);
   
   }
+
+
+  /*
+  Pyodide
+  */
+
 
   /*classe pour bouton de la macro pyodide (dans main.py)  de Guillaume Connan
   */
@@ -110,6 +116,10 @@ textarea#output {
   background-color:  rgba(158, 155, 202, 0.85);
   overflow:auto;
 }
+
+
+
+
 
 /* TEXTAREA AUTO RESIZE STYLES BEGIN */
 
