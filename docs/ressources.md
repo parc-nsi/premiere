@@ -22,6 +22,32 @@ title:  "Ressources pour le cours de NSI"
 
 * L'excellente [chaîne peertube de Pierre Marquestaut](https://peertube.lyceeconnecte.fr/video-channels/pierre.marquestaut_channel/videos).
 
+* [Pyvert](https://diraison.github.io/Pyvert/) site de Jean Diraison comportant  des exercices avec juge en ligne.
+
+* [Site](http://www.mathinfo.ovh/Premiere_NSI/00_Progression/index.html) de Nicolas Buyle-Bodin, lycée Lacassagne à Lyon.
+
+
+## Plateformes d'entraînement 
+
+* [France IOI](http://www.france-ioi.org/) : l'inscription est fortement recommandée, nous avons créé un groupe ParcPremiereNSI.
+
+??? video
+
+    <iframe width="300" height="169" sandbox="allow-same-origin allow-scripts allow-popups" src="../assets/presentation-franceioi.mp4" frameborder="0" allowfullscreen></iframe>
+    
+
+* Pour s'entraîner sur les constructions élémentaires (boucles, tests, variables, procédures, listes), France IOI propose désormais un parcours en ligne avec le module `turtle`  : <http://www.france-ioi.org/progresser/>
+
+* [Codin Game](https://www.codingame.com) : l'inscription est libre, une orientation plus ludique mais attention ce  site comporte des publicités.
+
+* [Hackinscience](https://www.hackinscience.org)
+
+* Le site de préparation du  concours [Prologin](https://prologin.org/) destiné initialement plutôt à des étudiants en première ou deuxième année postbac, mais c'était avant l'ouverture de la spécialité NSI ... 
+
+[![Prologin](assets/prologin.png "logo prologin")](https://prologin.org/)
+    
+
+
 ## Langages de programmation (thème 6) 
 
 * Conférence de Judicael Courant : "Une brève histoire des langages de programmation"
