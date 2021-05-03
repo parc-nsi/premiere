@@ -126,7 +126,7 @@ markdown_extensions:
   - toc:
       permalink: ⚓︎
       toc_depth: 3
-  - mkdocs_markdown_graphviz  #https://pypi.org/project/mkdocs-markdown-graphviz/
+  - mkdocs_graphviz  #https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz
 
 
 plugins:

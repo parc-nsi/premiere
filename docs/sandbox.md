@@ -89,39 +89,9 @@ graph TB
 
 # Insertion de graphiques en langages dot 
 
-Module de Rodrigo Schwencke, voir  <https://pypi.org/project/mkdocs-markdown-graphviz/> et <https://gitlab.com/rodrigo.schwencke/mkdocs-markdown-graphviz>.
+Module de Rodrigo Schwencke, voir  <https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz>.
 
-Exemples ci-dessous avec les trois syntaxes. Il y a visiblement un problème d'indentation avec la syntaxe suivante qui commence par dot. Je n'arrive pas non plus à obtenir l'affichage du bloc en le plaçant dans un bloc de code. Ce problème n'apparait pas si on place le bloc en début de document.
-
-~~~
-    ```dot
-    digraph G {
-        rankdir=LR
-        Earth [peripheries=2]
-        Mars
-        Earth -> Mars
-    }
-    ```
-~~~
-
-
-```graphviz dot attack_plan.png
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
-
-```graphviz dot attack_plan.svg
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
+Exemples ci-dessous avec les trois syntaxes. 
 
 
 
