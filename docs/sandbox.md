@@ -14,7 +14,7 @@ digraph G {
 }
 ```
 
-Pas de souci ci-dessus avec la syntaxe dot de l'extension <https://pypi.org/project/mkdocs-markdown-graphviz/>. Mais si on ne place pas le bloc, il est détecté comme un bloc de code. Pas ce problème avec les deux autres syntaxes.
+Pas de souci ci-dessus avec la syntaxe dot de l'extension <https://pypi.org/project/mkdocs-markdown-graphviz/>. ~~Mais si on ne place pas le bloc, il est détecté comme un bloc de code~~. Pas ce problème avec les deux autres syntaxes.
 
 ```dot
 digraph G {
