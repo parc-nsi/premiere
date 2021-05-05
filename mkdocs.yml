@@ -10,24 +10,49 @@ nav:
     - Chapitre 12 codage des caractères : chapitre12.md
     - Chapitre 15 les flottants : chapitre16.md
   - Types construits :
-    - Chapitre 6  tableaux à 1 dimension : chapitre6.md
-    - Chapitre 7 tableaux à 2 dimensions : chapitre7.md
-    - Chapitre 15 p-uplets : chapitre15.md
-    - Chapitre 18 dictionnaires : chapitre18.md
-    - Chapitre 19 traitement de données en tables : chapitre19.md
+    - Chapitre 6  tableaux à 1 dimension : 
+      - Index : chapitre6.md
+      - Cours : chapitre6/Cours/tableaux-cours-git.md
+    - Chapitre 7 tableaux à 2 dimensions :
+      - Index : chapitre7.md
+    - Chapitre 15 p-uplets : 
+      - Index : chapitre15.md
+      - Cours : chapitre15/Cours/puplets-cours-git.md
+    - Chapitre 18 dictionnaires : 
+      - Index : chapitre18.md
+      - Cours : chapitre18/Cours/dictionnaires-cours-git.md      
+    - Chapitre 19 traitement de données en tables : 
+      - Index: chapitre19.md
+      - Cours: chapitre19/Cours/cours-tables-indexation-git.md
+      - TP Fusion : chapitre19/TP-Fusion/tp-fusion-git.md
+      - TP Recherche et tri : chapitre19/TP-Recherche-Tri/tp-recherche-tri-git.md
   - Architecture  :
-    - Chapitre 9 système d'exploitation et ligne de commandes  : chapitre9.md
-    - Chapitre 13 portes logiques et circuits combinatoires : chapitre13.md
+    - Chapitre 9 système d'exploitation et ligne de commandes  : 
+      - Index : chapitre9.md
+      - Cours : chapitre9/cours-systeme/systeme-cours-git.md
+      - Memento Shell : chapitre9/memento-shell/memento-shell-git.md
+      - TP1 : chapitre9/TP1/NSI-TP1-systeme-2020-git.md
+      - TP2 : chapitre9/TP2/NSI-TP2-systeme-git.md
+    - Chapitre 13 portes logiques et circuits combinatoires :
+      - Index: chapitre13.md
+      - Cours : chapitre13/cours-circuits-logiques-git2.md
     - Chapitre 17 architecture de Von Neumann : chapitre17.md
   - Réseau / Web :
     - Chapitre 2 HTML/CSS : chapitre2.md
-    - Chapitre 21  HTTP et formulaires : chapitre21.md
+    - Chapitre 21  HTTP et formulaires : 
+      - Index : chapitre21.md
+      - Cours : chapitre21/http-git.md
+      - Correction : chapitre21/correction-git.md
     - Chapitre non traité  Interactions côté serveur, PHP et Flask : chapitre230.md
-    - Chapitre 23  Interactions dans le navigateur, Javascript : chapitre23.md
+    - Chapitre 23  Interactions dans le navigateur, Javascript : 
+      - Index : chapitre23.md
+      - Cours : chapitre23/javascript-git2.md
   - Langages :
     - Chapitre 1 affectations et types : chapitre1.md
     - Chapitre 3 boucles inconditionnelles : chapitre3.md
-    - Chapitre 4 boucles conditionnelles et tests : chapitre4.md  
+    - Chapitre 4 boucles conditionnelles et tests : 
+      - Index: chapitre4.md 
+      - Tests Boucles:  chapitre4/TestBouclesConditionnelles-Correction.md
     - Chapitre 5 fonctions et portée d'une variable : chapitre5.md  
   - Algorithmique:
     - Chapitre 10  recherches séquentielle et dichotomique : chapitre10.md
@@ -134,9 +159,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
-  - mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+  #- mermaid2
+  #- mkdocs-jupyter:
+  #    include_source: True
 
   
 

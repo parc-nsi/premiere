@@ -487,6 +487,212 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
 
 !!! tip "Exercice 3"
 
+  1. Ouvrir la page <https://frederic-junier.org/NSI/sandbox/imc.php>. Il s'agit d'une page web dynamique qui contient un formulaire de calcul d'IMC.
+
+    * Tester le formulaire. Le script réalisant le calcul de l'IMC est-il exécuté côté client (dans le navigateur) ou côté serveur ? 
+
+    * Quelle est la méthode de transmission des paramètres du formulaire ? 
+    
+
+    ??? question  "Réponse"
+
+        === "Réponse a)"
+
+            Un script [PHP][PHP] est exécuté côté serveur, le chemin relatif vers le script sur le serveur : `"chemin.php"`  est la valeur de l'attribut `action` de la balise `<form>` contenant le formulaire.
+
+            ~~~html
+            <form action="imc.php" method="GET"></form>
+            ~~~
+
+        === "Réponse b)"
+
+            C'est la méthode [GET][GET], les paramètres sont transmis dans une chaîne de paires (clef=valeur) ajoutées à  l'[URL][URL] transmise au serveur. La méthode [HTTP][HTTP] de transmission de paramètres est précisée dans l'attribut `method`  de la balise `<form>` contenant le formulaire.
+
+            ~~~html
+            <form action="imc.php" method="GET"></form>
+            ~~~
+
+        === "Code source"
+
+          ~~~php
+            <!DOCTYPE html>
+
+            <!-- Script PHP d'initialisation -->
+            <?php
+            if (isset($_POST['masse'])) {
+                $masse = $_POST['masse'];    
+            }
+            elseif (isset($_GET['masse'])) {
+                $masse = $_GET['masse'];    
+            }
+            else {
+                $masse = 0;
+            }
+            if (isset($_POST['taille'])) {
+                $taille = $_POST['taille'];    
+            }
+            elseif (isset($_GET['taille'])) {
+                $taille = $_GET['taille'];    
+            }
+            else {
+                $taille = 0;
+            }
+            ?>
+
+            <html lang="fr">
+
+            <!-- Début en-tête -->
+            <head>
+
+              <title> Formulaire de calcul d'IMC </title>
+
+              <meta charset="utf-8">
+                
+                
+            </head>
+            <!-- Fin en-tête -->
+
+            <!-- Début corps -->    
+            <body>
+
+                
+            <h1>Calcul d'IMC</h1>
+
+            <p> A propos du calcul de l'IMC : <a href="https://fr.wikipedia.org/wiki/Indice_de_masse_corporelle">page wikipedia</a>.  </p>
+              <h2> Formulaire de saisie des paramètres </h2>
+              
+                <form action="imc.php" method="GET">
+                    <label for="masse">Saisie de la masse en kilogrammes : </label> 
+                    <input type="number" id="masse" name="masse"  value=<?php echo $masse ?> >
+                    <br>
+                    <label for="taille">Saisie de la taille en mètres : </label> 
+                    <input type="number" id="taille" name="taille"  step="0.01" value=<?php echo $taille ?> >
+                    <br>
+                    <button type="submit" id="bouton">  Soumettre </button>
+                </form>
+                
+            <h2> Affichage du résultat </h2>
+
+            <p>
+            <?php
+              $imc = ($masse)/($taille * $taille);
+            ?>
+            Votre IMC est de <?php echo $imc ?>.
+            </p>
+
+            <!-- Script PHP d'affichage de la table de multiplication -->
+            <p>
+            <?php
+            if ($imc < 18){
+                echo "Vous êtes en sous-poids";
+            }
+            elseif ($imc < 25){
+                echo "Votre IMC est normal";
+            }
+            else {
+                echo "Vous êtes en surpoids";
+            }
+            ?>
+            </p>
+
+
+
+
+            </body>
+            </html> 
+          ~~~
+
+  2. Cette [activité Capytale](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/018e-20054) a pour but de réaliser un formulaire de calcul d'IMC en [Javascript][Javascript] côté client (dans le navigateur). Une solution est proposée ci-dessous (à consulter après avoir cherché [l'activité](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/018e-20054))
+
+
+    ??? question "Réponse"
+
+        === "Code HTML"
+
+            ~~~html
+            <html lang="fr">
+
+            <!-- Début en-tête -->
+            <head>
+
+              <title> Formulaire de calcul d'IMC </title>
+
+              <meta charset="utf-8">
+                
+              <script type="text/Javascript" src="imc.js" defer="defer">
+              </script>
+                
+            </head>
+
+            <body>
+
+
+            <h1>Calcul d'IMC</h1>
+
+            <p> A propos du calcul de l'IMC : <a href="https://fr.wikipedia.org/wiki/Indice_de_masse_corporelle">page wikipedia</a>.  </p>
+
+            <p><a href="http://frederic-junier.org/NSI/sandbox/imc.php">Lien</a> vers un formulaire de calcul d'IMC avec 
+            un script en PHP s'exécutant côté serveur : </p>
+              
+              <h2> Formulaire de saisie des paramètres </h2>
+
+                    <label for="masse">Saisie de la masse en kilogrammes : </label> 
+                    <input type="number" id="masse" min="0" required>
+                    <br>
+                    <label for="taille">Saisie de la taille en mètres : </label> 
+                    <input type="number" id="taille" step="0.01" required>
+                    <br>
+                    <button  id="bouton" onclick="calcule_imc()">  Soumettre </button>
+
+            <h2> Affichage du résultat </h2>
+
+            <p>
+            Votre IMC est de <span id="imc"></span>
+            </p>
+
+
+            <p id="commentaire">
+            </p>
+
+            </body>
+            </html>
+            ~~~
+
+
+        === "Code Javascript"
+
+            ~~~javascript
+            //variables globales
+            let masse = document.getElementById("masse");
+            let taille =  document.getElementById("taille");
+            let imc = document.getElementById("imc");
+            let commentaire = document.getElementById("commentaire");
+
+            function calcule_imc(){
+                imc.value = masse.value / (taille.value * taille.value);
+                imc.innerHTML = imc.value;    
+                if (imc.value < 18){
+                    commentaire.innerHTML = 'Vous êtes en sous-poids';
+                }
+                else if(imc.value < 25){
+                    commentaire.innerHTML = 'Votre IMC est normal';
+                }
+                else {
+                    commentaire.innerHTML = 'Vous êtes en surpoids';
+                }
+            }
+
+            //initialisation ,valeurs par défaut au chargement de la page
+            masse.value = 80;
+            taille.value = 1.8;
+            calcule_imc();
+            ~~~
+
+
+
+
+!!! tip "Exercice 4"
+
     Ouvrir un navigateur Web et accéder à la page <https://repl.it/@fredericjunier/1NSI-Javascript-Ex3-Eleve>.
     
     On arrive dans un environnement de développement Web en HTML/CSS/Javascript sur la plateforme [https://repl.it](https://repl.it).
@@ -502,7 +708,7 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
     
     1. Depuis la page d'accueil, suivre le lien vers l'activité  __Calcul d'âge__ de la page `age.html`.
     
-          * Quel élément [HTM][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+          * Quel élément [HTML][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
         
           * Compléter le  code Javascript dans le fichier `code-age.js` afin que la page puisse calculer l'âge de l'utilisateur à partir de sa date de naissance?
     
@@ -521,22 +727,22 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
     
     4. Revenir sur la page d'accueil et suivre le lien vers l'activité  __Colorpicker__. La page `rgb.html` propose d'afficher une couleur dans un carré à partir de ses composantes (R,G,B). Le  code Javascript  se trouve dans le fichier `code-rgb.js`.
     
-        * Quel élément [HTM][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+        * Quel élément [HTML][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
         
         * Compléter le  code Javascript qui se trouve dans le fichier `code-rgb.js` pour  rendre la page `rgb.html` fonctionnelle.
     
     5. Revenir sur la page d'accueil et suivre le lien vers l'activité  __Conversion d'unité de température__. La page `temperature.html` propose de convertir une mesure de température de Celsius en Fahrenheit ou réciproquement. Le  code Javascript  se trouve dans le fichier `code-temperature.js`.  
       
-        * Quel élément [HTM][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+        * Quel élément [HTML][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
         
         * Compléter le  code Javascript qui se trouve dans le fichier `code-temperature.js` pour  rendre la page `temperature.html`  fonctionnelle.
     
     6. Revenir sur la page d'accueil et suivre le lien vers l'activité  __Calcul de la force d'un mot de passe__. La page `force-mot-passe.html` propose de tester la force d'un mot de passe en fonction de son nombre de caractères et de la taille de l'alphabet où sont choisis les caractères.   Le  code Javascript  se trouve dans le fichier `code-force-mot-passe.js`.  
     Tester d'abord le formulaire de l'ANSSI qui a inspiré cette activité : [https://www.ssi.gouv.fr/administration/precautions-elementaires/calculer-la-force-dun-mot-de-passe/](https://www.ssi.gouv.fr/administration/precautions-elementaires/calculer-la-force-dun-mot-de-passe/).
       
-        * Quel élément [HTM][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
+        * Quel élément [HTML][HTML] a reçu un gestionnaire d'événement ? Quel événement est surveillé ?
         
-        * Compléter le  code Javascript qui se trouve dans le fichier `code-force-mot-passe.js` pour  rendre la page `force-mot-passe.html`  fonctionnelle.
+        * Compléter le  code [Javascript][Javascript] qui se trouve dans le fichier `code-force-mot-passe.js` pour  rendre la page `force-mot-passe.html`  fonctionnelle.
       
         !["Force d'un mot de passe"](images/force-mot-passe.png "Force d'un mot de passe"){width=60%}\
 
@@ -546,7 +752,7 @@ le tutoriel de w3schools <https://www.w3schools.com/js/default.asp>.*
 
 # QCM E3C2
 
-!!! tip "Exercice 4"
+!!! tip "Exercice 5"
 
     _QCM_ de type E3C2.
     
