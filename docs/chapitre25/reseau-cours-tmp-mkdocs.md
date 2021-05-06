@@ -679,11 +679,11 @@ _Le contenu de cette partie est directement inspiré des cours de [Romain Janvie
     
     1. Dans quel but le protocole du bit alterné peut-il être utilisé ?
     
-       * **Réponse A :**  Pour chiffrer des données lors de transmission de données sur un
-       réseau
-       * **Réponse B  :**  Pour détecter des pertes de paquets de données lors de transmission de données sur un réseau.
-       * **Réponse C  :**  Pour créer des paquets de données lors de transmission de données sur un réseau.
-       * **Réponse D  :**  Pour envoyer les paquets de données à la bonne l'adresse IP de la machine de destination.
+        * **Réponse A :**  Pour chiffrer des données lors de transmission de données sur un
+        réseau
+        * **Réponse B  :**  Pour détecter des pertes de paquets de données lors de transmission de données sur un réseau.
+        * **Réponse C  :**  Pour créer des paquets de données lors de transmission de données sur un réseau.
+        * **Réponse D  :**  Pour envoyer les paquets de données à la bonne l'adresse IP de la machine de destination.
     
     2. Quelle est la réponse à envoyer quand on reçoit un paquet avec le bit de contrôle 1 ?
     3. On arrive au timeout pour le paquet n avec un bit de contrôle de 0. Quelle était la réponse attendue ?
