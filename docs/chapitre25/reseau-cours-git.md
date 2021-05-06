@@ -1,24 +1,24 @@
--   [Crédits](#crédits)
--   [Réseau informatique](#réseau-informatique)
+-   [Crédits](#credits)
+-   [Réseau informatique](#reseau-informatique)
     -   [Histoire](#histoire)
     -   [Terminologie et classification des
-        réseaux](#terminologie-et-classification-des-réseaux)
--   [Le modèle en couches](#le-modèle-en-couches)
+        réseaux](#terminologie-et-classification-des-reseaux)
+-   [Le modèle en couches](#le-modele-en-couches)
     -   [Découpage des données en
-        paquets](#découpage-des-données-en-paquets)
+        paquets](#decoupage-des-donnees-en-paquets)
     -   [Modèle en couches et encapsulation des
-        données](#modèle-en-couches-et-encapsulation-des-données)
+        données](#modele-en-couches-et-encapsulation-des-donnees)
     -   [La couche liaison du modèle
-        TCP/IP](#la-couche-liaison-du-modèle-tcpip)
+        TCP/IP](#la-couche-liaison-du-modele-tcpip)
     -   [La couche réseau, ou internet, du modèle
-        TCP/IP](#la-couche-réseau-ou-internet-du-modèle-tcpip)
+        TCP/IP](#la-couche-réseau-ou-internet-du-modele-tcpip)
     -   [La couche transport du modèle
-        TCP/IP](#la-couche-transport-du-modèle-tcpip)
+        TCP/IP](#la-couche-transport-du-modele-tcpip)
     -   [La couche application du modèle
-        TCP/IP](#la-couche-application-du-modèle-tcpip)
+        TCP/IP](#la-couche-application-du-modele-tcpip)
 -   [Étude d’un protocole de récupération de
-    paquet](#étude-dun-protocole-de-récupération-de-paquet)
-    -   [Le protocole du bit alterné](#le-protocole-du-bit-alterné)
+    paquet](#etude-dun-protocole-de-récupération-de-paquet)
+    -   [Le protocole du bit alterné](#le-protocole-du-bit-alterne)
     -   [Applications](#applications)
 
 <!-- Définition des hyperliens  -->
