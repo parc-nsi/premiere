@@ -50,4 +50,4 @@ layout: parc
 * [Chapitre 22 : Algorithme de classification des K plus proches voisins](chapitre22.md)  
 * [Chapitre 23 : Interactions dans le navigateur, Javascript](chapitre23.md)  
 * [Chapitre 24 : Algorithmes gloutons](chapitre24.md)  
-* [Chapitre 25 : Réseau TCP/IP](chapitre24.md)  
+* [Chapitre 25 : Réseau TCP/IP](chapitre25.md)  
