@@ -18,7 +18,7 @@ geometry:
 
 # Crédits {-} 
  
-_Ce cours est largement inspiré du chapitre 26 au manuel NSI de la collection Tortue chez Ellipse,  auteurs : Ballabonski, Conchon, Filliatre, N'Guyen. Ce document est aussi constitué de nombreux emprunts à des ressources en ligne  proposées par les collègues du [lycée La Martinière Diderot de Lyon](http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv1/co/Div_6_Archi_OS_3.html),  [Romain Janvier](http://archives.janviercommelemois.fr/nsi/fichiers_pdf/feuille-internet.pdf) ou [David Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html)._
+_Ce cours est largement inspiré du chapitre 26 au manuel NSI de la collection Tortue chez Ellipse,  auteurs : Ballabonski, Conchon, Filliatre, N'Guyen. Ce document est aussi constitué de nombreux emprunts à des ressources en ligne  proposées par les collègues du [lycée La Martinière Diderot de Lyon](http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv1/co/Div_6_Archi_OS_3.html),  [Romain Janvier](http://archives.janviercommelemois.fr/nsi/fichiers_pdf/feuille-internet.pdf), [David Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html) ou [Sébastien Sauvage](https://sebsauvage.net/)._
 
 
 <!-- Définition des hyperliens  -->
@@ -95,25 +95,25 @@ _QCM type E3C_
 1. Un protocole est un ensemble de ...
 
 
-* **Réponse A :**  matériels connectés entre eux
-* **Réponse B  :**  serveurs et de clients connectés entre eux
-* **Réponse C  :**  règles qui régissent les échanges entre équipements informatiques
-* **Réponse D  :** règles qui régissent les échanges entre un système d'exploitation et les applications
+    * **Réponse A :**  matériels connectés entre eux
+    * **Réponse B  :**  serveurs et de clients connectés entre eux
+    * **Réponse C  :**  règles qui régissent les échanges entre équipements informatiques
+    * **Réponse D  :** règles qui régissent les échanges entre un système d'exploitation et les applications
 
 2. Comment s'appelle l'ensemble des règles qui régissent les échanges sur
 Internet ?
 
-* **Réponse A :**  les couches
-* **Réponse B  :**  le wifi
-* **Réponse C  :**  les protocoles
-* **Réponse D  :** les commutateurs
+    * **Réponse A :**  les couches
+    * **Réponse B  :**  le wifi
+    * **Réponse C  :**  les protocoles
+    * **Réponse D  :** les commutateurs
 
 3. L'architecture client-serveur :
 
-* **Réponse A :**  est un mode de communication entre programmes
-* **Réponse B  :**  est une architecture matérielle de coopération entre machines
-* **Réponse C  :**  est un mode de communication entre routeurs
-* **Réponse D  :** est un mode de communication entre commutateurs
+  * **Réponse A :**  est un mode de communication entre programmes
+  * **Réponse B  :**  est une architecture matérielle de coopération entre machines
+  * **Réponse C  :**  est un mode de communication entre routeurs
+  * **Réponse D  :** est un mode de communication entre commutateurs
 :::
 
 # Le modèle en couches
@@ -121,7 +121,7 @@ Internet ?
 ## Découpage des données en paquets
 
 :::cours
-Dans un réseau informatique, si on veut transmettre une image de plusieurs Méga octets, on n'envoie pas les données en un seul bloc mais on les découpe en paquets plus petits  qui sont transmis séparément. Ainsi, il n'est pas nécessaire de tout retransmettre en cas d'erreur de plus cela réduit les risques d'encombrement o ude blocage des liens.
+Dans un réseau informatique, si on veut transmettre une image de plusieurs Méga octets, on n'envoie pas les données en un seul bloc mais on les découpe en paquets plus petits  qui sont transmis séparément. Ainsi, il n'est pas nécessaire de tout retransmettre en cas d'erreur de plus cela réduit les risques d'encombrement ou de blocage des liens.
 
 Ce principe de **découpage des données en paquets** s'appelle le **multiplexage**
 :::
@@ -220,7 +220,7 @@ Sélectionner le mode *construction* ![mode construction](images/filius-construc
    
 4. Déplier le détail du premier paquet de données dans l'historique des échanges. Filius appelle *Réseau* la couche *liaison* du [modèle TCP/IP](https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet)  et *internet* la couche *réseau*. Quel protocole a généré l'entête de la couche *internet* ? Quel message est transmis  ? Déterminer l'émetteur  et le destinataire de ce paquet de données et comment ils sont repérés.
 
-![arp1](images/arp1.png)\
+  ![arp1](images/arp1.png)\
 
 5. Déplier le détail du second paquet de données et répondre aux mêmes questions.
 
@@ -343,19 +343,19 @@ _Cette méthode est hors-programme pour le bac !_
 
 1. Si le nombre de bits du **masque de sous-réseau** est un multiple de 8  : `255.0.0.0`, `255.255.0.0`, ou `255.255.255.0` il suffit de masquer la partie de l'adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  correspondant aux `0` du masque. Le passage en binaire n'est pas nécessaire.
 
-| Adresse        | Binaire                             | Décimal       |
-|----------------|-------------------------------------|---------------|
-| adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
-| masque         | 11111111.11111111.11111111.00000000 | 255.255.112.0 |
-| adresse réseau | 11000000.10101000.00010111.00000000 | 192.168.23.0  |
+  | Adresse        | Binaire                             | Décimal       |
+  |----------------|-------------------------------------|---------------|
+  | adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
+  | masque         | 11111111.11111111.11111111.00000000 | 255.255.112.0 |
+  | adresse réseau | 11000000.10101000.00010111.00000000 | 192.168.23.0  |
 
 2. Sinon, le passage en binaire est nécessaire.
 
-| Adresse        | Binaire                             | Décimal       |
-|----------------|-------------------------------------|---------------|
-| adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
-| masque         | 11111111.11111111.11110000.00000000 | 255.255.112.0 |
-| adresse réseau | 11000000.10101000.00010000.00000000 | 192.168.16.0  |
+  | Adresse        | Binaire                             | Décimal       |
+  |----------------|-------------------------------------|---------------|
+  | adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
+  | masque         | 11111111.11111111.11110000.00000000 | 255.255.112.0 |
+  | adresse réseau | 11000000.10101000.00010000.00000000 | 192.168.16.0  |
 
 
 Un **masque de sous-réseau** peut être caractériser par sa longueur en bits. La notation [CIDR](https://fr.wikipedia.org/wiki/Sous-r%C3%A9seau) est une façon compacte d'ajouter cette information à la suite d'une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) en les séparant par le symbole `/`.
@@ -435,57 +435,57 @@ _QCM type E3C_
 
 1. Laquelle de ces écritures ne désigne pas une adresse IP ?
 
-* **Réponse A :**  127.0.0.1
-* **Réponse B  :**  207.142.131.245
-* **Réponse C  :**  192.168.229.48
-* **Réponse D  :** 296.141.2.4
+    * **Réponse A :**  127.0.0.1
+    * **Réponse B  :**  207.142.131.245
+    * **Réponse C  :**  192.168.229.48
+    * **Réponse D  :** 296.141.2.4
 
 2. Sur la configuration IP d'une machine nommée MACH01 on peut lire :
 
-adresse Ipv4 : 172.16.100.201 Masque de sous-réseau : 255.255.0.0  Passerelle : 172.16.0.254
+    adresse Ipv4 : 172.16.100.201 Masque de sous-réseau : 255.255.0.0  Passerelle : 172.16.0.254
 
-Sur la configuration IP d'une machine nommée MACH02 on peut lire :
+    Sur la configuration IP d'une machine nommée MACH02 on peut lire :
 
-adresse Ipv4 : 172.16.100.202 Masque de sous-réseau : 255.255.0.0  Passerelle : 172.16.0.254
+    adresse Ipv4 : 172.16.100.202 Masque de sous-réseau : 255.255.0.0  Passerelle : 172.16.0.254
 
-Depuis la machine MACH02, à l'aide de quelle commande peut-on tester le
-dialogue entre ces deux machines ?
+    Depuis la machine MACH02, à l'aide de quelle commande peut-on tester le
+    dialogue entre ces deux machines ?
 
-* **Réponse A :**  ping 172.16.100.201
-* **Réponse B  :**  ping 172.16.100.202
-* **Réponse C  :**  ping 172.16.100.254
-* **Réponse D  :**  ping 255.255.0.0
+    * **Réponse A :**  ping 172.16.100.201
+    * **Réponse B  :**  ping 172.16.100.202
+    * **Réponse C  :**  ping 172.16.100.254
+    * **Réponse D  :**  ping 255.255.0.0
 
 
 3. Dans un terminal sous Linux, à quoi sert la commande traceroute ?
 
-* **Réponse A :**  à afficher un itinéraire routier entre deux villes
-* **Réponse B  :**  c'est un synonyme pour la commande ping
-* **Réponse C  :**  à afficher le chemin suivi par des paquets à travers un protocole IP
-* **Réponse D  :**  à suivre pas à pas l'exécution d'un programme
+    * **Réponse A :**  à afficher un itinéraire routier entre deux villes
+    * **Réponse B  :**  c'est un synonyme pour la commande ping
+    * **Réponse C  :**  à afficher le chemin suivi par des paquets à travers un protocole IP
+    * **Réponse D  :**  à suivre pas à pas l'exécution d'un programme
 
 
 4. Quelle est l'utilité de la commande ping dans un réseau informatique ?
 
-* **Réponse A :**  établir un réseau privé virtuel
-* **Réponse B  :**  tester si la connexion peut être établie avec une machine distante
-* **Réponse C  :**  obtenir la route suivie par un paquet dans le réseau
-* **Réponse D  :**  mesurer les performances d'une machine distante
+    * **Réponse A :**  établir un réseau privé virtuel
+    * **Réponse B  :**  tester si la connexion peut être établie avec une machine distante
+    * **Réponse C  :**  obtenir la route suivie par un paquet dans le réseau
+    * **Réponse D  :**  mesurer les performances d'une machine distante
 
 5. Quel matériel permet d'interconnecter des **réseaux** entre eux :
 
-* **Réponse A :**  un routeur
-* **Réponse B  :**  un commutateur (ou *switch*)
-* **Réponse C  :**  un interconnecteur
-* **Réponse D  :**  un serveur
+    * **Réponse A :**  un routeur
+    * **Réponse B  :**  un commutateur (ou *switch*)
+    * **Réponse C  :**  un interconnecteur
+    * **Réponse D  :**  un serveur
 
 6. Quel protocole permet d'attribuer dynamiquement une adresse IP ?
 
 
-* **Réponse A :**  UDP
-* **Réponse B  :**  HTTP
-* **Réponse C  :**  DHCP
-* **Réponse D  :**  DNS
+    * **Réponse A :**  UDP
+    * **Réponse B  :**  HTTP
+    * **Réponse C  :**  DHCP
+    * **Réponse D  :**  DNS
 
  
 
@@ -651,25 +651,25 @@ _Le contenu de cette partie est directement inspiré des cours de [Romain Janvie
 * Le **protocole de bit alterné** était implémenté au niveau de la *couche liaison* du modèle OSI. Le principe est simple :  considérons 2 machines en réseau : une machine  A, l'émetteur et  une machine B, le destinataire.  Lors de l'émission d'un paquet de données, A y ajoute un *bit* (1 ou 0) appelé *bit de contrôle*. À réception, B  envoie un *accusé de réception* (acknowledge en anglais souvent noté `ACK`) en lui ajoutant également un *bit de contrôle* (1 ou 0).
 
 * Pour le choix des *bits drapeaux*, la règle est la suivante  : 
-  * le premier paquet envoyé par A aura pour bit de contrôle 0
-  * B répond avec un accusé de réception en fixant une *bit alterné* pour  son  bit de contrôle  : donc 1 s'il a reçu 0
-  * A reçoit un accusé de réception avec le bit de contrôle 1 donc il sait que son paquet précédent a été reçu et qu'il peut envoyer le paquet suivant avec le bit de contrôle 1 
-  * B reçoit un paquet avec le bit de contrôle qui correspond à celui  demandé, il renvoie un accusé de réception avec le *bit alterné* donc 0 eau 1
-  * ainsi de suite ...
+    * le premier paquet envoyé par A aura pour bit de contrôle 0
+    * B répond avec un accusé de réception en fixant une *bit alterné* pour  son  bit de contrôle  : donc 1 s'il a reçu 0
+    * A reçoit un accusé de réception avec le bit de contrôle 1 donc il sait que son paquet précédent a été reçu et qu'il peut envoyer le paquet suivant avec le bit de contrôle 1 
+    * B reçoit un paquet avec le bit de contrôle qui correspond à celui  demandé, il renvoie un accusé de réception avec le *bit alterné* donc 0 eau 1
+    * ainsi de suite ...
 
 ![Protocole du bit alterné](images/bit_alterne1.png)\
 
-_Déroulement du protocole du bit alterné_
+_Déroulement du protocole du bit alterné (source : Romain janvier)_
 
 * Le système de bit de contrôle est complété avec un système d'horloge côté émetteur. Un "chronomètre" est déclenché à chaque envoi de paquet. Si au bout d'un certain temps (le *timeout*), l'émetteur n'a pas reçu un *accusé de réception* correct (avec le bon bit de contrôle), la trame précédemment envoyée par l'émetteur est considérée comme perdue et elle est de nouveau envoyée.
   
 * Considérons quelques cas de perte de paquet :
-  * Si un paquet  (avec par exemple le bit de contrôle0) envoyé par l'émetteur est perdu, l'accusé de réception ne lui revient pas au bout du timeout, il comprend que son paquet a été perdu et il renvoie le paquet.
-  * Si l'*accusé de réception* avec le bit de contrôle 1 est perdu, il ne parvient pas à l'émetteur au bout du *timeout* qui renvoie le paquet avec le bit de contrôle 0. Le destinataire reçoit un paquet avec le bit de contrôle 0 alors qu'il attendait le bit de contrôle 1. Il comprend que son acquittement a été perdu et il renvoie son acquittement avec le bit de contrôle 1.
+    * Si un paquet  (avec par exemple le bit de contrôle0) envoyé par l'émetteur est perdu, l'accusé de réception ne lui revient pas au bout du timeout, il comprend que son paquet a été perdu et il renvoie le paquet.
+    * Si l'*accusé de réception* avec le bit de contrôle 1 est perdu, il ne parvient pas à l'émetteur au bout du *timeout* qui renvoie le paquet avec le bit de contrôle 0. Le destinataire reçoit un paquet avec le bit de contrôle 0 alors qu'il attendait le bit de contrôle 1. Il comprend que son acquittement a été perdu et il renvoie son acquittement avec le bit de contrôle 1.
 
 ![Protocole du bit alterné](images/bit_alterne2.png)\
 
-_Pertes de paquets dans le protocole du bit alterné_
+_Pertes de paquets dans le protocole du bit alterné (source : Romain janvier)_
 
 :::
 
@@ -679,11 +679,11 @@ _Pertes de paquets dans le protocole du bit alterné_
 
 1. Dans quel but le protocole du bit alterné peut-il être utilisé ?
 
-   * **Réponse A :**  Pour chiffrer des données lors de transmission de données sur un
-   réseau
-   * **Réponse B  :**  Pour détecter des pertes de paquets de données lors de transmission de données sur un réseau.
-   * **Réponse C  :**  Pour créer des paquets de données lors de transmission de données sur un réseau.
-   * **Réponse D  :**  Pour envoyer les paquets de données à la bonne l'adresse IP de la machine de destination.
+    * **Réponse A :**  Pour chiffrer des données lors de transmission de données sur un
+    réseau
+    * **Réponse B  :**  Pour détecter des pertes de paquets de données lors de transmission de données sur un réseau.
+    * **Réponse C  :**  Pour créer des paquets de données lors de transmission de données sur un réseau.
+    * **Réponse D  :**  Pour envoyer les paquets de données à la bonne l'adresse IP de la machine de destination.
 
 2. Quelle est la réponse à envoyer quand on reçoit un paquet avec le bit de contrôle 1 ?
 3. On arrive au timeout pour le paquet n avec un bit de contrôle de 0. Quelle était la réponse attendue ?
