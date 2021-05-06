@@ -102,7 +102,7 @@ photographiques, merci de me contacter en cas de problème.*
     Pour une présentation globale d'Internet, on pourra visionner cette [video](https://youtu.be/dCknqcjcItU).
 
 <figure>
-<img src="images/cable-sousmarin.png" style="width:70.0%" alt="Cartes des câbles sous-marins : https://www.submarinecablemap.com/" /><figcaption aria-hidden="true">Cartes des câbles sous-marins : <a href="https://www.submarinecablemap.com/" class="uri">https://www.submarinecablemap.com/</a></figcaption>
+<img src="../images/cable-sousmarin.png" style="width:70.0%" alt="Cartes des câbles sous-marins : https://www.submarinecablemap.com/" /><figcaption aria-hidden="true">Cartes des câbles sous-marins : <a href="https://www.submarinecablemap.com/" class="uri">https://www.submarinecablemap.com/</a></figcaption>
 </figure>
 
 !!! tip "Exercice 1"
@@ -142,12 +142,12 @@ photographiques, merci de me contacter en cas de problème.*
 
     Ce principe de **découpage des données en paquets** s'appelle le **multiplexage**
 
-<img src="images/multiplex2.gif" style="width:60.0%" alt="Réseau sans multiplexage : canal bloqué" />  
+<img src="../images/multiplex2.gif" style="width:60.0%" alt="Réseau sans multiplexage : canal bloqué" />  
 
 *Réseau sans multiplexage : canal bloqué (source :
 https://www.isnbreizh.fr)*
 
-<img src="images/multiplex4.gif" style="width:60.0%" alt="Réseau avec multiplexage" />  
+<img src="../images/multiplex4.gif" style="width:60.0%" alt="Réseau avec multiplexage" />  
 
 *Réseau avec multiplexage (source : https://www.isnbreizh.fr)*
 
@@ -522,11 +522,11 @@ https://www.isnbreizh.fr)*
     3. Toute connexion [TCP](https://fr.wikipedia.org/wiki/Transmission_Control_Protocol) se termine par un `handshaking`  en quatre de temps avec un échange de paquets marqués par le drapeau `FIN` (voir figure 14)
 
 <figure>
-<img src="images/TCP1.png" style="width:80.0%" alt="Ouverture d’une connexion TCP" /><figcaption aria-hidden="true">Ouverture d’une connexion TCP</figcaption>
+<img src="../images/TCP1.png" style="width:80.0%" alt="Ouverture d’une connexion TCP" /><figcaption aria-hidden="true">Ouverture d’une connexion TCP</figcaption>
 </figure>
 
 <figure>
-<img src="images/filius-tcp2.png" style="width:100.0%" alt="Fin d’une connexion TCP" /><figcaption aria-hidden="true">Fin d’une connexion TCP</figcaption>
+<img src="../images/filius-tcp2.png" style="width:100.0%" alt="Fin d’une connexion TCP" /><figcaption aria-hidden="true">Fin d’une connexion TCP</figcaption>
 </figure>
 
 !!! tip "Exercice 6"
@@ -547,7 +547,7 @@ https://www.isnbreizh.fr)*
 ## La couche application du modèle TCP/IP
 
 <figure>
-<img src="images/filius-dns.png" style="width:100.0%" alt="Réseaux avec serveur DNS" /><figcaption aria-hidden="true">Réseaux avec serveur DNS</figcaption>
+<img src="../images/filius-dns.png" style="width:100.0%" alt="Réseaux avec serveur DNS" /><figcaption aria-hidden="true">Réseaux avec serveur DNS</figcaption>
 </figure>
 
 !!! info "Activité 4"
@@ -599,7 +599,7 @@ https://www.isnbreizh.fr)*
     ~~~
 
 <figure>
-<img src="images/528px-DNS_iterations.svg.png" style="width:60.0%" alt="Requêtes DNS itératives (source Wikipedia)" /><figcaption aria-hidden="true">Requêtes DNS itératives (source Wikipedia)</figcaption>
+<img src="../images/528px-DNS_iterations.svg.png" style="width:60.0%" alt="Requêtes DNS itératives (source Wikipedia)" /><figcaption aria-hidden="true">Requêtes DNS itératives (source Wikipedia)</figcaption>
 </figure>
 
 !!! tip "Exercice 7"
