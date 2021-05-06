@@ -18,7 +18,7 @@ geometry:
 
 # Crédits {-} 
  
-_Ce cours est largement inspiré du chapitre 26 au manuel NSI de la collection Tortue chez Ellipse,  auteurs : Ballabonski, Conchon, Filliatre, N'Guyen. Ce document est aussi constitué de nombreux emprunts à des ressources en ligne  proposées par les collègues du [lycée La Martinière Diderot de Lyon](http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv1/co/Div_6_Archi_OS_3.html),  [Romain Janvier](http://archives.janviercommelemois.fr/nsi/fichiers_pdf/feuille-internet.pdf), [David Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html) ou [Sébastien Sauvage](https://sebsauvage.net/)._
+_Ce cours est largement inspiré du chapitre 26 au manuel NSI de la collection Tortue chez Ellipse,  auteurs : Ballabonski, Conchon, Filliatre, N'Guyen. Ce document est aussi constitué de nombreux emprunts à des ressources en ligne  proposées par les collègues du [lycée La Martinière Diderot de Lyon](http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv1/co/Div_6_Archi_OS_3.html),  [Romain Janvier](http://archives.janviercommelemois.fr/nsi/fichiers_pdf/feuille-internet.pdf), [David Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html) ou [Sébastien Sauvage](https://sebsauvage.net/). Il manque des crédits photographiques, merci de me contacter en cas de problème._
 
 
 <!-- Définition des hyperliens  -->
@@ -73,14 +73,14 @@ Pour une présentation de l'architecture client-serveur, on pourra visionner cet
 
 :::cours
 * Les réseaux informatiques peuvent être de différentes tailles : 
-    * Les r*éseaux locaux* ou **Local Area Network (LAN)**  limités à une zone géographique restreinte (maison, entreprise, lycée ...)
+    * Les *réseaux locaux* ou **Local Area Network (LAN)**  limités à une zone géographique restreinte (maison, entreprise, lycée ...)
     * Les *réseaux étendus* ou **Wide Area Network (WAN)**  couvrant de vastes zones géographiques (pays, continent ). Ce sont, par exemple, les réseaux des fournisseurs d'accès internet (Free, Orange, SFR...), de grandes sociétés...
     * Internet est une interconnexion  mondiale de réseaux
 * Les réseaux informatiques utilisent des liens de technologies diverses  :
-  * Des liaisons filaires :
-    * *câbles à paires torsadées*  utilisées avec le protocole de liaison Ethernet dans les **LAN** : sensibles aux interférences électromagnétiques même s'ils sont blindés, leur  portée maximale est  de 200 mètres avec un débit maximal de 1 Gb/s ;
-    * *fibres optiques* utilisées pour les interconnexions de réseau (dont les câbles sous-marin pour les liaisons intercontinentales) avec un débit de plusieurs Gb/s et des contraintes de portée réduites (sauf pour l'hypertrading des places financières !)
-  * Des liaisons par ondes : Wifi, Bluetooth, Satellite, 4G ...
+    * Des liaisons filaires :
+        * *câbles à paires torsadées*  utilisées avec le protocole de liaison Ethernet dans les **LAN** : sensibles aux interférences électromagnétiques même s'ils sont blindés, leur  portée maximale est  de 200 mètres avec un débit maximal de 1 Gb/s ;
+        * *fibres optiques* utilisées pour les interconnexions de réseau (dont les câbles sous-marin pour les liaisons intercontinentales) avec un débit de plusieurs Gb/s et des contraintes de portée réduites (sauf pour l'hypertrading des places financières !)
+    * Des liaisons par ondes : Wifi, Bluetooth, Satellite, 4G ...
 * L'interconnexion dans l'Internet de tous ces réseaux hétérogènes sur le plan matériel, a été rendu possible par le développement de **protocoles logiciels**.
 Pour une présentation globale d'Internet, on pourra visionner cette [video](https://youtu.be/dCknqcjcItU).
 :::
@@ -110,11 +110,11 @@ Internet ?
 
 3. L'architecture client-serveur :
 
-  * **Réponse A :**  est un mode de communication entre programmes
-  * **Réponse B  :**  est une architecture matérielle de coopération entre machines
-  * **Réponse C  :**  est un mode de communication entre routeurs
-  * **Réponse D  :** est un mode de communication entre commutateurs
-:::
+    * **Réponse A :**  est un mode de communication entre programmes
+    * **Réponse B  :**  est une architecture matérielle de coopération entre machines
+    * **Réponse C  :**  est un mode de communication entre routeurs
+    * **Réponse D  :** est un mode de communication entre commutateurs
+  :::
 
 # Le modèle en couches
 
@@ -128,12 +128,12 @@ Ce principe de **découpage des données en paquets** s'appelle le **multiplexag
 
 ![Réseau sans multiplexage : canal bloqué](images/multiplex2.gif){width="60%"}\
 
-_Réseau sans multiplexage : canal bloqué_
+_Réseau sans multiplexage : canal bloqué (source : https://www.isnbreizh.fr)_
 
 
 ![Réseau avec multiplexage](images/multiplex4.gif){width="60%"}\
 
-_Réseau avec multiplexage_
+_Réseau avec multiplexage (source : https://www.isnbreizh.fr)_
 
 
 ##  Modèle en couches et encapsulation des données
@@ -690,4 +690,4 @@ _Pertes de paquets dans le protocole du bit alterné (source : Romain janvier)_
 4. Imaginer une ou plusieurs situations où le protocole de bit alterné est inefficace et ne permet pas de récupérer un paquet perdu.
 
 
-:::
+::: 

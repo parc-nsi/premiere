@@ -34,7 +34,8 @@ Lyon](http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv1/co/Div_6_Archi_OS
 [Romain
 Janvier](http://archives.janviercommelemois.fr/nsi/fichiers_pdf/feuille-internet.pdf),
 [David Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html)
-ou [Sébastien Sauvage](https://sebsauvage.net/).*
+ou [Sébastien Sauvage](https://sebsauvage.net/). Il manque des crédits
+photographiques, merci de me contacter en cas de problème.*
 
 <!-- Définition des hyperliens  -->
 
@@ -87,14 +88,14 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 !!! note "Point de cours 1"
 
     * Les réseaux informatiques peuvent être de différentes tailles : 
-        * Les r*éseaux locaux* ou **Local Area Network (LAN)**  limités à une zone géographique restreinte (maison, entreprise, lycée ...)
+        * Les *réseaux locaux* ou **Local Area Network (LAN)**  limités à une zone géographique restreinte (maison, entreprise, lycée ...)
         * Les *réseaux étendus* ou **Wide Area Network (WAN)**  couvrant de vastes zones géographiques (pays, continent ). Ce sont, par exemple, les réseaux des fournisseurs d'accès internet (Free, Orange, SFR...), de grandes sociétés...
         * Internet est une interconnexion  mondiale de réseaux
     * Les réseaux informatiques utilisent des liens de technologies diverses  :
-      * Des liaisons filaires :
-        * *câbles à paires torsadées*  utilisées avec le protocole de liaison Ethernet dans les **LAN** : sensibles aux interférences électromagnétiques même s'ils sont blindés, leur  portée maximale est  de 200 mètres avec un débit maximal de 1 Gb/s ;
-        * *fibres optiques* utilisées pour les interconnexions de réseau (dont les câbles sous-marin pour les liaisons intercontinentales) avec un débit de plusieurs Gb/s et des contraintes de portée réduites (sauf pour l'hypertrading des places financières !)
-      * Des liaisons par ondes : Wifi, Bluetooth, Satellite, 4G ...
+        * Des liaisons filaires :
+            * *câbles à paires torsadées*  utilisées avec le protocole de liaison Ethernet dans les **LAN** : sensibles aux interférences électromagnétiques même s'ils sont blindés, leur  portée maximale est  de 200 mètres avec un débit maximal de 1 Gb/s ;
+            * *fibres optiques* utilisées pour les interconnexions de réseau (dont les câbles sous-marin pour les liaisons intercontinentales) avec un débit de plusieurs Gb/s et des contraintes de portée réduites (sauf pour l'hypertrading des places financières !)
+        * Des liaisons par ondes : Wifi, Bluetooth, Satellite, 4G ...
     * L'interconnexion dans l'Internet de tous ces réseaux hétérogènes sur le plan matériel, a été rendu possible par le développement de **protocoles logiciels**.
     Pour une présentation globale d'Internet, on pourra visionner cette [video](https://youtu.be/dCknqcjcItU).
 
@@ -102,7 +103,7 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 <img src="images/cable-sousmarin.png" style="width:70.0%" alt="Cartes des câbles sous-marins : https://www.submarinecablemap.com/" /><figcaption aria-hidden="true">Cartes des câbles sous-marins : <a href="https://www.submarinecablemap.com/" class="uri">https://www.submarinecablemap.com/</a></figcaption>
 </figure>
 
-!!! tip "Exercice 1"
+:::exercice
 
     _QCM type E3C_
 
@@ -124,10 +125,12 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 
     3. L'architecture client-serveur :
 
-      * **Réponse A :**  est un mode de communication entre programmes
-      * **Réponse B  :**  est une architecture matérielle de coopération entre machines
-      * **Réponse C  :**  est un mode de communication entre routeurs
-      * **Réponse D  :** est un mode de communication entre commutateurs
+        * **Réponse A :**  est un mode de communication entre programmes
+        * **Réponse B  :**  est une architecture matérielle de coopération entre machines
+        * **Réponse C  :**  est un mode de communication entre routeurs
+        * **Réponse D  :** est un mode de communication entre commutateurs
+
+:::
 
 # Le modèle en couches
 
@@ -141,11 +144,12 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 
 <img src="images/multiplex2.gif" style="width:60.0%" alt="Réseau sans multiplexage : canal bloqué" />  
 
-*Réseau sans multiplexage : canal bloqué*
+*Réseau sans multiplexage : canal bloqué (source :
+https://www.isnbreizh.fr)*
 
 <img src="images/multiplex4.gif" style="width:60.0%" alt="Réseau avec multiplexage" />  
 
-*Réseau avec multiplexage*
+*Réseau avec multiplexage (source : https://www.isnbreizh.fr)*
 
 ## Modèle en couches et encapsulation des données
 
@@ -196,7 +200,7 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 
 ![Modèles en couches : OSI et TCP/IP](images/pileTCPIP2.png)
 
-!!! tip "Exercice 2"
+!!! tip "Exercice 1"
 
     _QCM type E3C_
 
@@ -245,7 +249,7 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 
     Le protocole [ARP](https://fr.wikipedia.org/wiki/Address_Resolution_Protocol) permet à un hôte émetteur de découvrir l'[adresse MAC](https://fr.wikipedia.org/wiki/Adresse_MAC) de son destinataire, à travers la diffusion d'une demande en [brodacast](https://fr.wikipedia.org/wiki/Broadcast_(informatique)), dénotée par l'adresse `FF:FF:FF:FF:FF:FF`  à l'ensemble des hôtes du réseau local. 
 
-!!! tip "Exercice 3"
+!!! tip "Exercice 2"
 
     _QCM type E3C_
 
@@ -351,7 +355,7 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 
     Pour s'entraîner on pourra utilise ce [calculateur en ligne](https://cric.grenoble.cnrs.fr/Administrateurs/Outils/CalculMasque/).
 
-!!! tip "Exercice 4"
+!!! tip "Exercice 3"
 
     Donner les adresses réseau correspondant à ces adresses  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  en notation [CIDR](https://fr.wikipedia.org/wiki/Sous-r%C3%A9seau) :  148.33.1.112/8 ,  82.30.12.18/24 et  91.198.174.3/19
 
@@ -411,7 +415,7 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
      6  qwant.par.franceix.net (37.49.236.134)  48.854 ms  25.381 ms  25.308 ms
     ~~~
 
-!!! tip "Exercice 5"
+!!! tip "Exercice 4"
 
     _QCM type E3C_
 
@@ -525,7 +529,7 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 <img src="images/filius-tcp2.png" style="width:100.0%" alt="Fin d’une connexion TCP" /><figcaption aria-hidden="true">Fin d’une connexion TCP</figcaption>
 </figure>
 
-!!! tip "Exercice 6"
+!!! tip "Exercice 5"
 
     _QCM type E3C_ 
 
@@ -598,7 +602,7 @@ ou [Sébastien Sauvage](https://sebsauvage.net/).*
 <img src="images/528px-DNS_iterations.svg.png" style="width:60.0%" alt="Requêtes DNS itératives (source Wikipedia)" /><figcaption aria-hidden="true">Requêtes DNS itératives (source Wikipedia)</figcaption>
 </figure>
 
-!!! tip "Exercice 7"
+!!! tip "Exercice 6"
 
     _QCM type E3C_
 
@@ -648,7 +652,7 @@ Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html), merci
 
 ## Applications
 
-!!! tip "Exercice 8"
+!!! tip "Exercice 7"
 
     1. Dans quel but le protocole du bit alterné peut-il être utilisé ?
 
