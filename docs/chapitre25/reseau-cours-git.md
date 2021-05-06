@@ -84,7 +84,7 @@ photographiques, merci de me contacter en cas de problème.*
     Pour une présentation de l'architecture client-serveur, on pourra visionner cette [video](https://vimeo.com/138623558).
 
 <figure>
-<img src="images/500px-Modèle-client-serveur.svg.png" style="width:60.0%" alt="Architecture client / serveur (Wikimedia Commons)" /><figcaption aria-hidden="true">Architecture client / serveur (Wikimedia Commons)</figcaption>
+<img src="../images/500px-Modèle-client-serveur.svg.png" style="width:60.0%" alt="Architecture client / serveur (Wikimedia Commons)" /><figcaption aria-hidden="true">Architecture client / serveur (Wikimedia Commons)</figcaption>
 </figure>
 
 !!! note "Point de cours 1"
