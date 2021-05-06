@@ -47,6 +47,9 @@ nav:
     - Chapitre 23  Interactions dans le navigateur, Javascript : 
       - Index : chapitre23.md
       - Cours : chapitre23/javascript-git2.md
+    - Chapitre 25 Réseau TCP/IP:
+      - Index : chapitre25.md
+      - Cours : chapitre25/reseau-cours-git.md
   - Langages :
     - Chapitre 1 affectations et types : chapitre1.md
     - Chapitre 3 boucles inconditionnelles : chapitre3.md
