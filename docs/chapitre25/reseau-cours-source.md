@@ -45,6 +45,8 @@ Dans les années 70, [Louis Pouzin](https://interstices.info/louis-pouzin-la-tet
 
 [![Interconnexion d'Arpanet, Packet Radio Net et Satnet avec la pile de protocoles TCP/IP en 1977](images/internet-1977.jpg)!](https://interstices.info/une-breve-histoire-des-reseaux-de-telecommunications/)
 
+_Source : Interstices_
+
  Aux États-Unis, [Vinton Cerf et Robert Kahn](https://fr.wikipedia.org/wiki/Vint_Cerf) s'inspirent des idées de Pouzin et inventent les protocoles **IP** et **TCP**. L'interconnexion des réseaux Arpanet et Csnet en 1983 avec **TCP/IP** marque la naissance d'Internet et son expansion au niveau mondial dans les sphères universitaires et de la recherche.
 
 
