@@ -21,5 +21,5 @@ Cours de Frédéric Junier.
 
 ??? video
 
-        * [Video Lumni de Charles Poulmaire](http://www.lumni.fr/video/l-architecture-des-reseaux-et-les-protocoles-de-communications)
+    * [Video Lumni de Charles Poulmaire](http://www.lumni.fr/video/l-architecture-des-reseaux-et-les-protocoles-de-communications)
         
