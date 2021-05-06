@@ -114,7 +114,7 @@ _Ce cours est largement inspiré du chapitre 26 au manuel NSI de la collection T
         * **Réponse B  :**  est une architecture matérielle de coopération entre machines
         * **Réponse C  :**  est un mode de communication entre routeurs
         * **Réponse D  :** est un mode de communication entre commutateurs
-  :::
+:::
 
 # Le modèle en couches
 

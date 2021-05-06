@@ -103,7 +103,7 @@ photographiques, merci de me contacter en cas de problème.*
 <img src="images/cable-sousmarin.png" style="width:70.0%" alt="Cartes des câbles sous-marins : https://www.submarinecablemap.com/" /><figcaption aria-hidden="true">Cartes des câbles sous-marins : <a href="https://www.submarinecablemap.com/" class="uri">https://www.submarinecablemap.com/</a></figcaption>
 </figure>
 
-:::exercice
+!!! tip "Exercice 1"
 
     _QCM type E3C_
 
@@ -129,8 +129,6 @@ photographiques, merci de me contacter en cas de problème.*
         * **Réponse B  :**  est une architecture matérielle de coopération entre machines
         * **Réponse C  :**  est un mode de communication entre routeurs
         * **Réponse D  :** est un mode de communication entre commutateurs
-
-:::
 
 # Le modèle en couches
 
@@ -200,7 +198,7 @@ https://www.isnbreizh.fr)*
 
 ![Modèles en couches : OSI et TCP/IP](images/pileTCPIP2.png)
 
-!!! tip "Exercice 1"
+!!! tip "Exercice 2"
 
     _QCM type E3C_
 
@@ -249,7 +247,7 @@ https://www.isnbreizh.fr)*
 
     Le protocole [ARP](https://fr.wikipedia.org/wiki/Address_Resolution_Protocol) permet à un hôte émetteur de découvrir l'[adresse MAC](https://fr.wikipedia.org/wiki/Adresse_MAC) de son destinataire, à travers la diffusion d'une demande en [brodacast](https://fr.wikipedia.org/wiki/Broadcast_(informatique)), dénotée par l'adresse `FF:FF:FF:FF:FF:FF`  à l'ensemble des hôtes du réseau local. 
 
-!!! tip "Exercice 2"
+!!! tip "Exercice 3"
 
     _QCM type E3C_
 
@@ -355,7 +353,7 @@ https://www.isnbreizh.fr)*
 
     Pour s'entraîner on pourra utilise ce [calculateur en ligne](https://cric.grenoble.cnrs.fr/Administrateurs/Outils/CalculMasque/).
 
-!!! tip "Exercice 3"
+!!! tip "Exercice 4"
 
     Donner les adresses réseau correspondant à ces adresses  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  en notation [CIDR](https://fr.wikipedia.org/wiki/Sous-r%C3%A9seau) :  148.33.1.112/8 ,  82.30.12.18/24 et  91.198.174.3/19
 
@@ -415,7 +413,7 @@ https://www.isnbreizh.fr)*
      6  qwant.par.franceix.net (37.49.236.134)  48.854 ms  25.381 ms  25.308 ms
     ~~~
 
-!!! tip "Exercice 4"
+!!! tip "Exercice 5"
 
     _QCM type E3C_
 
@@ -529,7 +527,7 @@ https://www.isnbreizh.fr)*
 <img src="images/filius-tcp2.png" style="width:100.0%" alt="Fin d’une connexion TCP" /><figcaption aria-hidden="true">Fin d’une connexion TCP</figcaption>
 </figure>
 
-!!! tip "Exercice 5"
+!!! tip "Exercice 6"
 
     _QCM type E3C_ 
 
@@ -602,7 +600,7 @@ https://www.isnbreizh.fr)*
 <img src="images/528px-DNS_iterations.svg.png" style="width:60.0%" alt="Requêtes DNS itératives (source Wikipedia)" /><figcaption aria-hidden="true">Requêtes DNS itératives (source Wikipedia)</figcaption>
 </figure>
 
-!!! tip "Exercice 6"
+!!! tip "Exercice 7"
 
     _QCM type E3C_
 
@@ -652,7 +650,7 @@ Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html), merci
 
 ## Applications
 
-!!! tip "Exercice 7"
+!!! tip "Exercice 8"
 
     1. Dans quel but le protocole du bit alterné peut-il être utilisé ?
 

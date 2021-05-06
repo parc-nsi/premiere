@@ -114,7 +114,7 @@ Internet ?
     * **Réponse B  :**  est une architecture matérielle de coopération entre machines
     * **Réponse C  :**  est un mode de communication entre routeurs
     * **Réponse D  :** est un mode de communication entre commutateurs
-  :::
+:::
 
 # Le modèle en couches
 
