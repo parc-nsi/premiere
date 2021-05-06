@@ -88,7 +88,7 @@ Pour une présentation globale d'Internet, on pourra visionner cette [video](htt
 :::
 
 
-![Cartes des câbles sous-marins : <https://www.submarinecablemap.com/>](images/cable-sousmarin.png){width="70%"}
+![Cartes des câbles sous-marins : <https://www.submarinecablemap.com/>](../images/cable-sousmarin.png){width="70%"}
 
 :::exercice
 

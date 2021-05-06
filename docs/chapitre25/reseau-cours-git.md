@@ -84,7 +84,7 @@ photographiques, merci de me contacter en cas de problème.*
     Pour une présentation de l'architecture client-serveur, on pourra visionner cette [video](https://vimeo.com/138623558).
 
 <figure>
-<img src="../images/500px-Modèle-client-serveur.svg.png" style="width:60.0%" alt="Architecture client / serveur (Wikimedia Commons)" /><figcaption aria-hidden="true">Architecture client / serveur (Wikimedia Commons)</figcaption>
+<img src="images/500px-Modèle-client-serveur.svg.png" style="width:60.0%" alt="Architecture client / serveur (Wikimedia Commons)" /><figcaption aria-hidden="true">Architecture client / serveur (Wikimedia Commons)</figcaption>
 </figure>
 
 !!! note "Point de cours 1"
@@ -334,19 +334,19 @@ https://www.isnbreizh.fr)*
 
     1. Si le nombre de bits du **masque de sous-réseau** est un multiple de 8  : `255.0.0.0`, `255.255.0.0`, ou `255.255.255.0` il suffit de masquer la partie de l'adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  correspondant aux `0` du masque. Le passage en binaire n'est pas nécessaire.
 
-      | Adresse        | Binaire                             | Décimal       |
-      |----------------|-------------------------------------|---------------|
-      | adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
-      | masque         | 11111111.11111111.11111111.00000000 | 255.255.112.0 |
-      | adresse réseau | 11000000.10101000.00010111.00000000 | 192.168.23.0  |
+        | Adresse        | Binaire                             | Décimal       |
+        |----------------|-------------------------------------|---------------|
+        | adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
+        | masque         | 11111111.11111111.11111111.00000000 | 255.255.112.0 |
+        | adresse réseau | 11000000.10101000.00010111.00000000 | 192.168.23.0  |
 
     2. Sinon, le passage en binaire est nécessaire.
 
-      | Adresse        | Binaire                             | Décimal       |
-      |----------------|-------------------------------------|---------------|
-      | adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
-      | masque         | 11111111.11111111.11110000.00000000 | 255.255.112.0 |
-      | adresse réseau | 11000000.10101000.00010000.00000000 | 192.168.16.0  |
+        | Adresse        | Binaire                             | Décimal       |
+        |----------------|-------------------------------------|---------------|
+        | adresse IP     | 00010111.10101000.00010111.00000010 | 192.168.23.2  |
+        | masque         | 11111111.11111111.11110000.00000000 | 255.255.112.0 |
+        | adresse réseau | 11000000.10101000.00010000.00000000 | 192.168.16.0  |
 
 
     Un **masque de sous-réseau** peut être caractériser par sa longueur en bits. La notation [CIDR](https://fr.wikipedia.org/wiki/Sous-r%C3%A9seau) est une façon compacte d'ajouter cette information à la suite d'une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) en les séparant par le symbole `/`.

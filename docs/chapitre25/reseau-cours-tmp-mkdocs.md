@@ -88,7 +88,7 @@ _Ce cours est largement inspiré du chapitre 26 au manuel NSI de la collection T
 :::
 
 
-![Cartes des câbles sous-marins : <https://www.submarinecablemap.com/>](images/cable-sousmarin.png){width="70%"}
+![Cartes des câbles sous-marins : <https://www.submarinecablemap.com/>](../images/cable-sousmarin.png){width="70%"}
 
 :::exercice
     
