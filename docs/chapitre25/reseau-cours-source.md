@@ -281,15 +281,15 @@ Sélectionner le mode *construction* ![mode construction](images/filius-construc
 
 5. Dans une interconnexion de réseau, chaque interface est identifiée de façon unique par son adresse IP. Les adresses IP de la forme `192.168.1.X` correspondent à des interfaces qui sont dans le même réseau local, les adresses IP de la forme `192.168.0.X` dénotent un autre réseau local. Ces deux réseaux sont interconnectés par un **routeur**.  
 
-    Quelle est la particularité du **routeur** ? 
+    * Quelle est la particularité du **routeur** ? 
 
-    Si on compare une interconnexion de réseau comme Internet au réseau postal, quelle analogie peut-on faire pour une adresse IP ?
+    * Si on compare une interconnexion de réseau comme Internet au réseau postal, quelle analogie peut-on faire pour une adresse IP ?
 
 6. Passer en mode construction et afficher les configurations des hôtes d'adresses IP `192.168.1.1` et `192.168.0.1`. Convertir en binaire les quatre entiers composant le masque et faire un ET logique bit à bit entre le masque et l'adresse IP de l'hôte. Quelle adresse IP obtient-on ?
 
 7. Échanger les machines d'adresses MAC  `49:7F:CC:F9:D6:A5`  et `42:92:2E:CF:47:85`.  En mode construction, permuter leurs configurations réseau : adresse IP et adresse de la passerelle. Tester la liaison avec la commande `ping`.
 
-    D'après vous ,pourquoi désigne-t-on l'adresse MAC comme adresse physique et l'adresse IP comme adresse logique ?
+    * D'après vous ,pourquoi désigne-t-on l'adresse MAC comme adresse physique et l'adresse IP comme adresse logique ?
 
 :::
 
@@ -313,12 +313,12 @@ _Pong de 192.168.1.1 vers 192.168.0.1_
 * Dans les années 1970, [Vinton Cerf et Robert Kahn](https://fr.wikipedia.org/wiki/Vint_Cerf) en s'inspirant des travaux de [Louis Pouzin](https://interstices.info/louis-pouzin-la-tete-dans-les-reseaux/), ont développé le protocole [Internet Protocol (IP)](https://fr.wikipedia.org/wiki/Internet_Protocol) qui permet d'interconnecter des réseaux locaux. C'est un protocole de la couche *réseau* ou  *internet* dans le [modèle en couches TCP/IP](https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet).
 
 * La première fonctionnalité du protocole [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) est *l'adressage*. 
-  * Chaque interface d'une machine  hôte de l'interconnexion de réseaux reçoit un identifiant unique appelé  **adresse IP**. Dans la version 4 du protocole, elle est représentée sur 32 bits par 4 octets notés en décimal séparés par des points. Selon le principe d'**encapsulation des données**, les adresses  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  de l'émetteur et du destinataire du message sont ajoutés dans *l'entête* [IP](https://fr.wikipedia.org/wiki/Internet_Protocol).
+    * Chaque interface d'une machine  hôte de l'interconnexion de réseaux reçoit un identifiant unique appelé  **adresse IP**. Dans la version 4 du protocole, elle est représentée sur 32 bits par 4 octets notés en décimal séparés par des points. Selon le principe d'**encapsulation des données**, les adresses  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  de l'émetteur et du destinataire du message sont ajoutés dans *l'entête* [IP](https://fr.wikipedia.org/wiki/Internet_Protocol).
 
-  [![adresse IP](images/750px-Addresse_Ipv4_svg.png){width="60%"}](https://commons.wikimedia.org/wiki/File:Addresse_Ipv4.svg)
+    [![adresse IP](images/750px-Addresse_Ipv4_svg.png){width="60%"}](https://commons.wikimedia.org/wiki/File:Addresse_Ipv4.svg)
 
-  * L'adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  est une **adresse logique**, elle n'est pas attachée définitivement à une machine, elle peut changer si la machine est déplacée dans un autre réseau. De plus une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) dénote une interface réseau et une machine, comme un **routeur**, peut en posséder plusieurs.
-  * Il existe des adresses [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) spéciales comme `127.0.0.1` qui correspond à la machine elle-même.
+    * L'adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  est une **adresse logique**, elle n'est pas attachée définitivement à une machine, elle peut changer si la machine est déplacée dans un autre réseau. De plus une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) dénote une interface réseau et une machine, comme un **routeur**, peut en posséder plusieurs.
+    * Il existe des adresses [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) spéciales comme `127.0.0.1` qui correspond à la machine elle-même.
 
 * La seconde fonctionnalité du protocole [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) est *le routage* des paquets de données à travers différents réseaux locaux. 
     * Un **routeur** est un équipement situés à la frontière d'au moins deux réseaux, possédant une interface  dans   (et donc au moins deux adresses IP) et qui joue le rôle de **passerelle** entre les deux.
