@@ -172,15 +172,23 @@ extra:
   social:
     - icon: fontawesome/solid/paper-plane
       link: mailto:admin@frederic-junier.org
-      name: mail
+      name: Mail
 
     - icon: fontawesome/brands/github
       link: https://github.com/parc-nsi/premiere
-      name: dépôt git
+      name: Dépôt git
+
+
+    - icon: mattermost/mattermost
+      link: https://fjunier.fr/login
+      name: ProfJunierMost
 
     - icon: fontawesome/solid/university
       link: https://lyceeduparc.fr/ldp/
       name: Lycée du Parc
+
+    
+
   raw_url: https://parc-nsi.github.io/premiere/-/raw/master/docs/
   io_url: https://parc-nsi.github.io/premiere/
   site_url: https://parc-nsi.github.io/premiere/
