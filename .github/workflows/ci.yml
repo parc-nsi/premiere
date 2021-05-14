@@ -20,7 +20,9 @@ jobs:
       - run: pip install mkdocs-mermaid2-plugin
       - run: pip install mkdocs-jupyter
       - run: pip install mkdocs-graphviz
+      - run: pip install mkdocs-kroki-plugin
       - run: mkdocs gh-deploy --force
+      
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
