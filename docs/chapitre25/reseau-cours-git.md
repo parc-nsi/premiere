@@ -159,11 +159,11 @@ photographiques, merci de me contacter en cas de problème.*
 
     Ce principe de **découpage des données en paquets** s'appelle le **multiplexage**.
 
-<img src="images/multiplex2.gif" style="width:60.0%" alt="Réseau sans multiplexage : canal bloqué" />  
+<img src="../images/multiplex2.gif" style="width:60.0%" alt="Réseau sans multiplexage : canal bloqué" />  
 
 *Réseau sans multiplexage : canal bloqué (source : https://www.isnbreizh.fr)*
 
-<img src="images/multiplex4.gif" style="width:60.0%" alt="Réseau avec multiplexage" />  
+<img src="../images/multiplex4.gif" style="width:60.0%" alt="Réseau avec multiplexage" />  
 
 *Réseau avec multiplexage (source : https://www.isnbreizh.fr)*
 
