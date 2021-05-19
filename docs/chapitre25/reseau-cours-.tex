@@ -826,7 +826,7 @@ Le principe de la \textbf{transmission de paquets} est introduit par
 \href{https://fr.wikipedia.org/wiki/Paul_Baran}{Paul Baran et Davies} en
 1961 : il consiste à découper les données en paquets, ce qui permet de
 transmettre à débit variable (un courriel nécessite l'envoi ponctuel de
-petits paquets alors que pour un transférer un fichier, il faut envoyer
+petits paquets alors que pour transférer un fichier, il faut envoyer
 rapidement de gros paquets).
 
 \href{https://interstices.info/une-breve-histoire-des-reseaux-de-telecommunications/}{Arpanet},
@@ -834,7 +834,7 @@ le projet de réseau interuniversitaire financé par \emph{l'Arpa} (agence
 de recherche de la défense américaine) , voit le jour en 1969 sous la
 direction de
 \href{https://fr.wikipedia.org/wiki/Leonard_Kleinrock}{Leonard
-Kleinrock} : les données sont découpées en paquets transmis en séquence
+Kleinrock} : les données sont découpées en paquets, transmis en séquence
 les uns à la suite des autres.
 
 Dans les années 70,
@@ -843,10 +843,10 @@ Pouzin}, après un séjour au \href{http://www.mit.edu/}{MIT}, développe
 en France le réseau \emph{Cyclades} qui est le premier véritable réseau
 à \textbf{commutation de paquets}: les paquets transitent de façon
 indépendante dans le réseau grâce à un protocole qui préfigure
-\href{}{Internet Protcol} puis sont remis en l'ordre à l'arrivée. Le
-circuit des paquets est donc variable contrairement à la
-\textbf{commutation de circuits} implémentée dans le réseau
-téléphonique.
+\href{https://fr.wikipedia.org/wiki/Internet_Protocol}{Internet Protcol}
+puis sont remis en l'ordre à l'arrivée. Le circuit des paquets est donc
+variable contrairement à la \textbf{commutation de circuits} implémentée
+dans le réseau téléphonique.
 
 \href{https://interstices.info/une-breve-histoire-des-reseaux-de-telecommunications/}{\includegraphics{images/internet-1977.jpg}!}
 
@@ -891,8 +891,8 @@ réseaux}\label{terminologie-et-classification-des-ruxe9seaux}}
   Un \textbf{réseau} est un ensemble de \emph{noeuds} reliés par des
   \emph{liens}, qui correspond mathématiquement à un \emph{graphe}. Dans
   un \textbf{réseau informatique} les \emph{noeuds} ou \emph{hôtes} sont
-  des des équipements informatiques comme des ordinateurs, des routeurs
-  \ldots{} et les \emph{liens} peuvent être variées selon la technologie
+  des équipements informatiques comme des ordinateurs, des routeurs
+  \ldots{} et les \emph{liens} peuvent être variés selon la technologie
   utilisée : filaire (Ethernet, \ldots) ou par ondes (Wifi, \ldots).
 \item
   Une \textbf{interface} est le point de raccordement, matériel (carte
@@ -904,10 +904,10 @@ réseaux}\label{terminologie-et-classification-des-ruxe9seaux}}
 \item
   Un \textbf{service réseau} est une \emph{application} capable de
   communiquer en réseau et proposant des fonctionnalités. Par exemple,
-  un service Web peut fournir des pages Web au navigateur d'un client
-  les pages Web qu'il demande. Sur un réseau pédagogique de lycée, un
-  service de gestion et de partage de fichiers permet aux utilisateurs
-  d'accéder à leurs fichiers depuis n'importe quel machine cliente.
+  un service Web peut fournir des pages Web au navigateur d'un client.
+  Sur un réseau pédagogique de lycée, un service de gestion et de
+  partage de fichiers permet aux utilisateurs d'accéder à leurs fichiers
+  depuis n'importe quel machine cliente.
 \item
   Un \textbf{serveur} désigne un matériel ou un logiciel exécutant un
   \textbf{service réseau}. Il fournit un service à des \textbf{clients}
@@ -943,7 +943,7 @@ réseaux}\label{terminologie-et-classification-des-ruxe9seaux}}
     par exemple, les réseaux des fournisseurs d'accès internet (Free,
     Orange, SFR\ldots), de grandes sociétés\ldots{}
   \item
-    Internet est une interconnexion mondiale de réseaux
+    \textbf{Internet est une interconnexion mondiale de réseaux}
   \end{itemize}
 \item
   Les réseaux informatiques utilisent des liens de technologies diverses
@@ -952,7 +952,7 @@ réseaux}\label{terminologie-et-classification-des-ruxe9seaux}}
   \begin{itemize}
   \tightlist
   \item
-    Des liaisons filaires :
+    Des \textbf{liaisons filaires} :
 
     \begin{itemize}
     \tightlist
@@ -970,7 +970,8 @@ réseaux}\label{terminologie-et-classification-des-ruxe9seaux}}
       places financières !)
     \end{itemize}
   \item
-    Des liaisons par ondes : Wifi, Bluetooth, Satellite, 4G \ldots{}
+    Des \textbf{liaisons par ondes} : Wifi, Bluetooth, Satellite, 4G
+    \ldots{}
   \end{itemize}
 \item
   L'interconnexion dans l'Internet de tous ces réseaux hétérogènes sur
@@ -984,7 +985,7 @@ réseaux}\label{terminologie-et-classification-des-ruxe9seaux}}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth,height=\textheight]{../images/cable-sousmarin.png}
+\includegraphics[width=0.7\textwidth,height=\textheight]{images/cable-sousmarin.png}
 \caption{Cartes des câbles sous-marins :
 \url{https://www.submarinecablemap.com/}}
 \end{figure}
@@ -1057,11 +1058,11 @@ paquets}\label{duxe9coupage-des-donnuxe9es-en-paquets}}
 Dans un réseau informatique, si on veut transmettre une image de
 plusieurs Méga octets, on n'envoie pas les données en un seul bloc mais
 on les découpe en paquets plus petits qui sont transmis séparément.
-Ainsi, il n'est pas nécessaire de tout retransmettre en cas d'erreur de
+Ainsi, il n'est pas nécessaire de tout retransmettre en cas d'erreur. De
 plus cela réduit les risques d'encombrement ou de blocage des liens.
 
 Ce principe de \textbf{découpage des données en paquets} s'appelle le
-\textbf{multiplexage}
+\textbf{multiplexage}.
 
 \end{cours}
 
@@ -1127,7 +1128,7 @@ Lorsqu'un hôte A du réseau communique avec un hôte B, chaque couche de
 protocole sur l'émetteur communique avec la couche de même niveau chez
 le destinataire.
 
-Chaque couche ajoute des \emph{metadonnées} aux données du message qui
+Chaque couche ajoute des \emph{metadonnées} aux données du message, qui
 sont encapsulées les unes dans les autres. C'est le principe
 d'\textbf{encapsulation des données}.
 
@@ -1246,7 +1247,7 @@ TCP/IP}\label{la-couche-liaison-du-moduxe8le-tcpip}}
 \item
   Écrire une fonction Python qui prend en paramètre une adresse MAC sous
   forme de chaîne de caractères et renvoie la traduction de chaque
-  paquet sous la forme d'un tableau de 8 entiers en base 10.
+  paquet sous la forme d'un tableau de 6 entiers en base 10.
 \item
   Sélectionner le mode \emph{simulation}
   \includegraphics[width=0.1\textwidth,height=\textheight]{images/filius-simulation.png}~
@@ -1544,7 +1545,7 @@ TCP/IP}\label{la-couche-ruxe9seau-ou-internet-du-moduxe8le-tcpip}}
     Tous les paquets de données transmis d'un hôte émetteur vers un
     destinataire ne suivent pas forcément le même chemin. Si la
     topologie physique de l'interconnexion de réseaux évolue (routeurs
-    ajoutés, enlevés, en panne) ou si le traffic est trop important sur
+    ajoutés, enlevés, en panne) ou si le trafic est trop important sur
     certains liens, les routeurs intermédiaires vont dynamiquement
     mettre à jour leurs \emph{tables de routages} et peuvent changer le
     routage de paquets avec le même couple (émetteur, destinataires).
@@ -1640,7 +1641,7 @@ adresse réseau & 11000000.10101000.00010000.00000000 & 192.168.16.0 \\
 \bottomrule
 \end{longtable}
 
-Un \textbf{masque de sous-réseau} peut être caractériser par sa longueur
+Un \textbf{masque de sous-réseau} peut être caractérisé par sa longueur
 en bits. La notation
 \href{https://fr.wikipedia.org/wiki/Sous-r\%C3\%A9seau}{CIDR} est une
 façon compacte d'ajouter cette information à la suite d'une adresse
@@ -1933,7 +1934,7 @@ TCP/IP}\label{la-couche-transport-du-moduxe8le-tcpip}}
   entre deux machines hôtes. Il s'exécute sur tous les routeurs
   traversés lors du chemin. Néanmoins, plusieurs services réseaux
   peuvent s'exécuter sur l'émetteur et le destinataire. Pour faire
-  communiquer deux programes, il faut donc un paramètre d'adresse
+  communiquer deux programmes, il faut donc un paramètre d'adresse
   supplémentaire, appelé \textbf{port}.
 \item
   Les protocoles
@@ -1941,15 +1942,15 @@ TCP/IP}\label{la-couche-transport-du-moduxe8le-tcpip}}
   et \href{https://fr.wikipedia.org/wiki/User_Datagram_Protocol}{UDP} de
   la couche \emph{transport} encapsulent un paquet IP à émettre avec un
   \emph{entête} contenant les numéros de \textbf{port} des appplications
-  chez émetteur et le destinataire. Ces protocoles s'exécutent de
+  chez l'émetteur et le destinataire. Ces protocoles s'exécutent de
   \emph{bout en bout} sur l'émetteur et le destinataire mais pas sur les
   routeurs intermédiaires.
 \item
-  D'après le principe de \textbf{multiplexage}, les données sont
-  découpées en paquets qui sont transmis séparément sur le réseau et qui
-  peuvent suivre des chemins différents et donc se perdre ou arriver
-  dans le désordre d'après le principe de \textbf{commutation de
-  paquets}. Cette souplesse du
+  Par principe de \textbf{multiplexage}, les données sont découpées en
+  paquets qui sont transmis séparément sur le réseau et qui peuvent
+  suivre des chemins différents et donc se perdre ou arriver dans le
+  désordre d'après le principe de \textbf{commutation de paquets}. Cette
+  souplesse du
   \href{https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet}{modèle
   TCP/IP} est la clef du succès d'Internet mais elle nécessite des
   mécanismes pour garantir la \emph{fiabilité} des transmissions :
@@ -2024,14 +2025,16 @@ est au programme !}
     numéro de séquence SEQ 2190171253 qu'il a choisi et un numéro
     d'acquittement \passthrough{\lstinline!ACK!} avec le numéro de la
     prochaine séquence d'octets attendu de
-    \passthrough{\lstinline!192.168.1.1!}.
+    \passthrough{\lstinline!192.168.1.1!}, soit
+    \(3707411535 + 1 = 3707411536\).
   \item
     Le client \passthrough{\lstinline!192.168.1.1!} confirme avec un
     paquet sans drapeau qui contient le numéro de séquence
     \passthrough{\lstinline!SEQ!} correspondant au dernier numéro
-    d'acquittement \passthrough{\lstinline!ACK!} reçu et un
-    \passthrough{\lstinline!ACK!} indiquant au serveur le numéro de
-    séquence du prochain paquet attendu.
+    d'acquittement \passthrough{\lstinline!ACK!} reçu (soit 3707411536)
+    et un \passthrough{\lstinline!ACK!} indiquant au serveur le numéro
+    de séquence du prochain paquet attendu, soit
+    \(2190171253 + 1 = 2190171254\).
   \end{itemize}
 \item
   Une fois la connexion ouverte, chaque message reçu est suivi par
@@ -2040,7 +2043,7 @@ est au programme !}
   \passthrough{\lstinline!SEQ!} correspondant au dernier numéro
   d'acquittement \passthrough{\lstinline!ACK!} reçu et un accusé de
   réception indiquant à l'interlocuteur le numéro de séquence attendu
-  lors de son prochain envoi : il se calcul en ajoutant à
+  lors de son prochain envoi : il se calcule en ajoutant à
   l'\passthrough{\lstinline!ACK!} précédent la taille du paquet qui
   vient d'être reçu. Ainsi chaque interlocuteur peut vérifier si son
   dernier paquet a été bien reçu (et le renvoyer éventuellement au bout
@@ -2049,7 +2052,7 @@ est au programme !}
 \item
   Toute connexion
   \href{https://fr.wikipedia.org/wiki/Transmission_Control_Protocol}{TCP}
-  se termine par un \passthrough{\lstinline!handshaking!} en quatre de
+  se termine par un \passthrough{\lstinline!handshaking!} en quatre
   temps avec un échange de paquets marqués par le drapeau
   \passthrough{\lstinline!FIN!} (voir figure 14)
 \end{enumerate}
@@ -2136,7 +2139,7 @@ machine \passthrough{\lstinline!192.168.2.1!}.
   machine \passthrough{\lstinline!192.168.1.1!} avec l'adresse
   \passthrough{\lstinline!192.168.2.1!}.
 \item
-  En mode simulation, faire un clic droite sur la machine
+  En mode simulation, faire un clic droit sur la machine
   \passthrough{\lstinline!192.168.2.1!}, installer l'application serveur
   DNS, ajouter la règle de résolution du nom de domaine
   \passthrough{\lstinline!www.monsite.org!} par l'adresse
@@ -2169,7 +2172,7 @@ machine \passthrough{\lstinline!192.168.2.1!}.
 \tightlist
 \item
   La \emph{couche application} fournit des services permettant aux
-  applications de l'utilisateur d'utiliser le réseau .
+  applications du client d'utiliser le réseau .
 \item
   Ces programmes et les protocoles qu'ils utilisent incluent
   \href{https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{HTTP}
@@ -2201,10 +2204,8 @@ résolution de noms de domaines des URL en adresses IP.}
 \item
   Le \href{https://fr.wikipedia.org/wiki/Domain_Name_System}{DNS} , pour
   \emph{Domain Name System}, fait le lien entre les adresses
-  \href{https://fr.wikipedia.org/wiki/Internet_Protocol}{IP} utilisées
-  pour acheminer les paquets et les noms de machine utilisés par les
-  utilisateurs ou les applications. Les noms de domaine figurent en
-  particulier dans les
+  \href{https://fr.wikipedia.org/wiki/Internet_Protocol}{IP} et les noms
+  de machine. Les noms de domaine figurent en particulier dans les
   \href{https://fr.wikipedia.org/wiki/Uniform_Resource_Locator}{URL} qui
   permettent de localiser les ressources dans l'hypertexte du Web. Par
   exemple dans
@@ -2324,8 +2325,8 @@ Roche}, merci à eux.}
   \item
     le premier paquet envoyé par A aura pour bit de contrôle 0
   \item
-    B répond avec un accusé de réception en fixant une \emph{bit
-    alterné} pour son bit de contrôle : donc 1 s'il a reçu 0
+    B répond avec un accusé de réception en fixant un \emph{bit alterné}
+    pour son bit de contrôle : donc 1 s'il a reçu 0
   \item
     A reçoit un accusé de réception avec le bit de contrôle 1 donc il
     sait que son paquet précédent a été reçu et qu'il peut envoyer le
@@ -2333,9 +2334,10 @@ Roche}, merci à eux.}
   \item
     B reçoit un paquet avec le bit de contrôle qui correspond à celui
     demandé, il renvoie un accusé de réception avec le \emph{bit
-    alterné} donc 0 eau 1
+    alterné} donc 0
   \item
-    ainsi de suite \ldots{}
+    ainsi de suite \ldots{} le bit de la trame ou de l'accusé de
+    réception alterne de chaque côté
   \end{itemize}
 \end{itemize}
 
@@ -2357,7 +2359,7 @@ Roche}, merci à eux.}
   \begin{itemize}
   \tightlist
   \item
-    Si un paquet (avec par exemple le bit de contrôle0) envoyé par
+    Si un paquet (avec par exemple le bit de contrôle 0) envoyé par
     l'émetteur est perdu, l'accusé de réception ne lui revient pas au
     bout du timeout, il comprend que son paquet a été perdu et il
     renvoie le paquet.
@@ -2404,11 +2406,14 @@ Romain janvier)}
     l'adresse IP de la machine de destination.
   \end{itemize}
 \item
-  Quelle est la réponse à envoyer quand on reçoit un paquet avec le bit
-  de contrôle 1 ?
+  Quelle est la réponse à envoyer quand le destinataire reçoit un paquet
+  avec le bit de contrôle 1 ?
 \item
-  On arrive au timeout pour le paquet n avec un bit de contrôle de 0.
-  Quelle était la réponse attendue ?
+  Quelle est la réponse à envoyer quand l'émetteur reçoit un paquet avec
+  le bit de contrôle 1 ?
+\item
+  On arrive au timeout pour le paquet \(n\) avec un bit de contrôle de
+  0. Quelle était la réponse attendue ?
 \item
   Imaginer une ou plusieurs situations où le protocole de bit alterné
   est inefficace et ne permet pas de récupérer un paquet perdu.
