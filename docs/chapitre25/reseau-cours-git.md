@@ -328,7 +328,7 @@ photographiques, merci de me contacter en cas de problème.*
        
     4. Déplier le détail du premier paquet de données dans l'historique des échanges. Filius appelle *Réseau* la couche *liaison* du [modèle TCP/IP](https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet)  et *internet* la couche *réseau*. Quel protocole a généré l'entête de la couche *internet* ? Quel message est transmis  ? Déterminer l'émetteur  et le destinataire de ce paquet de données et comment ils sont repérés.
 
-      ![arp1](images/arp1.png)\
+        ![arp1](images/arp1.png)\
 
     5. Déplier le détail du second paquet de données et répondre aux mêmes questions.
 
@@ -390,7 +390,6 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 
     3. Pour les quatre premiers paquets de données échangées, noter les adresses MAC et IP de l'émetteur et du destinataire et déterminer la fonction de chaque message.
 
-    <!--Quel protocole de la couche **Internet** est utilisé par la commande `ping` ? -->
 
     4. Recommencer l'opération mais en testant la liaison entre les hôtes `192.168.1.1` et `192.168.1.2`. Quelles différences peut-on noter ? 
 
@@ -429,14 +428,14 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
         * Il existe des adresses [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) spéciales comme `127.0.0.1` qui correspond à la machine elle-même.
 
     * La seconde fonctionnalité du protocole [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) est *le routage* des paquets de données à travers différents réseaux locaux. 
-        * Un **routeur** est un équipement situés à la frontière d'au moins deux réseaux, possédant une interface  dans   (et donc au moins deux adresses IP) et qui joue le rôle de **passerelle** entre les deux.
+        * Un **routeur** est un équipement situé à la frontière d'au moins deux réseaux, possédant une interface  dans  chaque réseau (et donc au moins deux adresses IP) et qui joue le rôle de **passerelle** entre les deux.
         *  En pratique un émetteur envoie un paquet de données directement à son destinataire (en passant par un **switch**) s'il est sur le même réseau local et sinon il le transmet à sa **passerelle**. Celle-ci peut le transmettre directement si elle est connectée au réseau du destinataire sinon elle l'envoie à une autre **passerelle**. 
         *  De proche en proche et grâce à des *algorithmes de routage*, le message parvient jusqu'au destinataire. Chaque **passerelle** possède des *tables de routage* pour déterminer le prochain saut dans la transmission d'un message reçu.
         *  Tous les  paquets de données  transmis d'un hôte émetteur vers un destinataire ne suivent pas forcément le même chemin. Si la topologie physique de l'interconnexion de réseaux évolue (routeurs ajoutés, enlevés, en panne) ou si le trafic est trop important sur certains liens, les routeurs intermédiaires vont dynamiquement mettre à jour leurs *tables de routages* et peuvent changer le routage de paquets avec le même couple (émetteur, destinataires). C'est le principe de la **commutation de paquets**. 
         *  Une *configuration réseau* permet à un hôte émetteur de déterminer si le destinataire d'un message fait partie du même réseau local. Cette configuration est constituée :
-           *  de l'adresse  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) de l'interface
-           *  de l'adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) de sa **passerelle**
-           *  d'un **masque de sous-réseau** au format d'une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) qui permet de séparer les parties *réseau* et *hôte* dans une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol). Tous les hôtes d'un même réseau local partagent le même *préfixe réseau*. 
+            *  de l'adresse  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) de l'interface
+            *  de l'adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) de sa **passerelle**
+            *  d'un **masque de sous-réseau** au format d'une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) qui permet de séparer les parties *réseau* et *hôte* dans une adresse [IP](https://fr.wikipedia.org/wiki/Internet_Protocol). Tous les hôtes d'un même réseau local partagent le même *préfixe réseau*. 
         * Une *configuration réseau* peut être attribuée automatiquement par le service réseau [DHCP](https://fr.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) ou de façon statique dans un fichier de configuration. 
          
 
