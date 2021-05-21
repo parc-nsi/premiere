@@ -72,6 +72,22 @@ photographiques, merci de me contacter en cas de problème.*
 
 ![Commutation de paquets](images/commutationpaquets.png)
 
+## Pour bien commencer, rappels de SNT sur Internet
+
+!!! tip "Faire le point"
+
+    1. Représentez schématiquement le réseau local de votre domicile et en particulier le mode d'accès à Internet.
+    2. Déterminez l'adresse IP de votre PC puis celle de votre ordiphone. Appartiennent-ils au même réseau ? Comment le savoir ?
+    2. Répondez aux questions des Quizz Internet sur <https://frederic-junier.org/wp/?page_id=1386>
+
+* [Synthèse de cours de SNT](https://frederic-junier.org/SNT/Theme2_Internet/ressources/SNT-Internet-Cours2019V1.pdf).
+
+* Une video pour se rafraîchir la mémoire :
+
+??? video
+
+    <iframe src="https://ladigitale.dev/digiplay/inc/video.php?videoId=s18KtOLpCg4&vignette=https://i.ytimg.com/vi/s18KtOLpCg4/hqdefault.jpg&debut=0&fin=394" allowfullscreen frameborder="0" width="700" height="394"></iframe>
+
 ## Terminologie et classification des réseaux
 
 !!! note "Définition 1"
