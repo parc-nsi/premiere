@@ -1,6 +1,7 @@
 -   [Crédits](#credits)
 -   [Réseau informatique](#reseau-informatique)
     -   [Histoire](#histoire)
+    -   [Bien commencer](#pour-bien-commencer-rappels-de-SNT)
     -   [Terminologie et classification des
         réseaux](#terminologie-et-classification-des-reseaux)
 -   [Le modèle en couches](#le-modele-en-couches)
@@ -72,7 +73,7 @@ photographiques, merci de me contacter en cas de problème.*
 
 ![Commutation de paquets](images/commutationpaquets.png)
 
-## Pour bien commencer, rappels de SNT sur Internet
+## Pour bien commencer, rappels de SNT
 
 !!! tip "Faire le point"
 
