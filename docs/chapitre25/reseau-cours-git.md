@@ -1,7 +1,7 @@
 -   [Crédits](#credits)
 -   [Réseau informatique](#reseau-informatique)
     -   [Histoire](#histoire)
-    -   [Bien commencer](#pour-bien-commencer-rappels-de-SNT)
+    -   [Bien commencer](#pour-bien-commencer-rappels-de-snt)
     -   [Terminologie et classification des
         réseaux](#terminologie-et-classification-des-reseaux)
 -   [Le modèle en couches](#le-modele-en-couches)
@@ -75,7 +75,7 @@ photographiques, merci de me contacter en cas de problème.*
 
 ## Pour bien commencer, rappels de SNT
 
-!!! tip "Faire le point"
+!!! {{ exercice() }}
 
     1. Représentez schématiquement le réseau local de votre domicile et en particulier le mode d'accès à Internet.
     2. Déterminez l'adresse IP de votre PC puis celle de votre ordiphone. Appartiennent-ils au même réseau ? Comment le savoir ?
@@ -122,7 +122,7 @@ photographiques, merci de me contacter en cas de problème.*
 <img src="../images/cable-sousmarin.png" style="width:70.0%" alt="Cartes des câbles sous-marins : https://www.submarinecablemap.com/" /><figcaption aria-hidden="true">Cartes des câbles sous-marins : <a href="https://www.submarinecablemap.com/" class="uri">https://www.submarinecablemap.com/</a></figcaption>
 </figure>
 
-!!! tip "Exercice 1"
+!!! {{ exercice() }}
 
     _QCM type E3C_
 
@@ -233,7 +233,7 @@ photographiques, merci de me contacter en cas de problème.*
 
 ![Modèles en couches : OSI et TCP/IP](images/pileTCPIP2.png)
 
-!!! tip "Exercice 2"
+!!! {{ exercice() }}
 
     _QCM type E3C_
 
@@ -372,7 +372,7 @@ photographiques, merci de me contacter en cas de problème.*
 _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image_
 
 
-!!! tip "Exercice 3"
+!!! {{ exercice() }}
 
     _QCM type E3C_
 
@@ -487,7 +487,7 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 
     Pour s'entraîner on pourra utilise ce [calculateur en ligne](https://cric.grenoble.cnrs.fr/Administrateurs/Outils/CalculMasque/).
 
-!!! tip "Exercice 4"
+!!! {{ exercice() }}
 
     Donner les adresses réseau correspondant à ces adresses  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol)  en notation [CIDR](https://fr.wikipedia.org/wiki/Sous-r%C3%A9seau) :  148.33.1.112/8 ,  82.30.12.18/24 et  91.198.174.3/19
 
@@ -553,7 +553,7 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
      6  qwant.par.franceix.net (37.49.236.134)  48.854 ms  25.381 ms  25.308 ms
     ~~~
 
-!!! tip "Exercice 5"
+!!! {{ exercice() }}
 
     _QCM type E3C_
 
@@ -701,7 +701,7 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 
 
 
-!!! tip "Exercice 6"
+!!! {{ exercice() }}
 
     _QCM type E3C_ 
 
@@ -782,7 +782,7 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 <img src="../images/528px-DNS_iterations.svg.png" style="width:60.0%" alt="Requêtes DNS itératives (source Wikipedia)" /><figcaption aria-hidden="true">Requêtes DNS itératives (source Wikipedia)</figcaption>
 </figure>
 
-!!! tip "Exercice 7"
+!!! {{ exercice() }}
 
     _QCM type E3C_
 
@@ -836,7 +836,7 @@ Roche](https://pixees.fr/informatiquelycee/n_site/nsi_prem.html), merci
 
 ## Applications
 
-!!! tip "Exercice 8"
+!!! {{ exercice() }}
 
     1. Dans quel but le protocole du bit alterné peut-il être utilisé ?
 

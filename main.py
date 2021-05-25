@@ -22,7 +22,7 @@ def define_env(env):
     @env.macro
     def exercice(): #G Connan
        env.variables['compteur_exo'] += 1
-       return f"tip \"Recherche { env.variables['compteur_exo']}\""
+       return f"tip \"Exercice { env.variables['compteur_exo']}\""
 
     @env.macro
     def console(): #G Connan
