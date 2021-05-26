@@ -24,3 +24,4 @@ title:  Séances
 19. [Séance du 29/04/2021](seances/seance-2021-04-29.md)
 20. [Séance du 06/05/2021](seances/seance-2021-05-06.md)
 21. [Séance du 20/05/2021](seances/seance-2021-05-20.md)
+21. [Séance du 27/05/2021](seances/seance-2021-05-27.md)
