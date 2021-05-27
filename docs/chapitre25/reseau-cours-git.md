@@ -499,59 +499,65 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 
 !!! success "Méthode 2"
 
-    Quelques commandes réseau sont à connaître.
+    Quelques commandes réseau sont à connaître. Testez les commandes dans [l'émulateur Linux en ligne de JS Bellard](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192).
+
+    ??? console
+
+         <iframe src="https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192" title="émulateur Linux en ligne de JS Bellard"></iframe> 
+
 
     1. La commande `ping` permet de tester la liaison avec un  hôte si on connaît son adresse  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) ou son nom de domaine. On l'interrompt avec le signal envoyé par  `CTRL + C`.
 
-    ~~~bash
-    junier@fredportable:~$ ping 192.168.1.254
-    PING 192.168.1.254 (192.168.1.254) 56(84) bytes of data.
-    64 bytes from 192.168.1.254: icmp_seq=1 ttl=64 time=2.27 ms
-    64 bytes from 192.168.1.254: icmp_seq=2 ttl=64 time=3.83 ms
-    64 bytes from 192.168.1.254: icmp_seq=3 ttl=64 time=2.60 ms
-    ^C
-    --- 192.168.1.254 ping statistics ---
-    9 packets transmitted, 9 received, 0% packet loss, time 8013ms
-    rtt min/avg/max/mdev = 2.184/3.020/4.642/0.844 ms
-    ~~~
+        ~~~bash
+        junier@fredportable:~$ ping 146.88.234.43
+        PING 146.88.234.43 (146.88.234.43) 56(84) bytes of data.
+        64 bytes from 146.88.234.43: icmp_seq=1 ttl=51 time=9.80 ms
+        64 bytes from 146.88.234.43: icmp_seq=2 ttl=51 time=8.87 ms
+        64 bytes from 146.88.234.43: icmp_seq=3 ttl=51 time=8.84 ms
+        64 bytes from 146.88.234.43: icmp_seq=4 ttl=51 time=8.85 ms
+        ^C
+        --- 146.88.234.43 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 10017ms
+        rtt min/avg/max/mdev = 8.839/9.237/9.798/0.368 ms
+        ~~~
 
 
     2. Les commandes `ifconfig` ou `ip address` sous Linux ou `ipconfig` sous Windows permettent d'afficher les adresses  physique (MAC) ou logiques (IP) d'une interface réseau. Par exemple l'adresse MAC de l'interface Wifi ci-dessous est `fc:f8:ae:31:cb:67` et son adresse IPV4, au moment de l'exécution, était `192.168.1.98`. On remarque un autre format  IPV6 codé sur 128 bits en hexadécimal, mis en place progressivement pour faire face à la pénurie d'adresses IPV4 sur 32 bits (soit $2^{32}=4294967296$ adresses).
 
 
-    ~~~bash
-    anonymous@laptop:~$ ifconfig
-    wlp2s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-            inet 192.168.1.98  netmask 255.255.255.0  broadcast 192.168.1.255
-            inet6 fe80::2d0d:7c56:cc75:cadb  prefixlen 64  scopeid 0x20<link>
-            ether fc:f8:ae:31:cb:67  txqueuelen 1000  (Ethernet)
-            RX packets 50800  bytes 45120378 (45.1 MB)
-            RX errors 0  dropped 0  overruns 0  frame 0
-            TX packets 37659  bytes 5251257 (5.2 MB)
-    ~~~
+        ~~~bash
+        anonymous@laptop:~$ ifconfig
+        wlp2s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                inet 192.168.1.98  netmask 255.255.255.0  broadcast 192.168.1.255
+                inet6 fe80::2d0d:7c56:cc75:cadb  prefixlen 64  scopeid 0x20<link>
+                ether fc:f8:ae:31:cb:67  txqueuelen 1000  (Ethernet)
+                RX packets 50800  bytes 45120378 (45.1 MB)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 37659  bytes 5251257 (5.2 MB)
+        ~~~
 
     3. La commande `route -n` sous Linux permet d'afficher la passerelle et le masque de sous-réseau d'une interface. Ci-dessous l'adresse de l'hôte est `192.168.1.0`, celle de la passerelle `192.168.1.254` et le masque est `255.255.255.0`.
 
-    ~~~bash
-    anonymous@laptop:~$ route -n
-    Table de routage IP du noyau
-    Destination     Passerelle      Genmask         Indic Metric Ref    Use Iface
-    0.0.0.0         192.168.1.254   0.0.0.0         UG    600    0        0 wlp2s0
-    192.168.1.0     0.0.0.0         255.255.255.0   U     600    0        0 wlp2s0
-    ~~~
+        ~~~bash
+        anonymous@laptop:~$ route -n
+        Table de routage IP du noyau
+        Destination     Passerelle      Genmask         Indic Metric Ref    Use Iface
+        0.0.0.0         192.168.1.254   0.0.0.0         UG    600    0        0 wlp2s0
+        192.168.1.0     0.0.0.0         255.255.255.0   U     600    0        0 wlp2s0
+        ~~~
 
     4. La commande `traceroute` utilise le champ [TTL](https://fr.wikipedia.org/wiki/Time_to_Live) de l'*entête* IP pour tracer les routeurs sur le chemin entre un hôte émetteur et un destinataire dont on connaît l'adresse  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) ou le nom de domaine. Le nombre de sauts maximum est de 30.
 
-    ~~~bash
-    anonymous@laptop:~$ traceroute qwant.com
-    traceroute to qwant.com (194.187.168.99), 30 hops max, 60 byte packets
-     1  _gateway (192.168.1.254)  5.397 ms  5.415 ms  6.008 ms
-     2  176-145-144-2.abo.bbox.fr (176.145.144.2)  29.450 ms  29.952 ms  31.584 ms
-     3  212.194.170.233 (212.194.170.233)  38.825 ms  42.428 ms  43.469 ms
-     4  be5.cbr01-ntr.net.bbox.fr (212.194.171.137)  44.712 ms  45.358 ms  46.831 ms
-     5  * * *
-     6  qwant.par.franceix.net (37.49.236.134)  48.854 ms  25.381 ms  25.308 ms
-    ~~~
+        ~~~bash
+        anonymous@laptop:~$ traceroute qwant.com
+        traceroute to qwant.com (194.187.168.99), 30 hops max, 60 byte packets
+        1  _gateway (192.168.1.254)  5.397 ms  5.415 ms  6.008 ms
+        2  176-145-144-2.abo.bbox.fr (176.145.144.2)  29.450 ms  29.952 ms  31.584 ms
+        3  212.194.170.233 (212.194.170.233)  38.825 ms  42.428 ms  43.469 ms
+        4  be5.cbr01-ntr.net.bbox.fr (212.194.171.137)  44.712 ms  45.358 ms  46.831 ms
+        5  * * *
+        6  qwant.par.franceix.net (37.49.236.134)  48.854 ms  25.381 ms  25.308 ms
+        ~~~
 
 !!! {{ exercice() }}
 
