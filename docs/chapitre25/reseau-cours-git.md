@@ -499,11 +499,13 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 
 !!! success "Méthode 2"
 
-    Quelques commandes réseau sont à connaître. Testez les commandes dans [l'émulateur Linux en ligne de JS Bellard](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192).
+    Quelques commandes réseau sont à connaître. 
+    
+    Testez les commandes dans [l'émulateur Linux en ligne de Fabrice Bellard](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192).
 
     ??? console
 
-         <iframe src="https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192" title="émulateur Linux en ligne de JS Bellard"></iframe> 
+         [L'émulateur Linux en ligne de Fabrice Bellard](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192)
 
 
     1. La commande `ping` permet de tester la liaison avec un  hôte si on connaît son adresse  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) ou son nom de domaine. On l'interrompt avec le signal envoyé par  `CTRL + C`.
