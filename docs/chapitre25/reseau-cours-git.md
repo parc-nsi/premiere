@@ -402,23 +402,25 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
     1. Ouvrir avec le logiciel [Filius](https://www.lernsoftware-filius.de/Herunterladen) le fichier `wlan1.fls`. Quels sont les équipements présents dans ce  réseau ?
     Sélectionner le mode *construction* ![mode construction](images/filius-construction.png){width="10%"}\ Faire un clic droit sur chacune des machines du réseau, sélectionner *Configurer* et noter leurs adresse IP. Il s'agit d'un identifiant  de 32 bits constitué de quatre octets notés en base dix (valeurs entre 0 et 255) séparés par le symbole `.` 
 
-    2. Sélectionner le mode *simulation* ![mode simulation](images/filius-simulation.png){width="10%"}\  Faire un clic droit sur la machine d'adresse IP `192.168.1.1` pour afficher le bureau, ouvrir une fenêtre de ligne de commandes et saisir la commande `ping 192.168.0.1` qui envoie successivement quatre paquets de données pour tester la liaison avec la machine d'adresse IP `192.168.0.1`. Sélectionner l'affichage des échanges de données avec un clic droit sur la machine `192.168.0.1`. 
+    2. Sélectionner le mode *simulation* ![mode simulation](images/filius-simulation.png){width="10%"}\  Faire un clic droit sur la machine d'adresse IP `192.168.1.1` pour afficher le bureau, ouvrir une fenêtre de ligne de commandes et saisir la commande `ping 192.168.1.2` qui envoie successivement quatre paquets de données pour tester la liaison avec la machine d'adresse IP `192.168.1.1`. Sélectionner l'affichage des échanges de données avec un clic droit sur la machine `192.168.1.1`. 
        
 
     3. Pour les quatre premiers paquets de données échangées, noter les adresses MAC et IP de l'émetteur et du destinataire et déterminer la fonction de chaque message.
 
 
-    4. Recommencer l'opération mais en testant la liaison entre les hôtes `192.168.1.1` et `192.168.1.2`. Quelles différences peut-on noter ? 
+    4. Recommencer l'opération mais en testant la liaison entre les hôtes `192.168.1.1` et `192.168.0.1`.  Sélectionner l'affichage des échanges de données avec un clic droit sur la machine `192.168.0.1`. Que peut-on observer ?  Comment peut-on expliquer la différence de comportement par rapport à l'exemple précédent ?
 
-    5. Dans une interconnexion de réseau, chaque interface est identifiée de façon unique par son adresse IP. Les adresses IP de la forme `192.168.1.X` correspondent à des interfaces qui sont dans le même réseau local, les adresses IP de la forme `192.168.0.X` dénotent un autre réseau local. Ces deux réseaux sont interconnectés par un **routeur**.  
+    5. En mode construction afficher les configurations des  hôtes `192.168.1.1` et `192.168.0.1`. Quelle différence peut-on noter ? Compléter la configuration de l'hôte `192.168.0.1` avec l'aide du professeur ou du Point de cours ci-dessous.
+
+    6. Dans une interconnexion de réseau, chaque interface est identifiée de façon unique par son adresse IP. Les adresses IP de la forme `192.168.1.X` correspondent à des interfaces qui sont dans le même réseau local, les adresses IP de la forme `192.168.0.X` dénotent un autre réseau local. Ces deux réseaux sont interconnectés par un **routeur**.  
 
         * Quelle est la particularité du **routeur** ? 
 
         * Si on compare une interconnexion de réseau comme Internet au réseau postal, quelle analogie peut-on faire pour une adresse IP ?
 
-    6. Passer en mode construction et afficher les configurations des hôtes d'adresses IP `192.168.1.1` et `192.168.0.1`. Convertir en binaire les quatre entiers composant le masque et faire un ET logique bit à bit entre le masque et l'adresse IP de l'hôte. Quelle adresse IP obtient-on ?
+    7. Passer en mode construction et afficher les configurations des hôtes d'adresses IP `192.168.1.1` et `192.168.0.1`. Convertir en binaire les quatre entiers composant le masque et faire un ET logique bit à bit entre le masque et l'adresse IP de l'hôte. Quelle adresse IP obtient-on ?
 
-    7. Échanger les machines d'adresses MAC  `49:7F:CC:F9:D6:A5`  et `42:92:2E:CF:47:85`.  En mode construction, permuter leurs configurations réseau : adresse IP et adresse de la passerelle. Tester la liaison avec la commande `ping`.
+    8. Échanger les machines d'adresses MAC  `49:7F:CC:F9:D6:A5`  et `42:92:2E:CF:47:85`.  En mode construction, permuter leurs configurations réseau : adresse IP et adresse de la passerelle. Tester la liaison avec la commande `ping`.
 
         * D'après vous ,pourquoi désigne-t-on l'adresse MAC comme adresse physique et l'adresse IP comme adresse logique ?
 
