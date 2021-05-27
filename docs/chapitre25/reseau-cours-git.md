@@ -434,6 +434,10 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 
 !!! note "Point de cours 5"
 
+    ??? video
+
+        <iframe src="https://ladigitale.dev/digiplay/inc/video.php?videoId=9P2d4q4bQXI&vignette=https://i.ytimg.com/vi/9P2d4q4bQXI/hqdefault.jpg&debut=0&fin=556&largeur=200&hauteur=113" allowfullscreen frameborder="0" width="700" height="394"></iframe>
+
     * Dans les années 1970, [Vinton Cerf et Robert Kahn](https://fr.wikipedia.org/wiki/Vint_Cerf) en s'inspirant des travaux de [Louis Pouzin](https://interstices.info/louis-pouzin-la-tete-dans-les-reseaux/), ont développé le protocole [Internet Protocol (IP)](https://fr.wikipedia.org/wiki/Internet_Protocol) qui permet d'interconnecter des réseaux locaux. C'est un protocole de la couche *réseau* ou  *internet* dans le [modèle en couches TCP/IP](https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet).
 
     * La première fonctionnalité du protocole [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) est *l'adressage*. 
@@ -505,7 +509,7 @@ _Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image
 
     ??? console
 
-         [L'émulateur Linux en ligne de Fabrice Bellard](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192)
+         Ouvrir [L'émulateur Linux en ligne de Fabrice Bellard](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192) dans un nouvel onglet.
 
 
     1. La commande `ping` permet de tester la liaison avec un  hôte si on connaît son adresse  [IP](https://fr.wikipedia.org/wiki/Internet_Protocol) ou son nom de domaine. On l'interrompt avec le signal envoyé par  `CTRL + C`.
