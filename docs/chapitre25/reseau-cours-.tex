@@ -1599,7 +1599,6 @@ logique} entre les représentations binaires de l'adresse
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Si le nombre de bits du \textbf{masque de sous-réseau} est un multiple
   de 8 : \passthrough{\lstinline!255.0.0.0!},
@@ -1609,37 +1608,31 @@ logique} entre les représentations binaires de l'adresse
   \href{https://fr.wikipedia.org/wiki/Internet_Protocol}{IP}
   correspondant aux \passthrough{\lstinline!0!} du masque. Le passage en
   binaire n'est pas nécessaire.
-\end{enumerate}
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-Adresse & Binaire & Décimal \\
-\midrule
-\endhead
-adresse IP & 00010111.10101000.00010111.00000010 & 192.168.23.2 \\
-masque & 11111111.11111111.11111111.00000000 & 255.255.112.0 \\
-adresse réseau & 11000000.10101000.00010111.00000000 & 192.168.23.0 \\
-\bottomrule
-\end{longtable}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
+  \begin{longtable}[]{@{}lll@{}}
+  \toprule
+  Adresse & Binaire & Décimal \\
+  \midrule
+  \endhead
+  adresse IP & 11000000.10101000.00010111.00000010 & 192.168.23.2 \\
+  masque & 11111111.11111111.11111111.00000000 & 255.255.255.0 \\
+  adresse réseau & 11000000.10101000.00010111.00000000 & 192.168.23.0 \\
+  \bottomrule
+  \end{longtable}
 \item
   Sinon, le passage en binaire est nécessaire.
-\end{enumerate}
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-Adresse & Binaire & Décimal \\
-\midrule
-\endhead
-adresse IP & 00010111.10101000.00010111.00000010 & 192.168.23.2 \\
-masque & 11111111.11111111.11110000.00000000 & 255.255.112.0 \\
-adresse réseau & 11000000.10101000.00010000.00000000 & 192.168.16.0 \\
-\bottomrule
-\end{longtable}
+  \begin{longtable}[]{@{}lll@{}}
+  \toprule
+  Adresse & Binaire & Décimal \\
+  \midrule
+  \endhead
+  adresse IP & 00010111.10101000.00010111.00000010 & 192.168.23.2 \\
+  masque & 11111111.11111111.11110000.00000000 & 255.255.112.0 \\
+  adresse réseau & 11000000.10101000.00010000.00000000 & 192.168.16.0 \\
+  \bottomrule
+  \end{longtable}
+\end{enumerate}
 
 Un \textbf{masque de sous-réseau} peut être caractérisé par sa longueur
 en bits. La notation
