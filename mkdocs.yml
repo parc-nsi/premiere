@@ -68,10 +68,12 @@ nav:
   - Automatismes : automatismes.md
   - Projets : projets.md
   - Divers:
-    - QCM: qcm.md    
-    - Ressources : ressources.md
-    - Outils : outils.md
-    - Capytale: capytale.md
+    - QCM: divers/qcm.md    
+    - Ressources : divers/ressources.md
+    - Outils : divers/outils.md
+    - Capytale: divers/capytale.md
+    - Notebooks: 
+      - Graphes: divers/notebooks/Graphes.ipynb
   - Sandbox : sandbox.md
   #- Python file: solution_scrabble.py
   #- Notebook : PremiereNSI-Cours-Tableaux-Corriges.ipynb
