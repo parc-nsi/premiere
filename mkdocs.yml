@@ -75,6 +75,8 @@ nav:
     - Notebooks: 
       - Graphes: divers/notebooks/Graphes.ipynb
       - Résidus quadratiques : divers/notebooks/Residu_Quadratique.ipynb
+    - Maths:
+      - Énigmes: divers/maths/enigmes.md
   - Sandbox : sandbox.md
   #- Python file: solution_scrabble.py
   #- Notebook : PremiereNSI-Cours-Tableaux-Corriges.ipynb

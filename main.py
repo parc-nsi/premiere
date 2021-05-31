@@ -18,11 +18,17 @@ def define_env(env):
     chatter = env.start_chatting("Simple module")# activate trace
     #voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/troubleshooting/
     env.variables['compteur_exo'] = 0
-    
+    env.variables['compteur_enigme'] = 0
+
     @env.macro
     def exercice(): #G Connan
        env.variables['compteur_exo'] += 1
        return f"tip \"Exercice { env.variables['compteur_exo']}\""
+
+    @env.macro
+    def enigme(): 
+       env.variables['compteur_enigme'] += 1
+       return f"question \"Énigme { env.variables['compteur_enigme']}\""
 
     @env.macro
     def console(): #G Connan
