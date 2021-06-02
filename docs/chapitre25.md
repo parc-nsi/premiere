@@ -18,6 +18,7 @@ Cours de Frédéric Junier.
 ## TP
 
 * [TP version pdf](chapitre25/tp/TP-Filius-NSI-2020V1.pdf)
+* [Matériel pour le TP Filius](chapitre25/tp/materiel_tp.zip)
 
 ??? video
 
