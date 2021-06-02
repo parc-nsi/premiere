@@ -13,9 +13,11 @@ Cours de Frédéric Junier.
 
 * [Cours version pdf](chapitre25/reseau-cours-.pdf)
 * [Cours version markdown](chapitre25/reseau-cours-git.md)
-* [Video Lumni de Charles Poulmaire](http://www.lumni.fr/video/l-architecture-des-reseaux-et-les-protocoles-de-communications)
+
 
 ??? video
+
+    [Video Lumni de Charles Poulmaire](http://www.lumni.fr/video/l-architecture-des-reseaux-et-les-protocoles-de-communications)
 
     
 
