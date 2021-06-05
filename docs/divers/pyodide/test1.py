@@ -1,2 +1,2 @@
-assert a == 15, "erreur"
+assert a==15,"erreur"
 print("Test réussi")
