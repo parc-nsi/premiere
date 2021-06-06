@@ -36,7 +36,7 @@ def define_env(env):
         return pyodide()
 
     @env.macro
-    def console_perso(url_code_test, url_pyodid = "../../javascripts/pyodid.js"):
+    def console_perso1(url_code_test, url_pyodid = "../../javascripts/pyodid.js"): #old version
         code_test = f"""
         --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{url_code_test}"
         """ 
@@ -48,9 +48,21 @@ def define_env(env):
         s = s + "async function executeTest() {evaluatePython(); await pyodideReadyPromise;try {let sortie = await pyodide.runPythonAsync(code_test);addToSortieTest(sortie);} catch(err) {addToSortieTest(err);}}</script>"
         return s  
 
+    @env.macro
+    def console_perso(url_code_test, url_pyodid = "../../javascripts/pyodid.js"):
+        code_test = f"""
+        --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{url_code_test}"
+        """      
+        s = "<div>Code:</div><textarea placeholder='Tapez votre code ici' id='code' class='txta'></textarea>"
+        s = s + "<button onclick='evaluatePython()'  class='execution'>Exécuter le code</button> <button class='execution' onclick='clearOutput()'>Nettoyer Console</button>"
+        s = s + "<div>Évaluation du code :</div><textarea id='output' class='txta common'></textarea><br><br><button onclick='executeTest(code_test)'  class='execution'>Exécuter les tests unitaires</button>  <button class='execution' onclick='clearSortieTest()'>Nettoyer tests</button><div>Évaluation des tests :</div><textarea id='sortie_test' style='width: 100%;' rows='6' disabled></textarea>"
+        s = s + f"<script src='{url_pyodid}'></script>"
+        s = s +  "<script>let code_test =`" + code_test + "`;" + "code_test = desindente(code_test);</script>"
+        return s  
+
 
     @env.macro
-    def console_perso2(url_code_test, url_pyodid = "../../javascripts/pyodid.js"):
+    def console_perso2(url_code_test, url_pyodid = "../../javascripts/pyodid.js"): #very old version
         code_test = f"""
         --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{url_code_test}"
         """ 

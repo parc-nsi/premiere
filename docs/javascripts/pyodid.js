@@ -153,7 +153,13 @@ async function evaluatePython() {
   }
 }
 
-
+async function executeTest(c) {
+  evaluatePython(); 
+  await pyodideReadyPromise;
+  try {
+    let sortie = await pyodide.runPythonAsync(c);
+    addToSortieTest(sortie);} 
+  catch(err) {addToSortieTest(err);}}
 ///////////////////////////////////////////////////////
 //
 //         fin Pyodide
