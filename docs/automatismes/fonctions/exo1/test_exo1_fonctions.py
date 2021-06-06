@@ -7,5 +7,6 @@ for k, test in enumerate(benchmark, 1):
     else:
         sortie.write(f'Test {k} échoué :  {test} \\n')
         break
-sortie.write("Bravo !!!")
+else:
+    sortie.write("Bravo !!!")
 sortie.getvalue()

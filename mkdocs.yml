@@ -68,8 +68,10 @@ nav:
   - Automatismes : 
     - Thèmes:
       - Fonctions:
-        - Somme d'un tableau: automatismes/exo1_somme.md 
-    - Automatismes 2020/2021: automatismes/automatismes-2020-2021.md   
+        - Somme d'un tableau: automatismes/exo1_fonctions.md
+      - Tris:
+        - Tri par sélection: automatismes/exo1_tris.md
+    - Automatismes 2020/2021: automatismes/automatismes-2020-2021.md
   - Projets : projets.md
   - Divers:
     - QCM: divers/qcm.md    

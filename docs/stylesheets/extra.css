@@ -132,6 +132,7 @@ textarea {
   font-weight: bold;
   display: block;
   font-family: var(--md-code-font-family,_),SFMono-Regular,Consolas,Menlo,monospace;
+  width: 100em;
 }
 
 textarea#output {
