@@ -8,6 +8,16 @@ title: Thème Fonctions, somme d'un tableau
 
     Écrire une fonction de signature `somme(tab:list)->int` qui prend en paramètre un tableau d'entiers et renvoie la somme de ses éléments.
 
-    _Rafraîchir la page avec F5 si le code ne s'exécute pas._
+    Signature de la fonction et une  postcondition :
 
-{{ console_perso("tests/test_exo1_somme.txt") }} 
+    ~~~python
+    def somme(tab):
+        #votre code
+
+    assert somme([1,2,3]) == 6  #postcondition
+    ~~~
+
+    _Patience, attendez l'affichage "Prêt" dans la console avant de commencer !._
+
+
+{{console_perso("fonctions/exo1/test_exo1_somme.py")}} 

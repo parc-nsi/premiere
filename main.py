@@ -1,10 +1,10 @@
-import os
 """Macros de Franck Chambon, Guillaume Connan et autres participants du forum NSI
 Merci à eux
 Voir https://mooc-forums.inria.fr/moocnsi/t/mkdocs-une-solution-ideale/1758
 
 """
-
+from mkdocs_macros import fix_url 
+import os
 
 def pyodide():
     #macro de Guillaume Connan
@@ -36,17 +36,32 @@ def define_env(env):
         return pyodide()
 
     @env.macro
-    def console_perso(fichier):
+    def console_perso(url_code_test, url_pyodid = "../../javascripts/pyodid.js"):
         code_test = f"""
-        --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{fichier}"
+        --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{url_code_test}"
         """ 
         s = "<div>Code:</div><textarea placeholder='Tapez votre code ici' id='code' class='txta'></textarea>"
         s = s + "<button onclick='evaluatePython()'  class='execution'>Exécuter le code</button> <button class='execution' onclick='clearOutput()'>Nettoyer Console</button>"
         s = s + "<div>Évaluation du code :</div><textarea id='output' class='txta common'></textarea><br><br><button onclick='executeTest()'  class='execution'>Exécuter les tests unitaires</button>  <button class='execution' onclick='clearSortieTest()'>Nettoyer tests</button><div>Évaluation des tests :</div><textarea id='sortie_test' style='width: 100%;' rows='6' disabled></textarea>"
-        s = s + "<script src='https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js'></script><script src='../../javascripts/pyodid.js'></script><script>async function executeTest() {evaluatePython(); await pyodideReadyPromise;try {let code = `"  
-        s = s + code_test + '`;'
+        s = s + f"<script src='{url_pyodid}'></script>"
+        s = s +  "<script>let code_test =`" + code_test + "`;" + "code_test = desindente(code_test);"
+        s = s + "async function executeTest() {evaluatePython(); await pyodideReadyPromise;try {let sortie = await pyodide.runPythonAsync(code_test);addToSortieTest(sortie);} catch(err) {addToSortieTest(err);}}</script>"
+        return s  
+
+
+    @env.macro
+    def console_perso2(url_code_test, url_pyodid = "../../javascripts/pyodid.js"):
+        code_test = f"""
+        --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{url_code_test}"
+        """ 
+        s = "<div>Code:</div><textarea placeholder='Tapez votre code ici' id='code' class='txta'></textarea>"
+        s = s + "<button onclick='evaluatePython()'  class='execution'>Exécuter le code</button> <button class='execution' onclick='clearOutput()'>Nettoyer Console</button>"
+        s = s + "<div>Évaluation du code :</div><textarea id='output' class='txta common'></textarea><br><br><button onclick='executeTest()'  class='execution'>Exécuter les tests unitaires</button>  <button class='execution' onclick='clearSortieTest()'>Nettoyer tests</button><div>Évaluation des tests :</div><textarea id='sortie_test' style='width: 100%;' rows='6' disabled></textarea>"
+        s = s + f"<script src='{url_pyodid}'></script>"
+        s = s +  "<script>async function executeTest() {evaluatePython(); await pyodideReadyPromise;try {let code = `"  
+        s = s + code_test + '`.replace(/^\s+|\s+$/g, '');'
         s = s + "let sortie = await pyodide.runPythonAsync(code);addToSortieTest(sortie);} catch(err) {addToSortieTest(err);}}</script>"
-        return s       
+        return s 
 
     @env.macro
     def basthon(exo: str, hauteur: int) -> str: #F Chambon

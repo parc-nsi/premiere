@@ -76,6 +76,25 @@ const code = document.getElementById("code");
 const sortie_test = document.getElementById("sortie_test");
 let cpt = 0;
 
+//désindenter un bloc de code Python
+function desindente(chaine){
+  let tab = chaine.split('\n')
+  let chaine2 = "";  
+  let start = 0;
+  while ((start < tab.length ) && (tab[start].trim() == '')){
+    start++;
+  }
+  let decalage = 0;
+  while (tab[start][decalage] == ' '){
+    decalage++;
+  }
+  for (let k = start; k < tab.length;k++){
+    chaine2 = chaine2 +  tab[k].slice(decalage) + "\n"
+  }
+  return chaine2  
+}
+
+
 function addToOutput(sortie) {
     cpt += 1;
     // output.value += 'In  ['+ cpt+ ']: ' + code.value + '\n';
