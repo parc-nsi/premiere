@@ -43,7 +43,7 @@ def define_env(env):
         s = "<div>Code:</div><textarea placeholder='Tapez votre code ici' id='code' class='txta'></textarea>"
         s = s + "<button onclick='evaluatePython()'  class='execution'>Exécuter le code</button> <button class='execution' onclick='clearOutput()'>Nettoyer Console</button>"
         s = s + "<div>Évaluation du code :</div><textarea id='output' class='txta common'></textarea><br><br><button onclick='executeTest()'  class='execution'>Exécuter les tests unitaires</button>  <button class='execution' onclick='clearSortieTest()'>Nettoyer tests</button><div>Évaluation des tests :</div><textarea id='sortie_test' style='width: 100%;' rows='6' disabled></textarea>"
-        s = s + "<script src='../../javascripts/pyodid.js'></script><script>async function executeTest() {evaluatePython(); await pyodideReadyPromise;try {let code = `"  
+        s = s + "<script src='https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js'></script><script src='../../javascripts/pyodid.js'></script><script>async function executeTest() {evaluatePython(); await pyodideReadyPromise;try {let code = `"  
         s = s + code_test + '`;'
         s = s + "let sortie = await pyodide.runPythonAsync(code);addToSortieTest(sortie);} catch(err) {addToSortieTest(err);}}</script>"
         return s       
