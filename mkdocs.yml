@@ -169,7 +169,7 @@ markdown_extensions:
   - toc:
       permalink: ⚓︎
       toc_depth: 3
-  #- mkdocs_graphviz  #https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz
+  - mkdocs_graphviz  #https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz
 
 
 plugins:
@@ -178,9 +178,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
-  #- mermaid2
-  #- mkdocs-jupyter:
-  #    include_source: True
+  - mermaid2
+  - mkdocs-jupyter:
+      include_source: True
 
   
 
