@@ -10,4 +10,4 @@ title: Thème Fonctions, somme d'un tableau
 
     _Rafraîchir la page avec F5 si le code ne s'exécute pas._
 
-{{ console_perso("tests/exo1_somme.py") }} 
+{{ console_perso("tests/test_exo1_somme.txt") }} 
