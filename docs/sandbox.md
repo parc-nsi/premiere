@@ -355,14 +355,13 @@ def bubble_sort(items):
 
 Guillaume Connan voir <https://mooc-forums.inria.fr/moocnsi/t/du-python-cote-client-dans-une-page-web/1961/7> et <https://giyom.gitlab.io/ecs1/2020_21/bac_a_sable/>.
 
-`\{\{console()\}\}` 
+`\{\{console_perso("test1.py")\}\}` 
 
 
 donne
 
-??? console
 
-    {{console()}}
+{{console_perso("test1.py")}}
 
 # Insertion de scripts
 
@@ -412,9 +411,9 @@ En écrivant `\{\{ script('python', 'solution_scrabble.py') \}\}` (sans les \ )
 {{ script('python', 'automatismes/automatismes.py') }}
 
 
-{{ basthon('solution_scrabble/solution_scrabble.py', 800) }}
+<!-- {{ basthon('solution_scrabble/solution_scrabble.py', 800) }} -->
 
 
-{{ basthon('automatismes/automatismes/automatismes.py',800) }}
+<!-- {{ basthon('automatismes/automatismes/automatismes.py',800) }} -->
 
 

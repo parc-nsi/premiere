@@ -65,7 +65,11 @@ nav:
     - Chapitre 22  algorithme KNN : chapitre22.md
     - Chapitre 24  algorithmes gloutons : chapitre24.md
   - Séances : seances.md
-  - Automatismes : automatismes.md
+  - Automatismes : 
+    - Thèmes:
+      - Fonctions:
+        - Somme d'un tableau: automatismes/exo1_somme.md 
+    - Automatismes 2020/2021: automatismes.md    
   - Projets : projets.md
   - Divers:
     - QCM: divers/qcm.md    
@@ -165,7 +169,7 @@ markdown_extensions:
   - toc:
       permalink: ⚓︎
       toc_depth: 3
-  - mkdocs_graphviz  #https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz
+  #- mkdocs_graphviz  #https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz
 
 
 plugins:
@@ -174,9 +178,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
-  - mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+  #- mermaid2
+  #- mkdocs-jupyter:
+  #    include_source: True
 
   
 
@@ -211,6 +215,7 @@ copyright:  Sous licence CC BY-NC-SA 4.0
 
 extra_javascript:
   - javascripts/config.js
+  #- javascripts/pyodid.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   #- https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js    #chargé dans l'extension du template html overrides/main.html

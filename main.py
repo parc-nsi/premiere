@@ -11,6 +11,7 @@ def pyodide():
     s =" <div> Code Python:</div><textarea id='code' style='width: 100%;'rows='10' ></textarea><button onclick='evaluatePython()' class='execution'>Exécuter</button><br><div>Résultat:</div><textarea id='output' style='width: 100%;' rows='10' disabled></textarea><script>const output = document.getElementById(\"output\");const code = document.getElementById(\"code\");let cpt = 0;function addToOutput(s) {cpt += 1;output.value += 'In  ['+ cpt+ ']: ' + code.value + '\\n';output.value += 'Out [' + cpt+ ']: ' + s + '\\n\\n'; }output.value = 'Je me prépare...\\n'; async function main(){  await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' });  output.value += 'Prêt!\\n';} let pyodideReadyPromise = main(); async function evaluatePython() {  await pyodideReadyPromise;  try { let output = await pyodide.runPythonAsync(code.value); addToOutput(output);  } catch(err) { addToOutput(err);}} </script>"
     return s
 
+
 def define_env(env):
     "Hook function"
     
@@ -33,6 +34,19 @@ def define_env(env):
     @env.macro
     def console(): #G Connan
         return pyodide()
+
+    @env.macro
+    def console_perso(fichier):
+        code_test = f"""
+        --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{fichier}"
+        """ 
+        s = "<div>Code:</div><textarea placeholder='Tapez votre code ici' id='code' class='txta'></textarea>"
+        s = s + "<button onclick='evaluatePython()'  class='execution'>Exécuter le code</button> <button class='execution' onclick='clearOutput()'>Nettoyer Console</button>"
+        s = s + "<div>Évaluation du code :</div><textarea id='output' class='txta common'></textarea><br><br><button onclick='executeTest()'  class='execution'>Exécuter les tests unitaires</button>  <button class='execution' onclick='clearSortieTest()'>Nettoyer tests</button><div>Évaluation des tests :</div><textarea id='sortie_test' style='width: 100%;' rows='6' disabled></textarea>"
+        s = s + "<script src='../../javascripts/pyodid.js'></script><script>async function executeTest() {evaluatePython(); await pyodideReadyPromise;try {let code = `"  
+        s = s + code_test + '`;'
+        s = s + "let sortie = await pyodide.runPythonAsync(code);addToSortieTest(sortie);} catch(err) {addToSortieTest(err);}}</script>"
+        return s       
 
     @env.macro
     def basthon(exo: str, hauteur: int) -> str: #F Chambon

@@ -5,25 +5,39 @@
 </head>
 
 <body>
-  <p>You can execute any Python code. Just enter something in the box below and click the button.</p>
-  <input id='code' value='sum([1, 2, 3, 4, 5])'>
-  <button onclick='evaluatePython()'>Run</button>
+    <div>
+        Code:
+        </div>
+        <textarea placeholder="Tapez votre code ici" id='code' class="txta" ></textarea>
+        
+         <button onclick='evaluatePython()'  id='rouge'>Exécuter le code</button>
+         <button onclick='executeTest()'  id='rouge'>Exécuter les tests unitaires</button>
+        <div>
+        Résultat:
+        </div>
+        <textarea id='output' class="txta common" ></textarea>
   <br>
   <br>
   <div>
-    Output:
+    Tests:
   </div>
-  <textarea id='output' style='width: 100%;' rows='6' disabled></textarea>
+  <textarea id='sortie_test' style='width: 100%;' rows='6' disabled></textarea>
 
   <script>
     const output = document.getElementById("output");
     const code = document.getElementById("code");
+    const sortie_test = document.getElementById("sortie_test");
 
-    function addToOutput(s) {
-      output.value += '>>>' + code.value + '\n' + s + '\n';
+    function addToOutput(code, sortie) {
+      output.value += '>>>' + code + '\n' + sortie + '\n';
+    }
+
+    function addToSortieTest(sortie) {
+        sortie_test.value +=  sortie + '\n';
     }
 
     output.value = 'Initializing...\n';
+    sortie_test.value = '';
     // init Pyodide
     async function main(){
       await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' });
@@ -31,15 +45,36 @@
     }
     let pyodideReadyPromise = main();
 
+   
     async function evaluatePython() {
       await pyodideReadyPromise;
       try {
-        let output = await pyodide.runPythonAsync(code.value);
-        addToOutput(output);
+        let sortie = await pyodide.runPythonAsync(code.value);
+        addToOutput(code.value, sortie);
       } catch(err) {
-        addToOutput(err);
+        addToOutput(code.value, err);
       }
     }
+
+
+    async function executeTest() {
+      await pyodideReadyPromise;
+      try {
+        let code = `
+        import io
+        sortie = io.StringIO()
+        assert somme(1,2) == 3
+        sortie.write("tests réussis")
+        sortie.getvalue()
+        `
+        let sortie = await pyodide.runPythonAsync(code);
+        addToSortieTest(sortie);
+      } catch(err) {
+        addToSortieTest(err);
+      }
+    }
+
+
   </script>
 </body>
 
