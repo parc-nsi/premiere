@@ -1,4 +1,5 @@
 site_name: "Première NSI Lycée du Parc"
+site_url: https://parc-nsi.github.io/premiere/
 
 #use_directory_urls: true
 #voir https://www.mkdocs.org/user-guide/configuration/#docs_dir
@@ -209,7 +210,7 @@ extra:
 
   raw_url: https://parc-nsi.github.io/premiere/-/raw/master/docs/
   io_url: https://parc-nsi.github.io/premiere/
-  site_url: https://parc-nsi.github.io/premiere/
+  
 
 
 
