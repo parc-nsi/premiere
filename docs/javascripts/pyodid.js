@@ -5,7 +5,7 @@
 //
 ////////////////////////////////////////////////////////
 
-//////   POUR AVOIR DES TEXTAREAS QUI S'ÉTENDENT AVEC LE TEXTE
+//////   POUR AVOIR DES textareas QUI S'ÉTENDENT AVEC LE TEXTE
 
 
 // Targets all textareas with class "txta"
