@@ -1,6 +1,8 @@
 site_name: "Première NSI Lycée du Parc"
 site_url: https://parc-nsi.github.io/premiere/
 repo_url: https://github.com/parc-nsi/premiere
+docs_dir: docs
+site_description: "Site de première NSI Lycée du Parc Lyon"
 
 #use_directory_urls: true
 #voir https://www.mkdocs.org/user-guide/configuration/#docs_dir
