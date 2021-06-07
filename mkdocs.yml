@@ -223,4 +223,4 @@ extra_javascript:
   #- https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js    #chargé dans l'extension du template html overrides/main.html
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.css 
