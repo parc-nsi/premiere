@@ -9,9 +9,9 @@
 
 
 // Targets all textareas with class "txta"
-let textareas = document.querySelectorAll('.txta'),
-    hiddenDiv = document.createElement('div'),
-    content = null;
+var textareas = document.querySelectorAll('.txta');
+var hiddenDiv = document.createElement('div');
+var content = null;
 
 // Adds a class to all textareas
 for (let j of textareas) {
@@ -71,10 +71,10 @@ for(let i of textareas) {
 
 ////////  PYODIDE
 
-const output = document.getElementById("output");
-const code = document.getElementById("code");
-const sortie_test = document.getElementById("sortie_test");
-let cpt = 0;
+var output = document.getElementById("output");
+var code = document.getElementById("code");
+var sortie_test = document.getElementById("sortie_test");
+var cpt = 0;
 
 //désindenter un bloc de code Python
 function desindente(chaine){
@@ -135,12 +135,22 @@ document.getElementById('code').addEventListener('keydown', function(e) {
 
 
 output.value = 'Un instant...\n';
+
+
 // init Pyodide
 async function main(){
   await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' });
   output.value += 'Prêt !\n';
 }
-let pyodideReadyPromise = main();
+
+if (typeof pyodideReadyPromise === "undefined"){
+  var pyodideReadyPromise = main();
+}
+else {
+  console.log("Pyodide déjà chargé");
+  output.value += 'Prêt !\n';
+}
+
 
 async function evaluatePython() {
   await pyodideReadyPromise;
