@@ -1,7 +1,4 @@
 site_name: "Première NSI Lycée du Parc"
-site_url: https://parc-nsi.github.io/premiere/
-repo_url: https://github.com/parc-nsi/premiere
-docs_dir: docs
 
 #use_directory_urls: true
 #voir https://www.mkdocs.org/user-guide/configuration/#docs_dir
@@ -13,7 +10,7 @@ nav:
     - Chapitre 12 codage des caractères : chapitre12.md
     - Chapitre 15 les flottants : chapitre16.md
   - Types construits :
-    - Chapitre 6  tableaux à 1 dimension :  
+    - Chapitre 6  tableaux à 1 dimension : 
       - Index : chapitre6.md
       - Cours : chapitre6/Cours/tableaux-cours-git.md
     - Chapitre 7 tableaux à 2 dimensions :
@@ -184,8 +181,8 @@ plugins:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
   #- mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+  #- mkdocs-jupyter:
+  #    include_source: True
 
   
 
@@ -212,7 +209,7 @@ extra:
 
   raw_url: https://parc-nsi.github.io/premiere/-/raw/master/docs/
   io_url: https://parc-nsi.github.io/premiere/
-  
+  site_url: https://parc-nsi.github.io/premiere/
 
 
 
@@ -226,4 +223,4 @@ extra_javascript:
   #- https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js    #chargé dans l'extension du template html overrides/main.html
 
 extra_css:
-  - stylesheets/extra.css 
+  - stylesheets/extra.css

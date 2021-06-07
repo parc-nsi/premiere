@@ -1,6 +1,5 @@
 import io
 import random
-import js
 
 
 def index_minimum_partiel_correction(tab:[int], debut:int)->int:
@@ -38,41 +37,5 @@ else:
             sortie.write(f"Test {i} échoué \\n")
             break
     else:        
-        sortie.write("Bravo, tests réussis pour tri_selection_croissant !!! \\n \\n")
-        sortie.write("Bravo vous avez réussi tous les tests !!! \\n \\n")
-        article = js.document.querySelector("article")
-        div1 = js.document.createElement("div")
-        div1.innerHTML = """
-        <details class="help" open="">
-        <summary>Solution <code>index_minimum_partiel</code></summary>
-        <div class="highlight">
-        <pre id="__code_solution">
-        <span></span>
-        <button class="md-clipboard md-icon" title="Copier dans le presse-papier" data-clipboard-target="#__code_solution"></button>
-        def index_minimum_partiel_correction(tab:[int], debut:int)->int:
-            imin = debut
-            for k in range(debut + 1, len(tab)):
-                if tab[k] < tab[imin]:
-                    imin = k
-            return imin
-        </pre>
-        </details>
-        """
-        article.appendChild(div1)
-        div2 = js.document.createElement("div")
-        div2.innerHTML = """
-        <details class="help" open="">
-        <summary>Solution <code>tri_selection_croissant</code></summary>
-        <div class="highlight">
-        <pre id="__code_solution2">
-        <span></span>
-        <button class="md-clipboard md-icon" title="Copier dans le presse-papier" data-clipboard-target="#__code_solution2"></button>
-        def tri_selection_croissant_correction(tab:[int])->[int]:
-            for k in range(len(tab) - 1):
-                imin = index_minimum_partiel_correction(tab, k)
-                tab[imin], tab[k] = tab[k], tab[imin]
-        </pre>
-        </details>
-        """
-        article.appendChild(div2)
+        sortie.write("Bravo, tests réussis pour tri_selection_croissant !!!")
 sortie.getvalue()

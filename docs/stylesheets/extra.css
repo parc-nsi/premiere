@@ -132,6 +132,7 @@ textarea {
   font-weight: bold;
   display: block;
   font-family: var(--md-code-font-family,_),SFMono-Regular,Consolas,Menlo,monospace;
+  width: 100em;
 }
 
 textarea#output {
@@ -157,7 +158,7 @@ word-wrap: break-word;
 /* these must be the same for both */
 .txta {
 width: 100%;
-max-width: 600px;
+max-width: 500px;
 min-height: 100px;
 /*font-family: Arial, sans-serif;
 font-size: 16px;*/
