@@ -21,4 +21,4 @@ title: Thème Fonctions, somme d'un tableau
     _Patience, attendez l'affichage "Prêt" dans la console avant de commencer ! Rafraîchissez la page si le message n'apparaît pas au bout de quelques secondes._
 
 
-{{console_perso("fonctions/exo1/test_exo1_fonctions.py")}} 
+{{console_perso("fonctions/exo1/test_exo1_fonctions.py", "fonctions/exo1/template_exo1_fonctions.py")}} 

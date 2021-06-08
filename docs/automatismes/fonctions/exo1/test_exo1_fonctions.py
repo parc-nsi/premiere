@@ -11,44 +11,46 @@ for k, test in enumerate(benchmark, 1):
         break
 else:
     sortie.write("Bravo vous avez réussi tous les tests !!! \\n \\n")
-    article = js.document.querySelector("article")
-    div1 = js.document.createElement("div")
-    div1.innerHTML = """
-    <details class="help" open="">
-    <summary>Solution 1</summary>
-    <div class="highlight">
-    <pre id="__code_solution">
-    <span></span>
-    <button class="md-clipboard md-icon" title="Copier dans le presse-papier" data-clipboard-target="#__code_solution"></button>
-    def somme(tab):
-        if len(tab) > 0:
-            s = 0
-            for e in s:
-                s = s + e
-            return s
-        return None
-    </pre>
-    </details>
-    """
-    article.appendChild(div1)
-    div2 = js.document.createElement("div")
-    div2.innerHTML = """
-    <details class="help" open="">
-    <summary>Solution 2</summary>
-    <div class="highlight">
-    <pre id="__code_solution2">
-    <span></span>
-    <button class="md-clipboard md-icon" title="Copier dans le presse-papier" data-clipboard-target="#__code_solution2"></button>
-    def somme(tab):
-        if len(tab) > 0:
-            s = 0
-            for k in range(len(tab)):
-                s = s + tab[k]
-            return s
-        return None
-    </pre>
-    </details>
-    """
-    article.appendChild(div2)
+    js.reussite += 1
+    if js.reussite == 1:
+        article = js.document.querySelector("article")
+        div1 = js.document.createElement("div")
+        div1.innerHTML = """
+        <details class="help" open="">
+        <summary>Solution 1</summary>
+        <div class="highlight">
+        <pre id="__code_solution">
+        <span></span>
+        <button class="md-clipboard md-icon" title="Copier dans le presse-papier" data-clipboard-target="#__code_solution"></button>
+        def somme(tab):
+            if len(tab) > 0:
+                s = 0
+                for e in s:
+                    s = s + e
+                return s
+            return None
+        </pre>
+        </details>
+        """
+        article.appendChild(div1)
+        div2 = js.document.createElement("div")
+        div2.innerHTML = """
+        <details class="help" open="">
+        <summary>Solution 2</summary>
+        <div class="highlight">
+        <pre id="__code_solution2">
+        <span></span>
+        <button class="md-clipboard md-icon" title="Copier dans le presse-papier" data-clipboard-target="#__code_solution2"></button>
+        def somme(tab):
+            if len(tab) > 0:
+                s = 0
+                for k in range(len(tab)):
+                    s = s + tab[k]
+                return s
+            return None
+        </pre>
+        </details>
+        """
+        article.appendChild(div2)
 
 sortie.getvalue()

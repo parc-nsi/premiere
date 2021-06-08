@@ -75,6 +75,7 @@ var output = document.getElementById("output");
 var code = document.getElementById("code");
 var sortie_test = document.getElementById("sortie_test");
 var cpt = 0;
+var reussite = 0; //nombre de séries de tests réussies
 
 //désindenter un bloc de code Python
 function desindente(chaine){
