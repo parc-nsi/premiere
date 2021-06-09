@@ -26,3 +26,4 @@ title:  Séances
 21. [Séance du 20/05/2021](seances/seance-2021-05-20.md)
 22. [Séance du 27/05/2021](seances/seance-2021-05-27.md)
 23. [Séance du 03/06/2021](seances/seance-2021-06-03.md)
+24. [Séance du 10/06/2021](seances/seance-2021-06-10.md)
