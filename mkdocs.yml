@@ -3,6 +3,7 @@ site_url: https://parc-nsi.github.io/premiere/
 repo_url: https://github.com/parc-nsi/premiere
 site_description: "Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " 
 
+
 #use_directory_urls: true
 #voir https://www.mkdocs.org/user-guide/configuration/#docs_dir
 
@@ -187,9 +188,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
-  - mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+ # - mermaid2
+ # - mkdocs-jupyter:
+ #     include_source: True
 
   
 
@@ -225,10 +226,12 @@ copyright:  Sous licence CC BY-NC-SA 4.0
 extra_javascript:
   - javascripts/config.js
   #- javascripts/pyodid.js
+  - xtra/javascripts/interpreter.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   #- https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js    #chargé dans l'extension du template html overrides/main.html
 
 extra_css:
   - stylesheets/extra.css
+  - xtra/stylesheets/pyoditeur.css
  

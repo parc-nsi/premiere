@@ -353,16 +353,56 @@ def bubble_sort(items):
 
 # Insertion de console Pyodide 
 
+## Console de Guillaume Connan 
+
 Une console directement inspirée du travail de Guillaume Connan voir <https://mooc-forums.inria.fr/moocnsi/t/du-python-cote-client-dans-une-page-web/1961/7> et <https://giyom.gitlab.io/ecs1/2020_21/bac_a_sable/>.
 
-
-`\{\{console_perso("test1.py")\}\}` 
-
-
-donne
+Voir <https://parc-nsi.github.io/premiere/automatismes/exo1_fonctions/>.
 
 
-{{console_perso("test1.py", "test1.py")}}
+## Console de Vincent Bouillot
+
+Voir tutoriel complet sur <https://bouillotvincent.gitlab.io/pyodide-mkdocs>. En voici un extrait : 
+
+!!! summary "La syntaxe"
+
+    === "Terminal"
+        ```markdown
+        {% raw %}
+        {{ terminal() }}
+        {% endraw %}
+        ```
+        Cette commande crée un terminal vide. L'auto-complétion avec ++tab++ et le rappel de l'historique (avec ++ctrl+"R"++ ) sont possibles.
+
+        !!! console
+
+            {{ terminal() }}
+
+    === "REPL vide"
+        ```markdown
+        {% raw %}
+        {{ REPL(url_repljs ="../xtra/javascripts/repl.js") }}
+        {% endraw %}
+        ```
+        Cette commande crée un REPL (~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
+
+        !!! repl
+
+            {{REPL(url_repljs ="../xtra/javascripts/repl.js")}}
+
+
+    === "REPL vertical"
+        ```markdown
+        {% raw %}
+        {{ REPLv('', -1, url_repljs ="../xtra/javascripts/repl.js") }}
+        {% endraw %}
+        ```
+        Cette commande crée un REPL vertical (~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
+
+        !!! REPL
+
+            {{REPLv('', -1,url_repljs ="../xtra/javascripts/repl.js")}}
+
 
 # Insertion de scripts
 
