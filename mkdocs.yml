@@ -1,6 +1,7 @@
 site_name: "Première NSI Lycée du Parc"
 site_url: https://parc-nsi.github.io/premiere/
 repo_url: https://github.com/parc-nsi/premiere
+edit_uri: tree/main/docs/
 site_description: "Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " 
 
 
@@ -188,9 +189,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
- # - mermaid2
- # - mkdocs-jupyter:
- #     include_source: True
+  - mermaid2
+  - mkdocs-jupyter:
+      include_source: True
 
   
 
