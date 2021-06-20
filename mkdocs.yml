@@ -61,7 +61,7 @@ nav:
     - Chapitre 4 boucles conditionnelles et tests : 
       - Index: chapitre4.md 
       - Tests Boucles:  chapitre4/TestBouclesConditionnelles-Correction.md
-    - Chapitre 5 fonctions et portée d'une variable : chapitre5.md  
+    - Chapitre 5 onctions, spécification et mise au point, portée d'une variable : chapitre5.md  
   - Algorithmique:
     - Chapitre 10  recherches séquentielle et dichotomique : chapitre10.md
     - Chapitre 11  algorithmes de tri : chapitre11.md

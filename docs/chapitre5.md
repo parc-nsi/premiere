@@ -1,5 +1,5 @@
 ---
-title:  Chapitre 5  fonctions et portée d'une variable
+title:  Chapitre 5  onctions, spécification et mise au point, portée d'une variable
 layout: parc
 ---
 
@@ -9,7 +9,7 @@ Cours de Frédéric Junier.
 
 ## Cours
 
-* [Pdf du cours sur les fonctions et la portée d'une variable](chapitre5/Chapitre5-Fonctions-PorteeVariable-2020.pdf)
+* [Pdf du cours sur  fonctions, spécification et mise au point, portée d'une variable](chapitre5/Chapitre5-Fonctions-PorteeVariable-2020.pdf)
 
 * Corrigés des exemples du cours :
     * [version pdf](chapitre5/corrige-cours/Corrige_Cours_Chapitre5_Fonctions.pdf)

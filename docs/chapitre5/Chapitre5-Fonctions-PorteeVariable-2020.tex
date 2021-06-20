@@ -1633,7 +1633,7 @@ _{\substack{x \to #1 \\ x > #1 }} #2}
 %%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{\Large Première NSI}  % Pour spécifier l'auteur qui sera affiché sous le titre
-\title{\Large Chapitre 5: Fonctions et portée d'une variable}  % Titre 
+\title{\Large Chapitre 5: Fonctions, spécification et mise au point, portée d'une variable}  % Titre 
 \date{Année scolaire 2020/2021}
 
 \renewcommand{\thesection}{\Roman{section}}  % permet de numéroter les sections en chiffres romains
@@ -1913,15 +1913,15 @@ Principales fonctions du modules \texttt{random} :
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline 
-Fonction & Effet \\ 
+Fonction & Effet \\  
 \hline 
-\texttt{randrange(a,b)} & retourne un entier aléatoire dans [a;b[ \\ 
+\texttt{randrange(a,b)} & renvoie un entier aléatoire dans [a;b[ \\ 
 \hline 
-\texttt{randint(a,b)} & retourne un entier aléatoire dans [a;b] \\ 
+\texttt{randint(a,b)} & renvoie un entier aléatoire dans [a;b] \\ 
 \hline 
-\texttt{random()} & retourne un décimal aléatoire dans [0;1[ \\ 
+\texttt{random()} & renvoie un décimal aléatoire dans [0;1[ \\ 
 \hline 
-\texttt{uniform(a,b)} & retourne un décimal aléatoire dans [a;b] \\ 
+\texttt{uniform(a,b)} & renvoie un décimal aléatoire dans [a;b] \\ 
 \hline 
 \end{tabular} 
 
@@ -1931,11 +1931,11 @@ Fonction & Effet \\
 \begin{exercice}{}
 
 \begin{enumerate}
-	\item Écrire une fonction \texttt{sommeDe(n)} qui retourne la somme des résultats obtenus en lançant \texttt{n} dé à $6$ faces.
+	\item Écrire une fonction \texttt{sommeDe(n)} qui renvoie la somme des résultats obtenus en lançant \texttt{n} dé à $6$ faces.
 	
 	\lignes{4}
 	
-	\item Écrire une fonction \texttt{urne()} qui retourne le numéro de la boule tirée dans une urne qui contient cinq boules numérotées $1$, trois boules numérotées $2$ et deux boules numérotées $3$.
+	\item Écrire une fonction \texttt{urne()} qui renvoie le numéro de la boule tirée dans une urne qui contient cinq boules numérotées $1$, trois boules numérotées $2$ et deux boules numérotées $3$.
 	
 		\lignes{6}
 		
@@ -2057,6 +2057,132 @@ exitonclick()
 	\end{center}
 
 \end{entrainement}
+
+
+\subsection{Spécifier une fonction}
+
+\begin{methode}{}
+
+Si on écrit une bibliothèque de fonctions, il est nécessaire pour chaque fonction de décrire ce qu'elle fait à travers une documentation.
+
+En Python, on peut associer à une fonction une \textbf{chaîne de documentation} ou \textit{docstring} où l'on spécifie :
+
+\begin{itemize}
+ \item les paramètres attendus par la fonction en précisant leur type ;
+ \item le type de la valeur renvoyée (\texttt{None} s'il n'y a pas de \texttt{return}) ;
+ \item la nature du traitement effectué.
+\end{itemize}
+
+En plaçant cette \textit{docstring} juste après la signature de la fonction, elle sera accessible à travers l'attibut \verb+__doc__+ ou la fonction \texttt{help} en mode interactif. Ce mécanisme d'introspection facilite l'appropriation d'une bibliothèque, un exemple avec la documentation de la fonction \texttt{randint} du module \texttt{random} : 
+
+\begin{lstlisting}[style=compil]
+>>> import random
+>>> help(random.randint)
+Help on method randint in module random:
+
+randint(a, b) method of random.Random instance
+    Return random integer in range [a, b], including both end points
+>>> random.randint.__doc__
+'Return random integer in range [a, b], including both end points.\n        '    
+\end{lstlisting}
+
+Depuis le mode interactif enrichi Ipython, on peut afficher le code source de cette fonction de bibliothèque pour avoir un exemple de \texttt{docstring} :
+
+\begin{lstlisting}[style=rond]    
+In [2]: %psource random.randint                                                 
+    def randint(self, a, b):
+        """Return random integer in range [a, b], including both end points.
+        """
+        return self.randrange(a, b+1)
+\end{lstlisting}
+
+
+Dans les dernières versions de Python, on peut préciser de façon optionnelle le type attendu et le type renvoyé avec un mécanisme d'annotations :
+\begin{lstlisting}[style=compil]
+def greeting(name: str) -> str:
+    return 'Hello ' + name
+\end{lstlisting}
+
+\end{methode}
+
+
+
+
+\subsection{Mise au point de programme}
+
+
+\begin{methode}{}
+Une \textbf{assertion} est une instruction qui vérifie si une  condition (à valeur booléenne) est  vérifiée dans l'état courant du programme.
+
+L'exécution d'une  assertion est silencieuse si elle est vérifiée et elle lève une exception de type \texttt{AssertionError} qui interrompt l'exécution sinon.
+
+La syntaxe est \texttt{assert condition}.
+
+
+\begin{lstlisting}[style=compil]
+>>> assert 1 == 1
+>>> assert 1 == 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError
+\end{lstlisting}
+
+On peut utiliser des assertions comme outils de \textbf{mise au point}  du programme   ou d'une fonction  en particulier. Considérons le cas de la fonction \texttt{ pgcd(a:int, b:int)->int} :
+
+
+\begin{lstlisting}[style=rond]
+def pgcd(a:int, b:int)->int:
+	"""Paramètres : a et b deux entiers
+	Valeur renvoyée : PGCD de a et b"""
+	while b != 0:
+		a, b = b, a % b
+	return a  
+\end{lstlisting}
+
+
+
+\begin{itemize}
+ \item on peut vérifier au début du corps de la fonction des \textbf{préconditions} sur les paramètres, par exemple ici  \textit{a et b non tous nuls} peut se traduire par l'assertion \texttt{assert a != 0 or b != 0}. On parle de \textbf{programmation défensive}.
+ 
+\begin{lstlisting}[style=compil]
+def pgcd(a, b):
+	"""Paramètres : a et b deux entiers
+	Valeur renvoyée : PGCD de a et b"""
+	assert a != 0 or b != 0    #précondition
+	while b != 0:
+		a, b = b, a % b
+	return a
+\end{lstlisting} 
+\item on peut définir hors de la fonction des \textbf{postconditions} sur les valeurs renvoyées en fonction des entrées. n peut les rassembler dans un \textbf{jeu de tests}. On parle alors de \textbf{tests unitaires} :
+
+\begin{lstlisting}[style=compil]
+>>> assert pgcd(2,2) == 2                                                   
+>>> assert pgcd(2, 6) == 2                                                  
+>>> assert pgcd(5, 15) == 5                                                
+>>> assert pgcd(45, 60) == 15                                              
+>>> assert pgcd(2, 0) == 2  
+>>> def test_pgcd():
+...     assert pgcd(2,2) == 2
+...     ............
+...     assert pgcd(2, 0) == 2
+...     print("Test unitaires réussis")
+>>> test_pgcd()
+"Test unitaires réussis"
+\end{lstlisting}
+
+Si le programme était incorrect, un test unitaire pourrait être faux et provoquer une erreur \texttt{Assertion Error}.
+
+\bcdanger{} Pou reprendre une citation célèbre d'\href{https://fr.wikipedia.org/wiki/Edsger_Dijkstra}{Edger Dijsktraa} :
+
+\begin{quote}
+{\itshape
+Program testing can be used to show the presence of bugs, but never to show their absence! 
+}
+\end{quote}
+
+\end{itemize}
+
+\end{methode}
 
 \newpage
 
@@ -2215,5 +2341,11 @@ print(a)
 \end{programme}
 
 
+
+
+\newpage
+
+
+\tableofcontents
 
 \end{document} %  ======================  FIN  ==========================
