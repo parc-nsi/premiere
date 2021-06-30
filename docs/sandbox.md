@@ -381,27 +381,27 @@ Voir tutoriel complet sur <https://bouillotvincent.gitlab.io/pyodide-mkdocs>. En
     === "REPL vide"
         ```markdown
         {% raw %}
-        {{ REPL(url_repljs ="../xtra/javascripts/repl.js") }}
+        {{ REPL2(url_repljs ="../xtra/javascripts/repl.js") }}
         {% endraw %}
         ```
         Cette commande crée un REPL (~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
 
         !!! repl
 
-            {{REPL(url_repljs ="../xtra/javascripts/repl.js")}}
+            {{REPL2(url_repljs ="../xtra/javascripts/repl.js")}}
 
 
     === "REPL vertical"
         ```markdown
         {% raw %}
-        {{ REPLv('', -1, url_repljs ="../xtra/javascripts/repl.js") }}
+        {{ REPLv2('', -1, url_repljs ="../xtra/javascripts/repl.js") }}
         {% endraw %}
         ```
         Cette commande crée un REPL vertical (~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
 
         !!! REPL
 
-            {{REPLv('', -1,url_repljs ="../xtra/javascripts/repl.js")}}
+            {{REPLv2('', -1,url_repljs ="../xtra/javascripts/repl.js")}}
 
 
 # Insertion de scripts

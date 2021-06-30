@@ -72,10 +72,11 @@ nav:
   - Séances : seances.md
   - Automatismes : 
     - Thèmes:
-      - Fonctions:
+      - Tableaux:
         - Somme d'un tableau: automatismes/exo1_fonctions.md
+        - Somme d'un tableau, Vincent Bouillot: automatismes/exo1_fonctions_bouillot.md
       - Tris:
-        - Tri par sélection: automatismes/exo1_tris.md
+        - Tri par sélection: automatismes/exo1_tris.md      
     - Automatismes 2020/2021: automatismes/automatismes-2020-2021.md
   - Projets : projets.md
   - Divers:
@@ -109,7 +110,7 @@ nav:
 
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: overrides/
   font: false
   language: fr
   logo: assets/logo-parc.png
@@ -227,12 +228,13 @@ copyright:  Sous licence CC BY-NC-SA 4.0
 extra_javascript:
   - javascripts/config.js
   #- javascripts/pyodid.js
-  - xtra/javascripts/interpreter.js
+  - javascripts/interpreter.js
+  #- javascripts/repl.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   #- https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js    #chargé dans l'extension du template html overrides/main.html
 
 extra_css:
   - stylesheets/extra.css
-  - xtra/stylesheets/pyoditeur.css
+  - stylesheets/pyoditeur.css
  

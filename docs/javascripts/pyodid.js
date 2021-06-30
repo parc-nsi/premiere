@@ -153,7 +153,7 @@ else {
 }
 
 
-async function evaluatePython() {
+async function evaluatePythonPerso() {
   await pyodideReadyPromise;
   try {
       let output = await pyodide.runPythonAsync(code.value);
@@ -164,8 +164,8 @@ async function evaluatePython() {
   }
 }
 
-async function executeTest(c) {
-  evaluatePython(); 
+async function executeTestPerso(c) {
+  evaluatePythonPerso(); 
   await pyodideReadyPromise;
   try {
     let sortie = await pyodide.runPythonAsync(c);
