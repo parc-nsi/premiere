@@ -21,4 +21,4 @@ Test de la console de [Vincent Bouillot](https://bouillotvincent.gitlab.io/pyodi
     ~~~
 
 
-{{REPL("fonctions/exo1/exo1_fonctions")}} 
+{{IDE("fonctions/exo1/exo1_fonctions")}} 

@@ -374,34 +374,34 @@ Voir tutoriel complet sur <https://bouillotvincent.gitlab.io/pyodide-mkdocs>. En
         ```
         Cette commande crée un terminal vide. L'auto-complétion avec ++tab++ et le rappel de l'historique (avec ++ctrl+"R"++ ) sont possibles.
 
-        !!! console "réalisée par Vincent Bouillot"
+        !!! console "console réalisée par Vincent Bouillot"
 
             {{ terminal() }}
 
-    === "REPL vide"
+    === "IDE vide"
         ```markdown
         {% raw %}
-        {{ REPL() }}
+        {{ IDE() }}
         {% endraw %}
         ```
-        Cette commande crée un REPL (~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
+        Cette commande crée un IDE(~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
 
-        !!! repl
+        !!! IDE
 
-            {{REPL()}}
+            {{IDE()}}
 
 
-    === "REPL vertical"
+    === "IDE vertical"
         ```markdown
         {% raw %}
-        {{ REPLv('') }}
+        {{ IDEv('') }}
         {% endraw %}
         ```
-        Cette commande crée un REPL vertical (~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
+        Cette commande crée un IDE vertical (~ Thonny) vide. L'engrenage permet de lancer le code tapé dans la zone de saisie (avec les numéros de ligne). La zone de saisie se redimensionne automatiquement et autorise l'auto-complétion avec ++tab++.
 
-        !!! REPL
+        !!! IDE
 
-            {{REPLv('')}}
+            {{IDEv('')}}
 
 
 # Insertion de scripts

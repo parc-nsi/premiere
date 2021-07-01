@@ -21,7 +21,7 @@ def define_env(env):
     env.variables['compteur_exo'] = 0
     env.variables['compteur_enigme'] = 0
     env.variables['term_counter'] = 0
-    env.variables['REPL_counter'] = 0   
+    env.variables['IDE_counter'] = 0   
 
     @env.macro
     def exercice(): #G Connan
@@ -139,10 +139,10 @@ def define_env(env):
         
     def generate_content(nom_script : str) -> str:
         """
-        Purpose : Return content and current number REPL {tc}.
+        Purpose : Return content and current number IDE {tc}.
         """
-        tc = env.variables['REPL_counter']
-        env.variables['REPL_counter'] += 1
+        tc = env.variables['IDE_counter']
+        env.variables['IDE_counter'] += 1
 
         content = read_ext_file(nom_script)
 
@@ -152,7 +152,7 @@ def define_env(env):
 
     def create_upload_button(tc : str) -> str:
         """
-        Purpose : Create upoad button for a REPL number {tc}.
+        Purpose : Create upoad button for a IDE number {tc}.
         Methods : Use an HTML input to upload a file from user. The user clicks on the button to fire a JS event
         that triggers the hidden input.
         """
@@ -161,7 +161,7 @@ def define_env(env):
 
     def create_unittest_button(tc: str, nom_script: str, mode: str) -> str:
         """
-        Purpose : Generate the button for REPL {tc} to perform the unit tests if a valid test_script.py is present.
+        Purpose : Generate the button for IDE {tc} to perform the unit tests if a valid test_script.py is present.
         Methods : Hide the content in a div that is called in the Javascript
         """
         stripped_nom_script = nom_script.split('/')[-1]
@@ -181,24 +181,24 @@ def define_env(env):
         return f"""<span style="indent-text:5em"> </span>"""
 
     @env.macro
-    def REPLv(nom_script : str ='') -> str:
+    def IDEv(nom_script : str ='') -> str:
         """
-        Purpose : Easy macro to generate vertical REPL in Markdown mkdocs.
-        Methods : Fire the REPL function with 'v' mode.
+        Purpose : Easy macro to generate vertical IDE in Markdown mkdocs.
+        Methods : Fire the IDE function with 'v' mode.
         """
-        return REPL(nom_script, 'v')
+        return IDE(nom_script, 'v')
 
 
     @env.macro
-    def REPL(nom_script : str ='', mode : str = 'h') -> str:
+    def IDE(nom_script : str ='', mode : str = 'h') -> str:
         """
-        Purpose : Create a REPL (Editor+Terminal) on a Mkdocs document. {nom_script}.py is loaded on the editor if present. 
+        Purpose : Create a IDE (Editor+Terminal) on a Mkdocs document. {nom_script}.py is loaded on the editor if present. 
         Methods : Two modes are available : vertical or horizontal. Buttons are added through functioncal calls.
-        Last span hides the code content of the REPL if loaded.
+        Last span hides the code content of the IDE if loaded.
         """
         content, tc = generate_content(nom_script)
         corr_content, tc = generate_content(f"""{'/'.join(nom_script.split('/')[:-1])}/corr_{nom_script.split('/')[-1]}""")
-        div_edit = f'<div class="repl_classe">'
+        div_edit = f'<div class="ide_classe">'
         if mode == 'v':
             div_edit += f'<div class="wrapper"><div class="interior_wrapper"><div id="editor_{tc}"></div></div><div id="term_editor_{tc}" class="term_editor"></div></div>'
         else:
@@ -212,6 +212,3 @@ def define_env(env):
         div_edit += f"""<span id="content_editor_{tc}" class="hide">{content}</span>"""
         div_edit += f"""<span id="corr_content_editor_{tc}" class="hide">{corr_content}</span>"""
         return div_edit
-
-
-
