@@ -215,3 +215,33 @@ def define_env(env):
 
 
 
+    @env.macro
+    def REPLv2(nom_script='',last = 0, url_repljs = "../xtra/javascripts/repl.js") -> str:
+        tc = env.variables['REPL_counter']
+        if len(nom_script) > 0: 
+            f = open(f"""docs/{os.path.dirname(env.variables.page.url.rstrip('/'))}/scripts/{nom_script}.py""")
+            content = ''.join(f.readlines())
+            f.close()
+            div_edit = f"""<div id="editor_{tc}">{content}</div>"""        
+        else : div_edit = f'<div id="editor_{tc}"></div>'
+        env.variables['REPL_counter'] += 1
+        div_edit = f'<div class="wrapper"><div class="interior_wrapper">{div_edit}</div>\
+        <div id="term_editor_{tc}" class="term_editor"></div></div><button onclick=\'interpretACE("editor_{tc}","vert")\' style="font-size:2em">⚙️</button>'
+        return f"""{div_edit}<script src="{url_repljs}"></script> """ if last==-1 else div_edit
+        #return f"""{div_edit}<script src="xtra/javascripts/repl.js"></script> """ if last==-1 else div_edit
+
+    @env.macro
+    def REPL2(nom_script='', last = 0, url_repljs = "../xtra/javascripts/repl.js") -> str:
+        tc = env.variables['REPL_counter']
+        if len(nom_script) > 0: 
+            f = open(f"""docs/{os.path.dirname(env.variables.page.url.rstrip('/'))}/scripts/{nom_script}.py""")
+            content = ''.join(f.readlines())
+            f.close()
+            div_edit = f"""<div class="line" id="editor_{tc}">{content}</div>"""        
+        else : div_edit = f'<div class="line" id="editor_{tc}"></div>'
+        env.variables['REPL_counter'] += 1
+        div_edit = f'<div class="wrapper_h">{div_edit}<div id="term_editor_{tc}" class="term_editor_h terminal_f_h"></div></div><button onclick=\'interpretACE("editor_{tc}","hori")\' style="font-size:2em">⚙️</button>' 
+        return f"""{div_edit}<script src="{url_repljs}"></script> """ if last==-1 else div_edit
+        #return f"""{div_edit}<script src="xtra/javascripts/repl.js"></script> """ if last==-1 else div_edit
+
+

@@ -22,6 +22,20 @@ flex-wrap: wrap;
 flex: 1 1 auto;
 }
 
+.wrapper_h::after{
+--color:rgba(87,147,240);
+--background: rgba(50,51,64,0);
+--size : 1.4;
+content: "Console réalisée par Vincent Bouillot avec Pyodide";
+}
+
+.wrapper::after{
+  --color:rgba(87,147,240);
+  --background: rgba(50,51,64,0);
+  --size : 1.4;
+  content: "Console réalisée par Vincent Bouillot avec Pyodide";
+  }
+
 .wrapper > * {
 flex: 1 1 300px;
 }
@@ -49,6 +63,7 @@ background: rgba(34,35,48,0);
 height: 205px;
 }
 
+
 .term_editor_h {
 --color:rgba(87,147,240);
 --background: rgba(50,51,64,0);
@@ -60,6 +75,7 @@ height: 150px;
 .terminal {
 width: 50%;
 }
+
 
 /* Then change width to 100% */
 .terminal_f {

@@ -237,7 +237,9 @@ if (typeof pyodideReadyPromise === "undefined"){
       }
       var txt = document.createElement("div");
       txt.innerHTML='<details class="check"><summary>Solution</summary>\
-      <div class="highlight" id="corr_'+id_editor+'"></div></details>'
+      <div class="highlight" id="corr_'+id_editor+'">\
+      </div>\
+      </details>'
   
       let url_pyfile = document.getElementById("corr_content_"+id_editor).textContent
   

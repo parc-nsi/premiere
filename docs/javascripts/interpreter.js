@@ -237,8 +237,9 @@ if (typeof pyodideReadyPromise === "undefined"){
       }
       var txt = document.createElement("div");
       txt.innerHTML='<details class="check"><summary>Solution</summary>\
-      <div class="highlight" id="corr_'+id_editor+'"></div></details>'
-  
+      <div class="highlight" id="corr_'+id_editor+'">\
+      </div>\
+      </details>'
       let url_pyfile = document.getElementById("corr_content_"+id_editor).textContent
   
       function createACE(id_editor){
@@ -254,9 +255,9 @@ if (typeof pyodideReadyPromise === "undefined"){
           });
           // Decode the backslashes into newlines for ACE editor from admonitions 
           // (<div> autocloses in an admonition) 
-          editor.getSession().setValue(url_pyfile.replace(/backslash_newline/g, "\n"))  
+          editor.getSession().setValue(url_pyfile.replace(/backslash_newline/g, "\n"));
       }
-      wrapperElement.insertAdjacentElement('afterend', txt)
+      wrapperElement.insertAdjacentElement('afterend', txt);
       window.REPL_ready = createACE('corr_'+id_editor)           // Creating Ace Editor #id_editor
   }}
   
