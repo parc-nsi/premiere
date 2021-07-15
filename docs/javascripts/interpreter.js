@@ -1,15 +1,31 @@
+async function main() {
+    await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' });
+}
+
+
+//ajout perso
+
+if (typeof pyodideReadyPromise === "undefined"){
+    var pyodideReadyPromise = main();
+  }
+  else {
+    console.log("Pyodide déjà chargé");
+    output.value += 'Prêt !\n';
+  }
+//fin ajout perso
+
+
 var dict = {};  // Global dictionnary tracking the number of clicks
 const nAttempts = 5;
+
+
 
 function sleep(s){
     return new Promise(resolve => setTimeout(resolve, s));
   }
   
-async function main() {
-    await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' });
-}
 
-let pyodideReadyPromise = main();
+//let pyodideReadyPromise = main();
 
 async function pyterm(id, height) {
 await pyodideReadyPromise;
