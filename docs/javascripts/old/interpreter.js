@@ -1,15 +1,26 @@
+async function main() {
+    await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' });
+}
+
+
+//ajout perso
+
+if (typeof pyodideReadyPromise === "undefined"){
+    var pyodideReadyPromise = main();
+  }
+  else {
+    console.log("Pyodide déjà chargé");
+    output.value += 'Prêt !\n';
+  }
+//fin ajout perso
+  
 var dict = {};  // Global dictionnary tracking the number of clicks
 const nAttempts = 5;
 
 function sleep(s){
     return new Promise(resolve => setTimeout(resolve, s));
   }
-  
-async function main() {
-    await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.17.0/full/' });
-}
 
-let pyodideReadyPromise = main();
 
 async function pyterm(id, height) {
 await pyodideReadyPromise;
@@ -38,19 +49,6 @@ pyodide.runPython(`
 `, namespace);
 namespace.destroy();
 
-await pyodideReadyPromise;
-
-// const url1 = 'https://raw.githubusercontent.com/bouillotvincent/bouillotvincent.github.io/master/js-turtle.py'
-// // const url1 = 'https://glcdn.githack.com/bouillotvincent/pyodide-mkdocs/-/raw/main/js-turtle.py'
-// const response = await fetch(url1);
-// const data = await response.text();
-// console.log(data);
-
-// pyodide.runPython(data);
- 
-
-// pyodide.registerJsModule("turtle", my_module);
-// console.log('ici',pyodide.globals.get("dict")())
 
 let ps1 = '>>> ', ps2 = '... ';
 
@@ -124,46 +122,6 @@ pyodide._module.on_fatal = async (e) => {
 };
 }
 
-// function find_imports
-
-// function myLoadPackagesFromImports(code){
-//     pyodide.runPython(`from pyodide import find_imports\nimported_modules = find_imports(${JSON.stringify(code)})`)
-    
-//     pyodide.loadPackagesFromImports(code)
-//     return pyodide.globals.get("my_eval_code")(code, pyodide.globals);
-// }
-
-function removeLines(data, moduleName) {
-    console.log('137', moduleName)
-    return data
-      .split('\n')
-      .filter(sentence => !(sentence.includes("import " + moduleName) || sentence.includes("from " + moduleName)))
-      .join('\n');
-}
-
-async function foreignModulesFromImports(code, moduleDict = {}) {
-    await pyodideReadyPromise;
-    pyodide.runPython(`from pyodide import find_imports\nimported_modules = find_imports(${JSON.stringify(code)})`)
-    const importedModules = pyodide.globals.get('imported_modules').toJs();
-    var executedCode = code
-    for (var moduleName in moduleDict) {
-        let moduleURL = moduleDict[moduleName];
-      
-        if (importedModules.includes(moduleName)) {
-            console.log('169', importedModules, moduleName, moduleURL)
-            // let url = moduleURL//"https://raw.githubusercontent.com/bouillotvincent/bouillotvincent.github.io/master/js-turtle.py"
-            const response = await fetch(moduleURL);
-            const module_code = await response.text();
-            console.log(module_code)
-            pyodide.runPython(module_code);
-        }
-        console.log('170', 'moduleName', executedCode)
-        executedCode = removeLines(executedCode, moduleName)
-
-    };
-
-    return executedCode
-}
 
 async function evaluatePythonFromACE(code, id_editor, mode) {
     await pyodideReadyPromise;
@@ -191,31 +149,7 @@ async function evaluatePythonFromACE(code, id_editor, mode) {
     }
 
     try {
-      // console.log('boubou', code, JSON.stringify(code),JSON.stringify(code.replace(/\n/g, "hello")))
-      // JSON.stringify() convert code intro real string with \n \t characters
-      // await pyodide.myLoadPackagesFromImports(code)
-    //   pyodide.runPython(`from pyodide import find_imports\nimported_modules = find_imports(${JSON.stringify(code)})`)
-    //   const importedModules = pyodide.globals.get('imported_modules').toJs();
-    //   if (importedModules.includes("turtle")) {
-    //       console.log('169', importedModules)
-    //       let url = "https://raw.githubusercontent.com/bouillotvincent/bouillotvincent.github.io/master/js-turtle.py"
-    //       const response = await fetch(url);
-    //       const turtle_module = await response.text();
-
-    //       pyodide.runPython(turtle_module);
-    //   }
-
-    //   const removeLines = (data) => {
-    //     return data
-    //         .split('\n')
-    //         .filter(word => word !== "import turtle")
-    //         .join('\n');
-    //   }
-
-      
-    //   let executed_code = removeLines(code)
-      let executed_code = await foreignModulesFromImports(code, {'turtle': "https://raw.githubusercontent.com/bouillotvincent/bouillotvincent.github.io/master/js-turtle.py"})
-      await pyodide.runPythonAsync("from __future__ import annotations\n"+executed_code);    // Running the code
+      await pyodide.runPythonAsync("from __future__ import annotations\n"+code);    // Running the code
       var stdout = pyodide.runPython("__sys__.stdout.getvalue()")  // Catching and redirecting the output
       $.terminal.active().echo(">>> Script exécuté !\n"+stdout); 
     } catch(err) {
@@ -223,22 +157,22 @@ async function evaluatePythonFromACE(code, id_editor, mode) {
     }
   }
 
-// async function silent_evaluatePythonFromACE(code, id_editor, mode) {
-//     await pyodideReadyPromise;
+async function silent_evaluatePythonFromACE(code, id_editor, mode) {
+    await pyodideReadyPromise;
 
-//     $.terminal.active().clear();
+    $.terminal.active().clear();
 
-//     // if (mode === "vert") {
-//     //     $.terminal.active().resize($.terminal.active().width(), document.getElementById(id_editor).style.height);
-//     // }
+    // if (mode === "vert") {
+    //     $.terminal.active().resize($.terminal.active().width(), document.getElementById(id_editor).style.height);
+    // }
 
-//     try {
-//       pyodide.runPython("from __future__ import annotations\n"+code);    // Running the code OUTPUT
-//     } catch(err) {
-//       $.terminal.active().echo(">>> Code invalide !\n"+err);
-//       return err
-//     }
-//   }
+    try {
+      pyodide.runPython("from __future__ import annotations\n"+code);    // Running the code OUTPUT
+    } catch(err) {
+      $.terminal.active().echo(">>> Code invalide !\n"+err);
+      return err
+    }
+  }
 
 
 async function interpretACE(id_editor, mode) {
@@ -417,7 +351,6 @@ async function executeTestAsync(id_editor, mode) {
         $.terminal.active().echo(">>> Erreur de syntaxe !\n"+err)//.split("\n").slice(~~(nlines/2)).join("\n"));   // Would be nice to display only the last lines
       }
     } 
-
 
 /* <div class="admonition info">
     <p class="admonition-title">paf</p>
