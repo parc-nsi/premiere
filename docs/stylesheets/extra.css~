@@ -1,17 +1,3 @@
-
-/* pour centrer une image
-
-voir https://mooc-forums.inria.fr/moocnsi/t/mkdocs-astuce-pour-centrer-une-image-en-markdown-pur/2831
-
-![monimage](data/image.png){: .center width=50%}
-*/
-
-.center {
-    display: block;
-    margin: 0 auto;
-}
-
-
 .md-typeset div.arithmatex  {
     overflow: initial;
 }
