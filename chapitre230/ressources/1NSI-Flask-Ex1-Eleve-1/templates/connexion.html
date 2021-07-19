@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Page de connexion </title>
+  <meta charset="utf-8">   
+</head>  
+<body>   
+  {% if succes %}
+   <h1> Bonjour {{ ident }} </h1>
+  {% else %}
+   <h1> Erreur de connexion </h1>
+  {% endif %}
+<a href="/">Retour à l'accueil</a>
+</body>
+</html> 

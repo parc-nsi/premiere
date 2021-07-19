@@ -1,0 +1,1351 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<link href="https://parc-nsi.github.io/premiere/chapitre230/php-flask-git/" rel="canonical"/>
+<link href="../../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>Php flask git - Première NSI Lycée du Parc</title>
+<link href="../../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#credits">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Php flask git
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre6/">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre9/">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../automatismes/exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre6/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre6/Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre18/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre18/Cours/dictionnaires-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/Cours/cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/cours-systeme/systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre13/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre13/cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre25/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre25/reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/chapitre230/php-flask-git.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<ul>
+<li><a href="#credits">Crédits</a></li>
+<li><a href="#développement-cote-serveur-en-php">Développement côté serveur en
+    PHP</a><ul>
+<li><a href="#site-web-dynamique">Site Web dynamique</a></li>
+<li><a href="#un-premier-exemple">Un premier exemple</a></li>
+<li><a href="#une-peu-dexercice">Une peu d’exercice</a></li>
+</ul>
+</li>
+<li><a href="#développement-cote-serveur-en-python">Développement côté serveur en
+    Python</a><ul>
+<li><a href="#un-premier-exemple-1">Un premier exemple</a></li>
+<li><a href="#un-peu-dexercice">Un peu d’exercice</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="credits">Crédits<a class="headerlink" href="#credits" title="Permanent link">⚓︎</a></h1>
+<p><em>Ce cours est largement inspiré du chapitre 29 du manuel NSI de la
+collection Tortue chez Ellipse, auteurs : Ballabonski, Conchon,
+Filliatre, N’Guyen. J’ai également consulté le prepabac Première NSI de
+Guillaume Connan chez Hatier, le cours de <a href="http://nsi.janviercommelemois.fr/">Romain
+Janvier</a>, le tutoriel PHP de
+<a href="https://www.w3schools.com/php/default.asp">https://www.w3schools.com/php/default.asp</a></em> et la documentation du
+module <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> de Python.</p>
+<!-- Définition des hyperliens  -->
+<h1 id="developpement-cote-serveur-en-php">Développement côté serveur en PHP<a class="headerlink" href="#developpement-cote-serveur-en-php" title="Permanent link">⚓︎</a></h1>
+<h2 id="site-web-dynamique">Site Web dynamique<a class="headerlink" href="#site-web-dynamique" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 1</p>
+<p><a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> est un langage interprété qui s'exécute sur un serveur Web. Lorsque le serveur reçoit les données d'un formulaire d'un client, il peut les transmettre à un script <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> qui pourra les utiliser pour modifier une base de données ou générer à la volée le contenu <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a> qui sera retournée au client.</p>
+<p>Une page Web est dite <strong>dynamique</strong> si son contenu dépend du client qui la demande et de son  contexte (temps, espace, plateforme).
+Par opposition, une page Web est <strong>statique</strong> si son contenu est le même quel que soit le client et le contexte.</p>
+<p>Un <strong>site Web dynamique</strong> s'appuie sur trois composants : un langage interprété comme <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a>, <a href="https://docs.python.org/3.7/library/cgi.html">Python</a> ou <a href="https://developer.mozilla.org/fr/docs/Glossaire/Node.js">Node.js</a>, un serveur Web comme <a href="https://doc.ubuntu-fr.org/apache2">Apache</a> ou <a href="https://doc.ubuntu-fr.org/nginx">Nginx</a> et un système de gestion de bases de données comme <a href="https://doc.ubuntu-fr.org/mysql">MySQL</a> ou <a href="https://doc.ubuntu-fr.org/mariadb">MariaDb</a>.</p>
+<p><a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> est souvent associé avec <a href="https://doc.ubuntu-fr.org/apache2">Apache</a> et <a href="https://doc.ubuntu-fr.org/mysql">MysSQL</a> pour former la pile <a href="https://doc.ubuntu-fr.org/lamp">Lamp</a> nécessaire pour accueillir un <strong>site Web dynamique</strong> comme un <a href="https://developer.mozilla.org/fr/docs/Glossaire/CMS">CMS</a> de type Wordpress ou Drupal.</p>
+<p>Les fichiers <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> portent l'extension <code>.php</code> et la syntaxe du langage s'inspire de celles de <a href="https://doc.ubuntu-fr.org/bash">Bash</a> et <a href="https://developer.mozilla.org/fr/docs/Glossaire/Java">Java</a>, en particulier les blocs sont délimités par des accolades, chaque instruction doit se terminer par un symbole <code>;</code> et chaque nom de variable commence par le symbole <code>$</code>.</p>
+<p>On donne ci-dessous un exemple de code <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a>, exécutable à partir de l'<a href="https://developer.mozilla.org/fr/docs/Glossaire/URL">URL</a> <a href="http://frederic-junier.org/NSI/sandbox/heure.php">http://frederic-junier.org/NSI/sandbox/heure.php</a>.</p>
+<p>Pour générer une page Web dynamiquement, le code <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> peut être  inséré directement dans du code <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTM</a>, à l'intérieur de balises <code>&lt;?php</code> et <code>?&gt;</code>. Les commentaires peuvent être placés entre deux symboles <code>/*</code> et <code>*/</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;!DOCTYPE html&gt;</span>
+
+<span class="x">&lt;html lang="fr"&gt;</span>
+
+<span class="x">&lt;head&gt;</span>
+<span class="x">  &lt;title&gt;Affichage de l'heure avec PHP &lt;/title&gt;</span>
+<span class="x">  &lt;meta charset="utf-8"&gt;    </span>
+<span class="x">&lt;/head&gt;</span>
+
+<span class="x">&lt;body&gt;</span>
+
+<span class="x">   &lt;h1&gt; Affichage de l'heure avec PHP &lt;/h1&gt;</span>
+<span class="x">   </span>
+<span class="x">   &lt;p&gt; Il est : </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="s2">"H:i:s"</span><span class="p">);</span> <span class="cm">/* commentaire  */</span>  <span class="cp">?&gt;</span><span class="x">  &lt;/p&gt;</span>
+
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt; </span>
+</code></pre></div>
+</div>
+<h2 id="un-premier-exemple">Un premier exemple<a class="headerlink" href="#un-premier-exemple" title="Permanent link">⚓︎</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Exemple 1</p>
+<p>Ouvrir dans un navigateur Web la page <a href="https://repl.it/@fredericjunier/1NSI-PHP-Ex1-Eleve">https://repl.it/@fredericjunier/1NSI-PHP-Ex1-Eleve</a>.</p>
+<p>La page s'ouvre sur un environnement de programmation en <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> sur la plateforme <a href="https://repl.it">https://repl.it</a>. Un serveur <a href="https://doc.ubuntu-fr.org/apache2">Apache</a> avec interpréteur <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> s'exécute dans un environnement isolé.</p>
+<p>Il n'est pas nécessaire de se créer un compte sur celle-ci pour travailler. Dès la première modification du fichier ouvert dans l'éditeur, on est redirigé vers une page anonyme en lecture/écriture. </p>
+<p>L'interface se divise en trois zones :</p>
+<ul>
+<li>à gauche l'explorateur de fichiers, il est possible de créer des nouveaux fichiers dans l'interface, de les téléverser de tout télécharger sous forme d'archive zip</li>
+<li>au centre se trouve l'éditeur de fichier pour saisir ou modifier du code  </li>
+<li>à droite se trouve deux fenêtres de sortie : en haut un affichage de page Web et en bas la console affichant les commandes exécutées par le serveur</li>
+</ul>
+<p><img alt='"Interface de repl.it"' src="../images/interface-replit.png" title="Interface de repl.it"> </img></p>
+<ol>
+<li>
+<p>Dans la page d'accueil, cliquer sur le lien <strong>Formulaire de connexion avec la méthode GET</strong>. Remplir le formulaire avec un nom quelconque pour l'identifiant et <code>secret</code> en minuscules pour le mot de passe. Réaliser un autre envoi avec un mot de passe incorrect.
+Le code source du formulaire est affiché dans la zone d'édition de l'image précédente.
+Les dpnnées du formulaire sont  envoyées par la méthode <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/M%C3%A9thode/GET">GET</a> au programme <code>login.php</code> qui va les traiter. Cliquer sur <code>login.php</code>  dans l'explorateur de fichier pour afficher son code source comme ci-dessous :</p>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;!DOCTYPE html&gt;</span>
+
+<span class="x">&lt;html lang="fr"&gt;</span>
+
+<span class="x">&lt;head&gt;</span>
+<span class="x">&lt;title&gt;Affichage de l'âge avec PHP &lt;/title&gt;</span>
+<span class="x">&lt;meta charset="utf-8"&gt;    </span>
+<span class="x">&lt;/head&gt;</span>
+
+<span class="x">&lt;body&gt;</span>
+
+<span class="x">&lt;div&gt;</span>
+<span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="s2">"&lt;p&gt; Il est "</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s2">"H:i:s"</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span> 
+<span class="cm">/* commentaire</span>
+<span class="cm">multiligne </span>
+<span class="cm">*/</span>
+<span class="k">if</span> <span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'ident'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">])</span> 
+      <span class="o">&amp;&amp;</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">]</span> <span class="o">==</span>   <span class="s1">'secret'</span> <span class="p">)</span> <span class="p">)</span>
+<span class="p">{</span>
+   <span class="k">echo</span> <span class="s2">"&lt;p&gt; Bienvenue "</span> <span class="o">.</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'ident'</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">elseif</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'ident'</span><span class="p">])</span> <span class="o">||</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">])</span> <span class="p">)</span> 
+         <span class="o">&amp;&amp;</span> <span class="p">(</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'secret'</span> <span class="p">)</span> <span class="p">)</span>
+<span class="p">{</span>
+   <span class="k">echo</span> <span class="s2">"&lt;p&gt;Bienvenue "</span> <span class="o">.</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'ident'</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> 
+<span class="p">{</span>
+   <span class="k">echo</span> <span class="s2">"&lt;p&gt; Échec de la connexion. &lt;/p&gt;"</span><span class="p">;</span> <span class="c1">//commentaire isolé</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/div&gt;</span>
+
+<span class="x">&lt;a href="index.php"&gt;Retour à l'accueil&lt;/a&gt;</span>
+
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt; </span>
+</code></pre></div>
+</li>
+<li>
+<p>On peut relever dans cet exemple quelques traits du langage <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a>, que nous survolerons :</p>
+<ul>
+<li>On l'a déjà dit le code <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> peut s'insérer dans du code <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a>, entre une des balises <code>&lt;?php</code> et <code>?&gt;</code></li>
+<li>Chaque instruction se termine par un symbole <code>;</code></li>
+<li>On peut insérer des commentaires multilignes ou isolés.</li>
+<li>Les noms de variables doivent être préfixés par le symbole <code>$</code>.</li>
+<li><code>$_GET</code> est une variable spéciale  qui va recevoir des données de formulaire transmises par la méthode <code>$_GET</code>. Il existe aussi une variable spéciale <code>$_POST</code>. Il s'agit de tableaux associatifs comme les dictionnaires en <a href="https://docs.python.org/3.7/library/cgi.html">Python</a>.</li>
+<li>L'affichage sur la sortie standard du programme se fait avec <code>echo</code> comme en <a href="https://doc.ubuntu-fr.org/bash">Bash</a>, et les chaînes de caractères sont concaténés avec le symbole <code>.</code>. </li>
+<li>Les structures de contrôle (conditions et boucles) ont des structures et des mots clefs similaires à tous les autres langages procéduraux. Contrairement à <a href="https://docs.python.org/3.7/library/cgi.html">Python</a>, l'indentation n'a qu'une valeur de présentation, les blocs d'instructions doivent donc être délimités par des symboles <code>{</code> et <code>}</code>.</li>
+<li>Pour tester si une variable est définie on peut utiliser la fonction <code>isset</code> ou son contraire <code>empty</code>.</li>
+<li>Les opérateurs logiques sont les mêmes qu'en <a href="https://fr.wikipedia.org/wiki/C_(langage)">C</a>,  <code>&amp;&amp;</code> pour <code>and</code>,  <code>||</code> pour <code>or</code>, <code>!</code> pour <code>not</code> et il est conseillé d'utiliser des parenthèses pour clarifier l'ordre souhaité.</li>
+</ul>
+</li>
+<li>
+<p>Si on édite le code source de la page d'accueil <code>index.php</code>, on peut remarquer des instructions <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> comme <code>&lt;?php include('menu.php') ?&gt;</code> et si on édite le fichier <code>menu.php</code> on y trouve un menu sous forme de liste en <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a>. On peut donc utiliser <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> comme gestionnaire de templates <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a> et centraliser du code.</p>
+</li>
+</ol>
+</div>
+<h2 id="une-peu-dexercice">Une peu d’exercice<a class="headerlink" href="#une-peu-dexercice" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 1</p>
+<p>Ouvrir dans un navigateur Web la page <a href="https://repl.it/@fredericjunier/1NSI-PHP-Ex1-Eleve">https://repl.it/@fredericjunier/1NSI-PHP-Ex1-Eleve</a> présentée dans l'exemple 1.</p>
+<ol>
+<li>
+<p>Éditer le fichier <code>formulaire-age.php</code> et compléter le formulaire ci-dessous avec un élément <code>&lt;input type="number" name="a"&gt;</code> de type <code>number</code> pour que l'utilisateur puisse saisir une date de naissance comprise entre 1900 et 2020 et que cette   valeur soit associée au nom <code>a</code> et transmise pour traitement au script <code>age.php</code>  avec la méthode <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/M%C3%A9thode/GET">GET</a>.</p>
+<div class="highlight"><pre><span></span><code>   <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"age.php"</span> <span class="na">method</span><span class="o">=</span><span class="s">"GET"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"naissance"</span><span class="p">&gt;</span>Saisissez votre date de naissance <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> 
+      <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+      <span class="c">&lt;!-- compléter --&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Tester l'envoir du formulaire puis retourner à la page d'accueil.</p>
+</li>
+<li>
+<p>Dans la page d'accueil, cliquer sur le lien <strong>Formulaire de connexion avec la méthode POST</strong>, saisir dans le champ identifiant <code>&lt;script&gt;alert('Hack !')&lt;/script&gt;</code> et dans le champ mot de passe <code>secret</code> puis envoyer les données. Que se passe-t-il ?  </p>
+<p>Faire un nouveau test en saisissant  <code>&lt;script&gt;window.location.href='index.php'&lt;/script&gt;</code>. Que se passe-t-il ?</p>
+<p>Résumer la définition d'une faille Cross-site scripting (XSS)  à partir de l'article <a href="https://developer.mozilla.org/fr/docs/Glossaire/Cross-site_scripting">https://developer.mozilla.org/fr/docs/Glossaire/Cross-site_scripting</a>.</p>
+<p>Modifier le code <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> du fichier <code>login.php</code> pour résoudre en partie cette faille à l'aide de la fonction <code>htmlspecialchars</code> présenté dans cet article <a href="https://www.w3schools.com/php/php_form_validation.asp">https://www.w3schools.com/php/php_form_validation.asp</a>.</p>
+</li>
+<li>
+<p>Dans la page d'accueil, cliquer sur le lien <strong>Formulaire d'affichage de couleur (R,G,B)</strong>. On arrive sur un formulaire  constitué de trois champs <code>&lt;input&gt;</code> de type <code>number</code> où l'utilisateur peut saisir l'une des composantes (R,G,B) d'une couleur comprise entre 0 et 255.  Les données sont envoyées au fichier <code>rgb.php</code>. Éditer ce fichier depuis l'explorateur et  le compléter pour qu'il puisse traiter les données du formulaire et modifier la propriété <a href="https://developer.mozilla.org/fr/docs/Glossaire/CSS">CSS</a> <code>background</code> de l'élément <code>&lt;div&gt;</code> identifié par <code>#couleur</code> afin d'afficher la couleur correspondante. Les parties de code à compléter sont marquées par des commentaires.</p>
+<p><img alt='"Formulaire RGB"' src="../images/formulaire_rgb.png" title="Formulaire RGB" width="50%"> </img></p>
+<p><img alt='"Couleur RGB"' src="../images/couleur_rgb.png" title="Couleur RGB" width="50%"/> </p>
+</li>
+<li>
+<p>Dans la page d'accueil, cliquer sur le lien <strong>Formulaire de changement d'unité de température</strong>. On arrive sur un formulaire  <code>temperature.php</code> constitué d'un champ <code>&lt;select&gt;</code> permettant de choisir une unité source et un champ <code>&lt;input&gt;</code> de type <code>number</code> pour saisir une mesure de température. Les données du formulaire sont envoyées à  <code>temperature.php</code> qui supporte donc à la fois la saisie et le traitement des données.    Éditer ce fichier depuis l'explorateur et  le compléter pour qu'il puisse traiter les données du formulaire en convertissant la mesure de température de  Celsius en Fahrenheit ou réciproquement.</p>
+<p><img alt="&quot;Conversion d'unité&quot;" src="../images/conversion_unite.png" title="Conversion d'unité" width="50%"/> </p>
+</li>
+<li>
+<p>Dans la page d'accueil, cliquer sur le lien <strong>Formulaire d'affichage de table de multiplication</strong>. On arrive sur un formulaire  <code>multiplication.php</code> constitué d'un champ champ <code>&lt;input&gt;</code> de type <code>number</code> pour saisir un facteur. Les données du formulaire sont envoyées au même fichier  <code>multiplication.php</code>.    Éditer ce fichier depuis l'explorateur et  le compléter pour qu'il puisse traiter les données du formulaire en affichant la table des 11 premiers multiples du nombre choisi.</p>
+<p><img alt='"Table de multiplication"' src="../images/multiplication.png" title="Table de multiplication" width="50%"/> </p>
+</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 2</p>
+<p><em>QCM</em> de type E3C2.</p>
+<ol>
+<li>
+<p>Parmi les quatre propositions suivantes, laquelle est la seule à correspondre à un entête correct de formulaire d'une page HTML ?</p>
+<ul>
+<li>Réponse A : <code>&lt;form method="formulaire.php" action="submit"&gt;</code></li>
+<li>Réponse B :  <code>&lt;form method="post" action=onclick()&gt;</code></li>
+<li>Réponse C : <code>&lt;form method="get" action="arret.php"&gt;</code></li>
+<li>Réponse D : <code>&lt;form method="post" action=arret.php&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>Quel langage est interprété ou exécuté côté serveur ?</p>
+<ul>
+<li>Réponse A : JavaScript</li>
+<li>Réponse B : PHP</li>
+<li>Réponse C : HTML</li>
+<li>Réponse D : CSS</li>
+</ul>
+</li>
+<li>
+<p>Pour analyser les réponses saisies par l\'utilisateur dans un formulaire
+d'une page Web personnelle, hébergée chez unfournisseur d\'accès à
+internet, on dispose du code suivant :</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'choix'</span><span class="p">]</span><span class="o">==</span><span class="s1">'choix4'</span><span class="p">){</span><span class="k">echo</span> <span class="s1">'Bravo,'</span><span class="p">;}</span>
+<span class="k">else</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"Non, vous vous trompez !"</span><span class="p">;}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Où s'exécutera ce code ?</p>
+<ul>
+<li>Réponse A : dans le premier routeur permettant d'accéder au serveur</li>
+<li>Réponse B : dans le dernier routeur permettant d'accéder au serveur</li>
+<li>Réponse C : dans le serveur qui héberge la page personnelle</li>
+<li>Réponse D : dans la machine de l'utilisateur qui consulte la page personnelle</li>
+</ul>
+</li>
+<li>
+<p>Le site internet d'un quotidien d'information permet aux visiteurs de laisser des commentaires textuels. Ces commentaires doivent être visibles par les autres visiteurs. Laquelle des affirmations suivantes est correcte ?</p>
+<ul>
+<li>Réponse A : Il suffit que la page HTML contienne des champs de la forme <code>&lt;textarea&gt;</code></li>
+<li>Réponse B : Il suffit que la page HTML contienne des champs de la forme <code>&lt;textarea&gt;</code> et d'utiliser JavaScript pour enregistrer les commentaires</li>
+<li>Réponse C : Il faut un programme en PHP ou un script Python sur le serveur pour</li>
+</ul>
+</li>
+</ol>
+<p>traiter les données
+      * Réponse D : Non, ce n'est pas possible avec la technologie actuelle</p>
+<ol>
+<li>
+<p>Dans quels langages les balises <code>&lt;img&gt;</code> et <code>&lt;form&gt;</code> sont-elles utilisées ?</p>
+<ul>
+<li>Réponse A : Python</li>
+<li>Réponse B : HTML</li>
+<li>Réponse C : Javascript</li>
+<li>Réponse D : PHP</li>
+</ul>
+</li>
+</ol>
+</div>
+<h1 id="developpement-cote-serveur-en-python">Développement côté serveur en Python<a class="headerlink" href="#developpement-cote-serveur-en-python" title="Permanent link">⚓︎</a></h1>
+<h2 id="un-premier-exemple_1">Un premier exemple<a class="headerlink" href="#un-premier-exemple_1" title="Permanent link">⚓︎</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Exemple 2</p>
+<p><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> est un micro <a href="https://fr.wikipedia.org/wiki/Framework">Framework</a> permettant de développer des applications Web en <a href="https://docs.python.org/3.7/library/cgi.html">Python</a>. Il impose peu de choix  prédéfinis au programmeur.</p>
+<ol>
+<li>
+<p>Ouvrir dans un navigateur Web la page d'<a href="https://developer.mozilla.org/fr/docs/Glossaire/URL">URL</a> <a href="https://repl.it/@fredericjunier/1NSI-Flask-Ex1-Eleve-1">https://repl.it/@fredericjunier/1NSI-Flask-Ex1-Eleve-1</a>.</p>
+</li>
+<li>
+<p>On arrive sur un environnement de programmation Web intégrant une mini application écrite avec <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>.</p>
+</li>
+</ol>
+<p><img alt='"Flask exemple1"' src="../images/flask-exemple1.png" title="Flask exemple1"/>\</p>
+<ul>
+<li>Tout le code <a href="https://docs.python.org/3.7/library/cgi.html">Python</a> de l'application est rassemblé dans le fichier <code>main.py</code> ouvert dans l'éditeur :</li>
+<li>On importe d'abord les modules nécessaires avec <code>import</code></li>
+<li>A la fin du programme, un serveur Web de développement est lancé avec le débogueur activé.</li>
+<li>
+<p>Entre les deux, on trouve  une série de déclarations de fonctions précédées du décorateur  <code>@app.route</code>. Le décorateur est le <em>routeur</em>  : si l'<a href="https://developer.mozilla.org/fr/docs/Glossaire/URL">URL</a> se termine par <code>/</code>, la fonction <code>accueil</code> est appelée et celle-ci  affiche la page <code>accueil.html</code> par un appel à  <code>render_template</code>. On parle de <em>route</em> pour la partie de l'<a href="https://developer.mozilla.org/fr/docs/Glossaire/URL">URL</a> correspondant au chemin relatif dans l'application. La fonction <code>accueil</code> est un <em>contrôleur</em> et le template <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a> est une <em>vue</em> si on refère au modèle d'architecture logicielle <a href="https://developer.mozilla.org/fr/docs/Glossaire/MVC">MVC</a> pour <em>Modèle Vue Contrôleur</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#dispatcheur de route / URL</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">accueil</span><span class="p">():</span>
+   <span class="s2">"Controleur de la route '/' "</span>
+   <span class="c1">#retourne la vue associée : la page accueil.html</span>
+   <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'accueil.html'</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt='"MVC"' src="../images/ModeleMVC.png" title="MVC"/>\</p>
+</li>
+<li>
+<p>Le code <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a> de la page d'accueil est donné ci-dessous. Si on suit le lien hypertexte, d'après la règle de routage définie dans <code>main.py</code>, le contrôleur <code>formulaire</code> est appelé et il retourne la vue <code>formulaire-connexion.html</code> qui est le même formulaire de connexion avec deux champs <code>ident</code> pour l'identifiant  et <code>pass</code> pour le mot de passe que dans l'exemple 1 traité avec <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span> Accueil <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>         
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span> 
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"/formulaire-connexion"</span><span class="p">&gt;</span> Formulaire de connexion <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> 
+</code></pre></div>
+</li>
+<li>
+<p>Le formulaire commence par <code>&lt;form action="/connexion" method="POST"&gt;</code>, il  est paramétré pour appeler la route <code>/connexion</code> qui est associée au contrôleur <code>connexion</code>. On peut noter que toute la logique de contrôle des paramètres est rassemblée ici alors qu'avec <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a>, elle était mélangée avec le code de la vue en <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a>.</p>
+<div class="highlight"><pre><span></span><code>   <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/connexion'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'POST'</span><span class="p">])</span>
+   <span class="k">def</span> <span class="nf">connexion</span><span class="p">():</span>
+      <span class="s2">"Controleur de la route '/connexion' "</span>
+      <span class="c1">#si la méthode est POST</span>
+      <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">'POST'</span><span class="p">:</span>
+         <span class="c1">#les valeurs des paramètres sont dans le dictionnaire request.form </span>
+         <span class="n">ident</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">'ident'</span><span class="p">]</span>
+         <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">'pass'</span><span class="p">]</span>    
+      <span class="k">else</span><span class="p">:</span> <span class="c1">#sinon c'est GET</span>
+         <span class="c1">#la chaine de  paramètres est dans le dictionnaire request.args</span>
+         <span class="n">ident</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'ident'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> 
+         <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pass'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="n">succes</span> <span class="o">=</span> <span class="n">password</span> <span class="o">==</span> <span class="s1">'secret'</span>
+      <span class="c1">#retourne la vue associée en lui transmettant des paramètres</span>
+      <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'connexion.html'</span><span class="p">,</span> <span class="n">ident</span> <span class="o">=</span> <span class="n">ident</span><span class="p">,</span> <span class="n">succes</span> <span class="o">=</span> <span class="n">succes</span><span class="p">)</span>
+</code></pre></div>
+</li>
+<li>
+<p>On peut se demander comment les paramètres sont intégrés au code <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a> de <code>connexion.html</code>. Si on édite ce fichier, on observe des balises particulières délimitées par des accolades pour insérer les paramètres et <code>ident</code> et <code>succes</code> et exécuter uen structure conditionnelle. <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> utiliser le moteur de template <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja</a> pour personnaliser des templates <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a>.</p>
+<div class="highlight"><pre><span></span><code> ~~~html
+    &lt;!DOCTYPE html&gt;
+       &lt;html&gt;
+       &lt;head&gt;
+       &lt;title&gt; Page de connexion &lt;/title&gt;
+       &lt;meta charset="utf-8"&gt;   
+       &lt;/head&gt;  
+       &lt;body&gt;   
+       
+          &lt;h1&gt; Erreur de connexion &lt;/h1&gt;
+       
+       &lt;a href="/"&gt;Retour à l'accueil&lt;/a&gt;
+       &lt;/body&gt;
+       &lt;/html&gt; 
+ ~~~
+</code></pre></div>
+</li>
+<li>
+<p>On peut effectuer quelques tests en changeant la méthode de passage des paramètres dans le formulaire de connexion pour s'assurer que le contrôleur fonctionne bien.</p>
+</li>
+<li>Si on simule une attaque XSS en saisissant  du code <a href="https://developer.mozilla.org/fr/docs/Glossaire/JavaScript">Javascript</a> dans le champ d'identifiant :  <code>&lt;script&gt;alert("Hack")&lt;/script&gt;</code>, on peut  observer que le moteur de template échappe par défaut les caractères spéciaux <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a></li>
+<li>Pour résumer, <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>  permet de développer une application côté serveur comme <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> mais, en première approche, il offre une séparation  plus lisible entre  la logique de l'application  dans un fichier <a href="https://docs.python.org/3.7/library/cgi.html">Python</a> et l'affichage dans des fichiers <a href="https://developer.mozilla.org/fr/docs/Glossaire/HTML">HTML</a>.</li>
+</ul>
+</div>
+<h2 id="un-peu-dexercice">Un peu d’exercice<a class="headerlink" href="#un-peu-dexercice" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 3</p>
+<ol>
+<li>
+<p>Ouvrir dans un navigateur Web la page d'<a href="https://developer.mozilla.org/fr/docs/Glossaire/URL">URL</a> <a href="https://repl.it/@fredericjunier/1NSI-Flask-Ex2-Eleve">https://repl.it/@fredericjunier/1NSI-Flask-Ex2-Eleve</a>.</p>
+</li>
+<li>
+<p>On arrive sur un environnement de programmation Web intégrant une mini application écrite avec <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>. Le fichier <code>main.py</code> contient le moteur de l'application.</p>
+<p><img alt='"Flask exemple2"' src="../images/flask-exemple2.png" title="Flask exemple2"/>\</p>
+</li>
+<li>
+<p>Éditer le code source de la page d'accueil <code>accueil.html</code> de l'application. Elle contient trois liens vers  des formulaires :</p>
+<ul>
+<li>Calcul d'âge  </li>
+<li>Affichage d'une couleur en (R,G,B)</li>
+<li>Conversion de température ^[Note : ce formulaire renvoie vers lui-même]</li>
+</ul>
+</li>
+<li>
+<p>Compléter le code de <code>main.py</code> aux emplacements marqués par un commentaire <code># à compléter</code> pour obtenir le même comportement que les formulaires éponymes contenus dans l'exercice 1 réalisé avec <a href="https://developer.mozilla.org/fr/docs/Glossaire/PHP">PHP</a> : <a href="https://repl.it/@fredericjunier/1NSI-PHP-Ex1-Correction">https://repl.it/@fredericjunier/1NSI-PHP-Ex1-Correction</a>. Tester les formulaires en modifiant les méthodes de passage des paramètres pour que les trois formulaires fonctionnent avec <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/M%C3%A9thode/POST">POST</a> ou <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/M%C3%A9thode/GET">GET</a>.</p>
+</li>
+</ol>
+</div>
+<script src="../../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../javascripts/config.js"></script>
+<script src="../../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

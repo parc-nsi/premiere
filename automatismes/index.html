@@ -1,0 +1,1689 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<link href="https://parc-nsi.github.io/premiere/automatismes/" rel="canonical"/>
+<link href="../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>Automatismes - Première NSI Lycée du Parc</title>
+<link href="../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#automatisme-1">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href=".." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Automatismes
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../chapitre6/">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../chapitre9/">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre6/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre6/Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre18/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre18/Cours/dictionnaires-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre19/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre19/Cours/cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre19/TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre19/TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre9/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre9/cours-systeme/systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre9/memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre9/TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre9/TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre13/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre13/cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre230/">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre25/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre25/reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/automatismes.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<h1>Automatismes</h1>
+<p><strong><a href="automatismes/">Corrigé des automatismes</a></strong></p>
+<h2 id="automatisme-1">Automatisme 1<a class="headerlink" href="#automatisme-1" title="Permanent link">⚓︎</a></h2>
+<p>Programmer la fonction dont on donne la spécification :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">index_min</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : t un tableau de nombres (int ou float)</span>
+<span class="sd">    Précondition : t non vide</span>
+<span class="sd">    Valeur renvoyée : un tableau contenant les positions (index) où le minimum de t est atteint</span>
+<span class="sd">    """</span>
+</code></pre></div>
+<h2 id="automatisme-2">Automatisme 2<a class="headerlink" href="#automatisme-2" title="Permanent link">⚓︎</a></h2>
+<p>Programmer la fonction dont on donne la spécification :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">au_moins_un_zero</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : t un tableau de nombres (int ou float)</span>
+<span class="sd">    Précondition : t non vide</span>
+<span class="sd">    Valeur renvoyée : un booléen indiquant si t contient au moins un zéro</span>
+<span class="sd">    """</span>
+</code></pre></div>
+<h2 id="automatisme-3">Automatisme 3<a class="headerlink" href="#automatisme-3" title="Permanent link">⚓︎</a></h2>
+<p>Représenter en binaire le nombre d’écriture décimale 49.</p>
+<h2 id="automatisme-4">Automatisme 4<a class="headerlink" href="#automatisme-4" title="Permanent link">⚓︎</a></h2>
+<p>Représenter en base dix, le nombre dont l'écriture en base deux est <code>1010110</code> puis le nombre dont l'écriture en base 16 est <code>A4</code>.</p>
+<h2 id="automatisme-5">Automatisme 5<a class="headerlink" href="#automatisme-5" title="Permanent link">⚓︎</a></h2>
+<p>Déterminer le successeur  des entiers dont l'écriture en base deux est :</p>
+<ul>
+<li>111</li>
+<li>10011</li>
+<li>10111</li>
+</ul>
+<h2 id="automatisme-6">Automatisme 6<a class="headerlink" href="#automatisme-6" title="Permanent link">⚓︎</a></h2>
+<p>Pour déterminer la liste des chiffres en base dix d'un entier naturel, un élève a écrit la fonction ci-dessous :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">liste_chiffres</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">10</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">L</span>
+</code></pre></div>
+<p>Malheureusement sa fonction ne retourne pas le résultat attendu pour l'entier 730 :</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; liste_chiffres(730)
+[0, 7, 3, 0]
+</code></pre></div>
+<p>Proposer une version corrigée de la fonction <code>liste_chiffres</code>.</p>
+<h2 id="automatisme-7">Automatisme 7<a class="headerlink" href="#automatisme-7" title="Permanent link">⚓︎</a></h2>
+<p>On travaille sur des tableaux à deux dimensions qui représentent des images binaires : un pixel a pour valeur un entier : 0 pour un pixel noir et 1 pour un pixel blanc.</p>
+<p>Compléter les fonctions ci-dessous en respectant leurs spécifications, les postconditions doivent être vérifiées.</p>
+<iframe height="800" src="https://console.basthon.fr/?from=https://parc-nsi.github.io/premiere/automatismes/../automatismes/ressources/automatisme7/automatisme7.py" width="100%"></iframe>
+<p><a href="https://console.basthon.fr/?from=https://parc-nsi.github.io/premiere/automatismes/../automatismes/ressources/automatisme7/automatisme7.py">Lien dans une autre page</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">image_noire</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">hauteur</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : </span>
+<span class="sd">        largeur et hauteur deux entiers non nuls</span>
+<span class="sd">    Valeur renvoyée :</span>
+<span class="sd">        un tableau à 2 dimensions représentant une image</span>
+<span class="sd">        binaire de dimensions (largeur, hauteur)</span>
+<span class="sd">        rempli de 0</span>
+<span class="sd">    """</span>
+    <span class="c1"># à compléter avec un tableau en compréhension</span>
+    
+<span class="k">def</span> <span class="nf">dimensions</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : </span>
+<span class="sd">        tab un tableau à deux dimensions d'entiers</span>
+<span class="sd">        représentant une image binaire rectangulaire</span>
+<span class="sd">    Valeur renvoyée :</span>
+<span class="sd">        un tableau de deux entiers [largeur, hauteur]</span>
+<span class="sd">        représentant les dimensions de l'image</span>
+<span class="sd">    """</span>
+    <span class="c1"># à compléter</span>
+    
+<span class="k">def</span> <span class="nf">nombre_blancs</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : </span>
+<span class="sd">        tab un tableau à deux dimensions d'entiers</span>
+<span class="sd">        représentant une image binaire rectangulaire</span>
+<span class="sd">    Valeur renvoyée :</span>
+<span class="sd">        un entier représentant le nombre de pixels </span>
+<span class="sd">        blancs (valeur 1)</span>
+<span class="sd">    """</span>
+    <span class="c1"># à compléter</span>
+
+<span class="c1">#postconditions pour la fonction image_noire </span>
+<span class="k">assert</span> <span class="n">image_noire</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="k">assert</span> <span class="n">image_noire</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="k">assert</span> <span class="n">image_noire</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+
+ 
+<span class="c1">#postconditions pour la fonction dimensions </span>
+<span class="k">assert</span> <span class="n">dimensions</span><span class="p">([[],</span> <span class="p">[]])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">dimensions</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">#postconditions pour la fonction nombre_blancs</span>
+<span class="k">assert</span> <span class="n">nombre_blancs</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">dimensions</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">dimensions</span><span class="p">([[],</span> <span class="p">[]])</span> <span class="o">==</span> <span class="mi">0</span>
+</code></pre></div>
+<h2 id="automatisme-8">Automatisme 8<a class="headerlink" href="#automatisme-8" title="Permanent link">⚓︎</a></h2>
+<p>Modifier les expressions "à modifier"  dans la fonction Python ci-dessous pour que la spécification soit vérifiée.</p>
+<iframe height="800" src="https://console.basthon.fr/?from=https://parc-nsi.github.io/premiere/automatismes/../automatismes/ressources/automatisme8/automatisme8.py" width="100%"></iframe>
+<p><a href="https://console.basthon.fr/?from=https://parc-nsi.github.io/premiere/automatismes/../automatismes/ressources/automatisme8/automatisme8.py">Lien dans une autre page</a></p>
+<p>Décommenter  <code>#test_indice_maximum(indice_maximum)</code>  en ligne 63 pour soumettre votre fonction au test unitaire. </p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">indice_maximum</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="n">debut</span><span class="p">,</span> <span class="n">fin</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètres : </span>
+<span class="sd">        tab un tableau d'entiers</span>
+<span class="sd">        debut un entier indice du début de la plage</span>
+<span class="sd">        fin un entier indice de la fin de la plage (inclus)</span>
+<span class="sd">    Valeur renvoyée : l'indice de la première occurence du maximum de tab </span>
+<span class="sd">    dans la plage  de valeurs entre les indice et debut et fin (inclus)</span>
+<span class="sd">    """</span>
+    <span class="n">imax</span> <span class="o">=</span> <span class="s2">"à modifier"</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">imax</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fin</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">"à modifier"</span><span class="p">:</span>
+            <span class="n">imax</span> <span class="o">=</span> <span class="s2">"à modifier"</span>
+    <span class="k">return</span> <span class="n">imax</span>
+</code></pre></div>
+<h2 id="automatisme-9">Automatisme 9<a class="headerlink" href="#automatisme-9" title="Permanent link">⚓︎</a></h2>
+<p>Modifier les expressions "à modifier" dans la fonction <code>tri_selection</code> ci-dessous pour que la spécification et l'assertion placée à la fin de la boucle externe soient vérifiés.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">tri_selection</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : tab un tableau de nombres</span>
+<span class="sd">    Valeur renvoyée : tab</span>
+<span class="sd">    Postcondition : valeur renvoyée de tab triée dans l'ordre croissant</span>
+<span class="sd">    """</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">imax</span> <span class="o">=</span> <span class="n">indice_maximum</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="s2">"à modifier"</span><span class="p">,</span> <span class="s2">"à modifier"</span><span class="p">)</span>
+        <span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tab</span><span class="p">[</span><span class="n">imax</span><span class="p">]</span> <span class="o">=</span>  <span class="s2">"à modifier"</span>
+        <span class="c1"># assertion qui doit être vérifiée</span>
+        <span class="k">assert</span> <span class="nb">max</span><span class="p">(</span><span class="n">tab</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="s2">"à modifier"</span>
+    <span class="k">return</span> <span class="n">tab</span> 
+</code></pre></div>
+<p>Décommenter  <code>#test_tri(tri_selection)</code>  en ligne 64 pour soumettre votre fonction au test unitaire. </p>
+<h2 id="automatisme-10">Automatisme 10<a class="headerlink" href="#automatisme-10" title="Permanent link">⚓︎</a></h2>
+<p>Un algorithme de tri d’une liste d’entiers est implémenté  de la façon suivante : </p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">trier</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="p">:</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span> 
+        <span class="n">indice_min</span> <span class="o">=</span> <span class="n">i</span> 
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span> 
+            <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">[</span><span class="n">indice_min</span><span class="p">]</span> <span class="p">:</span> 
+                <span class="n">indice_min</span> <span class="o">=</span> <span class="n">j</span> 
+        <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">indice_min</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">indice_min</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+        <span class="c1"># assertion vraie à cet endroit </span>
+    <span class="k">return</span> <span class="n">L</span> 
+</code></pre></div>
+<p>Parmi les assertions suivantes laquelle reste vraie à chaque itération de la boucle, à l'endroit indiqué ci-dessus ?</p>
+<ul>
+<li><strong>Réponse A :</strong> la sous-liste <code>L[0:i+1]</code> contient les <code>i</code> plus grandes valeurs de <code>L</code> triées par ordre décroissant</li>
+<li><strong>Réponse B :</strong>  la sous-liste <code>L[0:i+1]</code> contient les <code>i</code> plus grandes valeurs de <code>L</code> triées par ordre croissant</li>
+<li><strong>Réponse C :</strong>  la sous-liste <code>L[0:i+1]</code> contient les i plus petites valeurs de <code>L</code> triées par ordre décroissant</li>
+<li><strong>Réponse D :</strong> la sous-liste <code>L[0:i+1]</code> contient les i plus petites valeurs de L triées par ordre croissant</li>
+</ul>
+<h2 id="automatisme-11">Automatisme 11<a class="headerlink" href="#automatisme-11" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Compléter la fonction Python ci-dessous pour que  la spécification et les postconditions soient satisfaites.</li>
+<li>Combient de comparaisons sont faites lors de l'appel <code>un_doublon(list(range(100)))</code> ?</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">un_doublon</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : t un tableau de nombres</span>
+<span class="sd">    Valeur renvoyée : un booléen </span>
+<span class="sd">        True si t comporte au moins un doublon</span>
+<span class="sd">        False sinon</span>
+<span class="sd">    """</span>
+    <span class="c1">#à compléter</span>
+
+<span class="k">assert</span> <span class="n">un_doublon</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">un_doublon</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">un_doublon</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">un_doublon</span><span class="p">([])</span> <span class="o">==</span> <span class="kc">False</span>
+</code></pre></div>
+<h2 id="automatisme-12">Automatisme 12<a class="headerlink" href="#automatisme-12" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Compléter la fonction Python ci-dessous pour que  la spécification et les postconditions soient satisfaites.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">index_premiere_occurence_dicho</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : </span>
+<span class="sd">        t un tableau de nombres trié dans l'ordre croissant</span>
+<span class="sd">        x un nombre </span>
+<span class="sd">    Valeur renvoyée : </span>
+<span class="sd">        l'index de la première de x dans t si x est dans t</span>
+<span class="sd">        -1 sinon</span>
+<span class="sd">    """</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
+            <span class="s2">"à compléter"</span>
+        <span class="k">elif</span> <span class="n">t</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
+            <span class="s2">"à compléter"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="s2">"à compléter"</span>
+            <span class="k">return</span> <span class="s2">"à compléter"</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">assert</span> <span class="n">index_premiere_occurence_dicho</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">index_premiere_occurence_dicho</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">index_premiere_occurence_dicho</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">assert</span> <span class="n">index_premiere_occurence_dicho</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span> 
+<span class="k">assert</span> <span class="n">index_premiere_occurence_dicho</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span> 
+<span class="k">assert</span> <span class="n">index_premiere_occurence_dicho</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">[])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div>
+<h2 id="automatisme-13">Automatisme 13<a class="headerlink" href="#automatisme-13" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Compléter la fonction Python ci-dessous pour que  la spécification et les postconditions soient satisfaites.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">est_decroissant</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : </span>
+<span class="sd">        t un tableau de nombres </span>
+<span class="sd">    Valeur renvoyée : </span>
+<span class="sd">        booléen indiquant si t dans l'ordre décroissant</span>
+<span class="sd">    """</span>
+    <span class="s2">"à compléter"</span>
+
+
+<span class="k">def</span> <span class="nf">recherche_dicho_decroissant</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : </span>
+<span class="sd">        t un tableau de nombres trié dans l'ordre décroissant</span>
+<span class="sd">        x un nombre </span>
+<span class="sd">    Valeur renvoyée : </span>
+<span class="sd">        index de x dans t si x dans t</span>
+<span class="sd">        None si x pas dans t</span>
+<span class="sd">    """</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="s2">"à compléter"</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">assert</span> <span class="n">est_decroissant</span><span class="p">([</span><span class="n">k</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">est_decroissant</span><span class="p">([])</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">est_decroissant</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">recherche_dicho_decroissant</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">recherche_dicho_decroissant</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">recherche_dicho_decroissant</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="k">assert</span> <span class="n">recherche_dicho_decroissant</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test unitaires réussis pour l'automatisme 13 : recherche_dicho_decroissant et est_decroissant"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="automatisme-14">Automatisme 14<a class="headerlink" href="#automatisme-14" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>Convertir en flottant au format simple précision (mantisse sur 8 bits et exposant sur 23 bits), le nombre  d'écriture décimale 9,78125.</li>
+<li>Convertir en flottant au format simple précision (mantisse sur 8 bits et exposant sur 23 bits), le nombre  d'écriture décimale 0,1.</li>
+<li>Vérifier avec le convertisseur en ligne <a href="https://www.h-schmidt.net/FloatConverter/IEEE754.html">https://www.h-schmidt.net/FloatConverter/IEEE754.html</a> ou la fonction donnée ci-dessous :</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">decimal_vers_IEE754</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">taille_exposant</span><span class="p">,</span> <span class="n">taille_mantisse</span><span class="p">):</span>
+    <span class="c1">#print("détermination du signe")</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Bit de signe  : 0"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Bit de signe : 1"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"O valeur particulière"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1">#print("détermination de l'exposant")</span>
+        <span class="n">exposant</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">exposant</span> <span class="o">=</span> <span class="n">exposant</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+            <span class="n">exposant</span> <span class="o">=</span> <span class="n">exposant</span> <span class="o">-</span> <span class="mi">1</span>           
+        <span class="n">decalage</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">taille_exposant</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Exposant en décimal : "</span><span class="p">,</span> <span class="n">exposant</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Exposant décalé  de  + </span><span class="si">{</span><span class="n">decalage</span><span class="si">}</span><span class="s2"> : "</span><span class="p">,</span> <span class="n">exposant</span> <span class="o">+</span> <span class="n">decalage</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Exposant décalé de + </span><span class="si">{</span><span class="n">decalage</span><span class="si">}</span><span class="s2">  : codage binaire sur 11 bits : "</span><span class="p">,</span> <span class="nb">bin</span><span class="p">(</span><span class="n">exposant</span> <span class="o">+</span> <span class="n">decalage</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">'0b'</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">taille_exposant</span><span class="p">))</span>
+        <span class="c1">#print("détermination des bits de mantisse")</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">nbits</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">mantisse</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">nbits</span> <span class="o">&lt;</span> <span class="n">taille_mantisse</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+            <span class="n">partie_entiere</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">mantisse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">partie_entiere</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">partie_entiere</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">partie_entiere</span>
+            <span class="n">nbits</span> <span class="o">=</span> <span class="n">nbits</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Mantisse : "</span><span class="p">,</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mantisse</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="automatisme-15">Automatisme 15<a class="headerlink" href="#automatisme-15" title="Permanent link">⚓︎</a></h2>
+<p>On considère une formule booléenne form des variables booléennes <code>a</code> et <code>b</code> dont voici la table de vérité. </p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+<p>Quelle est cette formule booléenne  ?</p>
+<ul>
+<li><strong>Réponse A :</strong> <code>a and b</code></li>
+<li><strong>Réponse B :</strong> <code>a or b</code></li>
+<li><strong>Réponse C :</strong> <code>((not(a)) and b) or (a and  (not(b)))</code></li>
+<li><strong>Réponse D :</strong> <code>(not(a)) or (not(b))</code></li>
+</ul>
+<h2 id="automatisme-16">Automatisme 16<a class="headerlink" href="#automatisme-16" title="Permanent link">⚓︎</a></h2>
+<p>Pouvez-vous deviner  ce qui va se passer si on exécute le code ci-dessous  ? Vérifiez. Explication ?</p>
+<pre data-executable="">
+def boucle1():
+    x = 1
+    h = 1
+    c = 0
+    while x &lt; 2:
+        h = h / 2
+        x = x + h
+        c = c + 1
+    return x == 2, c
+
+boucle1()
+</pre>
+<ul>
+<li><strong>Réponse A :</strong> <code>(False, 53)</code></li>
+<li><strong>Réponse B :</strong> <code>(True, 53)</code></li>
+<li><strong>Réponse C :</strong> <code>(True, 52)</code></li>
+<li><strong>Réponse D :</strong> la boucle ne se termine pas car d'après une formule du cours de mathématiques sur la somme des termes consécutifs d'une suite géométrique, pour tout entier naturel n on a :</li>
+</ul>
+<p>&lt;a href="https://www.codecogs.com/eqnedit.php?latex=1&amp;plus1/2&amp;plus1/2<sup>2&amp;plus...&amp;plus1/2</sup>n&amp;space=&amp;space(1-1/2<sup n_wzxhzdk:57_1="n+1">{n&amp;plus1})/(1-1/2)=2(1-1/2</sup>)&lt;2" target="_blank"&gt;&lt;img src="https://latex.codecogs.com/gif.latex?1&amp;plus1/2&amp;plus1/2<sup>2&amp;plus...&amp;plus1/2</sup>n&amp;space=&amp;space(1-1/2<sup n_wzxhzdk:65_1="n+1">{n&amp;plus1})/(1-1/2)=2(1-1/2</sup>)&lt;2" title="1+1/2+1/2<sup>2+...+1/2</sup>n = (1-1/2<sup n_1="n+1">{n+1})/(1-1/2)=2(1-1/2</sup>)&lt;2" /&gt;</p>
+<h2 id="automatisme-17-banque-depreuve-pratique-2021">Automatisme 17 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-17-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>Écrire une fonction <code>recherche</code> qui prend en paramètres <code>elt</code> un nombre entier et <code>tab</code>
+un tableau de nombres entiers, et qui renvoie l’indice de la première occurrence de <code>elt</code>
+dans tab si elt est dans tab et -1 sinon.</p>
+<p>Exemples :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">56</span><span class="p">])</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+<span class="mi">3</span>
+</code></pre></div>
+<h2 id="automatisme-18-banque-depreuve-pratique-2021">Automatisme 18 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-18-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>Écrire une fonction maxi qui prend en paramètre une liste tab de nombres entiers et
+renvoie un couple donnant le plus grand élément de cette liste, ainsi que l’indice de la
+première apparition de ce maximum dans la liste.</p>
+<p>Exemple :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">maxi</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="automatisme-19-banque-depreuve-pratique-2021">Automatisme 19 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-19-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>On considère la fonction <code>insere</code> ci-dessous qui prend en argument un entier <code>a</code> et un
+tableau <code>tab</code> d'entiers triés par ordre croissant. Cette fonction insère la valeur <code>a</code> dans le tableau et renvoie le nouveau tableau. Les tableaux seront représentés sous la forme de
+listes python.</p>
+<p>Compléter la fonction <code>insere</code> ci-dessous.</p>
+<pre data-executable="">
+def insere(a, tab):
+    l = list(tab) #l contient les mêmes éléments que tab
+    l.append(a)
+    i = "à compléter"
+    while i &gt;= 0 and a &lt; "à compléter" : 
+      l[i+1] = "à compléter"
+      l[i] = a
+      i = "à compléter"
+    return l
+
+assert insere(3,[1,2,4,5]) == [1, 2, 3, 4, 5]
+assert insere(10,[1,2,7,12,14,25]) == [1, 2, 7, 10, 12, 14, 25]
+assert insere(1,[2,3,4]) == [1,2,3,4]
+print('Tests réussis')
+</pre>
+<h2 id="automatisme-20-banque-depreuve-pratique-2021">Automatisme 20 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-20-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>Compléter sous Python la fonction suivante en respectant la spécification. </p>
+<pre data-executable="">
+def dichotomie(tab, x):
+    """
+        tab : tableau d’entiers trié dans l’ordre croissant
+        x : nombre entier
+        La fonction renvoie True si tab contient x et False sinon
+    """
+
+    debut = 0 
+    fin = len(tab) - 1
+    while debut &lt;= fin:
+        m = "à compléter"
+        if x == tab[m]:
+            return "à compléter"
+        if x &gt; tab[m]:
+            debut = m + 1
+        else:
+             fin = "à compléter"            
+    return "à compléter"
+
+assert dichotomie([15, 16, 18, 19, 23, 24, 28, 29, 31, 33],28) == True
+assert dichotomie([15, 16, 18, 19, 23, 24, 28, 29, 31, 33],27) == False
+print('Tests réussis')
+</pre>
+<h2 id="automatisme-21-banque-depreuve-pratique-2021">Automatisme 21 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-21-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>Écrire une fonction <code>tri_selection</code> qui prend en paramètre un tableau tab de nombres entiers et qui renvoie le tableau trié par ordre croissant.</p>
+<p>On utilisera l’algorithme suivant :</p>
+<ul>
+<li>on recherche le plus petit élément du tableau, et on l'échange avec l'élément d'indice
+0 ;</li>
+<li>on recherche le second plus petit élément du tableau, et on l'échange avec l'élément
+d'indice 1 ;</li>
+<li>on continue de cette façon jusqu'à ce que le tableau soit entièrement trié dans l'ordre croissant.</li>
+</ul>
+<p>Exemples de postconditions :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">tri_selection</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">tri_selection</span><span class="p">([])</span> <span class="o">==</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">tri_selection</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">tri_selection</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="automatisme-22-banque-depreuve-pratique-2021">Automatisme 22 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-22-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>Un mot palindrome peut se lire de la même façon de gauche à droite ou de droite à
+gauche : bob, radar, et non sont des mots palindromes.</p>
+<p>De même certains nombres sont eux aussi des palindromes : 33, 121, 345543.</p>
+<p>L’objectif de cet exercice est d’obtenir un programme Python permettant de tester si un
+nombre est un nombre palindrome.</p>
+<p>Pour remplir cette tâche, on vous demande de compléter le code des trois fonctions ci-
+dessous sachant que la fonction est_nbre_palindrome s’appuiera sur la fonction
+<code>est_palindrome</code> qui elle-même s’appuiera sur la fonction <code>inverse_chaine</code>.</p>
+<p>La fonction <code>inverse_chaine</code> inverse l'ordre des caractères d'une chaîne de caractères
+chaine et renvoie la chaîne inversée.
+La fonction <code>est_palindrome</code> teste si une chaine de caractères chaine est un
+palindrome. Elle renvoie <code>True</code> si c’est le cas et <code>False</code> sinon. Cette fonction s’appuie sur
+la fonction précédente.
+La fonction <code>est_nbre_palindrome</code> teste si un nombre nbre est un palindrome. Elle
+renvoie True si c’est le cas et False sinon. Cette fonction s'appuie sur la fonction
+précédente.</p>
+<p>Compléter le code des trois fonctions ci-dessous.</p>
+<pre data-executable="">
+def inverse_chaine(chaine):
+    result = "à compléter"
+    for caractere in chaine:
+       result = "à compléter"
+    return result
+
+def est_palindrome(chaine):
+    inverse = inverse_chaine(chaine)
+    return "à compléter"
+
+def est_nbre_palindrome(nbre):
+    chaine = "à compléter"
+    return est_palindrome(chaine)
+
+assert inverse_chaine('bac') == 'cab'
+assert est_palindrome('NSI') == False
+assert est_palindrome('ISN-NSI') == True
+assert est_nbre_palindrome(214312) == False
+assert est_nbre_palindrome(213312) == True
+print("Tests réussis")
+</pre>
+<h2 id="automatisme-23-banque-depreuve-pratique-2021">Automatisme 23 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-23-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>Compléter la fonction <code>separe</code> ci-dessous qui prend en argument un tableau tab dont
+les éléments sont des 0 et des 1 et qui sépare les 0 des 1 en plaçant les 0 en début de
+tableau et les 1 à la suite.</p>
+<pre data-executable="">
+def separe(tab):
+    i = 0
+    j = "à compléter"
+    while i &lt; j :
+        if tab[i] == 0 :
+            i = "à compléter"
+        else :
+            tab[i], tab[j] = "à compléter"
+            j = "à compléter"
+    return tab
+
+assert separe([1, 0, 1, 0, 1, 0, 1, 0]) == [0, 0, 0, 0, 1, 1, 1, 1]
+assert separe([1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0]) == [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+print("Tests réussis")
+</pre>
+<h2 id="automatisme-24-banque-depreuve-pratique-2021">Automatisme 24 (<a href="http://nsi.enseigne.ac-lyon.fr/spip/spip.php?article81">banque d'épreuve pratique 2021</a>)<a class="headerlink" href="#automatisme-24-banque-depreuve-pratique-2021" title="Permanent link">⚓︎</a></h2>
+<p>Écrire une fonction <code>indice_du_min</code> qui prend en paramètre un tableau de nombres non
+trié <code>tab</code>, et qui renvoie l'indice de la première occurrence du minimum de ce tableau. Les
+tableaux seront représentés sous forme de liste Python.</p>
+<p>Exemples :
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">indice_du_min</span><span class="p">([</span><span class="mi">5</span><span class="p">])</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">indice_du_min</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">indice_du_min</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="mi">2</span>
+</code></pre></div></p>
+<h2 id="automatisme-25-traitement-de-donnees-en-tables">Automatisme 25 : traitement de données en tables<a class="headerlink" href="#automatisme-25-traitement-de-donnees-en-tables" title="Permanent link">⚓︎</a></h2>
+<p>Télécharger <a href="ressources/archive_automatisme25.zip">l'archive</a> avec le code source à compléter et le fichier <code>eleves.csv</code>.  Un corrigé est <a href="ressources/automatisme_tables_traiter/">ici</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Consigne : compléter au niveau des  à "compléter"</span>
+<span class="sd">les fonctions :</span>
+<span class="sd">    </span>
+<span class="sd">    1)  moyenne_table</span>
+<span class="sd">    2) enreg_avec_recompense</span>
+<span class="sd">    3)  generer_table_recompenses</span>
+<span class="sd">    4) decompte_recompenses</span>
+<span class="sd">    5) clef_tri_moyenne_decroissant</span>
+<span class="sd">    6) clef_tri_alphabetique_croissant_moyenne_decroissant</span>
+<span class="sd">    </span>
+<span class="sd">    Chaque fonction est accompagné d'un test unitaire =&gt; pour tester, </span>
+<span class="sd">    désactiver les commentaires dans le programme principal à partir de la ligne 151</span>
+<span class="sd">    Pour les tris il faut aussi compléter le programme principal en lignes 167 et 171</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1">#Import / Export d'un tel fichier CSV ver la représentation d'une tble en Python (tableau de dictionnaires)</span>
+<span class="k">def</span> <span class="nf">lecture_csv</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">delimiteur</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : un chemin vers un fichier CSV</span>
+<span class="sd">    Valeur renvoyée : un tableau de dictionnaires, extraction de la table contenue dans le fichier</span>
+<span class="sd">    """</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="n">delimiteur</span><span class="p">)</span>  <span class="c1">#création de l'objet reader</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">)</span> <span class="k">for</span> <span class="n">enregistrement</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">]</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">table</span>
+
+<span class="k">def</span> <span class="nf">ecriture_csv</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">fichier</span><span class="p">,</span> <span class="n">delimiteur</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : </span>
+<span class="sd">        un chemin vers un fichier CSV</span>
+<span class="sd">        une table comme tableau de dictionnaires partageant les mêmes clefs, de valeurs str</span>
+<span class="sd">    Valeur renvoyée :</span>
+<span class="sd">        None, écrit table dans fichier avec Dictriter du  module CSV </span>
+<span class="sd">    """</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="n">attributs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="n">delimiteur</span><span class="p">,</span> <span class="n">fieldnames</span> <span class="o">=</span> <span class="n">attributs</span><span class="p">)</span> <span class="c1">#création de l'objet writer</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>   <span class="c1">#écriture des attibuts</span>
+    <span class="k">for</span> <span class="n">enregistrement</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">)</span>  <span class="c1">#écriture des enregistrements</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">moyenne_table</span><span class="p">(</span><span class="n">table_eleves</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">"""Paramètre : table_eleves est une représentation de la table extraite de eleves.csv</span>
+<span class="sd">        sous forme de tableau de dictionnaires. Attention les attributs 'moyenne' sont de </span>
+<span class="sd">        type 'str'</span>
+<span class="sd">    Valeur renvoyée : un flottant représentant la moyenne de tous les élèves</span>
+<span class="sd">    de la table arrondie à 2 chiffres après la virgule</span>
+<span class="sd">    """</span>
+    <span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">compteur</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">enreg</span> <span class="ow">in</span> <span class="n">table_eleves</span><span class="p">:</span>
+        <span class="s2">"à compléter"</span>
+        <span class="s2">"à compléter"</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">somme</span> <span class="o">/</span> <span class="n">compteur</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_moyenne_table</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">moyenne_table</span><span class="p">(</span><span class="n">table_eleves</span><span class="p">)</span> <span class="o">==</span> <span class="mf">11.46</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test unitaire de moyenne_table réussi"</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">enreg_avec_recompense</span><span class="p">(</span><span class="n">enreg</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : enreg un dictionnaire de clefs 'prénom', 'nom', 'moyenne' </span>
+<span class="sd">                Attention toutes les clefs ont des valeurs de type str</span>
+<span class="sd">    Valeur renvoyée : extension du dictionnaire avec une nouvelle clef</span>
+<span class="sd">    'récompense' de valeurs s :</span>
+<span class="sd">            'insuffisant' si moyenne &lt; 8</span>
+<span class="sd">            'médiocre' si 8 &lt;= moyenne &lt; 10</span>
+<span class="sd">            'passable' si 10 &lt;= moyenne &lt; 12</span>
+<span class="sd">            'encouragements' si  12 &lt;= moyenne &lt; 14</span>
+<span class="sd">            'compliments' si   14 &lt;= moyenne &lt; 16</span>
+<span class="sd">            'félicitations' si moyenne &gt; 16</span>
+<span class="sd">    """</span>
+    <span class="n">copie</span> <span class="o">=</span> <span class="p">{</span> <span class="n">clef</span> <span class="p">:</span> <span class="n">valeur</span> <span class="k">for</span> <span class="n">clef</span><span class="p">,</span> <span class="n">valeur</span> <span class="ow">in</span> <span class="n">enreg</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="p">}</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="s2">"à compléter"</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="n">copie</span><span class="p">[</span><span class="s1">'récompense'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'insuffisant'</span>
+    <span class="k">elif</span> <span class="s2">"à compléter"</span><span class="p">:</span>
+        <span class="n">copie</span><span class="p">[</span><span class="s1">'récompense'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'médiocre'</span>
+    <span class="k">elif</span> <span class="s2">"à compléter"</span><span class="p">:</span>
+        <span class="n">copie</span><span class="p">[</span><span class="s1">'récompense'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'passable'</span>
+    <span class="k">elif</span> <span class="s2">"à compléter"</span><span class="p">:</span>
+        <span class="n">copie</span><span class="p">[</span><span class="s1">'récompense'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'encouragements'</span>
+    <span class="k">elif</span> <span class="s2">"à compléter"</span><span class="p">:</span>
+        <span class="n">copie</span><span class="p">[</span><span class="s1">'récompense'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'compliments'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">copie</span><span class="p">[</span><span class="s1">'récompense'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'félicitations'</span>
+    <span class="k">return</span> <span class="n">copie</span>
+
+
+<span class="k">def</span> <span class="nf">generer_table_recompenses</span><span class="p">(</span><span class="n">table_eleves</span><span class="p">):</span>
+    <span class="sd">"""Paramètre : table_eleves est une représentation de la table extraite de eleves.csv</span>
+<span class="sd">        sous forme de tableau de dictionnaires</span>
+<span class="sd">    Valeur renvoyée : une extension de table_eleves avec un nouvel attribut 'récompense'</span>
+<span class="sd">    chaque nouvel enregistrement est généré par enreg_avec_recompense</span>
+<span class="sd">    """</span>
+    <span class="n">table_recompenses</span> <span class="o">=</span> <span class="s2">"à compléter"</span>  
+    <span class="k">return</span> <span class="n">table_recompenses</span>
+
+<span class="k">def</span> <span class="nf">test_generer_table_recompenses</span><span class="p">():</span>
+    <span class="sd">"""Test unitaires de generer_table_recompenses"""</span>
+    <span class="n">table_recompenses</span> <span class="o">=</span> <span class="n">generer_table_recompenses</span><span class="p">(</span><span class="n">table_eleves</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">table_recompenses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'prénom'</span><span class="p">:</span> <span class="s1">'Zoé'</span><span class="p">,</span> <span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Collin'</span><span class="p">,</span>
+                                    <span class="s1">'moyenne'</span><span class="p">:</span> <span class="s1">'19'</span><span class="p">,</span> <span class="s1">'récompense'</span><span class="p">:</span> <span class="s1">'félicitations'</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">table_recompenses</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'prénom'</span><span class="p">:</span> <span class="s1">'Roland'</span><span class="p">,</span> <span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Joly'</span><span class="p">,</span> 
+                                    <span class="s1">'moyenne'</span><span class="p">:</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'récompense'</span><span class="p">:</span> <span class="s1">'médiocre'</span><span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test unitaires de generer_table_recompenses réussis"</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">decompte_recompenses</span><span class="p">(</span><span class="n">table_recompenses</span><span class="p">):</span>
+    <span class="sd">"""Paramètre : table_recompenses  est une représentation de la table renvoyée </span>
+<span class="sd">                    par generer_table_recompenses. </span>
+<span class="sd">    Valeur renvoyée : un dictionnaire avec le décompte de chaque récompense</span>
+<span class="sd">    """</span>
+    <span class="n">decompte</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">enreg</span> <span class="ow">in</span> <span class="n">table_recompenses</span><span class="p">:</span>
+        <span class="s2">"à compléter"</span>
+        <span class="s2">"à compléter"</span>
+        <span class="s2">"à compléter"</span>
+        <span class="s2">"à compléter"</span>
+    <span class="k">return</span> <span class="n">decompte</span>
+
+<span class="k">def</span> <span class="nf">test_decompte_recompenses</span><span class="p">():</span>
+    <span class="sd">"""Test unitaires de decompte_recompenses"""</span>
+    <span class="n">decompte</span> <span class="o">=</span> <span class="n">decompte_recompenses</span><span class="p">(</span><span class="n">table_recompenses</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">decompte</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'félicitations'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span>
+                         <span class="s1">'médiocre'</span><span class="p">:</span> <span class="mi">77</span><span class="p">,</span>
+                         <span class="s1">'compliments'</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span>
+                         <span class="s1">'insuffisant'</span><span class="p">:</span> <span class="mi">86</span><span class="p">,</span>
+                         <span class="s1">'passable'</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span>
+                         <span class="s1">'encouragements'</span><span class="p">:</span> <span class="mi">72</span><span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Test unitaires de decompte_recompenses réussis"</span><span class="p">)</span>
+    
+    
+     
+<span class="k">def</span> <span class="nf">clef_tri_moyenne_decroissant</span><span class="p">(</span><span class="n">enreg</span><span class="p">):</span>
+    <span class="sd">"""Clef de tri par moyenne décroissante</span>
+<span class="sd">    Attention la valeur de l'attribut 'moyenne' de enreg est de type str"""</span>
+    <span class="k">return</span> <span class="s2">"à compléter"</span>
+
+<span class="k">def</span> <span class="nf">clef_tri_alphabetique_croissant_moyenne_decroissant</span><span class="p">(</span><span class="n">enreg</span><span class="p">):</span>
+    <span class="sd">"""Clef de tri par moyenne décroissante</span>
+<span class="sd">    Attention la valeur de l'attribut 'moyenne' de enreg est de type str"""</span>
+    <span class="k">return</span> <span class="s2">"à compléter"</span>
+    
+
+<span class="c1">#Programme principal</span>
+<span class="n">table_eleves</span> <span class="o">=</span> <span class="n">lecture_csv</span><span class="p">(</span><span class="s1">'eleves.csv'</span><span class="p">,</span> <span class="s1">','</span><span class="p">)</span>
+<span class="c1">#Décommenter lorsque moyenne_table est complétée</span>
+<span class="c1">#test_moyenne_table()</span>
+
+<span class="c1">#Décommenter lorsque generer_table_recompenses est complétée</span>
+<span class="c1">#table_recompenses = generer_table_recompenses(table_eleves)</span>
+<span class="c1">#test_generer_table_recompenses()</span>
+
+<span class="c1">#Décommenter lorsque decompte_recompenses est complétée</span>
+<span class="c1">#test_decompte_recompenses()</span>
+
+<span class="c1">#Décommenter e lorsque clef_tri_moyenne_decroissant terminée</span>
+<span class="c1">#table_recompenses = generer_table_recompenses(table_eleves)</span>
+
+<span class="c1">#Ecrire une instruction qui permet de trier  table_recompenses dans l'ordre décroissant des moyennes</span>
+<span class="c1">#table_tri1 = "à compléter"</span>
+
+<span class="c1">#Ecrire une instruction qui permet de trier  table_recompenses :</span>
+<span class="c1">#d'abord dans l'ordre alphabétique croissant puis dans l'ordre décroissant des moyennes</span>
+<span class="c1">#table_tri2 = "à compléter"</span>
+</code></pre></div>
+<script src="../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../javascripts/config.js"></script>
+<script src="../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

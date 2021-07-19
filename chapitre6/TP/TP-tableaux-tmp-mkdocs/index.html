@@ -1,0 +1,1371 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<meta content="Première NSI,  [Lycée du Parc](https://frederic-junier.org/)" name="author"/>
+<link href="https://parc-nsi.github.io/premiere/chapitre6/TP/TP-tableaux-tmp-mkdocs/" rel="canonical"/>
+<link href="../../../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>TP sur les tableaux - Première NSI Lycée du Parc</title>
+<link href="../../../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              TP sur les tableaux
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre9/">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../automatismes/exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/Cours/dictionnaires-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/Cours/cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/cours-systeme/systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre230/">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/chapitre6/TP/TP-tableaux-tmp-mkdocs.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<h1>TP sur les tableaux</h1>
+<!-- Définition des hyperliens  -->
+<p><em>On désigne par tableaux, les objets de type <code>list</code> du langage <a href="https://docs.python.org/3/tutorial/datastructures.html">Python</a>. Dans les exercices, comme dans les QCM d'E3C, on rencontrera parfois l'appellation Python liste pour désigner la structure de données tableau</em>.</p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>1. Télécharger le matériel de TP depuis &lt;https://parc-nsi.github.io/premiere-nsi/chapitre6/TP/eleves.zip&gt;
+2. Extraire l'archive dans un dossier pertinent de son répertoire personnel.
+3. Ouvrir le fichier `TP-Tableaux-Eleve.py` avec `Spyder`. Le fichier est prérempli avec des cellules contenant les codes à compléter suivis de tests unitaires pour tester les fonctions que vous aurez écrites. 
+4. Chaque cellule est préfixée par le commentaire spécial `#%%`  et peut être exécutée avec `CTRL + Return`.
+5. Écrivez d'abord la fonction avant de la tester avec les tests unitaires s'ils sont disponibles : il faut les sélectionner puis les décommenter avec `CTRL + 1`.
+</code></pre></div>
+<p>::: </p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>QCM type E3C
+
+1. On exécute le code suivant :
+
+    ~~~python
+    t = [1,2,3,4,5,6,7,8,9]
+
+    v = [c for c in t if c%3 == 0]
+    ~~~
+
+Quelle est la valeur de la variable `v` à la fin de cette exécution ?
+
+* __Réponse A :__ 18    __Réponse B :__ `[1,4,7]`
+* __Réponse C :__  `[3,6,9]`  __Réponse D :__  `[1,2,3,4,5,6,7,8,9]`
+
+
+2. On définit : `resultat = [ i*2 for i in range(10) ]`.
+
+Quelle est la valeur de `resultat` ?
+
+* __Réponse A :__  `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]` 
+* __Réponse B :__ `[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]` 
+* __Réponse C :__ `[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]` 
+* __Réponse D :__ `[2, 4, 6, 8, 10, 12, 14, 16, 18]`
+
+
+3. On considère la fonction suivante :
+
+~~~python
+def somme(tab):
+    s = 0
+    for i in range(len(tab)):
+        .....
+    return s
+~~~
+
+Par quelle instruction faut-il remplacer les points de suspension pour
+que l'appel `somme([10,11,12,13,14])` renvoie 60 ?
+
+* __Réponse A :__  `s = tab[i]`  __Réponse B :__   `s = s + tab[i]`
+* __Réponse C :__ `tab[i] = tab[i] + s`   __Réponse D :__ `s = s + i`
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>1. La fonction suivante doit calculer la moyenne d'un tableau de nombres, passé en paramètre. Avec quelles expressions faut-il remplacer les points de suspension pour que la fonction soit correcte ? _Auteur Sylvie Genre_
+
+    ~~~python
+    def moyenne(tableau):
+        total = ...
+        for valeur in tableau:
+            total = total + valeur
+        return total / ...
+    ~~~
+2. Donner la valeur des expressions Python suivantes :
+
+    ~~~python
+    &gt;&gt;&gt; [1, 2, 3] + [4, 5, 6]
+    &gt;&gt;&gt; 2 * [1, 2, 3]
+    ~~~
+</code></pre></div>
+<p>:::</p>
+<p>:::methode
+    À partir de cet exercice, on précisera pour chaque fonction sa <strong>spécification</strong>, dans une chaîne de documentation (ou <em>docstring</em>) multiligne placée juste après l'en-tête de la fonction entre triples quotes ou guillemets.</p>
+<div class="highlight"><pre><span></span><code>Celle-ci est constituée  :
+
+ * du ou des  __type(s)__ du ou des paramètre(s), en précisant si la fonction ne prend pas de paramètre
+ * de la ou des __précondition(s)__ que doivent vérifier ces paramètres
+ * du ou des __type(s)__ de la (ou les) valeur(s) renvoyée(s), en précisant si la fonction ne renvoie rien (`None` par défaut en Python)
+ * de la ou des __postcondition(s)__ que doivent vérifier  la ou les valeur(s) renvoyée(s)
+
+Pour vérifier les préconditions on utilise l'instruction `assert` qui permet de vérifier l'assertion (à valeur booléenne) qu'elle préfixe : si l'assertion est vraie, l'exécution continue sinon une exception `AssertionError` est levée et l'exécution s'interrompt. On peut passer un message d'erreur personnalisée en le séparant de l'assertion par une virgule :
+
+```python
+&gt;&gt;&gt; assert (1 + 1) % 2 == 0, 'attention on calcule modulo 2'
+&gt;&gt;&gt; assert (1 + 1) % 2 == 2, 'attention on calcule modulo 2'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+AssertionError: attention on calcule modulo 2
+```
+
+Voici un exemple de rédaction pour la deuxième fonction de l'exercice 4 :
+
+```python
+def vsom(tab1, tab2):
+    """
+    Paramètres :
+        tab1 et tab2 des tableaux de type list contenant des  nombres de type int ou float
+    Préconditions :
+        tab1 non vide et len(tab1) == len(tab2)
+    Valeur renvoyée :
+        un tableau de type list contenant des  nombres de type int ou float
+    Postcondition :
+        le tableau renvoyé est constitué des sommes
+        terme à terme des éléments de tab1 et tab2        
+    """
+    assert len(tab1) &gt; 0 and len(tab1) == len(tab2); "tab1 et tab2 doivent être de même longueur"
+    return ................. #à compléter
+```
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>1. Écrire une fonction Python   `smul` à deux paramètres, un nombre et une liste de nombres, qui multiplie chaque élément de la liste par le nombre et renvoie une nouvelle liste :
+~~~python
+&gt;&gt;&gt; smul(2, [1, 2, 3])
+[2, 4, 6]
+~~~
+2. Écrire une fonction Python `vsom`  qui prend en paramètre deux listes de nombres de même longueur et qui renvoie une nouvelle liste constituée de la somme terme à terme de ces deux listes :
+~~~python
+&gt;&gt;&gt; vsom([1, 2, 3], [4, 5, 6])
+[5, 7, 9]
+~~~
+3. Écrire une fonction  [Python][Python] `vdif` qui prend en paramètre deux listes de nombres de même longueur et qui renvoie une nouvelle liste constituée de la différence terme à terme de ces deux listes (la deuxième  moins la première).
+~~~python
+&gt;&gt;&gt; vdif([1, 2, 3], [4, 5, 6])
+[3, 3, 3]
+~~~
+4. Écrire une fonction Python `vprod` qui prend en paramètre deux listes de nombres de même longueur et qui retourne une nouvelle liste constituée des produits terme à terme de ces deux listes.
+~~~python
+&gt;&gt;&gt; vprod([1, 2, 3], [4, 5, 6]) 
+[4, 10, 18]
+~~~
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice
+    1. Écrire une  fonction <code>produit(tab)</code> qui retourne le produit  des éléments d'un tableau de nombres <code>tab</code>.
+    2. Écrire une fonction   <code>all_positive(tab)</code>  qui retourne un booléen indiquant si tous les éléments du tableau de nombres <code>tab</code>  sont strictement positifs.
+    3. Écrire une fonction   <code>any_positive(tab)</code>  qui retourne un booléen indiquant si  au moins un élément du tableau de nombres <code>tab</code>  est strictement positif.
+:::</p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>1. Écrire une fonction `tableau_aleatoire(n, a, b)` qui renvoie un tableau de `n` entiers tirés aléatoirement entre les entiers `a` et `b` inclus. On utilisera la fonction `randint`  du module `random`.
+
+~~~python
+Help on method randint in module random:
+
+randint(a, b) method of random.Random instance
+    Return random integer in range [a, b], including both end points.
+~~~
+
+
+2. Écrire une fonction `histo_echantillon(nbexp)` qui renvoie un tableau de taille 6 comptant le nombre d'occurences de chaque face numérotée de 1 à 6 sur un échantillon de `nbexp` lancers d'un dé cubique équilibré.
+
+3. On donne ci-dessous une fonction qui prend en paramètre un tableau et renvoie un élément extrait au hasard  du tableau. Elle permet par exemple de simuler un tirage sans remise d'une boule dans une urne.
+
+    ~~~python
+    from random import randint
+    def tirage_sans_remise(urne):
+        """ 
+        Paramètres :
+            urne un tableau homogène type list
+        Précondition :
+            urne non vide
+        Valeur renvoyée :
+            un élément du même type que ceux dans urne
+        Postcondition :
+            l'élement renvoyée a été extrait aléatoirement de urne
+            urne a été modifiée
+        """
+        return urne.pop(randint(0, .......))
+    ~~~
+
+   * Compléter les pointillés pour respecter la spécification de la fonction.
+   * Écrire une fonction `echantillon_tirage_sans_remise` respectant la spécification ci-dessous. Les [annotations de type](https://docs.python.org/fr/3/tutorial/controlflow.html#function-annotations) sont des métadonnées optionnelles décrivant les types des paramètres et des valeurs renvoyées.
+
+    ~~~python
+    def echantillon_tirage_sans_remise(urne:list, nbtirage:int) -&gt; list:
+        """ 
+        Paramètres :
+            urne un tableau homogène type list
+            nbtirage un entier de type int
+        Préconditions :
+            nbtirage &gt;= 0
+            urne non vide
+        Valeur renvoyée :
+            un tableau d'entiers de type list
+        Postcondition :
+            le tableau renvoyé est un échantillon extrait
+            aléatoirement de l'urne sans remise
+        """
+    ~~~
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>* La fonction `ord` prend en paramètre un caractère de type `string` et renvoie son point de code dans le jeu de caractères [Unicode](https://fr.wikipedia.org/wiki/Unicode).
+* La fonction `chr` prend en paramètre un point de code Unicode et renvoie le caractère correspondant.
+
+~~~python
+&gt;&gt;&gt; ord('a')
+97
+&gt;&gt;&gt; chr(97)
+'a'
+~~~
+
+
+1. Construire un tableau  `alphabet` qui contient toutes les lettres minuscules de l'alphabet romain.
+2. Construire un tableau `consonne` qui contient toutes les consonnes dans `alphabet`.
+3. Écrire une fonction `occurences(chaine)` qui prend en paramètre une chaîne de caractère et renvoie un tableau de taille 26 avec le nombre d'occurences dans `chaine` des 26 lettres de l'alphabet romain.
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>_Exercice du manuel de NSI de Thibault Balabonski  chez Ellipses_
+
+En mathématiques, la [suite de Fibonacci](http://images.math.cnrs.fr/Mysteres-arithmetiques-de-la-suite-de-Fibonacci.html) est une séquence d'entiers définie ainsi : on part des entiers 0 et 1 puis on construit à chaque fois l'entier suivant comme la somme des deux précédents :
+$$0, 1, 1, 2, 3, 5 ....$$
+
+Compléter la fonction `fibonacci(n)` ci-dessous pour qu'elle renvoie un tableau contenant les `n`  premiers termes de la suite de Fibonacci avec `n` entier supposé supérieur ou égal à 2. Les deux assertions proposées en tests unitaires, doivent être vérifiées.
+
+~~~python
+def fibonacci(n):
+    #à compléter
+
+# Tests unitaires (vérification de postconditions)
+f6 = fibonacci(6)
+assert f6 == [0,1, 1, 2,3,5]
+f30 = fibonacci(30)
+assert f30[29] == 514229
+~~~
+</code></pre></div>
+<p>:::</p>
+<p>:::methode
+    Pour stocker  de façon persistante (sur le disque et pas seulement en mémoire vive) des informations  lisibles par un humain, on utilise un <strong>fichier texte</strong> qui est une simple séquence de caractères. Le contenu du fichier doit respecter un  <strong>format</strong> qui fixe  des contraintes pour que les informations soient interprétables lors de la  lecture.  Par exemple le code source d'un programme <a href="https://docs.python.org/3/tutorial/datastructures.html">Python</a> ou d'une page Web en HTML, un fichier de mesures au format <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a>,  sont  des fichiers textes. </p>
+<div class="highlight"><pre><span></span><code>Tester les séquences  d'instructions suivantes dans une console [Python][Python] pour découvrir des manipulations de base de fichiers textes.
+
+* Création d'un fichier `test.txt` dans le répertoire de travail
+
+~~~python
+&gt;&gt;&gt; f = open('test.txt', 'w')   # ouverture du fichier en écriture
+&gt;&gt;&gt; f.write('10\n')   #  ligne 1 : '\n'  est un caractère de saut de ligne
+3
+&gt;&gt;&gt; f.write('11 12\n')  #ligne 2  avec 6 caractères 
+6
+&gt;&gt;&gt; f.write('13 14 15\n')  #ligne 3 avec 9 caractères
+9
+&gt;&gt;&gt; f.close()   #fermeture du fichier
+~~~
+
+* Lecture et traitement ligne par ligne du fichier  `test.txt` :
+
+~~~python
+&gt;&gt;&gt; g = open('test.txt', 'r')  #ouverture du fichier
+&gt;&gt;&gt; ligne1 = g.readline()  #lecture de ligne 1
+&gt;&gt;&gt; ligne1
+'10\n'
+&gt;&gt;&gt; ligne1.rstrip() #nettoyage du caractère de fin de ligne
+'10'
+&gt;&gt;&gt; int(ligne1.rstrip()) #conversion de chaine vers entier
+10
+&gt;&gt;&gt; ligne2 = g.readline()  #lecture de ligne 2
+&gt;&gt;&gt; ligne2
+'11 12\n'
+&gt;&gt;&gt; ligne2.rstrip()  #nettoyage du caractère de fin de ligne
+'11 12'
+&gt;&gt;&gt; ligne2.rstrip().split(' ')  #découpage de ligne 2 selon le caractère par défaut de séparation ' ', on peut écrire juste split() 
+['11', '12']
+&gt;&gt;&gt; [int(c) for c in ligne2.rstrip().split()]  #conversion en entier
+[11, 12]
+&gt;&gt;&gt; g.close()   #fermeture du fichier
+~~~
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>* __Énoncé :__
+
+Comme le disait le grand-père de Joseph Marchand, « Le plus beau voyage est celui qu'on n'a pas encore fait ». New York était dans la tête de Joseph depuis plusieurs années maintenant, et il a décidé aujourd'hui d'acheter son billet d'avion. 
+Quelques secondes avant de cliquer sur le bouton « Acheter ! », son amie Haruhi lui envoie une liste de prix qu'elle a trouvés sur Internet. Joseph est curieux de voir si ces derniers sont moins chers que le billet qu'il s'apprêtait à acheter.
+
+* __Entrée :__
+
+Sur la première ligne le prix initial du billet de Joseph.
+Sur la deuxième ligne un entier N , correspondant au nombre de billets envoyés par Haruhi. La ligne suivante contient les N prix trouvés par Haruhi.
+
+* __Sortie :__
+
+Si Haruhi a trouvé au moins 3 prix strictement moins chers que celui de Joseph, affichez « ARNAQUE ! » pour l'avertir. Sinon « Ok bon voyage, bisous, n'oublie pas de m'envoyer des photos ! ».
+
+* Exemple 1 :
+
+    * Entrée :
+
+        ~~~
+        570
+        4
+        495 1200 540 450
+        ~~~
+
+    * Sortie :
+
+        ~~~
+        ARNAQUE !
+        ~~~
+
+* Exemple 2:
+  * Entrée :
+
+    ~~~
+    820
+    5
+    580 2000 970 1050 820
+    ~~~
+
+  *  Sortie :
+
+    ~~~
+    Ok bon voyage, bisous, n'oublie pas de m'envoyer des photos !
+    ~~~
+
+
+1. Récupérer les fichiers textes `arnaque-exemple1.txt`  et `arnaque-exemple2.txt` avec les entrées des deux exemples.
+2. En s'inspirant de la méthode de lecture de fichier texte présentée précédemment, compléter la fonction ci-dessous pour qu'elle résolve le problème. Les deux assertions doivent être vérifiées.
+3. Se créer un compte sur le site [Prologin](https://prologin.org/user/register?next=%2F) et soumettre sa solution au juge en ligne sur &lt;https://prologin.org/train/2019/qualification/arnaque_aerienne&gt;.
+
+    Avant de soumettre, remplacer dans la fonction l'instruction `f = open(inputfile)` par `f = inputfile` et le code du programme principal par :
+
+    ~~~python
+    import sys
+    arnaque(sys.stdin)
+    ~~~
+
+    `sys.stdin` est [l'entrée standard](https://docs.python.org/fr/3/library/sys.html#sys.stdin) de l'interpréteur Python.
+
+4. Sur la même plateforme, résoudre  cet autre problème du même type : &lt;https://prologin.org/train/2018/qualification/faites_place&gt;
+
+~~~python
+def arnaque(inputfile):
+    """Résolution du problème 
+    https://prologin.org/train/2019/qualification/arnaque_aerienne"""
+    f = open(inputfile)  #ouverture du  fichier d'entrée
+    # TO DO à compléter
+    f.close() 
+    c = 0
+    # TO DO à compléter
+    if c &gt;= 3:
+        print("ARNAQUE !")
+        return 1
+    else:
+        print("Ok bon voyage, bisous, n'oublie pas de m'envoyer des photos !")
+        return 0
+
+# Tests unitaires        
+assert arnaque('arnaque-exemple1.txt') == 1
+assert arnaque('arnaque-exemple2.txt') == 0
+print("Tests unitaires réussis !")
+~~~
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice
+    Écrire une fonction <code>maximum_intervalle(t, n)</code> qui prend en paramètres un tableau d'entiers <code>t</code>  et un entier <code>n</code> supposé inférieur ou égal à la longueur de <code>t</code> et qui retourne la somme maximale sur tous les sous-tableaux de longueur <code>n</code>  inclus dans <code>t</code> .</p>
+<div class="highlight"><pre><span></span><code>~~~python
+&gt;&gt;&gt; maximum_intervalle([4,1,10,2,8,5], 3)
+20
+~~~
+</code></pre></div>
+<p>:::</p>
+<script src="../../../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../../javascripts/config.js"></script>
+<script src="../../../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

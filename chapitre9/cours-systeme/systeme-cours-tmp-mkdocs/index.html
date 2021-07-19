@@ -1,0 +1,1689 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<meta content="Première NSI,  [Lycée du Parc](https://frederic-junier.org/)" name="author"/>
+<link href="https://parc-nsi.github.io/premiere/chapitre9/cours-systeme/systeme-cours-tmp-mkdocs/" rel="canonical"/>
+<link href="../../../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>Systèmes d'exploitation - Première NSI Lycée du Parc</title>
+<link href="../../../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#credits">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Systèmes d'exploitation
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre6/">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../automatismes/exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/Cours/dictionnaires-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/Cours/cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre230/">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/chapitre9/cours-systeme/systeme-cours-tmp-mkdocs.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<!-- Définition des hyperliens  -->
+<h1 -="-" id="credits">Crédits<a class="headerlink" href="#credits" title="Permanent link">⚓︎</a></h1>
+<p><em>Ce cours est inspiré du chapitre 24 du manuel NSI de la collection Tortue chez Ellipse,  auteurs : Ballabonski, Conchon, Filliatre, N'Guyen. J'ai également consulté <a href="https://gitlab.com/lyceeND/1ere/-/blob/master/2019_20/2_Systeme_1/systeme19.md">le cours de Guillaume Connan</a>, le livre <a href="https://laurentbloch.net/MySpip3/IMG/pdf/histsys-screen-20200727.pdf">Splendeurs et servitudes des Systèmes d’exploitation   Histoire, fonctionnement, enjeux</a> de Laurent Bloch, le livre <a href="https://www.eyrolles.com/Informatique/Livre/la-ligne-de-commande-par-l-exemple-9782351410721/">La ligne de commande par l'exemple</a> de Vincent Fourmond et le livre <a href="https://www.eyrolles.com/Informatique/Livre/parlez-vous-shell--9782729877590/">Parlez-vous Shell ?</a> de Thomas Hugel.</em></p>
+<h1 id="chronologie-des-systemes-dexploitation">Chronologie des systèmes d'exploitation<a class="headerlink" href="#chronologie-des-systemes-dexploitation" title="Permanent link">⚓︎</a></h1>
+<ul>
+<li>
+<p>1950 premiers calculateurs (ENIAC, EDSAC) branchements manuels pas de système d'exploitation</p>
+</li>
+<li>
+<p>1956 GM-NAA I/O premier système d'exploitation sur IBM 704</p>
+</li>
+<li>
+<p>1967 MULTICS  développé aux Bell Labs premier système d'exploitation à temps partagé</p>
+</li>
+<li>
+<p>1970 UNIX développé aux Bell Labs premier système d'exploitatio multitâches et multiutilisateurs, écrit en langage C </p>
+</li>
+<li>
+<p>1978 BSD variante d'UNIX dévéloppée à l'université de Berkeley, ancêtre de MacOS</p>
+</li>
+<li>
+<p>1980 les ordinateurs personnels d'IBM utilisent le système d'exploitation MS-DOS de Microsoft</p>
+</li>
+<li>
+<p>1990 Microsoft développé Windows un système d'exploitation avec interface graphique inspiré du système disponible sur les machines Apple</p>
+</li>
+<li>
+<p>1991 système d'exploitation  libre Linux, noyau développé par Linus Torvalds, outils logiciels du projet GNU, distribué sous licence libre</p>
+</li>
+<li>
+<p>2001 système d'exploitation MacOS sur les machines Apple, dérivé de BSD</p>
+</li>
+<li>
+<p>2007 Apple développe un version de MacOS pour téléphones portables</p>
+</li>
+<li>
+<p>2008 Google développe le système d'exploitation Android pour téléphones portables, basé sur le noyau libre Linux avec ajout de logiciels propriétaires</p>
+</li>
+</ul>
+<h1 id="definition-dun-systeme-dexploitation">Définition d'un système d'exploitation<a class="headerlink" href="#definition-dun-systeme-dexploitation" title="Permanent link">⚓︎</a></h1>
+<p>Un <em>système d’exploitation</em> est un logiciel, ou ensemble de programmes, qui sert d'interface
+entre les programmes exécutés par l'utilisateur et les ressources matérielles d'un
+ordinateur.</p>
+<p><img alt="Illustration du rôle d'un système d'exploitation" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Operating_system_placement-fr.svg/250px-Operating_system_placement-fr.svg.png"/></p>
+<p>Il est à la fois :</p>
+<ul>
+<li>
+<p>une <em>machine virtuelle</em> qui présente une interface simplifiée d'accès aux ressources
+(processeur, mémoire, périphériques d'entrée/sortie, réseau ...) pour les autres programmes 
+et pour l'utilisateur</p>
+</li>
+<li>
+<p>un <em>chef d'orchestre</em> et un <em>administrateur</em> : </p>
+</li>
+<li>
+<p>c'est le premier programme exécuté au démarrage
+de l'ordinateur</p>
+</li>
+<li>il gère l'accès concurrent aux ressources par les différents 
+programmes (ordonnancement de l'utilisation du processeur par les programmes
+en cours d'exécution ou processus, sécurisation de la mémoire) 
+ou utilisateurs (droits d'accès du système de fich</li>
+</ul>
+<p>Sitographie : </p>
+<ul>
+<li><a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27exploitation">Page Wikipedia</a></li>
+<li><a href="https://www.lumni.fr/video/comprendre-ce-qu-est-un-systeme-d-exploitation">Présentation en video</a></li>
+</ul>
+<h1 id="interface-utilisateur-dun-systeme-dexploitation-le-shell">Interface utilisateur d'un système d'exploitation : le shell<a class="headerlink" href="#interface-utilisateur-dun-systeme-dexploitation-le-shell" title="Permanent link">⚓︎</a></h1>
+<p>Une interface entre l'utilisateur  et le système d'exploitation s'appelle un <a href="https://fr.wikipedia.org/wiki/Shell_Unix">shell</a> ou <em>interpréteur de commandes</em>.</p>
+<p>Le rôle d'un <em>shell</em> est de prendre une entrée de l'utilisateur, de la traduire en instructions compréhensibles par le système d'exploitation et de renvoyer la réponse du système à l'utilisateur.</p>
+<p>Il existe deux grandes catégories de <em>shell</em> :</p>
+<ul>
+<li>les <em>interfaces textuelles</em> comme <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">bash</a>, le plus commun sur les systèmes de la famille <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">UNIX</a>.</li>
+<li>les <em>interfaces graphiques</em> qu'on retrouve dans les systèmes d'exploitation grand public tels que <a href="https://fr.wikipedia.org/wiki/Microsoft_Windows">Windows</a></li>
+</ul>
+<p>Nous utiliserons <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">bash</a> dans les TP. La syntaxe d'une commande <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">bash</a> est simple : le nom de la commande peut être suivi d'options facultatives introduites par un tiret et d'arguments :
+ <code>nom_commande -option1 -option2 argument1 argument2</code>.</p>
+<p>Par exemple, la commande ci-dessous demande d'utiliser la commande <code>ls</code> pour afficher les informations détaillées (option <code>-l</code>) sur le fichier <code>exemple</code>:</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ ls -l exemple
+-rw-rw-r-- 1 nobody mail 0 août  16 12:05 exemple
+</code></pre></div>
+<p>Chaque commande est un programme enregistré dans un fichier, par exemple <code>/usr/bin/ls</code> pour la commande <code>ls</code>:</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ which ls
+/usr/bin/ls
+junier@fredportable:~/bac$ ls -l /usr/bin/ls
+-rwxr-xr-x 1 root root 142144 sept.  5  2019 /usr/bin/ls
+</code></pre></div>
+<p>Enfin chaque commande possède trois flux d'entrée / sortie :</p>
+<ul>
+<li><em>l'entrée standard</em>  qui est par défaut le clavier (les options et arguments sont traités puis transmis par <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">bash</a> sur l'entrée standard de la commande)</li>
+<li><em>la sortie standard</em> qui est par défaut  l'écran </li>
+<li><em>la sortie d'erreur</em> qui est  par défaut l'écran également</li>
+</ul>
+<p>Il existe des opérateurs <code>&gt;</code> et <code>&lt;</code> pour rediriger les flux d'entrée / sortie.</p>
+<p>Considérons un exemple . La commande <code>ls</code> sans argument affiche le contenu du répertoire courant sur la sortie standard et la  commande  <code>cat</code>  concatène les fichiers fournis en paramètres ou sur son entrée standard et renvoie le résultat sur sa sortie standard : </p>
+<div class="highlight"><pre><span></span><code>    junier@fredportable:~/bac$ ls 
+    entree
+    junier@fredportable:~/bac$ cat --help 
+    utilisation : cat [OPTION] [FICHIER]...
+    Concaténer les FICHIERs vers la sortie standard.
+    ............
+    junier@fredportable:~/bac$ cat entree
+    contenu de entree
+    junier@fredportable:~/bac$ cat entree &gt; sortie
+    junier@fredportable:~/bac$ ls
+    entree  sortie
+    junier@fredportable:~/bac$ cat sortie
+    contenu de entree
+</code></pre></div>
+<p>Nous fournirons un memento des principales commandes de <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">bash</a> communes à  la plupart des <em>shell</em> des systèmes de la famille <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">UNIX</a>.</p>
+<p>Un memento en ligne :  <a href="https://juliend.github.io/linux-cheatsheet/">https://juliend.github.io/linux-cheatsheet/</a></p>
+<h1 id="attributs-du-systeme-dexploitation-le-mode-noyau">Attributs du système d'exploitation : le mode noyau<a class="headerlink" href="#attributs-du-systeme-dexploitation-le-mode-noyau" title="Permanent link">⚓︎</a></h1>
+<p>Les programmes ne peuvent pas accéder directement aux ressources matérielles
+ (mémoire, processeur, périphériques d'entrée/sortie) sinon il y aurait des conflits : par exemple deux programmes pourraient écrire dans la même zone mémoire.</p>
+<p>Le système d’exploitation possède un mode d'exécution privilégiée : le <em>mode noyau</em>, qui lui donne un accès unique et total aux ressources. Les autres programmes s'exécutent en <em>mode normal</em>. Pour accéder aux ressources, ils font appel au système d'exploitation à l'aide de primitives qu'on nomme <em>appels systèmes</em>. Pour les systèmes d'exploitation dérivés d'<a href="">UNIX</a>, ces appels systèmes sont normalisés par le standard <a href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> pour Portable Operating System Interface.</p>
+<p>Le <strong>noyau</strong> désigne l'ensemble des programmes au coeur du système d'exploitation, qui s'exécutent en particulier au démarrage de l'ordinateur. Par exemple, le noyau du système d'exploitation libre Linux est téléchargeable sur <a href="https://www.kernel.org/">https://www.kernel.org/</a>.</p>
+<h1 id="attributs-du-systeme-dexploitation-le-controle-de-lactivite-des-programmes">Attributs du système d'exploitation : le contrôle de l'activité des  programmes<a class="headerlink" href="#attributs-du-systeme-dexploitation-le-controle-de-lactivite-des-programmes" title="Permanent link">⚓︎</a></h1>
+<p>Un programme ne peut être exécuté que si le système d'exploitation l'autorise.
+L'exécution d'un programme peut être interrompue par le système d'exploitation,
+pour libérer une ressource ou en cas d'erreur. On parle d'<em>interruption système</em>.</p>
+<p>Un programme en cours d'exécution s'appelle un <em>processus</em> et le système d'exploitation arbitre le partage de temps de calcul du processeur par les processus concurrents. Il joue un rôle <em>d'ordonnanceur</em> pour éviter par exemple qu'un processus s'accapare le  processeur.  </p>
+<p>Le système d'exploitation maintient une base de temps unique pour tous les
+processus et fournit des services de gestion du temps : estampillage, chronologie, attente, réveil.</p>
+<p>La commande de <em>shell</em> <code>ps</code> permet d'afficher la liste des processus : l'option <code>U</code> permet de sélectionner l'utilisateur qui a lancé les processus. S'il s'agit d'un processus qu'on a lancé ou si on est superutilisateur,  peut alors "tuer" le processus avec la commande <code>kill</code> suivie du numéro du processus.</p>
+<div class="highlight"><pre><span></span><code>    junier@fredportable:~$ ps U
+    PID TTY      STAT   TIME COMMAND
+    13845 pts/5    S+     0:00 python3
+    13900 pts/4    R+     0:00 ps U junier
+    junier@fredportable:~$ kill 13845
+</code></pre></div>
+<h1 id="attributs-du-systeme-dexploitation-le-controle-dacces-aux-ressources">Attributs du système d'exploitation : le contrôle d'accès aux ressources<a class="headerlink" href="#attributs-du-systeme-dexploitation-le-controle-dacces-aux-ressources" title="Permanent link">⚓︎</a></h1>
+<p>Le système d'exploitation est le seul à pouvoir contrôler l'accès aux ressources : processeur, mémoire, périphériques d'entrée/sortie.</p>
+<p>La gestion et la sécurisation de la mémoire est une tâche importante, avec un système de <em>mémoire virtuelle</em> qui donne à chaque programme l'illusion d'accéder à toute la mémoire.</p>
+<p>Des algorithmes permettent d'éviter  les situations d'<a href="https://fr.wikipedia.org/wiki/Interblocage">interblocage ou étreinte fatale</a>.</p>
+<p>Un exemple concret d'interblocage peut se produire lorsque deux processus  essayent d'acquérir deux ressources dans un ordre différent. Par exemple avec deux ressources  (M1 et M2),  deux processus (P1 et P2) et la séquence d'opération suivante :</p>
+<div class="highlight"><pre><span></span><code>P1 acquiert M1.
+P2 acquiert M2.
+P1 attend pour acquérir M2 (qui est détenu par P2).
+P2 attend pour acquérir M1 (qui est détenu par P1).
+</code></pre></div>
+<p>Dans cette situation, les deux processus sont définitivement bloqués. </p>
+<p>La commande <em>shell</em> <code>free</code> permet d'afficher l'utilisation de la mémoire, l'option <code>-m</code> convertit les mesures en megaoctets (Mo).
+Dans l'exemple ci-dessous, la mémoire vive disponible est de 3856 Mo,  618 Mo sont utilisés pour les buffers/cache et 254 sont libres soit un total de 3856 - 618 - 254 = 2984 Mo  utilisés.  La seconde ligne concerne un espace du disque dur, nommé <a href="https://doc.ubuntu-fr.org/swap">swap</a>, utilisé par le système pour étendre la mémoire vive en mémoire virtuelle.</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ free -m
+            total       utilisé      libre     partagé tamp/cache   disponible
+Mem:           3856        2983         254         302         618         334
+Partition d'échange:        1303        1288          14
+</code></pre></div>
+<h1 id="attributs-du-systeme-dexploitation-le-controle-du-systeme-de-fichiers">Attributs du système d'exploitation : le contrôle du système de fichiers<a class="headerlink" href="#attributs-du-systeme-dexploitation-le-controle-du-systeme-de-fichiers" title="Permanent link">⚓︎</a></h1>
+<h2 id="systeme-de-fichiers">Système de fichiers<a class="headerlink" href="#systeme-de-fichiers" title="Permanent link">⚓︎</a></h2>
+<p>Sur les supports de mémoire persistants (disques durs, clefs USB...), les informations sont regroupées par le système d'exploitation  dans des <em>fichiers</em>
+qui sont organisés à travers un <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_fichiers">système de fichiers</a>.</p>
+<p>Dans les systèmes d'exploitation qui  respectent le standard <a href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a>, on distingue  plusieurs catégories de fichiers :</p>
+<ul>
+<li><em>fichiers réguliers</em> ou <em>fichiers textes</em> qui contiennent des suites de caractères et qui sont lisibles par des humains</li>
+<li><em>fichiers binaires</em> qui sont des suites d'octets non lisibles par des humains</li>
+<li><em>fichiers exécutables</em> qui sont des programmes, ils peuvent être des fichiers textes ou binaires.</li>
+<li><em>répertoires</em> qui sont des listes de fichiers : ils servent de conteneur à fichiers.</li>
+</ul>
+<p>Les <em>répertoires</em> pouvant contenir d'autres fichiers, un système de fichiers  <a href="https://fr.wikipedia.org/wiki/POSIX">POSIX</a> possède une structure hiérarchique  qui est une  <em>arborescence</em> avec  un <em>répertoire racine</em> symbolisé par un /.</p>
+<p><img alt="Un exemple d'arborescence" src="https://www.frederic-junier.org/ISN/Architecture-HTML-CSS-Internet-2019/pages/images/arborescence.png"/></p>
+<p>Les fichiers sont repérés par leur <em>chemin</em> :</p>
+<ul>
+<li>
+<p><em>chemin absolu</em> depuis la racine : par exemple si un fichier <code>exemple.txt</code> se trouve dans le répertoire <code>sandbox</code>, contenu dans le répertoire  <code>maurice</code>, lui-même contenu dans le répertoire <code>home</code>, lui-même dans le répertoire racine, son <em>chemin absolu</em> est   <code>/home/maurice/sandbox/exemple.txt</code></p>
+</li>
+<li>
+<p>ou <em>chemin relatif</em>  qui est relatif au <em>répertoire courant</em> ou <em>répertoire de travail</em> où l'utilisateur se trouve. Par exemple, si le répertoire courant est <code>maurice</code>, le <em>chemin relatif</em> du fichier précédent est <code>sandbox/exemple.txt</code>.</p>
+</li>
+</ul>
+<h2 id="gestion-des-droits-et-permissions">Gestion des droits et permissions<a class="headerlink" href="#gestion-des-droits-et-permissions" title="Permanent link">⚓︎</a></h2>
+<p>Le système d'exploitation gère les <em>droits et permissions</em> sur les fichiers (dont les répertoires) pour les différents <em>utilisateurs</em>.</p>
+<h3 id="utilisateurs-et-permissions">Utilisateurs et permissions<a class="headerlink" href="#utilisateurs-et-permissions" title="Permanent link">⚓︎</a></h3>
+<p>Pour un fichier, on distingue :</p>
+<ul>
+<li>
+<p>trois types d'utilisateurs  :</p>
+</li>
+<li>
+<p>le <em>propriétaire</em> (ou <em>owner</em>) noté  <code>u</code></p>
+</li>
+<li>le <em>groupe principal</em> (ou <em>group</em>) noté  <code>g</code></li>
+<li>
+<p>un  <em>autre utilisateur</em> (ou <em>other</em>) noté  <code>o</code></p>
+</li>
+<li>
+<p>trois types de permissions  :</p>
+<ul>
+<li><em>lecture</em> (caractère <em>r</em> si attribué ou <em>-</em> sinon)</li>
+<li><em>écriture</em> (caractère <em>w</em> si attribué  ou <em>-</em> sinon)</li>
+<li><em>exécution</em> (caractère <em>x</em> si attribué  ou <em>-</em> sinon)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="droits unix" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Unix-file-rights.png"/></p>
+<p><em>Source : Wikimedia Commons, Jimbotyson / CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0)</em></p>
+<p>Pour les répertoires, la signification des permissions est précisée dans ce tableau. Attention, si on a le droit d'écriture sur un répertoire on peut 
+supprimer tous les fichiers qu'il contient même ceux dont on n'est pas propriétaire !</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Type de permission</th>
+<th>pour un répertoire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>lecture</td>
+<td>lister le contenu</td>
+</tr>
+<tr>
+<td>w</td>
+<td>écriture</td>
+<td>ajouter, supprimer, renommer des fichiers</td>
+</tr>
+<tr>
+<td>x</td>
+<td>exécution</td>
+<td>entrer dedans</td>
+</tr>
+</tbody>
+</table>
+<p>En général le nom d'utilisateur figure dans le prompt de l'interpréteur de commandes / shell, mais la commande <code>id</code> permet de l'afficher avec la liste des groupes auxquels il appartient :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~$ id
+uid=1000(junier) gid=1000(junier) groupes=1000(junier),4(adm),8(mail),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+junier@fredportable:~$ sudo apt install pandoc
+[sudo] Mot de passe de junier :
+</code></pre></div>
+<p>Certaines commandes, comme l'installation de logiciels avec un gestionnaire de paquets comme <code>apt</code> ne sont exécutables qu'avec les droits du <em>superutilisateur</em> <code>root</code>.  Si on appartient au groupe <code>sudo</code> (groupe des administrateurs), on peut élever ses droits et agir comme <code>root</code>  en préfixant la commande de <code>sudo</code>. et en saisissant son mot de passe utilisateur. Certains systèmes permettent de devenir directement <code>root</code>  avec la commande <code>su</code> en saisissant le mot de passe de <code>root</code>.
+<em>L'utilisateur <code>root</code> a tous les droits sur le système de fichiers.</em></p>
+<h3 id="exemples-de-lectures-de-permissions">Exemples de lectures de permissions<a class="headerlink" href="#exemples-de-lectures-de-permissions" title="Permanent link">⚓︎</a></h3>
+<p>On peut afficher les droits d'un fichier avec la commande <code>ls -l</code>, en considérant les 10 premiers caractères :</p>
+<ul>
+<li>le premier précise le type de fichier : <code>d</code> pour un répertoire et tiret <code>-</code> pour un autre fichier</li>
+<li>
+<p>les 9 caractères suivants dénotent les attributs pour les trois types de permission avec de gauche à droite  le <em>propriétaire</em>, le <em>groupe</em>, les <em>autres</em>. </p>
+</li>
+<li>
+<p>Exemple 1 :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/sandbox$ ls -l histoire-systeme.txt         
+-rw-rw-r-- 1 junier junier 1136 août  15 13:56 histoire-systeme.txt
+</code></pre></div>
+<p>Dans cet exemple le fichier  texte  <code>histoire-systeme.txt</code> a pour  propriétaire <code>junier</code>, pour groupe <code>junier</code> et pour droits :</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lecture</th>
+<th>Écriture</th>
+<th>Exécution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Propriétaire</td>
+<td>oui</td>
+<td>oui</td>
+<td>non</td>
+</tr>
+<tr>
+<td>Groupe</td>
+<td>oui</td>
+<td>oui</td>
+<td>non</td>
+</tr>
+<tr>
+<td>Autres</td>
+<td>oui</td>
+<td>non</td>
+<td>non</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Exemple 2 :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/sandbox$ ls -l /bin/python3.8
+-rwxr-xr-x 1 root root 5453504 juil. 16 16:00 /bin/python3.8
+</code></pre></div>
+<p>Dans cet exemple le fichier  binaire  <code>/bin/python3.8</code> a pour propriétaire <code>root</code>, pour groupe <code>root</code> et pour droits :</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lecture</th>
+<th>Écriture</th>
+<th>Exécution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Propriétaire</td>
+<td>oui</td>
+<td>oui</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Groupe</td>
+<td>oui</td>
+<td>non</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Autres</td>
+<td>oui</td>
+<td>non</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Exemple 3 : pour afficher les informations détaillées d'un répertoires il faut rajouter l'option <code>-d</code>  : <div class="highlight"><pre><span></span><code>junier@fredportable:/var$ ls -l -d mail
+drwxrwsr-x 2 root mail 4096 avril 23 09:32 mail
+</code></pre></div>
+</li>
+</ul>
+<p>Dans cet exemple le dossier  <code>/var/mail</code> a pour propriétaire <code>root</code>, pour groupe <code>mail</code> et pour droits :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lecture</th>
+<th>Écriture</th>
+<th>Exécution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Propriétaire</td>
+<td>oui</td>
+<td>oui</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Groupe</td>
+<td>oui</td>
+<td>oui</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Autres</td>
+<td>oui</td>
+<td>non</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<p>On peut noter que pour le groupe, le droit d'exécution est positionné à <code>s</code>, qui correspond au <a href="https://fr.wikipedia.org/wiki/Permissions_UNIX#Droit_SGID">sgid</a> : tout fichier créé appartient au groupe propriétaire du répertoire.</p>
+<p>Attention, si tout membre du groupe <code>mail</code> peut écrire dans le répertoire <code>var</code>, il peut aussi supprimer un fichier créé par un autre utilisateur même s'il s'agit du superutilisateur <code>root</code> :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:/var/mail$ ls -l
+total 0
+-rw-r--r-- 1 root mail 0 août  16 10:27 mail_important
+junier@fredportable:/var/mail$ echo 'Bonjour' &gt; mon_message
+junier@fredportable:/var/mail$ ls -l
+total 4
+-rw-r--r-- 1 root   mail 0 août  16 10:27 mail_important
+-rw-rw-r-- 1 junier mail 8 août  16 10:28 mon_message
+junier@fredportable:/var/mail$ rm mail_important
+rm : supprimer 'mail_important' qui est protégé en écriture et est du type « fichier vide » ? y
+junier@fredportable:/var/mail$ ls -l
+total 4
+-rw-rw-r-- 1 junier mail 8 août  16 10:28 mon_message
+</code></pre></div>
+<h3 id="modification-des-droits-permissions">Modification des droits / permissions<a class="headerlink" href="#modification-des-droits-permissions" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>
+<p>Seul le propriétaire d'un fichier (ou répertoire) ou l'utilisateur <code>root</code>  peuvent modifier les permissions d'un fichier (ou répertoire) avec la commande <code>chmod</code>.</p>
+<p>La syntaxe est la suivante, on a noté entre crochets les options facultatives :</p>
+<div class="highlight"><pre><span></span><code>chmod [ugo][+-=][rwx] fichier
+</code></pre></div>
+<p>Voici un exemple commenté :</p>
+<ul>
+<li>
+<p>Lorsqu'on crée un fichier, par défaut il a les droits de lecture et d'écriture pour l'utilisateur et son groupe principal  et de lecture pour les autres. </p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ touch fichier
+junier@fredportable:~/bac$ ls -l
+total 0
+-rw-rw-r-- 1 junier junier 0 août  16 11:05 fichier
+junier@fredportable:~/bac$ echo "echo exécution" &gt; fichier
+junier@fredportable:~/bac$ cat fichier 
+echo exécution
+</code></pre></div>
+</li>
+<li>
+<p>On ajoute le droite d'exécution à  <code>fichier</code> pour son propriétaire et on vérifie que la commande qu'il contient est bien exécutée lorsqu'on écrit <code>./fichier</code> :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ chmod u+x fichier
+junier@fredportable:~/bac$ ./fichier 
+exécution
+junier@fredportable:~/bac$ ls -l
+total 4
+-rwxrw-r-- 1 junier junier 16 août  16 11:06 fichier
+</code></pre></div>
+</li>
+<li>
+<p>On enlève le droit d'écriture au propriétaire et on vérifie qu'on ne peut plus écrire dans `fichier</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ chmod u-w fichier 
+junier@fredportable:~/bac$ echo "echo ajout" &gt; fichier
+bash: fichier: Permission non accordée
+junier@fredportable:~/bac$ ls -l
+total 4
+-r-xrw-r-- 1 junier junier 16 août  16 11:06 fichier
+</code></pre></div>
+</li>
+<li>
+<p>On ajoute le droit d'écriture au propriétaire et aux autres :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ chmod uo+w fichier
+junier@fredportable:~/bac$ ls -l
+total 4
+-rwxrw-rw- 1 junier junier 16 août  16 11:06 fichier
+</code></pre></div>
+</li>
+<li>
+<p>On enlève le droit de lecture au propriétaire, à son groupe et aux autres :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ chmod ugo-r fichier
+junier@fredportable:~/bac$ ls -l
+total 4
+--wx-w--w- 1 junier junier 16 août  16 11:06 fichier
+</code></pre></div>
+</li>
+<li>
+<p>Pour remettre ce droit de lecture à tous, on peut utiliser le raccourci <code>a</code> au lieu de <code>ugo</code>  :</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ chmod a+r fichier 
+junier@fredportable:~/bac$ ls -l
+total 4
+-rwxrw-rw- 1 junier junier 16 août  16 11:06 fichier
+</code></pre></div>
+</li>
+<li>
+<p>On positionne tous les droits à <code>rwx</code> sur <code>fichier</code> pour tous les utilisateurs. On aurait pu écrire <code>chmod a=rwx fichier</code>.</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ chmod ugo=rwx fichier 
+junier@fredportable:~/bac$ ls -l
+total 8
+-rwxrwxrwx 1 junier junier   16 août  16 11:06 fichier
+</code></pre></div>
+</li>
+<li>
+<p>On crée un répertoire nommé <code>repertoire</code>  avec  deux fichiers. On peut noter qu'un répertoire est toujours créé par défaut avec le droit d'exécution pour tous, car celui-ci permet (ou non) de traverser le répertoire.</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ mkdir repertoire
+junier@fredportable:~/bac$ ls -l -d repertoire/
+drwxrwxr-x 2 junier junier 4096 août  16 11:10 repertoire/
+junier@fredportable:~/bac$ cd repertoire/
+junier@fredportable:~/bac/repertoire$ touch fichier2
+junier@fredportable:~/bac/repertoire$ touch fichier3
+junier@fredportable:~/bac/repertoire$ ls -l
+total 0
+-rw-rw-r-- 1 junier junier 0 août  16 11:10 fichier2
+-rw-rw-r-- 1 junier junier 0 août  16 11:12 fichier3
+</code></pre></div>
+</li>
+<li>
+<p>On modifie récursivement les droits sur le répertoire <code>repertoire</code> et tous ses fichiers avec  l'option <code>-R</code>  dans la commande  <code>chmod -R ugo=rx repertoire</code>. On peut vérifier qu'on ne peut plus supprimer les fichiers contenus dans <code>repertoire</code>.</p>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~/bac$ chmod -R ugo=rx repertoire
+junier@fredportable:~/bac$ ls -l repertoire
+total 0
+-r-xr-xr-x 1 junier junier 0 août  16 11:10 fichier2
+-r-xr-xr-x 1 junier junier 0 août  16 11:12 fichier3
+junier@fredportable:~/bac$ ls -l -d repertoire/
+dr-xr-xr-x 2 junier junier 4096 août  16 11:12 repertoire/
+junier@fredportable:~/bac$ cd repertoire/
+junier@fredportable:~/bac/repertoire$ rm fichier2
+rm : supprimer 'fichier2' qui est protégé en écriture et est du type « fichier vide » ? y 
+rm: impossible de supprimer 'fichier2': Permission non accordée
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Le superutilisateur <code>root</code> peut changer le propriétaire d'un fichier avec la commande <code>chown</code> ou son groupe principal avec la commande <code>chgrp</code> :</p>
+<div class="highlight"><pre><span></span><code>    junier@fredportable:~/bac$ ls -l fichier
+    -rw-rw-r-- 1 nobody mail 0 août  16 12:05 fichier
+    junier@fredportable:~/bac$ sudo chown nobody fichier
+    junier@fredportable:~/bac$ ls -l
+    -rw-rw-r-- 1 nobody junier    0 août  16 12:05 fichier
+    junier@fredportable:~/bac$ sudo chgrp mail  fichier
+    junier@fredportable:~/bac$ ls -l
+    -rw-rw-r-- 1 nobody mail      0 août  16 12:05 fichier
+</code></pre></div>
+</li>
+</ul>
+<h1 id="licence-logicielle-et-systeme-dexploitation">Licence logicielle et système d'exploitation<a class="headerlink" href="#licence-logicielle-et-systeme-dexploitation" title="Permanent link">⚓︎</a></h1>
+<p><em>Une licence de logiciel est un contrat qui octroie un droit d'usage non
+exclusif</em> et par lequel le titulaire des droits d'auteur du logiciel
+définit les conditions dans lesquelles ce programme peut être utilisé,
+diffusé ou modifié par l'usager.</p>
+<h2 id="contexte-historique">Contexte historique<a class="headerlink" href="#contexte-historique" title="Permanent link">⚓︎</a></h2>
+<p>De ses débuts jusqu'à l'aube des années 1980, le monde de
+l'informatique fut dominé par fabricants de <code>hardware</code> tels que IBM.
+Dans les années 50 et 60, les ordinateurs étaient de gros
+calculateurs et l'informatique concernait principalement des
+spécialistes (ingénieurs, chercheurs). Les logiciels ou <code>software</code>
+existaient mais étaient indissociables de la machine sur laquelle ils
+étaient installés par le fabricant. L'interopérabilité des programmes,
+la normalisation des formats de données n'étaient pas dans l'air du
+temps. D'ailleurs, le constructeur ne facturait pas le logiciel qu'il
+livrait avec leur machine et fournissait les codes sources aux
+utilisateurs afin qu'ils puissent adapter les ressources de l'ordinateur
+à leur usage ou rectifier certains bugs.</p>
+<p>Dans les années 70, des projets de développement logiciels
+d'importance émergèrent comme le projet <strong>UNIX</strong> d'un système
+d'exploitation multiutilisateurs (plusieurs comptes utilisateurs mais un
+seul utilisateur à la fosi alors que le système MULTICS avait pour
+ambition de supporter plusieurs utilisateurs simultanés). Il fut d'abord
+développé par Ken Thompson et Denis Ritchie (créateur du lagage C) dans
+les laboratoires Bell. Cette entreprise livra le code source à
+l'université de Berkeley dont les étudiants améliorèrent le projet qui
+fut distribué sous le nom de <strong>Berkeley Software Distribution</strong> (BSD).</p>
+<p>A cette époque, les échanges de code sources entre développeurs étaient
+naturels et ils furent accélérés par le déploiement du réseau Arpanet
+d'interconnexion des universités et centres de recherche, ancêtre de
+l'internet.</p>
+<p>L'essor de la micro-informatique dans les années 80, le changement de
+profil des usagers (plus forcément des techniciens), firent du logiciel
+le facteur dominant du business informatique. Les sociétés d'édition de
+logiciels comme Microsoft supplantèrent les fabricants de hardware comme
+IBM. Mais la protection de leurs savoir-faire et de leur code ressource
+devint un facteur essentiel de leur stratégie de développement. L'époque
+des pionniers de l'informatique qui partageaient leurs codes sources et
+leurs idées était révolue.</p>
+<p>En 1984, <strong>Richard Stallman</strong> démissionnait du MIT, crée la <strong>Free Software Foundation</strong> (FSF) et lançait le projet <strong>GNU</strong> de
+développement d'un système d'exploitation libre dont aucun élément ne
+serait soumis à une <strong>licence propriétaire</strong> (la première distribution
+Unix sans code propriétaire ne fut publiée qu'en 1989). Stallman créa la
+première <strong>licence logicielle libre</strong> : la General Public License (GPL).
+Le projet GNU aboutit en 1991 au système d'exploitation libre
+<strong>GNU/Linux</strong> après incorporation du dernier élément manquant, le noyau
+(ou kernel), apporté par Linus Torvalds.</p>
+<p>Des références :</p>
+<ul>
+<li>
+<p><a href="http://www.gnu.org/gnu/gnu.html">http://www.gnu.org/gnu/gnu.html</a></p>
+</li>
+<li>
+<p><a href="http://fr.wikipedia.org/wiki/Unix">http://fr.wikipedia.org/wiki/Unix</a></p>
+</li>
+</ul>
+<p><img alt="Carte du libre" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Carte_conceptuelle_du_logiciel_libre.svg/1024px-Carte_conceptuelle_du_logiciel_libre.svg.png"/></p>
+<p><em>Source :  Wikimedia Commons, René Mérou et autres auteurs</em></p>
+<h2 id="les-differents-types-de-licences-logicielles">Les différents types de licences logicielles<a class="headerlink" href="#les-differents-types-de-licences-logicielles" title="Permanent link">⚓︎</a></h2>
+<p>On distingue :</p>
+<ul>
+<li>
+<p>les <strong>licences propriétaires</strong> :\
+    Un éditeur concède à titre non exclusif un droit d'usage sur un
+    logiciel dont il conserve les droits de propriété intellectuelle. Un
+    <strong>CLUF</strong> (Contrat Licence Utilisateur Final) délimite les conditions
+    d'usage du logiciel : limitation du nombre de copies, de postes sur
+    lequel le logiciel peut être installé, interdiction de modification
+    et de redistribution . En général, le code source n'est pas
+    accessible (on parle de logiciel fermé) ....</p>
+</li>
+<li>
+<p>les <strong>licences libres</strong> ou <strong>open-source</strong> :\
+    elles respectent les quatre libertés fondamentales du logiciel libre
+    :</p>
+<ol>
+<li>
+<p><strong>liberté d'exécuter le programme, pour tous les usages.</strong></p>
+</li>
+<li>
+<p><strong>liberté d'étudier le fonctionnement du programme, et de le
+    modifier pour l'adapter à ses besoins</strong></p>
+</li>
+<li>
+<p><strong>liberté de redistribuer des copies.</strong></p>
+</li>
+<li>
+<p><strong>liberté de redistribuer aux autres des copies de versions
+    modifiées</strong></p>
+</li>
+</ol>
+<p>Les libertés 2 et 3 nécessitent l'accès au code source.\
+Il ne faut pas confondre licence libre et domaine public : mettre un
+logiciel sous licence libre ne signifie pas abandonner ses droits
+d'auteurs (droit moral inaliénable) mais donner des permissions aux
+usagers qui vont au-delà de ce qu'autorise le droit d'auteur par
+défaut.</p>
+</li>
+</ul>
+<p>Attention à <em>ne pas confondre logiciels libres et gratuits</em> (double sens
+du mot free en Anglais):</p>
+<ul>
+<li>
+<p>un <strong>freeware</strong> désigne usuellement un logiciel distribué
+    gratuitement, indépendamment de sa licence d'utilisation. Le code
+    source n'est pas forcément fourni ; dans ce cas ce n'est pas un
+    logiciel libre.</p>
+</li>
+<li>
+<p>un <strong>shareware</strong> désigne un logiciel distribué gratuitement et
+    librement pendant une durée ou un nombre d'utilisations qui sont
+    fixées par l'auteur. Au delà de ce délai il faut payer des royalties
+    et le code source n'est pas fourni donc ce n'est pas un logiciel
+    libre.</p>
+</li>
+</ul>
+<p>Références :</p>
+<ul>
+<li>
+<p><a href="http://www.cndp.fr/savoirscdi/societe-de-linformation/cadre-reglementaire/le-coin-du-juriste/logiciel-libre-et-gratuiciel.html">http://www.cndp.fr/savoirscdi/societe-de-linformation/cadre-reglementaire/le-coin-du-juriste/logiciel-libre-et-gratuiciel.html</a></p>
+</li>
+<li>
+<p><a href="http://www.gnu.org/philosophy/categories.html">http://www.gnu.org/philosophy/categories.html</a> et
+    <a href="http://www.gnu.org/philosophy/philosophy.html">http://www.gnu.org/philosophy/philosophy.html</a></p>
+</li>
+</ul>
+<h2 id="licences-de-logiciels-libres">Licences de logiciels libres<a class="headerlink" href="#licences-de-logiciels-libres" title="Permanent link">⚓︎</a></h2>
+<p>On distingue deux types de licences libres :</p>
+<ol>
+<li>
+<p>Les <strong>licences avec copyleft</strong> :</p>
+<p>Le copyleft ( gauche d'auteur , jeu de mots sur copyright), n'est
+pas l'abandon du copyright (droits patrimoniaux) mais au contraire
+s'appuie dessus pour rendre libre un programme (respect des 4
+libertés fondamentales) en obligeant toutes les versions modifiées à
+être libres également et redistribuées sous la même licence. Ainsi
+le logiciel (ou l'oeuvre numérique) sera éternellement libre. La
+licence <code>GPL</code> (General Public License) créée par Richard Stallman en
+1989 fut la première licence libre avec copyleft. La licence
+<code>CeCill</code> créée par l'INRIA est une adaptation de la licence GPL au
+droit français. La licence <code>Creative Commons</code> CC BY-SA 3.0,
+paternité et partage à l'identique, est une licence libre avec
+copyleft pour les oeuvres numériques (image, video ...).</p>
+<p>Il existe des formes plus ou moins fortes de copyleft. Ainsi si on
+inclut du code sous license GPL dans un autre, le programme hybride
+créé est contaminé et doit être distribué sous licence GPL. La
+license <strong>LGPL</strong> présente un copyleft plus faible : du code sous
+cette license  peut être inclus dans un code sous une autre license
+sans que le programme hybride soit nécessairement sous license LGPL.
+C'est utile pour développer des bibliothèques de fonctions.</p>
+</li>
+<li>
+<p>Les <strong>licences sans copyleft</strong> :</p>
+<p>L'utilisateur peut redistribuer et modifier le logiciel, mais aussi
+ajouter des restrictions et distribuer une version modifiée sous
+licence propriétaire. On parle aussi de licence permissive . La
+première licence libre sans copyleft fut la licence <code>BSD</code> pour le
+distributions de logiciels créés par l'université de Berkeley. <em>La
+licence de Python est une licence libre sans copyleft</em>. Ce sont des
+licences compatibles avec la GPL mais la réciproque est fausse.</p>
+</li>
+</ol>
+<h2 id="exemple-des-systemes-dexploitation">Exemple des systèmes d'exploitation<a class="headerlink" href="#exemple-des-systemes-dexploitation" title="Permanent link">⚓︎</a></h2>
+<p><img alt="Arbre généalogique des systèmes UNIX" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Unix_history-simple.svg/1024px-Unix_history-simple.svg.png"/></p>
+<p><img alt="Arbre généalogique des systèmes Windows" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Microsoft_timeline_of_operating_systems_2.png"/></p>
+<ul>
+<li>
+<p><strong>Systèmes d'exploitation propriétaires :</strong>  Windows et partiellement MacOS (une partie UNIX est sous licence BSD)</p>
+</li>
+<li>
+<p><strong>Systèmes d'exploitation libres :</strong>  de nombreuses distributions basées sur le noyau Linux, système dérivé d'UNIX : Debian, Ubuntu, Fedora, ArchLinux .....</p>
+</li>
+</ul>
+<p>:::exercice</p>
+<div class="highlight"><pre><span></span><code>1. Lequel de ces systèmes d\'exploitation est sous licence libre ?
+
+***Réponses***
+
+__A)__ Android  __B)__ Linux  __C)__ Windows  __D)__ MacOS
+
+2. Une et une seule de ces affirmations est **fausse**. Laquelle ?
+
+***Réponses***
+
+__A)__ Un système d\'exploitation libre est la plupart du temps gratuit
+
+__B)__ Je peux contribuer à un système d'exploitation libre
+
+__C)__ Il est interdit d\'étudier un système d'exploitation propriétaire
+
+__D)__ Un système d\'exploitation propriétaire est plus sécurisé
+</code></pre></div>
+<p>:::</p>
+<script src="../../../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../../javascripts/config.js"></script>
+<script src="../../../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

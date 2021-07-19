@@ -1,0 +1,1539 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<link href="https://parc-nsi.github.io/premiere/chapitre18/Cours/dictionnaires-cours-git/" rel="canonical"/>
+<link href="../../../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>Cours - Première NSI Lycée du Parc</title>
+<link href="../../../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#credits">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Cours
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../../chapitre6/">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre9/">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../automatismes/exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+        Index
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/Cours/cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/cours-systeme/systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre230/">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/chapitre18/Cours/dictionnaires-cours-git.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<ul>
+<li><a href="#crédits">Crédits</a></li>
+<li><a href="#p-uplets-nommés-et-dictionnaires">p-uplets nommés et
+    dictionnaires</a></li>
+<li><a href="#un-exemple-de-dictionnaire-les-metadonnées-exif-dune-photo-numérique">Un exemple de dictionnaire : les metadonnées EXIF d’une photo
+    numérique</a></li>
+<li><a href="#création-de-dictionnaire">Création de dictionnaire</a></li>
+<li><a href="#accès-ajout-suppression-délément-dans-un-dictionnaire">Accès, ajout, suppression d’élément dans un
+    dictionnaire</a></li>
+<li><a href="#parcours-de-dictionnaire">Parcours de dictionnaire</a></li>
+<li><a href="#références-partagées-et-mutabilité">Références partagées et
+    mutabilité</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#synthèse">Synthèse</a></li>
+</ul>
+<h1 id="credits">Crédits<a class="headerlink" href="#credits" title="Permanent link">⚓︎</a></h1>
+<p><em>Ce cours est inspiré du chapitre 14 du manuel NSI de la collection
+Tortue chez Ellipse, auteurs : Ballabonski, Conchon, Filliatre, N’Guyen.
+J’ai également consulté le prepabac Première NSI de Guillaume Connan
+chez Hatier, le <a href="https://cache.media.eduscol.education.fr/file/NSI/77/7/RA_Lycee_G_NSI_repd_types_construits_1170777.pdf">document ressource eduscol sur les types
+construits</a>
+et le livre **Fluent Python*</em>.*</p>
+<p><em>Tous les exemples du cours peuvent être testés dans le fichier
+<a href="../exemples_cours_dictionnaires_eleves/">exemples_cours_dictionnaires_eleves.py</a>.</em></p>
+<h1 id="p-uplets-nommes-et-dictionnaires">p-uplets nommés et dictionnaires<a class="headerlink" href="#p-uplets-nommes-et-dictionnaires" title="Permanent link">⚓︎</a></h1>
+<div class="admonition example">
+<p class="admonition-title">Exemple 1</p>
+<p>Dans le TP sur les <strong>p-uplets</strong> (nommés aussi <strong>tuples</strong>) on a travaillé sur un fichier <code>airports-reduit.csv</code> qui contient les  enregistrements <code>nom;latitude;longitude;altitude;code_pays</code> pour  57302  aéroports et on a extrait cette série dans un tableau de <strong>tuples</strong>. Par exemple le <strong>tuple</strong> correspondant à l'aéroport Saint-Exupéry est :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">p_uplet</span> <span class="o">=</span> <span class="n">tab_tuple_airports</span><span class="p">[</span><span class="mi">32478</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p_uplet</span>
+<span class="p">(</span><span class="s1">'Lyon Saint-Exupéry Airport'</span><span class="p">,</span> <span class="s1">'45.725556'</span><span class="p">,</span> <span class="s1">'5.081111'</span><span class="p">,</span> <span class="s1">'821'</span><span class="p">,</span> <span class="s1">'FR'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p_uplet</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="s1">'45.725556'</span>
+</code></pre></div>
+</td></tr></table>
+<p>Pour traiter cette information, il faut connaître la signification de chaque élément (appelé aussi <em>champ</em>) du <strong>tuple</strong>  puisqu'on  y accède  par son  index entier   :   0 pour le 'nom',  1 pour la latitude etc ....</p>
+<p>Il serait plus lisible de disposer d'un <strong>tuple</strong> à <em>champs nommés</em>  et de pouvoir accéder à la valeur d'un champ par son nom. C'est le  dernier <strong>type construit</strong> de données que nous allons étudier.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">p_uplet_nomme</span> <span class="o">=</span> <span class="n">tab_dico_airports</span><span class="p">[</span><span class="mi">32478</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p_uplet_nomme</span>
+<span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Lyon Saint-Exupéry Airport'</span><span class="p">,</span> <span class="s1">'latitude'</span><span class="p">:</span> <span class="s1">'45.725556'</span><span class="p">,</span> <span class="s1">'longitude'</span><span class="p">:</span> <span class="s1">'5.081111'</span><span class="p">,</span> <span class="s1">'altitude'</span><span class="p">:</span> <span class="s1">'821'</span><span class="p">,</span> <span class="s1">'code_pays'</span><span class="p">:</span> <span class="s1">'FR'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p_uplet_nomme</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">]</span>
+<span class="s1">'45.725556'</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Définition 1</p>
+<p>Un <strong>p-uplet nommé</strong> (ou <strong>tuple nommé</strong>) est un <strong>p-uplet</strong> dont chaque <strong>élément</strong> (ou <strong>champ</strong>) est repéré par un nom et non  par un entier. Ces <strong>noms</strong> sont appelés <strong>clefs</strong> ou <strong>descripteurs</strong> du <strong>p-uplet nommé</strong>. Celui-ci s'écrit entre accolades  avec une virgule séparant chaque paire  constituée de la clef et de la valeur de la composante séparées par le symbole <code>:</code>.   </p>
+<p>En [Python][Python], les <strong>p-uplets nommés</strong>  sont implémentés par les <strong>dictionnaires</strong> de type <code>dict</code>. Par la suite nous parlerons de <strong>dictionnaire</strong> plutôt que de <strong>p-uplet nommé</strong>.</p>
+<p>Comme l'accès aux valeurs s'effectue par les noms/clefs, comme dans un dictionnaire  où chaque nom est associé à sa définition, on parle aussi de <strong>tableaux associatifs</strong>. </p>
+<p>Un dictionnaire n'est pas une séquence ordonnée d'éléments, l'accès s'effectue uniquement par clef. </p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">python</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'apparition'</span> <span class="p">:</span> <span class="mi">1993</span><span class="p">,</span> <span class="s1">'version'</span> <span class="p">:</span> <span class="s1">'3.8'</span><span class="p">,</span> <span class="s1">'createur'</span> <span class="p">:</span> <span class="s1">'Guido Van Rossum'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">python</span><span class="p">[</span><span class="s1">'createur'</span><span class="p">]</span>
+<span class="s1">'Guido Van Rossum'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">python</span><span class="p">)</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">python</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="mi">2</span>
+</code></pre></div>
+</div>
+<h1 id="un-exemple-de-dictionnaire-les-metadonnees-exif-dune-photo-numerique">Un exemple de dictionnaire : les metadonnées EXIF d’une photo numérique<a class="headerlink" href="#un-exemple-de-dictionnaire-les-metadonnees-exif-dune-photo-numerique" title="Permanent link">⚓︎</a></h1>
+<p>Les photos prises avec un appareil numérique contiennent de nombreuses
+informations. Dans un fichier image, par exemple au format <code>jpeg</code>, sont
+stockées des données non seulement sur l’image elle-même mais aussi des
+<strong>metadonnées</strong> sur l’appareil, le logiciel utilisé, et en particulier
+des données
+<a href="https://fr.wikipedia.org/wiki/Exchangeable_image_file_format">EXIF</a>
+(Exchangeable Image File Format). Une partie est accessible dans les
+propriétés de fichier ou avec un logiciel de traitement d’images. Les
+spécifications sont gérées par un organisme japonais, le JEITA, qui
+définit différents dictionnaires de référence permettant d’accéder à ces
+données. Les clés (les tags) et les valeurs sont des nombres écrits dans
+l’entête du fichier. Les dictionnaires donnent l’interprétation de ces
+clés. Par exemple la clé 256 a pour valeur ‘Width’ , la largeur de
+l’image en pixel et la clé 257 a pour valeur ‘Length’ , la hauteur de
+l’image en pixel.</p>
+<p><img alt="données exif" src="../images/exif.png" style="width:50.0%"> </img></p>
+<p><em>Source :
+<a href="https://commons.wikimedia.org/wiki/File:DigiKam_EXIF_information_screenshot.png">https://commons.wikimedia.org/wiki/File:DigiKam_EXIF_information_screenshot.png</a></em></p>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 1</p>
+<p>On peut extraite les données EXIF avec le logiciel <a href="https://exiftool.org/">exiftool</a>, le plugin Firefox <a href="https://addons.mozilla.org/fr/firefox/addon/exif-viewer/">exifviewer</a> ou sous forme de dictionnaire [Python][Python] avec le module  <a href="https://smarnach.githeub.io/pyexiftool/">pyexiftool</a>.
+Le script Python <code>exiftool_test.py</code> ci-dessous contient une fonction qui extrait les données <a href="https://fr.wikipedia.org/wiki/Exchangeable_image_file_format">EXIF</a> d'un fichier image passé en paramètre,  sous la forme de dictionnaire.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">exiftool</span>
+
+<span class="k">def</span> <span class="nf">extraire_exif</span><span class="p">(</span><span class="n">fichier</span><span class="p">):</span>
+    <span class="n">et</span> <span class="o">=</span> <span class="n">exiftool</span><span class="o">.</span><span class="n">ExifTool</span><span class="p">()</span>
+    <span class="n">et</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">et</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">fichier</span><span class="p">)</span>
+    <span class="n">et</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">metadata</span>
+
+<span class="c1">#code client exécuté si script exécuté directement</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span> 
+    <span class="c1">#extrait les données exif du fichier passé en paramètre</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">extraire_exif</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
+<ol>
+<li>Télécharger la photo <a href="http://frederic-junier.org/SNT/images/20181230_162625.jpg">http://frederic-junier.org/SNT/images/20181230_162625.jpg</a>.</li>
+<li>Extraire ses données <a href="https://fr.wikipedia.org/wiki/Exchangeable_image_file_format">EXIF</a> avec <a href="https://exiftool.org/">exiftool</a> ou le script [Python][Python], puis retrouver la commune où elle  a été prise. Voici une partie du dictionnaire obtenu :
+<div class="highlight"><pre><span></span><code><span class="n">fjunier</span><span class="nd">@fjunier</span><span class="p">:</span><span class="o">~/</span><span class="n">sandbox</span><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">libimage</span><span class="o">-</span><span class="n">exiftool</span><span class="o">-</span><span class="n">perl</span>
+<span class="n">fjunier</span><span class="nd">@fjunier</span><span class="p">:</span><span class="o">~/</span><span class="n">sandbox</span><span class="err">$</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">pyexiftool</span>
+<span class="n">fjunier</span><span class="nd">@fjunier</span><span class="p">:</span><span class="o">~/</span><span class="n">sandbox</span><span class="err">$</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">exiftool_test</span><span class="o">.</span><span class="n">py</span> 
+<span class="n">fjunier</span><span class="nd">@fjunier</span><span class="p">:</span><span class="o">~/</span><span class="n">sandbox</span><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="n">exiftool_test</span><span class="o">.</span><span class="n">py</span> 
+<span class="o">-</span><span class="n">rwxrwxr</span><span class="o">-</span><span class="n">x</span> <span class="mi">1</span> <span class="n">fjunier</span> <span class="n">fjunier</span> <span class="mi">355</span> <span class="n">févr</span><span class="o">.</span> <span class="mi">24</span> <span class="mi">21</span><span class="p">:</span><span class="mi">50</span> <span class="n">exiftool_test</span><span class="o">.</span><span class="n">py</span>
+<span class="n">fjunier</span><span class="nd">@fjunier</span><span class="p">:</span><span class="o">~/</span><span class="n">sandbox</span><span class="err">$</span> <span class="o">./</span><span class="n">exiftool_test</span><span class="o">.</span><span class="n">py</span> <span class="n">image_mystere</span><span class="o">.</span><span class="n">jpg</span> 
+<span class="p">{</span><span class="o">...</span><span class="p">,</span> <span class="s1">'EXIF:Make'</span><span class="p">:</span> <span class="s1">'samsung'</span><span class="p">,</span> <span class="s1">'EXIF:Model'</span><span class="p">:</span> <span class="s1">'SM-G930F'</span><span class="p">,</span> <span class="s1">'EXIF:Orientation'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'EXIF:XResolution'</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
+ <span class="s1">'EXIF:YResolution'</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span> <span class="s1">'EXIF:ResolutionUnit'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'EXIF:Software'</span><span class="p">:</span> <span class="s1">'G930FXXU3ERL3'</span><span class="p">,</span> <span class="s1">'EXIF:ModifyDate'</span><span class="p">:</span> <span class="s1">'2018:12:30 16:26:24'</span><span class="p">,</span> <span class="s1">'EXIF:YCbCrPositioning'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'EXIF:ExposureTime'</span><span class="p">:</span> <span class="mf">0.0005733944954</span><span class="p">,</span> <span class="s1">'EXIF:FNumber'</span><span class="p">:</span> <span class="mf">1.7</span><span class="p">,</span> <span class="s1">'EXIF:ExposureProgram'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'EXIF:ISO'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+ <span class="s1">'EXIF:ExifVersion'</span><span class="p">:</span> <span class="s1">'0220'</span><span class="p">,</span> <span class="s1">'EXIF:DateTimeOriginal'</span><span class="p">:</span> <span class="s1">'2018:12:30 16:26:24'</span><span class="p">,</span> <span class="s1">'EXIF:CreateDate'</span><span class="p">:</span> <span class="s1">'2018:12:30 16:26:24'</span><span class="p">,</span> <span class="s1">'EXIF:ComponentsConfiguration'</span><span class="p">:</span> <span class="s1">'1 2 3 0'</span><span class="p">,</span> <span class="s1">'EXIF:ShutterSpeedValue'</span><span class="p">:</span> <span class="s1">'0.000572673315054629'</span><span class="p">,</span> <span class="s1">'EXIF:ApertureValue'</span><span class="p">:</span> <span class="mf">1.6993699982773</span><span class="p">,</span> <span class="s1">'EXIF:BrightnessValue'</span><span class="p">:</span> <span class="mf">8.36</span><span class="p">,</span>
+ <span class="s1">'EXIF:ExposureCompensation'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'EXIF:MaxApertureValue'</span><span class="p">:</span> <span class="mf">1.6993699982773</span><span class="p">,</span> <span class="s1">'EXIF:MeteringMode'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+ <span class="s1">'EXIF:Flash'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'EXIF:FocalLength'</span><span class="p">:</span> <span class="mf">4.2</span><span class="p">,</span> <span class="s1">'EXIF:UserComment'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'EXIF:SubSecTime'</span><span class="p">:</span> <span class="s1">'0999'</span><span class="p">,</span>
+ <span class="o">....</span><span class="p">,</span> <span class="s1">'EXIF:FlashpixVersion'</span><span class="p">:</span> <span class="s1">'0100'</span><span class="p">,</span> <span class="s1">'EXIF:ColorSpace'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'EXIF:ExifImageWidth'</span><span class="p">:</span> <span class="mi">4032</span><span class="p">,</span> <span class="s1">'EXIF:ExifImageHeight'</span><span class="p">:</span> <span class="mi">3024</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="s1">'EXIF:GPSVersionID'</span><span class="p">:</span> <span class="s1">'2 2 0 0'</span><span class="p">,</span> <span class="s1">'EXIF:GPSLatitudeRef'</span><span class="p">:</span> <span class="s1">'N'</span><span class="p">,</span>
+ <span class="s1">'EXIF:GPSLatitude'</span><span class="p">:</span> <span class="mf">42.4947222222222</span><span class="p">,</span> <span class="s1">'EXIF:GPSLongitudeRef'</span><span class="p">:</span> <span class="s1">'E'</span><span class="p">,</span> <span class="s1">'EXIF:GPSLongitude'</span><span class="p">:</span> <span class="mf">3.13</span><span class="p">,</span>
+ <span class="s1">'EXIF:GPSAltitudeRef'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'EXIF:GPSAltitude'</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">'EXIF:GPSTimeStamp'</span><span class="p">:</span> <span class="s1">'15:26:35'</span><span class="p">,</span><span class="s1">'EXIF:GPSDateStamp'</span><span class="p">:</span> <span class="s1">'2018:12:30'</span><span class="p">,</span> <span class="o">....</span>
+ <span class="p">}</span>
+</code></pre></div></li>
+</ol>
+</div>
+<h1 id="creation-de-dictionnaire">Création de dictionnaire<a class="headerlink" href="#creation-de-dictionnaire" title="Permanent link">⚓︎</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Méthode 1</p>
+<p>Il existe plusieurs façons de construire un dictionnaire :</p>
+<ul>
+<li><strong>Par extension :</strong>  On peut utiliser la forme littérale avec les accolades <code>{</code>  et <code>}</code> qui entourent la série des paires <code>clef : valeur</code> ou le constructeur <code>dict</code> qui peut convertir en dictionnaire une  séquence de <code>tuple</code> de la forme <code>(clef, valeur)</code>. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">processeur1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'annee'</span> <span class="p">:</span> <span class="mi">1974</span><span class="p">,</span> <span class="s1">'fabricant'</span> <span class="p">:</span> <span class="s1">'Intel'</span><span class="p">,</span> <span class="s1">'Frequence'</span> <span class="p">:</span> <span class="s1">'2 MHz'</span><span class="p">,</span><span class="s1">'gravure'</span> <span class="p">:</span> <span class="s1">'6000 nm'</span><span class="p">,</span> <span class="s1">'architecture'</span> <span class="p">:</span> <span class="s1">'8080'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">processeur2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">'annee'</span><span class="p">,</span> <span class="mi">1978</span><span class="p">),</span> <span class="p">(</span><span class="s1">'fabricant'</span><span class="p">,</span> <span class="s1">'Intel'</span><span class="p">),(</span><span class="s1">'Frequence'</span><span class="p">,</span><span class="s1">'5 MHz'</span><span class="p">),(</span><span class="s1">'gravure'</span><span class="p">,</span><span class="s1">'3 micrometres'</span><span class="p">),(</span><span class="s1">'architecture'</span><span class="p">,</span><span class="s1">'8086'</span><span class="p">)])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">processeur2</span>
+<span class="p">{</span><span class="s1">'annee'</span><span class="p">:</span> <span class="mi">1978</span><span class="p">,</span> <span class="s1">'fabricant'</span><span class="p">:</span> <span class="s1">'Intel'</span><span class="p">,</span> <span class="s1">'Frequence'</span><span class="p">:</span> <span class="s1">'5 MHz'</span><span class="p">,</span> <span class="s1">'gravure'</span><span class="p">:</span> <span class="s1">'3000 nm'</span><span class="p">,</span> <span class="s1">'architecture'</span><span class="p">:</span> <span class="s1">'8086'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">processeur1</span><span class="p">[</span><span class="s1">'gravure'</span><span class="p">]</span>
+<span class="s1">'6000 nm'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">processeur2</span><span class="p">[</span><span class="s1">'gravure'</span><span class="p">]</span>
+<span class="s1">'3000 nm'</span>
+</code></pre></div>
+<ul>
+<li><strong>Par compréhension :</strong> La  syntaxe est la même que pour les tableaux de type <code>list</code> en remplaçant les parenthèses par des accolades. On peut récupérer les paires <code>clef : valeur</code> en parcourant un tableau de <code>tuple</code>. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tab_tuple</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">'annee'</span><span class="p">,</span> <span class="mi">1989</span><span class="p">),</span> <span class="p">(</span><span class="s1">'fabricant'</span><span class="p">,</span> <span class="s1">'Intel'</span><span class="p">),(</span><span class="s1">'Frequence'</span><span class="p">,</span><span class="s1">'25 MHz'</span><span class="p">),(</span><span class="s1">'gravure'</span><span class="p">,</span><span class="s1">'600 nm'</span><span class="p">),(</span><span class="s1">'architecture'</span><span class="p">,</span><span class="s1">'80486'</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">processeur3</span> <span class="o">=</span> <span class="p">{</span> <span class="n">clef</span> <span class="p">:</span> <span class="n">valeur</span> <span class="k">for</span> <span class="n">clef</span><span class="p">,</span> <span class="n">valeur</span> <span class="ow">in</span> <span class="n">tab_tuple</span> <span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">processeur3</span>
+<span class="p">{</span><span class="s1">'annee'</span><span class="p">:</span> <span class="mi">1989</span><span class="p">,</span> <span class="s1">'fabricant'</span><span class="p">:</span> <span class="s1">'Intel'</span><span class="p">,</span> <span class="s1">'Frequence'</span><span class="p">:</span> <span class="s1">'25 MHz'</span><span class="p">,</span> <span class="s1">'gravure'</span><span class="p">:</span> <span class="s1">'600 nm'</span><span class="p">,</span> <span class="s1">'architecture'</span><span class="p">:</span> <span class="s1">'80486'</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 2</p>
+<p>La fonction <code>ord</code> associe à un caractère son point de code <a href="https://fr.wikipedia.org/wiki/Unicode">Unicode</a> et sa réciproque est la fonction <code>chr</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'a'</span><span class="p">),</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">97</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">97</span><span class="p">,</span> <span class="mi">97</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'j'</span><span class="p">]</span>
+</code></pre></div>
+<p>Donner des expressions qui permettent de définir les dictionnaires ci-dessous par compréhension :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">ordinal</span>
+<span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span> <span class="s1">'j'</span><span class="p">:</span> <span class="mi">106</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">caractere</span>
+<span class="p">{</span><span class="mi">97</span><span class="p">:</span> <span class="s1">'a'</span><span class="p">,</span> <span class="mi">98</span><span class="p">:</span> <span class="s1">'b'</span><span class="p">,</span> <span class="mi">99</span><span class="p">:</span> <span class="s1">'c'</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span> <span class="s1">'d'</span><span class="p">,</span> <span class="mi">101</span><span class="p">:</span> <span class="s1">'e'</span><span class="p">,</span> <span class="mi">102</span><span class="p">:</span> <span class="s1">'f'</span><span class="p">,</span> <span class="mi">103</span><span class="p">:</span> <span class="s1">'g'</span><span class="p">,</span> <span class="mi">104</span><span class="p">:</span> <span class="s1">'h'</span><span class="p">,</span> <span class="mi">105</span><span class="p">:</span> <span class="s1">'i'</span><span class="p">,</span> <span class="mi">106</span><span class="p">:</span> <span class="s1">'j'</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<h1 id="acces-ajout-suppression-delement-dans-un-dictionnaire">Accès, ajout, suppression d’élément dans un dictionnaire<a class="headerlink" href="#acces-ajout-suppression-delement-dans-un-dictionnaire" title="Permanent link">⚓︎</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Méthode 2</p>
+<ul>
+<li>L'accès, la modification, l'ajout d'un élément se fait avec l'opérateur crochet :  <code>dico[clef]</code> renvoie la valeur appairée avec la clef donnée dans le dictionnaire <code>dico</code>. 
+Le nombre d'éléments est donné par la fonction <code>len</code>, mais les éléments sont indexés par les clefs et non par des entiers : <em>il n'y a pas de notion d'ordre dans un dictionnaire.</em>
+Comme les tableaux de type <code>list</code> et contrairement aux <strong>p-uplets</strong>  de type <code>tuple</code>, les dictionnaires de type <code>dict</code> sont  modifiables après modification , on dit qu'ils sont <strong>mutables</strong>.  Un dictionnaire peut être construit par ajout successif de paires <code>clef : valeur</code> à partir du dictionnaire vide <code>{}</code>. Enfin, on peut supprimer un élément si on connaît sa <code>clef</code> avec <code>del dico[clef]</code>. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span><span class="p">[</span><span class="s1">'Littérature'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Peter Handke'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span>
+<span class="p">{</span><span class="s1">'Littérature'</span><span class="p">:</span> <span class="s1">'Peter Handke'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span><span class="p">[</span><span class="s1">'Paix'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Kim Joon Hyun'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span>
+<span class="p">{</span><span class="s1">'Littérature'</span><span class="p">:</span> <span class="s1">'Peter Handke'</span><span class="p">,</span> <span class="s1">'Paix'</span><span class="p">:</span> <span class="s1">'Kim Joon Hyun'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span><span class="p">[</span><span class="s1">'Paix'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Abiy Ahmed'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span>
+<span class="p">{</span><span class="s1">'Littérature'</span><span class="p">:</span> <span class="s1">'Peter Handke'</span><span class="p">,</span> <span class="s1">'Paix'</span><span class="p">:</span> <span class="s1">'Abiy Ahmed'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span><span class="p">[</span><span class="s1">'Maths'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Cédric Villani'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span>
+<span class="p">{</span><span class="s1">'Littérature'</span><span class="p">:</span> <span class="s1">'Peter Handke'</span><span class="p">,</span> <span class="s1">'Paix'</span><span class="p">:</span> <span class="s1">'Abiy Ahmed'</span><span class="p">,</span> <span class="s1">'Maths'</span><span class="p">:</span> <span class="s1">'Cédric Villani'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">nobel2019</span><span class="p">[</span><span class="s1">'Maths'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nobel2019</span>
+<span class="p">{</span><span class="s1">'Littérature'</span><span class="p">:</span> <span class="s1">'Peter Handke'</span><span class="p">,</span> <span class="s1">'Paix'</span><span class="p">:</span> <span class="s1">'Abiy Ahmed'</span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Parce qu'un dictionnaire est implémenté par une <a href="https://fr.wikipedia.org/wiki/Table_de_hachage">table de hachage</a>, ses <strong>clefs</strong>  doivent,   nécessairement être <strong>immutables</strong> (plus précisément récursivement immutables s'il s'agit de structures imbriquées et encore plus précisément <a href="https://docs.python.org/3/glossary.html">hachables</a>).  Une valeur est <strong>immutable</strong> si elle  ne peut pas être modifiée après sa création. 
+Les types de base <code>int</code>, <code>float</code>,  <code>bool</code> et les types construits <code>tuple</code>, <code>str</code> sont <strong>immutables</strong> mais pas les types <code>list</code> et <code>dict</code> (un dictionnaire ne peut pas être une clef de dictionnaire). </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">jouet</span> <span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jouet</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'clef de type int'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jouet</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'clef de type bool'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jouet</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">'clef de type tuple'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jouet</span>
+<span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">'clef de type int'</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="s1">'clef de type bool'</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="s1">'clef de type tuple'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jouet</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="s1">'clef de type list -&gt; impossible'</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unhashable</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">'list'</span>
+</code></pre></div>
+<ul>
+<li>Une dictionnaire ne peut pas être une clef, mais peut être une valeur dans un autre dictionnaire. On peut définir toutes sortes de  <strong>structures imbriquées</strong> comme des tableaux de dictionnaires ...</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">vols</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Lisbonne'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'heure'</span><span class="p">:</span> <span class="s1">'21:10'</span><span class="p">,</span><span class="s1">'num'</span><span class="p">:</span> <span class="s1">'EJU7674'</span><span class="p">,</span><span class="s1">'compagnie'</span><span class="p">:</span> <span class="s1">'EASYJET'</span><span class="p">},</span>
+<span class="o">...</span> <span class="s1">'Vienne'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'heure'</span><span class="p">:</span> <span class="s1">'21:25'</span><span class="p">,</span><span class="s1">'num'</span><span class="p">:</span> <span class="s1">'OS430'</span><span class="p">,</span><span class="s1">'compagnie'</span><span class="p">:</span> <span class="s1">'AUSTRIAN AIRLINES'</span><span class="p">},</span>
+<span class="o">...</span> <span class="s1">'Londres'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'heure'</span><span class="p">:</span> <span class="s1">'21:55'</span><span class="p">,</span><span class="s1">'num'</span><span class="p">:</span> <span class="s1">'BA357'</span><span class="p">,</span><span class="s1">'compagnie'</span><span class="p">:</span> <span class="s1">'BRITISH AIRWAYS'</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vols</span><span class="p">[</span><span class="s1">'Londres'</span><span class="p">]</span>
+<span class="p">{</span><span class="s1">'heure'</span><span class="p">:</span> <span class="s1">'21:55'</span><span class="p">,</span> <span class="s1">'num'</span><span class="p">:</span> <span class="s1">'BA357'</span><span class="p">,</span> <span class="s1">'compagnie'</span><span class="p">:</span> <span class="s1">'BRITISH AIRWAYS'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tab_dico_airports</span>
+<span class="p">[{</span><span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Total Rf Heliport'</span><span class="p">,</span><span class="s1">'latitude'</span><span class="p">:</span> <span class="s1">'40.07080078125'</span><span class="p">,</span> <span class="s1">'longitude'</span><span class="p">:</span> <span class="s1">'-74.93360137939453'</span><span class="p">,</span>
+  <span class="s1">'altitude'</span><span class="p">:</span> <span class="s1">'11'</span><span class="p">,</span>  <span class="s1">'code_pays'</span><span class="p">:</span> <span class="s1">'US'</span><span class="p">},</span>
+  <span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Aero B Ranch Airport'</span><span class="p">,</span>  <span class="s1">'latitude'</span><span class="p">:</span> <span class="s1">'38.704022'</span><span class="p">,</span>  <span class="s1">'longitude'</span><span class="p">:</span> <span class="s1">'-101.473911'</span><span class="p">,</span>
+  <span class="s1">'altitude'</span><span class="p">:</span> <span class="s1">'3435'</span><span class="p">,</span>  <span class="s1">'code_pays'</span><span class="p">:</span> <span class="s1">'US'</span><span class="p">}]</span>
+</code></pre></div>
+<ul>
+<li>Avec l'opérateur crochet, si une clef n'appartient pas à un dictionnaire, une exception (erreur en [Python][Python]) est levée.  La méthode <code>get</code> permet de retourner la valeur <code>None</code> par défaut si on ne veut pas d'erreur.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">prix_turing2006</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nom'</span> <span class="p">:</span> <span class="s1">'Frances Allen'</span><span class="p">,</span> <span class="s1">'sujet'</span> <span class="p">:</span> <span class="s1">'Optimisation des compilateurs'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">prix_turing2006</span><span class="p">[</span><span class="s1">'pays'</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">'pays'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">prix_turing2006</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pays'</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 3</p>
+<p><em>QCM de type E3C 2</em>.</p>
+<ol>
+<li>
+<p><strong>Question 1</strong> Comment peut-on accéder à la valeur associée à une clé dans un
+dictionnaire ?</p>
+<p><strong>Réponses</strong></p>
+<ul>
+<li>
+<p><strong>A)</strong> il faut parcourir le dictionnaire avec une boucle à la recherche de la
+clé</p>
+</li>
+<li>
+<p><strong>B)</strong> on peut y accéder directement à partir de la clé</p>
+</li>
+<li>
+<p><strong>C)</strong> on ne peut pas accéder à une valeur contenue dans un dictionnaire à
+partir d'une clé</p>
+</li>
+<li>
+<p><strong>D)</strong> il faut d'abord déchiffrer la clé pour accéder à un dictionnaire</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Question 2</strong>  On a défini un dictionnaire :</p>
+<div class="highlight"><pre><span></span><code><span class="n">contacts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Paul'</span><span class="p">:</span> <span class="s1">'0601010182'</span><span class="p">,</span> <span class="s1">'Jacques'</span><span class="p">:</span> <span class="s1">'0602413824'</span><span class="p">,</span>
+<span class="s1">'Claire'</span><span class="p">:</span> <span class="s1">'0632451153'</span><span class="p">}</span>
+</code></pre></div>
+<p>Quelle instruction écrire pour ajouter à ce dictionnaire un nouveau
+contact nommé Juliette avec le numéro de téléphone '0603040506' ?</p>
+<p><strong>Réponses</strong></p>
+<p><strong>A)</strong> 'Juliette': '0603040506'</p>
+<p><strong>B)</strong> contacts.append('Juliette': '0603040506')</p>
+<p><strong>C)</strong> contacts['Juliette'] = '0603040506'</p>
+<p><strong>D)</strong>  contacts.append('Juliette', '0603040506')</p>
+</li>
+<li>
+<p><strong>Question 3</strong> Considérons le dictionnaire suivant :</p>
+<div class="highlight"><pre><span></span><code><span class="n">resultats</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Paul'</span><span class="p">:</span><span class="mi">5</span> <span class="p">,</span> <span class="s1">'Amina'</span><span class="p">:</span><span class="mi">1</span> <span class="p">,</span> <span class="s1">'Léon'</span> <span class="p">:</span> <span class="mi">9</span> <span class="p">,</span> <span class="s1">'Benoit'</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+</code></pre></div>
+<p>Quelle affirmation est correcte ?</p>
+<p><strong>Réponses</strong></p>
+<ul>
+<li>
+<p><strong>A)</strong> resultats['Amina'] vaut 1</p>
+</li>
+<li>
+<p><strong>B)</strong> resultats[1] vaut 'Amina'</p>
+</li>
+<li>
+<p><strong>C)</strong> 'Paul' est une valeur de ce dictionnaire</p>
+</li>
+<li>
+<p><strong>D)</strong> 9 est une clé de ce dictionnaire</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Question 4</strong> On définit le dictionnaire <code>d = {'a': 1, 'b': 2, 'c': 3, 'z':26}</code>. Quelle expression permet de récupérer la valeur de la clé <code>'z'</code> ?</p>
+<p><strong>Réponses</strong></p>
+<ul>
+<li><strong>A)</strong> <code>d[4]</code> <strong>B)</strong> <code>d[26]</code> <strong>C)</strong> <code>d[z]</code> <strong>D)</strong> <code>d['z']</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Question 5</strong> On définit ainsi une variable t :</p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span> <span class="s1">'sejour'</span><span class="p">:</span><span class="s1">'PEKIN'</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">'id'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span> <span class="s1">'sejour'</span><span class="p">:</span><span class="s1">'ISTANBUL'</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">'id'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span> <span class="s1">'sejour'</span><span class="p">:</span><span class="s1">'LONDRES'</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">'id'</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span> <span class="s1">'sejour'</span><span class="p">:</span><span class="s1">'ISTANBUL'</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">'id'</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">:</span><span class="mi">62</span><span class="p">,</span> <span class="s1">'sejour'</span><span class="p">:</span><span class="s1">'RIO'</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">'id'</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">:</span><span class="mi">28</span><span class="p">,</span> <span class="s1">'sejour'</span><span class="p">:</span><span class="s1">'ALGER'</span><span class="p">}]</span>
+</code></pre></div>
+<p>Quelle affirmation est correcte ?</p>
+<p><strong>Réponses</strong></p>
+<ul>
+<li>
+<p><strong>A)</strong> t est une liste de listes  <strong>B)</strong> t est une liste de dictionnaires</p>
+</li>
+<li>
+<p><strong>C)</strong> t est un dictionnaire de listes   <strong>D)</strong> t est une liste de tuples</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<h1 id="parcours-de-dictionnaire">Parcours de dictionnaire<a class="headerlink" href="#parcours-de-dictionnaire" title="Permanent link">⚓︎</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Méthode 3</p>
+<p>Il existe trois façons de parcourir un dictionnaire. Dans les exemples, on utilisera un dictionnaire qui représente un annuaire :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dico</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'Paul'</span> <span class="p">:</span> <span class="s1">'0640507080'</span><span class="p">,</span> <span class="s1">'Marie'</span> <span class="p">:</span> <span class="s1">'0742516483'</span><span class="p">,</span> <span class="s1">'Hicham'</span> <span class="p">:</span> <span class="s1">'0987416543'</span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>Parcours par clefs :</strong> </p>
+<ul>
+<li>
+<p>Comme pour les types <code>list</code>, <code>str</code> et <code>tuple</code>, les dictionnaires sont itérables avec la syntaxe <code>for clef in dico</code>  de type <code>list</code> ou <code>tuple</code>, mais on ne parcourt ainsi que les clefs. On peut aussi utiliser la méthode <code>keys</code>. <em>À  partir des clefs on peut retrouver les  valeurs.</em></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">clef</span> <span class="ow">in</span> <span class="n">dico</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">"Clef -&gt; "</span><span class="p">,</span> <span class="n">clef</span><span class="p">)</span>
+<span class="o">...</span> 
+<span class="n">Clef</span> <span class="o">-&gt;</span>  <span class="n">Paul</span>
+<span class="n">Clef</span> <span class="o">-&gt;</span>  <span class="n">Marie</span>
+<span class="n">Clef</span> <span class="o">-&gt;</span>  <span class="n">Hicham</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">clef</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">"Clef -&gt;"</span><span class="p">,</span> <span class="n">clef</span><span class="p">,</span> <span class="s2">" Valeur -&gt;"</span><span class="p">,</span> <span class="n">dico</span><span class="p">[</span><span class="n">clef</span><span class="p">])</span>
+<span class="o">...</span> 
+<span class="n">Clef</span> <span class="o">-&gt;</span> <span class="n">Paul</span>  <span class="n">Valeur</span> <span class="o">-&gt;</span> <span class="mi">0640507080</span>
+<span class="n">Clef</span> <span class="o">-&gt;</span> <span class="n">Marie</span>  <span class="n">Valeur</span> <span class="o">-&gt;</span> <span class="mi">0742516483</span>
+<span class="n">Clef</span> <span class="o">-&gt;</span> <span class="n">Hicham</span>  <span class="n">Valeur</span> <span class="o">-&gt;</span> <span class="mi">0987416543</span>
+</code></pre></div>
+</li>
+<li>
+<p><em>L'ordre de parcours n'est pas forcément l'ordre d'insertion car un dictionnaire n'est pas ordonné</em>. (même si c'est vrai à partir de Python 3.8). Ainsi, on ne peut pas parcourir  un dictionnaire par index avec <code>for k in range(len(dico))</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dico</span><span class="p">)):</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">dico</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="o">...</span> 
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="mi">0</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Parcours par valeurs :</strong> </p>
+</li>
+</ul>
+<p>On peut parcourir un dictionnaire  par valeurs avec sa méthode <code>values</code>. <em>À  partir des valeurs on ne peut cependant pas retrouver les clefs.</em></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">"Valeur -&gt; "</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<span class="o">...</span> 
+<span class="n">Valeur</span> <span class="o">-&gt;</span>  <span class="mi">0640507080</span>
+<span class="n">Valeur</span> <span class="o">-&gt;</span>  <span class="mi">0742516483</span>
+<span class="n">Valeur</span> <span class="o">-&gt;</span>  <span class="mi">0987416543</span>
+</code></pre></div>
+<ul>
+<li><strong>Parcours par paires (clef, valeur) :</strong></li>
+</ul>
+<p>On peut parcourir un dictionnaire  par  paires (clef, valeur) valeurs avec sa méthode <code>items</code>. On utilise le mécanisme de <em>tuple unpacking</em> dans la boucle <code>for</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="p">(</span><span class="n">clef</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">"Clef -&gt;"</span><span class="p">,</span> <span class="n">clef</span><span class="p">,</span> <span class="s2">" Valeur -&gt;"</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<span class="o">...</span> 
+<span class="n">Clef</span> <span class="o">-&gt;</span> <span class="n">Paul</span>  <span class="n">Valeur</span> <span class="o">-&gt;</span> <span class="mi">0640507080</span>
+<span class="n">Clef</span> <span class="o">-&gt;</span> <span class="n">Marie</span>  <span class="n">Valeur</span> <span class="o">-&gt;</span> <span class="mi">0742516483</span>
+<span class="n">Clef</span> <span class="o">-&gt;</span> <span class="n">Hicham</span>  <span class="n">Valeur</span> <span class="o">-&gt;</span> <span class="mi">0987416543</span>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 4</p>
+<p>On considère le dictionnaire :</p>
+<div class="highlight"><pre><span></span><code><span class="n">dico</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">"b"</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"c"</span> <span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>
+<p>Quels sont les affichages possibles lors de l'exécution du code suivant ?</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">clef</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">clef</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Réponses</strong></p>
+<ul>
+<li><strong>A)</strong> <code>a b c</code> </li>
+<li><strong>B)</strong> <code>True False True</code> </li>
+<li><strong>C)</strong> <code>(a, True) (b, False)  (c, True)</code></li>
+</ul>
+</li>
+<li>
+<p>Quels sont les affichages possibles lors de l'exécution du code suivant ?</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">clef</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Réponses</strong></p>
+<ul>
+<li><strong>A)</strong> <code>a b c</code> </li>
+<li><strong>B)</strong> <code>True False True</code> </li>
+<li><strong>C)</strong> <code>(a, True) (b, False)  (c, True)</code></li>
+</ul>
+</li>
+</ol>
+</div>
+<h1 id="references-partagees-et-mutabilite">Références partagées et mutabilité<a class="headerlink" href="#references-partagees-et-mutabilite" title="Permanent link">⚓︎</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Méthode 4</p>
+<p>Une variable de type <code>dict</code> n'est qu'une référence, un <strong>alias</strong> vers la zone mémoire où sont stockées les données. Comme pour les tableaux de type <code>list</code> il faut prêter attention aux effets non maîtrisées des références partagées.</p>
+<ul>
+<li>Les  dictionnaires étant  des valeurs <strong>mutables</strong>, ils peuvent être modifiés par <strong>effet de bord</strong> lorsqu'ils sont transmis à une fonction.</li>
+<li>Pour copier une structure imbriquée avec des dictionnaires il faut réaliser une copie profonde avec la fonction <code>deepcopy</code> du module <code>copy</code>.</li>
+</ul>
+<p>On donne ci-dessous un programme et deux visualisations de son environnement : avant et après l'exécution de la dernière instruction.</p>
+<div class="highlight"><pre><span></span><code><span class="n">contact_ami</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'Paul'</span> <span class="p">:</span> <span class="s1">'0640507080'</span><span class="p">,</span> <span class="s1">'Marie'</span> <span class="p">:</span> <span class="s1">'0742516483'</span><span class="p">}</span>
+<span class="n">contact_travail</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'Adam'</span> <span class="p">:</span> <span class="s1">'0666666666'</span><span class="p">,</span> <span class="s1">'Eve'</span> <span class="p">:</span> <span class="s1">'0777777777'</span><span class="p">}</span>
+<span class="n">contact_tous</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'amis'</span> <span class="p">:</span> <span class="n">contact_ami</span><span class="p">,</span> <span class="s1">'travail'</span> <span class="p">:</span> <span class="n">contact_travail</span><span class="p">}</span>
+<span class="n">contact_copie</span> <span class="o">=</span> <span class="n">contact_tous</span>
+
+<span class="k">def</span> <span class="nf">ajout</span><span class="p">(</span><span class="n">contact</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">numero</span><span class="p">):</span>
+    <span class="n">contact</span><span class="p">[</span><span class="n">nom</span><span class="p">]</span> <span class="o">=</span> <span class="n">numero</span>
+
+<span class="n">ajout</span><span class="p">(</span><span class="n">contact_ami</span><span class="p">,</span> <span class="s1">'Napoleon'</span><span class="p">,</span> <span class="s1">'0618001814'</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Attention 1" src="../images/attention.png">\
+&amp;
+<img alt="Attention 2" src="../images/attention2.png"/>\</img></p>
+</div>
+<h1 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">⚓︎</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Propriété 1</p>
+<p>Les dictionnaires de type <code>dict</code> sont implémentés en [Python][Python] par des  <a href="https://fr.wikipedia.org/wiki/Table_de_hachage">tables de hachage</a> qui est une structure de données très efficace pour le test d'appartenance, la recherche ou l'insertion d'élément. On peut considérer que ces opérations se font en <strong>temps quasiment constant</strong>, c'est-à-dire indépendant de la taille du dictionnaire alors que la recherche et le test d'appartenance s'effectue en <strong>temps linéaire en moyenne</strong> (proportionnel à la taille du tableau) pour les tableaux de type <code>list</code> ou les <code>tuple</code>. Cet optimisation des performances en temps se fait au détriment de l'occupation en espace, les dictionnaires étant plus gourmands en mémoire que les tableaux.</p>
+<p>On donne ci-dessous un comparatif de temps d'exécutions pour la recherche de 1000 flottants d'un tableau <code>needle</code> (aiguilles) de taille 500, dans des tableaux de flottants <code>haystack</code> (meule de foin)  de  taille croissante <span class="arithmatex">\(10^{k}\)</span>   avec <span class="arithmatex">\(k \in \{3,4,5,6,7\}\)</span>.  Pour chaque test, les éléments de <code>haystack</code> et <code>needle</code>sont tous distincts et la moitié de <code>needle</code> est dans <code>haystack</code>.  </p>
+<p>Le code de cet exemple, tiré de l'ouvrage Python Fluent  de Luciano Ramalho, est disponible avec nos commentaires dans l'archive <a href="../test_performance_in.zip">test_performance_in.zip</a>.</p>
+<div class="highlight"><pre><span></span><code>Type de conteneur dict
+--------------------
+Taille de la meule de foin :     1000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.000104s
+--------------------
+Taille de la meule de foin :    10000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.000196s
+--------------------
+Taille de la meule de foin :   100000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.000252s
+--------------------
+Taille de la meule de foin :  1000000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.000399s
+--------------------
+Taille de la meule de foin : 10000000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.000483s
+--------------------
+
+Type de conteneur list
+--------------------
+Taille de la meule de foin :     1000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.008002s
+--------------------
+Taille de la meule de foin :    10000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.078902s
+--------------------
+Taille de la meule de foin :   100000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 0.812977s
+--------------------
+Taille de la meule de foin :  1000000
+Temps minimum de recherche de 1000 aiguilles  (sur 5 recherches): 8.554425s
+--------------------
+Taille de la meule de foin : 10000000
+Temps minimum de recherche de 1000 aiguilles (sur 5 recherches):84.754335s
+--------------------
+</code></pre></div>
+</div>
+<h1 id="synthese">Synthèse<a class="headerlink" href="#synthese" title="Permanent link">⚓︎</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Synthèse </p>
+<ul>
+<li>Le type construit  <strong>p-uplet nommé</strong> est une séquence non ordonnée d'éléments qui sont des paires <code>(clef, valeur)</code> ou <code>clef : valeur</code>. Chaque <code>valeur</code> est indexée  par sa <code>clef</code>  et non par un index entier comme dans un <strong>p-uplet</strong>.</li>
+<li>En [Python][Python] un <strong>p-uplet nommé</strong> est un <strong>dictionnaire</strong>  de type <code>dict</code> implémenté par une table de hachage qui permet des opérations très performantes en <strong>temps constant</strong>.</li>
+<li>L'accès, l'ajout, la modification d'un dictionnaire s'effectue avec l'opérateur crochet et la syntaxe <code>dico[clef] = valeur</code>.</li>
+<li>Une variable de type <code>dict</code> est une <strong>référence</strong> et elle peut  être modifiée par effet de bord car 
+c'est une valeur <strong>mutable</strong>.</li>
+<li>Trois méthodes permettent le parcours de dictionnaire  :<ul>
+<li>par clefs avec <code>for clef in doc.keys()</code> </li>
+<li>par valeurs  avec <code>for clef in doc.values()</code> </li>
+<li>par paires <code>(clef, valeur)</code> avec <code>for (clef, valeur) in doc.items()</code> </li>
+</ul>
+</li>
+</ul>
+</div>
+<script src="../../../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Précédent: Index" class="md-footer__link md-footer__link--prev" href="../../" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Précédent
+              </span>
+              Index
+            </div>
+</div>
+</a>
+<a aria-label="Suivant: Index" class="md-footer__link md-footer__link--next" href="../../../chapitre19/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Suivant
+              </span>
+              Index
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../../javascripts/config.js"></script>
+<script src="../../../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

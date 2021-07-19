@@ -1,0 +1,8 @@
+\contentsline {section}{Crédits}{1}{section*.2}%
+\contentsline {section}{\numberline {1}Le Web}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Les trois piliers du Web : HTTP, URL et HTML}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Passage de paramètres dans une URL}{5}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Formulaire et passage de paramètres}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Un premier exemple}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Méthodes de passage des paramètres : GET ou POST}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Eléments de formulaire}{10}{subsection.2.3}%

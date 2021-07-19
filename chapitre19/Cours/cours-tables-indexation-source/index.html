@@ -1,0 +1,1393 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<meta content="Première NSI Lycée du Parc" name="author"/>
+<link href="https://parc-nsi.github.io/premiere/chapitre19/Cours/cours-tables-indexation-source/" rel="canonical"/>
+<link href="../../../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>Table de données et fichier CSV - Première NSI Lycée du Parc</title>
+<link href="../../../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#credits">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Table de données et fichier CSV
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre6/">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre9/">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../automatismes/exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/Cours/dictionnaires-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/cours-systeme/systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre230/">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre25/reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/chapitre19/Cours/cours-tables-indexation-source.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<h1 -="-" id="credits">Crédits<a class="headerlink" href="#credits" title="Permanent link">⚓︎</a></h1>
+<p><em>Ce cours est largement inspiré de deux sources :</em></p>
+<ul>
+<li><em>le chapitre 15 du manuel NSI de la collection Tortue chez Ellipse, auteurs : Ballabonski, Conchon, Filliatre, N'Guyen ;</em></li>
+<li><em>le cours de Julien de Villèle</em>.</li>
+</ul>
+<h1 id="table-de-donnees">Table de données<a class="headerlink" href="#table-de-donnees" title="Permanent link">⚓︎</a></h1>
+<p>:::histoire
+L'homme organisait les données sous forme de tableau bien avant l'invention de l'ordinateur : les <strong>données tabulaires</strong>  ou <strong>tables de données</strong>, apparaissent déjà dans les livres de compte de l'Égypte ancienne. De nos jours les relevés de comptes bancaires sont encore présentés sous forme de tableaux avec pour chaque opération sa date, sa nature (débit ou crédit) et son montant.</p>
+<p>En informatique, les  <strong>tables de données</strong>  se sont  développées dans dans les années 1970 avec l'essor   des <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_base_de_donn%C3%A9es">Systèmes de Gestion de Base de Données</a> s'appuyant sur le <strong>modèle relationnel</strong>  proposé par <a href="https://fr.wikipedia.org/wiki/Edgar_Frank_Codd">Edgar F. Codd</a> chez IBM.  Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_base_de_donn%C3%A9es">Systèmes de Gestion de Base de Données</a> permettent aujourd'hui le traitement automatique de gigantesques bases de données, qui est un élément fondamental dans nos sociétés de l'information. </p>
+<p>Les <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_base_de_donn%C3%A9es">Systèmes de Gestion de Base de Données</a> seront étudiés en classe de terminale. Nous présenterons cette année les traitements de <strong>tables de données</strong>  qui peuvent être effectués à l'aide de scripts Python, ce qui couvre  déjà un large champ de besoins en <em>data science</em>, <em>bio-informatique</em>, <em>informatique financière ou de gestion</em> ...
+:::</p>
+<p>:::definition
+Une feuille de tableur est un modèle  de <strong>données tabulaires</strong> ou <strong>table de données</strong>.</p>
+<p>Définissons le vocabulaire :</p>
+<ul>
+<li>
+<p>Une <strong>table</strong>, représentée sous forme de tableau, est une collection d'éléments qui sont les lignes du tableau.</p>
+</li>
+<li>
+<p>Chaque élément de la <strong>table</strong>, ou ligne de sa représentation sous forme de tableau, s'appelle un <strong>enregistrement</strong>.</p>
+</li>
+<li>
+<p>Tous les  <strong>enregistrements</strong> d'une même <strong>table</strong> sont des  <strong>p-uplets nommés</strong> qui partagent les mêmes <strong>descripteurs</strong>, appelés aussi <strong>attributs</strong>. Dans une représentation de la <strong>table</strong> sous forme de tableau, chaque <strong>attribut</strong> correspond à une colonne. Chaque <strong>attribut</strong> est caractérisé par son <strong>type</strong> et son  <strong>domaine de valeurs</strong>.</p>
+</li>
+<li>
+<p>Dans une représentation sous forme de tableau, les <strong>descripteurs</strong> ou <strong>attributs</strong> sont en général placés comme en-tête de colonnes sur la première ligne.</p>
+</li>
+</ul>
+<p>:::</p>
+<p><img alt="tableur" src="../images/tableur.png">\</img></p>
+<p>:::exemple
+La table représentée ci-dessus rassemble les enregistrements des clients d'un site web marchand. Les attributs de cette table sont :</p>
+<ul>
+<li>le <em>nom</em> et le <em>prénom</em> du client de type chaîne de caractères</li>
+<li><em>l'adresse mail</em> du client  du type chaîne de caractères avec un domaine de valeurs particulier</li>
+<li>le <em>département</em> du client du type chaîne de caractères avec un domaine de valeurs particulier</li>
+<li>le <em>nombre de visites</em> du client de type entier  avec pour domaine de valeurs les entiers positifs</li>
+<li>les <em>dépenses</em> du client de type flottant avec pour domaine de valeurs les flottants positifs</li>
+</ul>
+<p>:::</p>
+<h1 id="echange-de-table-de-donnees-avec-un-fichier-csv">Échange de table de données avec un fichier CSV<a class="headerlink" href="#echange-de-table-de-donnees-avec-un-fichier-csv" title="Permanent link">⚓︎</a></h1>
+<p>:::cours
+Pour échanger des <strong>données tabulaires</strong>  entre les programmes qui doivent les manipuler, on les exporte puis les importe sous la forme de fichiers textes, c'est-à-dire lisibles par l'être humain.  </p>
+<p>Afin d'assurer l'interopérabilité entre différents programmes, un fichier doit respecter un <strong>format</strong> normalisé.</p>
+<p>L'un des formats les plus répandus pour l'échange de <strong>données tabulaires</strong> est le format <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> pour <em>Comma Separated Values</em> :</p>
+<ul>
+<li>un fichier <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> est un fichier texte donc éditable avec un éditeur de textes comme <a href="https://notepad-plus-plus.org/downloads/">Notepad++</a> ;</li>
+<li>chaque ligne du fichier correspond à un <strong>enregistrement</strong> de la table</li>
+<li>pour un  <strong>enregistrement</strong> donné, les valeurs des différents <strong>attributs</strong> sont séparées en <strong>champs</strong> par un <strong>délimiteur</strong> qui est en général l'un des symboles <code>,</code> ou <code>;</code> ou <code>:</code>.</li>
+<li>la première ligne contient en général les noms des <strong>attributs</strong>.</li>
+<li>les champs peuvent être délimités par des guillemets droits <code>"</code> s'ils contiennent du texte avec des espaces ou des sauts de ligne. Le caractère <code>"</code> est alors échappé en <code>""</code> pour le distinguer des guillemets droits délimiteurs.</li>
+</ul>
+<p>Voici un extrait d'un fichier <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> correspondant à la table présentée dans l'exemple 1 :</p>
+<div class="highlight"><pre><span></span><code>nom,prénom,email,département,naissance,visites,dépenses
+Gomes,Brigitte,bgomes@laposte.net,79,1960-08-21,67,8342.99
+Nicolas,Georges,gnicolas@yahoo.fr,10,1994-05-26,86,10908.08
+Berger,Pénélope,pberger@noos.fr,73,2001-03-01,131,3817.79
+Charrier,Richard,rcharrier@sfr.fr,2B,1977-08-07,16,997.09
+</code></pre></div>
+<p>On donne ci-dessous un autre extrait de fichier <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> qui est un export de fichier d'identifiants de l'Espace Numérique de Travail (avec valeurs modifiées). La table comporte 19 attributs de <code>rne</code> à <code>pays</code> listés sur la première ligne. Le premier enregistrement figure sur la deuxième ligne avec pour valeur du premier champ <code>0690026D</code> et sept champs vides à la fin.</p>
+<p>On observe que le délimiteur de champ est le symbole <code>;</code>, que les champs peuvent contenir des espaces, que certains sont vides et que le nombre de champs pour le premier enregistrement  ne correspond pas au nombre d'attributs ! On peut imaginer que pour traiter un tel fichier avec un programme, il faut d'abord analyser sa structure, ses particularités et prévoir d'éventuelles irrégularités dans les données (absence, erreurs de type, de saisie, corruption du fichier ...). Le <strong>contrôle de la  validité</strong> des données doit donc être une composante du programme de traitement.</p>
+<div class="highlight"><pre><span></span><code>rne;uid;classe;profil;prenom;nom;login;mot de passe;cle de jointure;uid pere;uid mere;uid tuteur1;uid tuteur2;prenom enfant;nom enfant;adresse;code postal;ville;pays
+0690026D;WKZ08710;813;Eleve;Mathieu;DUPONT;mathieu.dupont;&gt;&gt;&gt;&gt; Mot de passe déjà modifié par utilisateur &gt;&gt;&gt;&gt;;AC-LYON$3780909;WKZ02158;WKZ02171;;;;;;;;
+</code></pre></div>
+<p>:::</p>
+<p>:::exercice</p>
+<p><em>Questions type E3C</em> </p>
+<ol>
+<li>
+<p>Dans la plupart des fichiers CSV, que contient la première ligne ?</p>
+<ul>
+<li><strong>Réponse A :</strong> des notes concernant la table de données</li>
+<li><strong>Réponse B :</strong> les sources des données</li>
+<li><strong>Réponse C :</strong> les descripteurs des champs de la table de données</li>
+<li><strong>Réponse D :</strong> l'auteur de la table de données</li>
+</ul>
+</li>
+<li>
+<p>Laquelle de ces affirmations est vraie ?</p>
+<ul>
+<li><strong>Réponse A :</strong> on ne peut accéder au contenu d'un fichier CSV que par
+  l'intermédiaire d'un programme Python</li>
+<li><strong>Réponse B :</strong> CSV est un format de chiffrement des données</li>
+<li><strong>Réponse C :</strong> le format CSV a été conçu pour assurer la confidentialité d'une
+  partie du code d'un programme</li>
+<li><strong>Réponse D :</strong> les fichiers CSV sont composés de données séparées par des caractères
+  comme des virgules</li>
+</ul>
+</li>
+<li>
+<p>Qu'est-ce que le format de fichier CSV ?</p>
+<ul>
+<li><strong>Réponse A :</strong> un format de fichier mis au point par Microsoft pour Excel</li>
+<li><strong>Réponse B :</strong> un format de fichier pour décrire une base de données</li>
+<li><strong>Réponse C :</strong> un format de fichier où les données sont séparées par un caractère tel
+  qu'une virgule</li>
+<li><strong>Réponse D :</strong> un format de fichier décrivant une page Web</li>
+</ul>
+</li>
+</ol>
+<p>:::</p>
+<h1 id="manipulation-de-fichiers-csv-en-python">Manipulation de fichiers CSV en Python<a class="headerlink" href="#manipulation-de-fichiers-csv-en-python" title="Permanent link">⚓︎</a></h1>
+<p>:::definition
+<strong>L'indexation de table</strong> est la création d'une structure de données à partir de données tabulaires.</p>
+<p>Nous allons présenter quelques méthodes d'indexation de table extraite d'un fichier CSV vers une structure de données du langage Python : <strong>tableau de tableaux</strong> ou <strong>tableau de dictionnaires</strong> que nous privilégierons.
+:::</p>
+<p>Dans cette section, on considère le fichier <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a>,  <code>clients_mini.csv</code>,  représentant un extrait de la table de l'exemple 1 avec  les enregistrements de  20 clients d'un site web marchand.</p>
+<p>:::methode
+Présentons deux méthodes de lecture de fichiers <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> qui utilisent les outils standards de Python. </p>
+<p>On fait les hypothèses suivantes :  la première ligne du fichier contient les attributs
+et on connaît  le délimiteur, ici le symbole <code>,</code>.</p>
+<ul>
+<li><strong>Lecture</strong></li>
+</ul>
+<p>On peut extraire les attributs et la  table contenus dans le fichier <code>clients_mini.csv</code>  avec le code ci-dessous :</p>
+<div class="highlight"><pre><span></span><code><span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'clients_mini.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>   <span class="c1">#ouverture du fichier</span>
+<span class="n">attributs</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>  <span class="c1">#extraction de la ligne des attributs</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">[</span><span class="n">ligne</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">fichier</span><span class="p">]</span>  <span class="c1">#extraction des autres lignes</span>
+<span class="n">fichier</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>   <span class="c1">#fermeture du fichier </span>
+</code></pre></div>
+<p>La méthode <code>open</code> permet de créer un objet <code>fichier</code> qu'on peut parcourir ligne par ligne avec un curseur : d'abord la première ligne avec <code>fichier.readline()</code> puis les lignes suivantes en itérant sur <code>fichier</code>. Il est important de préciser <strong>l'encodage du fichier</strong>, par défaut c'est celui du système d'exploitation.</p>
+<p>Chaque ligne est une chaîne de caractères découpée en liste de champs selon le délimiteur passé en paramètre à la méthode <code>split</code>. Le caractère de saut de lignes a d'abord été supprimé avec la méthode <code>rstrip</code>.</p>
+<p>On récupère ainsi les attributs comme un tableau de type <code>list</code> et la table comme un tableau d'enregistrements qui sont eux-mêmes des tableaux. Notons que toutes les valeurs sont des chaînes de caractères et qu'il faudra convertir certaines pour les traiter !</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">attributs</span>   <span class="c1">#tableau des attributs</span>
+<span class="p">[</span><span class="s1">'nom'</span><span class="p">,</span> <span class="s1">'prénom'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="s1">'département'</span><span class="p">,</span> <span class="s1">'naissance'</span><span class="p">,</span> <span class="s1">'visites'</span><span class="p">,</span> <span class="s1">'dépenses'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1">#tableau premier enregistrement </span>
+<span class="p">[</span><span class="s1">'Gomes'</span><span class="p">,</span> <span class="s1">'Brigitte'</span><span class="p">,</span> <span class="s1">'bgomes@laposte.net'</span><span class="p">,</span> <span class="s1">'79'</span><span class="p">,</span> <span class="s1">'1960-08-21'</span><span class="p">,</span> <span class="s1">'67'</span><span class="p">,</span> <span class="s1">'8342.99'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>   <span class="c1">#tableau de tableaux : extrait </span>
+<span class="p">[[</span><span class="s1">'Gomes'</span><span class="p">,</span> <span class="s1">'Brigitte'</span><span class="p">,</span> <span class="s1">'bgomes@laposte.net'</span><span class="p">,</span> <span class="s1">'79'</span><span class="p">,</span> <span class="s1">'1960-08-21'</span><span class="p">,</span> <span class="s1">'67'</span><span class="p">,</span> <span class="s1">'8342.99'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'Nicolas'</span><span class="p">,</span> <span class="s1">'Georges'</span><span class="p">,</span> <span class="s1">'gnicolas@yahoo.fr'</span><span class="p">,</span> <span class="s1">'10'</span><span class="p">,</span> <span class="s1">'1994-05-26'</span><span class="p">,</span> <span class="s1">'86'</span><span class="p">,</span> <span class="s1">'10908.08'</span><span class="p">]]</span>
+</code></pre></div>
+<ul>
+<li><strong>Écriture</strong></li>
+</ul>
+<p>On peut ensuite recopier les attributs et la table dans un autre fichier <code>clients_mini_copie.csv</code> avec le code ci-dessous :</p>
+<div class="highlight"><pre><span></span><code><span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'clients_mini_copie.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+<span class="n">premiere_ligne</span> <span class="o">=</span> <span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">attributs</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+<span class="n">g</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">premiere_ligne</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">enregistrement</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>La méthode <code>join</code> permet de concaténer les éléments d'un tableau de chaînes de caractères avec un délimiteur.</p>
+<ul>
+<li>Avec ces méthodes, une table est donc représentée par <strong>un tableau de tableaux</strong>. On accède à un enregistrement par son index dans la table et à la valeur d'un attribut par son index dans le tableau des attributs (séparé de la table). C'est incommode et  le code produit est peu lisible. Ainsi, pour accéder à l'adresse mail du premier enregistrement il faut saisir <code>table[0][2]</code>. On aimerait écrire <code>table[0]['email']</code>. Pour cela, chaque enregistrement devrait être un dictionnaire avec pour clefs les attributs de la table. C'est possible en utilisant le <a href="https://docs.python.org/fr/3/library/csv.html">module <code>csv</code></a>.</li>
+</ul>
+<p>:::</p>
+<p>:::methode</p>
+<p>Le <a href="https://docs.python.org/fr/3/library/csv.html">module <code>csv</code></a>  est disponible dans la bibliothèque standard et peut donc être  utilisé sans installation spécifique. À partir de la table contenu dans le même fichier CSV <code>'clients_mini.csv'</code>, ce module permet de créer une structure de données d'un accès plus facile.</p>
+<ul>
+<li><strong>Lecture</strong></li>
+</ul>
+<p>Le code ci-dessous permet d'extraire directement la table d'un fichier CSV dans une structure de données qui est un <strong>tableau de dictionnaires</strong> : chaque enregistrement est un dictionnaire dont les clefs sont les attributs listés sur la première ligne du fichier.</p>
+<p>Pour les versions de Python 3.6 et 3.7 uniquement, les dictionnaires renvoyés sont spécifiques, de type <code>OrderedDict</code>, et on prendra soin de les convertir en dictionnaires standard avec <code>dict</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>  <span class="c1"># import du module </span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'clients_mini.csv'</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">','</span><span class="p">)</span>  <span class="c1">#création d'un objet reader</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">)</span> <span class="k">for</span> <span class="n">enregistrement</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">]</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>La structure de données représentant la table est un <strong>tableau de dictionnaires</strong> : l'accès aux enregistrements se fait par index et à leurs attributs par clef : très efficace (coût constant) et code lisible. Notons que toutes les valeurs restent des chaînes de caractères et qu'il faudra convertir certaines pour les traiter !</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1">#premier enregistrement de type dictionnaire</span>
+<span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Gomes'</span><span class="p">,</span> <span class="s1">'prénom'</span><span class="p">:</span> <span class="s1">'Brigitte'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bgomes@laposte.net'</span><span class="p">,</span> <span class="s1">'département'</span><span class="p">:</span> <span class="s1">'79'</span><span class="p">,</span> <span class="s1">'naissance'</span><span class="p">:</span> <span class="s1">'1960-08-21'</span><span class="p">,</span> <span class="s1">'visites'</span><span class="p">:</span> <span class="s1">'67'</span><span class="p">,</span> <span class="s1">'dépenses'</span><span class="p">:</span> <span class="s1">'8342.99'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># tableu de dictionnaires : extrait</span>
+<span class="p">[{</span><span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Gomes'</span><span class="p">,</span> <span class="s1">'prénom'</span><span class="p">:</span> <span class="s1">'Brigitte'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bgomes@laposte.net'</span><span class="p">,</span> <span class="s1">'département'</span><span class="p">:</span> <span class="s1">'79'</span><span class="p">,</span> <span class="s1">'naissance'</span><span class="p">:</span> <span class="s1">'1960-08-21'</span><span class="p">,</span> <span class="s1">'visites'</span><span class="p">:</span> <span class="s1">'67'</span><span class="p">,</span> <span class="s1">'dépenses'</span><span class="p">:</span> <span class="s1">'8342.99'</span><span class="p">},</span> <span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Nicolas'</span><span class="p">,</span> <span class="s1">'prénom'</span><span class="p">:</span> <span class="s1">'Georges'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'gnicolas@yahoo.fr'</span><span class="p">,</span> <span class="s1">'département'</span><span class="p">:</span> <span class="s1">'10'</span><span class="p">,</span> <span class="s1">'naissance'</span><span class="p">:</span> <span class="s1">'1994-05-26'</span><span class="p">,</span> <span class="s1">'visites'</span><span class="p">:</span> <span class="s1">'86'</span><span class="p">,</span> <span class="s1">'dépenses'</span><span class="p">:</span> <span class="s1">'10908.08'</span><span class="p">}]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="mi">20</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'email'</span><span class="p">]</span>   <span class="c1">#accès facile aux valeurs des attibuts par clefs</span>
+<span class="s1">'bgomes@laposte.net'</span>
+</code></pre></div>
+<ul>
+<li><strong>Écriture</strong></li>
+</ul>
+<p>L'écriture d'un tableau de dictionnaires partageant les mêmes clefs sous forme de table dans un fichier CSV, s'effectue de façon symétrique à travers un objet <code>DictWriter</code>. À titre, d'exemple, on recopie la table extraite précédemment dans un autre fichier CSV. Depuis Python 3.7, le parcours des clefs d'un dictionnaire est garanti dans le même ordre que celui d'insertion donc on peut récupérer la liste des attributs avec <code>list(table[0].keys())</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'clients_mini_copie2.csv'</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+<span class="n">attributs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">','</span><span class="p">,</span> <span class="n">fieldnames</span> <span class="o">=</span> <span class="n">attributs</span><span class="p">)</span> <span class="c1">#création de l'objet writer</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>   <span class="c1">#écriture des attributs</span>
+<span class="k">for</span> <span class="n">enregistrement</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">)</span>  <span class="c1">#écriture des enregistrements</span>
+<span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li><strong>Remarque</strong> </li>
+</ul>
+<p>Le module <code>csv</code> permet aussi d'extraire une table d'un fichier CSV sous forme de <strong>tableau de tableaux</strong> comme dans la méthode précédente. Le découpage des lignes/enregistrements selon le délimiteur est intégré ce qui simplifie le code.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'clients_mini.csv'</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">','</span><span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">[</span><span class="n">ligne</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">]</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+:::</p>
+<p>:::exercice
+Le fichier <code>clients_avec_erreurs.csv</code> contient une table de la même structure que celle de l'exemple 1 mais avec des données invalides :</p>
+<ul>
+<li>pour l'attribut <code>'email'</code> : format incorrect ou adresse manquante</li>
+<li>pour l'attribut <code>'département'</code> : valeur incorrecte</li>
+<li>pour l'attribut <code>'naissance'</code> : année hors postérieure à 2005 (pas de clients de moins de 15 ans !), mois hors de la plage [1,12], jour hors de la plage possible pour l'année et le mois fixé.</li>
+<li>pour les attributs : <code>'visites'</code> et '<code>dépenses</code>' : valeurs négatives</li>
+</ul>
+<p>L'objectif de cet exercice est d'extraire la table du fichier, de filtrer les enregistrements valides et de les recopier dans un fichier <code>'clients_sans_erreurs.csv'</code>.</p>
+<ol>
+<li>Ouvrir le fichier <code>cours_exercices_tables_eleve.py</code> dans un IDE Python.</li>
+<li>
+<p>Compléter les fonctions de lecture / écriture d'une table représentée par un tableau de dictionnaires vers un fichier CSV :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lecture_csv</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">delimiteur</span><span class="p">):</span>   
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="n">delimiteur</span><span class="p">)</span>  
+    
+
+
+
+
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">table</span>
+
+<span class="k">def</span> <span class="nf">ecriture_csv</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">fichier</span><span class="p">,</span> <span class="n">delimiteur</span><span class="p">):</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fichier</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'utf8'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="n">attributs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="n">delimiteur</span><span class="p">,</span> <span class="n">fieldnames</span> <span class="o">=</span> <span class="n">attributs</span><span class="p">)</span> 
+
+
+
+
+
+    <span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+</li>
+<li>
+<p>Compléter les fonctions <code>bissextile</code>, <code>valide_mois</code>, <code>valide_jour</code>  puis la fonction <code>valide_naissance</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">bissextile</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="sd">"""Paramètre : a de type int représentant une année</span>
+<span class="sd">    Valeur renvoyée  : booléen indiquant si l'année est bissextile"""</span>
+    <span class="k">return</span> <span class="o">.....</span>
+
+<span class="k">def</span> <span class="nf">valide_annee</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1900</span> <span class="o">&lt;=</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">2005</span>
+
+<span class="k">def</span> <span class="nf">valide_mois</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="sd">"""Paramètre : m de type int représentant un mois</span>
+<span class="sd">    Valeur renvoyée  : booléen indiquant si le mois est valide (entre 1 et 12)"""</span>
+    <span class="k">return</span>  <span class="o">....</span>
+    
+
+<span class="k">def</span> <span class="nf">valide_jour</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="sd">"""Paramètre : a, m, j de type int représentant l'année, le mois et le jour</span>
+<span class="sd">    Valeur renvoyée  : booléen indiquant si le jour est valide pour l'année et le mois donnés"""</span>
+    <span class="k">return</span> <span class="o">....</span>
+
+
+<span class="k">def</span> <span class="nf">valide_naissance</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : date de type str au format 'année-mois-jour', ex: '2002-01-07'</span>
+<span class="sd">    Valeur renvoyée  : booléen indiquant si le jour est valide pour l'année et le mois donnés</span>
+<span class="sd">    """</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">......</span>
+        <span class="o">......</span>
+</code></pre></div>
+</li>
+<li>
+<p>Les fonctions <code>valide_email</code>, <code>valide_departement</code>, <code>valide_visites</code> et <code>valide_depenses</code> sont fournies, compléter la fonction <code>valide_enregistrement</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">valide_enregistrement</span><span class="p">(</span><span class="n">enreg</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : un enregistrement de type dictionnaire</span>
+<span class="sd">    Valeur renvoyée  : booléen indiquant si toutes les valeurs des attributs sont valides</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="o">.......................................................</span>
+            <span class="o">.......................................................</span>
+            <span class="o">.......................................................</span>
+</code></pre></div>
+</li>
+<li>
+<p>Si un enregistrement extrait du fichier CSV est validé, on peut convertir les valeurs de ces attributs dans le type attendu pour effectuer un traitement : <code>int</code> pour <code>'visites'</code> et <code>float</code>  pour <code>'dépenses'</code> et <code>str</code> pour les autres.  Compléter la fonction <code>conversion_vers_table</code> ci-dessous pour qu'elle renvoie une copie de l'enregistrement (de type <code>dict</code>) passé en paramètre avec les types attendus pour chaque attribut.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">conversion_vers_table</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="s1">'nom'</span> <span class="p">:</span> <span class="n">enregistrement</span><span class="p">[</span><span class="s1">'nom'</span><span class="p">],</span>
+            <span class="s1">'prénom'</span>  <span class="p">:</span> <span class="n">enregistrement</span><span class="p">[</span><span class="s1">'prénom'</span><span class="p">],</span>
+            <span class="s1">'email'</span> <span class="p">:</span> <span class="n">enregistrement</span><span class="p">[</span><span class="s1">'email'</span><span class="p">],</span>
+            <span class="s1">'département'</span> <span class="p">:</span> <span class="n">enregistrement</span><span class="p">[</span><span class="s1">'département'</span><span class="p">],</span>
+            <span class="s1">'naissance'</span> <span class="p">:</span> <span class="n">enregistrement</span><span class="p">[</span><span class="s1">'naissance'</span><span class="p">],</span>
+            <span class="s1">'visites'</span> <span class="p">:</span> <span class="o">...............................</span> <span class="p">,</span>
+            <span class="s1">'dépenses'</span> <span class="p">:</span> <span class="o">...............................</span>
+            <span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>On fournit également une fonction <code>conversion_vers_fichier</code> réciproque de la précédente qui convertit les valeurs de touts les attributs d'un enregistrement en type <code>str</code>, avant recopie de la table dans un fichier texte CSV. Compléter la fonction <code>main</code> ci-dessous, avec un code client permettant de réaliser l'objectif fixé en préambule de l'exercice.
+Tester le code client pour vérifier les postconditions.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">"""Code client"""</span>
+    <span class="c1">#Traitement / validation / filtrage</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">lecture_csv</span><span class="p">(</span><span class="s1">'clients_avec_erreurs.csv'</span><span class="p">,</span> <span class="s1">','</span><span class="p">)</span>
+    <span class="n">table_valide</span> <span class="o">=</span> <span class="p">[</span> <span class="o">.....................</span>
+                    <span class="k">for</span> <span class="n">enregistrement</span> <span class="ow">in</span> <span class="n">table</span> <span class="k">if</span>     <span class="o">.................</span>        <span class="p">]</span>
+    <span class="c1">#postconditions / tests</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1000</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">table_valide</span><span class="p">)</span> <span class="o">==</span> <span class="mi">719</span>
+    <span class="k">assert</span> <span class="n">table_valide</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span> <span class="s1">'Bailly'</span><span class="p">,</span> <span class="s1">'prénom'</span><span class="p">:</span> <span class="s1">'Aurélie'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'abailly1@gmail.com'</span><span class="p">,</span> <span class="s1">'département'</span><span class="p">:</span> <span class="s1">'22'</span><span class="p">,</span> <span class="s1">'naissance'</span><span class="p">:</span> <span class="s1">'1986-09-22'</span><span class="p">,</span> <span class="s1">'visites'</span><span class="p">:</span> <span class="mi">79</span><span class="p">,</span> <span class="s1">'dépenses'</span><span class="p">:</span> <span class="mf">4389.47</span><span class="p">}</span>
+    <span class="n">table_valide_str</span> <span class="o">=</span> <span class="p">[</span><span class="n">conversion_vers_fichier</span><span class="p">(</span><span class="n">enregistrement</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">enregistrement</span> <span class="ow">in</span> <span class="n">table_valide</span><span class="p">]</span>
+    <span class="c1">#écriture de la table validée</span>
+    <span class="n">ecriture_csv</span><span class="p">(</span><span class="n">table_valide_str</span><span class="p">,</span> <span class="s1">'clients_sans_erreurs.csv'</span><span class="p">,</span> <span class="s1">','</span><span class="p">)</span>
+</code></pre></div>
+</li>
+</ol>
+<p>:::</p>
+<p>:::exercice</p>
+<p><em>Questions type E3C</em> </p>
+<ol>
+<li>
+<p>On considère l'extraction suivante d'une base de données des
+départements français. Cette extraction a ensuite été sauvegardée dans
+un fichier texte.</p>
+<div class="highlight"><pre><span></span><code><span class="s2">"1"</span><span class="p">,</span><span class="s2">"01"</span><span class="p">,</span><span class="s2">"Ain"</span><span class="p">,</span><span class="s2">"AIN"</span><span class="p">,</span><span class="s2">"ain"</span><span class="p">,</span><span class="s2">"A500"</span>
+<span class="s2">"2"</span><span class="p">,</span><span class="s2">"02"</span><span class="p">,</span><span class="s2">"Aisne"</span><span class="p">,</span><span class="s2">"AISNE"</span><span class="p">,</span><span class="s2">"aisne"</span><span class="p">,</span><span class="s2">"A250"</span>
+<span class="s2">"3"</span><span class="p">,</span><span class="s2">"03"</span><span class="p">,</span><span class="s2">"Allier"</span><span class="p">,</span><span class="s2">"ALLIER"</span><span class="p">,</span><span class="s2">"allier"</span><span class="p">,</span><span class="s2">"A460"</span>
+<span class="s2">"4"</span><span class="p">,</span><span class="s2">"04"</span><span class="p">,</span><span class="s2">"Alpes-de-Haute-Provence"</span><span class="p">,</span><span class="s2">"ALPES-DE-HAUTE-PROVENCE"</span><span class="p">,</span><span class="s2">"alpes-de-haute-provence"</span><span class="p">,</span><span class="s2">"A412316152"</span>
+<span class="s2">"5"</span><span class="p">,</span><span class="s2">"05"</span><span class="p">,</span><span class="s2">"Hautes-Alpes"</span><span class="p">,</span><span class="s2">"HAUTES-ALPES"</span><span class="p">,</span><span class="s2">"hautes-alpes"</span><span class="p">,</span><span class="s2">"H32412"</span>
+</code></pre></div>
+<p>On considère le code suivant :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">f</span> <span class="o">=</span>  <span class="nb">open</span><span class="p">(</span><span class="s1">'departements.csv'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+<span class="n">lesLignes</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">uneLigne</span> <span class="ow">in</span> <span class="n">lesLignes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">uneLigne</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>Que va produire l'exécution de ce code ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  L'affichage de la troisième colonne à savoir le nom du département
+avec une majuscule initiale</li>
+<li><strong>Réponse B :</strong> L'affichage de tout le contenu du fichier</li>
+<li><strong>Réponse C :</strong> L'affichage du nombre total de départements figurant dans le fichier</li>
+<li><strong>Réponse D :</strong> L'affichage de la quatrième colonne, à savoir le nom du département
+tout en majuscules</li>
+</ul>
+</li>
+<li>
+<p>On dispose du fichier <code>'info.csv'</code> donné ci-dessous :</p>
+<div class="highlight"><pre><span></span><code>nom, prenom, naissance, deces
+lovelace, ada, 1815, 1852
+von neumann, john, 1903, 1957
+turing, alan, 1912, 1954
+mccarthy, john, 1927, 2011
+floyd, robert, 1936, 2001
+</code></pre></div>
+<p>Le programme ci-dessous nous permet de créer un tableau à partir de ce
+fichier.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"info.csv"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
+<span class="n">firstLine</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span> <span class="c1"># chargement de la ligne d'entête</span>
+<span class="n">tableau</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span> <span class="c1"># chargement des données</span>
+</code></pre></div>
+<p>Les index des lignes de ce tableau vont :</p>
+<ul>
+<li><strong>Réponse A :</strong>  de 0 à 3</li>
+<li><strong>Réponse B :</strong> de 1 à 4</li>
+<li><strong>Réponse C :</strong>  de 0 à 4</li>
+<li><strong>Réponse D :</strong> de 0 à 5</li>
+</ul>
+</li>
+<li>
+<p>Quelle expression Python permet d'accéder au numéro de téléphone de Tournesol, sachant que le répertoire a été défini par l'affectation suivante :</p>
+<div class="highlight"><pre><span></span><code><span class="n">repertoire</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span><span class="s1">'Dupont'</span><span class="p">,</span> <span class="s1">'tel'</span><span class="p">:</span><span class="s1">'5234'</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span><span class="s1">'Tournesol'</span><span class="p">,</span> <span class="s1">'tel'</span><span class="p">:</span><span class="s1">'5248'</span><span class="p">},</span> 
+            <span class="p">{</span><span class="s1">'nom'</span><span class="p">:</span><span class="s1">'Dupond'</span><span class="p">,</span><span class="s1">'tel'</span><span class="p">:</span><span class="s1">'3452'</span><span class="p">}]</span>
+</code></pre></div>
+<ul>
+<li><strong>Réponse A :</strong> <code>repertoire['Tournesol']</code></li>
+<li><strong>Réponse B :</strong> <code>repertoire['tel'][1]</code></li>
+<li><strong>Réponse C :</strong> <code>repertoire[1]['tel']</code></li>
+<li><strong>Réponse D :</strong> <code>repertoire['Tournesol'][tel]</code>
+:::</li>
+</ul>
+</li>
+</ol>
+<h1 id="synthese">Synthèse<a class="headerlink" href="#synthese" title="Permanent link">⚓︎</a></h1>
+<p>:::synthese
+Les <strong>tables de données</strong> sont très courantes : les données sont organisées en <strong>enregistrements</strong> (ligne du tableau) qui sont des <strong>p-uplets nommés</strong> partageant les mêmes <strong>attributs</strong> (entêtes de colonnes dans un tableau).</p>
+<p>Les  <strong>tables de données</strong> sont souvent stockées sous forme de fichiers <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> : ce sont des fichiers textes où les  enregistrements sont des lignes dont les attributs sont séparés par un caractère <strong>délimiteur</strong>. </p>
+<p>En Python, une table contenue dans  un fichier  <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> peut être représentée dans un <strong>tableau de tableaux</strong> ou plutôt un <strong>tableau de dictionnaires</strong>. Le <a href="https://docs.python.org/fr/3/library/csv.html">module csv</a> facilite les opérations d'importation et d'exportation de tables vers des fichiers <a href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a>.
+:::</p>
+<p><img alt="XKCD 1301" src="../images/file_extensions.png" width="60%"/></p>
+<script src="../../../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../../javascripts/config.js"></script>
+<script src="../../../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

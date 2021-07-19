@@ -1,0 +1,188 @@
+/* Extra CSS for mkdocs-enumerate-headings-plugin */ 
+.enumerate-headings-plugin {
+  filter: opacity(35%);
+}
+
+/* :root {
+--main-bg-color: blue;
+} */
+
+.wrapper_h {
+  border: solid 1px;
+  border-radius: 6px;
+  border-color: rgba(87,147,240);
+}
+
+.wrapper {
+border: solid 1px;
+border-radius: 6px;
+border-color: rgba(87,147,240);
+display: flex;
+flex-wrap: wrap;
+flex: 1 1 auto;
+}
+
+.wrapper_h::after{
+--color:rgba(87,147,240);
+--background: rgba(50,51,64,0);
+--size : 1.4;
+content: "Console réalisée par Vincent Bouillot avec Pyodide";
+}
+
+.wrapper::after{
+  --color:rgba(87,147,240);
+  --background: rgba(50,51,64,0);
+  --size : 1.4;
+  content: "Console réalisée par Vincent Bouillot avec Pyodide";
+  }
+
+.wrapper > * {
+flex: 1 1 300px;
+}
+
+.interior_wrapper {
+border-right: 1px solid rgba(87,147,240);
+width:50%;
+}
+
+.line{
+border-bottom : 1px solid rgba(87,147,240);
+}
+
+.ace_editor {
+font-size:1em;
+margin: 4px 4px;
+height: 200px;
+background: rgba(34,35,48,0);
+}
+
+.term_editor {
+--color:rgba(87,147,240);
+--background: rgba(50,51,64,0);
+--size : 1.4;
+height: 205px;
+}
+
+
+.term_editor_h {
+--color:rgba(87,147,240);
+--background: rgba(50,51,64,0);
+--size : 1.4;
+height: 150px;
+}
+
+/* First apply terminal CSS */
+.terminal {
+width: 50%;
+}
+
+
+/* Then change width to 100% */
+.terminal_f {
+--color:rgba(87,147,240);
+--background: rgba(50,51,64,0);
+--size : 1.4;
+border: solid 1px;
+border-radius: 6px;
+border-color: rgba(87,147,240);
+height: 205px; 
+width: 100%;
+}
+
+/* Test to decide which REPL is best */
+.terminal_f_h {
+--color:rgba(87,147,240);
+--background: rgba(50,51,64,0);
+--size : 1.4;
+height: 150px; 
+width: 100%;
+}
+
+
+textarea {
+width: 100%;
+resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.hide {
+display:none;
+}
+
+.blinking {
+width: 8px;
+height: 20.84375px;
+background-color: rgba(87,147,240);
+animation-name: blinking;
+animation-duration: 1s;
+animation-iteration-count: infinite;
+display: inline-block;
+}
+
+/* overloading ace gutters to hide them behind navbar */
+.ace_gutter {  
+z-index: 1; /* might be a bit drastic */
+}
+
+.ace_gutter > .ace_layer {
+color: rgba(87,147,240);
+background-color: rgba(46,48,63,0);
+border-right: solid 1px rgba(87,147,240); 
+}
+
+/* modification of ace-tomorrow-night-bright theme */
+.ace-tomorrow-night-bright .ace_gutter {
+background-color: rgba(46,48,63,0);
+color: #DEDEDE;
+}
+
+.ace-crimson-editor .ace_gutter {
+background-color: rgba(46,48,63,0);
+color: #DEDEDE;
+}
+
+.emoji {
+filter: sepia(1) brightness(50%) hue-rotate(178deg) saturate(286%) brightness(186%);
+text-shadow: 2px 2px rgba(87,147,240);
+font-size : 2em;
+/* border: 0;
+text-align: center;
+text-shadow: 1px 1px 1px #000;
+border-radius: 10px;
+background-color: rgba(220, 0, 0, 1);
+background-image: linear-gradient(to top left,
+                                  rgba(0, 0, 0, .2),
+                                  rgba(0, 0, 0, .2) 30%,
+                                  rgba(0, 0, 0, 0));
+box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+            inset -2px -2px 3px rgba(0, 0, 0, .6); */
+}
+.emoji_dark {
+filter: sepia(1) brightness(50%) hue-rotate(183deg) saturate(276%) brightness(236%);
+text-shadow: 2px 2px rgba(87,147,240);
+font-size : 2em;
+}
+.emoji:hover, .emoji_dark:hover {
+/* green filter filter: sepia(1) brightness(50%) hue-rotate(58deg) saturate(286%) brightness(176%); */
+text-shadow: 0px 0px rgba(87,147,240,0);
+position:relative; 
+left: 2px; 
+top: 2px;
+cursor: pointer;
+font-size : 2em;
+}
+
+.compteur {
+float: right;
+color: rgba(87,147,240);
+font-size : 1.2em
+}
+
+.compteur::before {
+content: "Evaluations restantes : ";
+color: rgba(87,147,240);
+font-size : 0.8em
+}

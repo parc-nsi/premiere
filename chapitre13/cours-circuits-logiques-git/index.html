@@ -1,0 +1,2098 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<link href="https://parc-nsi.github.io/premiere/chapitre13/cours-circuits-logiques-git/" rel="canonical"/>
+<link href="../../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>Cours circuits logiques git - Première NSI Lycée du Parc</title>
+<link href="../../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#credits">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Cours circuits logiques git
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre6/">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre9/">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../automatismes/exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre6/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre6/Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre18/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre18/Cours/dictionnaires-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/Cours/cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre19/TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/cours-systeme/systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre9/TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre230/">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre25/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre25/reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../automatismes/automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/chapitre13/cours-circuits-logiques-git.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<ul>
+<li><a href="#crédits">Crédits</a></li>
+<li><a href="#préambule">Préambule</a></li>
+<li><a href="#portes-logiques">Portes logiques</a><ul>
+<li><a href="#le-transistor-porte-logique-de-base">Le transistor porte logique de
+    base</a></li>
+<li><a href="#dautres-portes-logiques">D’autres portes logiques</a><ul>
+<li><a href="#transistors-en-série-ou-en-parallèle">Transistors en série ou en
+    parallèle</a></li>
+<li><a href="#portes-logiques-et-fonctions-logiques-élémentaires">Portes logiques et fonctions logiques
+    élémentaires</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#fonctions-booléennes">Fonctions booléennes</a><ul>
+<li><a href="#fonctions-booléennes-1">Fonctions booléennes</a></li>
+<li><a href="#qcm-types-e3c">QCM types E3C</a></li>
+<li><a href="#pour-aller-plus-loin-hors-programme-de-première-nsi">Pour aller plus loin (hors programme de première
+    NSI)</a><ul>
+<li><a href="#dresser-la-table-de-vérité-dune-fonction-booléenne">Dresser la table de vérité d’une fonction
+    booléenne</a></li>
+<li><a href="#exprimer-une-fonction-booléenne-à-partir-de-sa-table-de-vérité">Exprimer une fonction booléenne à partir de sa table de
+    vérité</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#circuits-combinatoires">Circuits combinatoires</a><ul>
+<li><a href="#définition">Définition</a></li>
+<li><a href="#décodeur-avec-2-bits-dentrées">Décodeur avec 2 bits d’entrées</a></li>
+<li><a href="#demi-additionneur-et-additionneur-1-bit">Demi-additionneur et additionneur 1
+    bit</a></li>
+</ul>
+</li>
+<li><a href="#opérations-bit-à-bit-en-python-hors-programme-de-première-nsi">Opérations bit à bit en <code>Python</code> (hors programme de première
+    NSI)</a></li>
+</ul>
+<h1 id="credits">Crédits<a class="headerlink" href="#credits" title="Permanent link">⚓︎</a></h1>
+<p><em>Ce cours est largement inspiré du chapitre 22 du manuel NSI de la
+collection Tortue chez Ellipsen auteurs : Ballabonski, Conchon,
+Filliatre, N’Guyen.</em></p>
+<h1 id="preambule">Préambule<a class="headerlink" href="#preambule" title="Permanent link">⚓︎</a></h1>
+<p>Les circuits d’un ordinateur manipulent uniquement des 0 ou des 1
+représentés en interne par des tensions hautes ou basses. Les premiers
+ordinateurs construits dans la période 1945-1950 sont basés sur une
+technologie de tube à vide ou tube électrique. En 1947, aux laboratoires
+Bell, <a href="https://fr.wikipedia.org/wiki/Transistor">Shockley, Bardeen et
+Brattain</a> inventent le
+<strong>transistor</strong> au <em>germanium</em> un petit composant électronique qui se
+comporte comme un interrupteur. Les transistors, plus petits et
+dissipant moins de chaleur, vont supplanter les tubes électriques : en
+1954 le <em>germanium</em> est remplacé par le <em>silicium</em>, en 1955 apparaissent
+les premiers ordinateurs entièrement transistorisés, en 1960 le
+transistor à effet de champ permet l’intégration de dizaines composants
+dans un centimètre carré. Les transistors sont ensuite directement
+gravés dans une plaque de <em>silicium</em> constituant un <strong>cicrcuit
+intégré</strong>. En 1965 Gordon Moore futur directeur d’Intel énonce la <a href="https://fr.wikipedia.org/wiki/Loi_de_Moore">loi
+empirique</a> portant son nom
+qui fixe une feuille de route à l’industrie des mircroprocesseurs : le
+doublement de la densité d’intégration des transistors tous les deux
+ans. Cette loi s’est vérifiée jusqu’à présent avec une finesse de
+gravure d’environ 5 nanomètres en 2020. Le
+<a href="https://en.wikipedia.org/wiki/Moore%27s_law#/media/File:Moore's_Law_Transistor_Count_1971-2018.png">graphique</a>
+ci-dessous représente l’évolution du nombre de transistors par circuit
+intégré.</p>
+<p><img alt="Loi de Moore Source : Wikipedia" src="../images/moore.png"/></p>
+<h1 id="portes-logiques">Portes logiques<a class="headerlink" href="#portes-logiques" title="Permanent link">⚓︎</a></h1>
+<h2 id="le-transistor-porte-logique-de-base">Le transistor porte logique de base<a class="headerlink" href="#le-transistor-porte-logique-de-base" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition 1</p>
+<p>Un <strong>transistor</strong> possède trois broches : la grille, la  sortie (ou drain) et la source soumis à des états de tension haute ou basse qu'on peut assimiler aux valeurs binaires 1 et 0 d'un <strong>bit</strong>. Si la tension appliquée sur la grille est haute (bit à  1) alors le transitor laisse passer le courant entre la source d'énergie et la sortie et cette dernière passe à l'état de tension basse (bit à 0), sinon la sortie reste en tension haute (bit  1).</p>
+<p>Une <strong>fonction logique</strong> prend un ou plusieurs bits en entrée et retourne un ou plusieurs bits en sortie.  Une <strong>porte logique</strong> est un circuit électronique représentant une <strong>fonction logique</strong>.</p>
+<p>Une <strong>table logique</strong>  représente  les sorties produites par une fonction logique pour toutes les entrées possibles.</p>
+<p>Un transistor représente une fonction logique dont le bit d'entrée est l'état de tension de la grille  et le bit de sortie, l'état de tension de la sortie. La <strong>table logique</strong>  (table 1) associée est celle du  <strong>NON logique</strong> ou <strong>Inverseur</strong>.</p>
+<p>Fichier de test <a href="http://www.cburch.com/logisim/">Logisim</a> : <a href="../circuits_logisim/transistor.circ">transistor.circ</a>.</p>
+</div>
+<p><img alt="Transistor" src="../images/transistor.png"/></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th>B = NON(A)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table logique d’une porte NON</strong></p>
+<p><strong>Il existe deux conventions de représentation symbolique des portes
+logiques, une européenne et une américaine.</strong></p>
+<div class="highlight"><pre><span></span><code>![porte NOT européeenne](images/porte_not_european.png)\
+&amp;
+![porte NOT américaine](images/porte_not_american.png)\
+</code></pre></div>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/transistor-definition1.mp4">Tutoriel video Logisim : le
+transistor</a></p>
+<h2 id="dautres-portes-logiques">D’autres portes logiques<a class="headerlink" href="#dautres-portes-logiques" title="Permanent link">⚓︎</a></h2>
+<h3 id="transistors-en-serie-ou-en-parallele">Transistors en série ou en parallèle<a class="headerlink" href="#transistors-en-serie-ou-en-parallele" title="Permanent link">⚓︎</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 1</p>
+<p>On donne ci-dessous les représentations de deux portes logiques :</p>
+<ul>
+<li>La <strong>porte NAND</strong> constituée de deux transistors en série </li>
+<li>La <strong>porte NOR</strong> constituée de deux transistors en parallèle </li>
+</ul>
+<p>Chacune de  ces portes logiques comportent deux   bits d'entrée : A pour  la grille du transistor 1 et B pour la grille du transistor 2 et un bit de sortie.</p>
+<p>Compléter leurs tables logiques.</p>
+<p>Vérifier avec <a href="http://www.cburch.com/logisim/">Logisim</a> et les fichiers <a href="../circuits_logisim/porte_NAND.circ">porte_NAND.circ</a> et <a href="../circuits_logisim/porte_NOR.circ">porte_NOR.circ</a>.</p>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/porteNAND.mp4">Tutoriel video Logisim  : porte NAND</a></p>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/porteNOR.mp4">Tutoriel video Logisim  : porte NOR</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th>B</th>
+<th>NAND(A, B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th>B</th>
+<th>NOR(A, B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Porte NAND" src="../images/porte_nand.png" width="80%"/>\
+&amp;
+<img alt="Porte NOR" src="../images/porte_nor.png" width="80%"/>\</p>
+</div>
+<p><strong>Voici les représentations symboliques des portes logiques NAND et NOR
+:</strong></p>
+<div class="highlight"><pre><span></span><code>![Porte NAND européenne](images/porte_nand_european.png)\
+&amp;
+![Porte NAND américaine](images/porte_nand_american.png)\
+
+![Porte NOR européenne](images/porte_nor_european.png)\
+&amp;
+![Porte NOR américaine](images/porte_nor_american.png)\
+</code></pre></div>
+<h3 id="portes-logiques-et-fonctions-logiques-elementaires">Portes logiques et fonctions logiques élémentaires<a class="headerlink" href="#portes-logiques-et-fonctions-logiques-elementaires" title="Permanent link">⚓︎</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 2</p>
+<p>Fichier de test <a href="http://www.cburch.com/logisim/">Logisim</a> : <a href="../circuits_logisim/exercice2.circ">exercice2.circ</a>.</p>
+<ol>
+<li>
+<p>Compléter la table logique de la porte logique représentée par le circuit ci-dessous. Quelle porte logique peut-on ainsi représenter ?</p>
+<p><img alt="Porte NOT" src="../images/porte_not_with_nor.png"/>\</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th>B = f(A)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Compléter la table logique de la porte logique représentée par le circuit ci-dessous. Quelle fonction logique correspond à cette porte logique ?</p>
+<p><img alt="Porte AND" src="../images/porte_and_with_nor.png" width="60%"/>\</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th>B</th>
+<th>C = g(A, B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice2.mp4">Tutoriel video Logisim  : exercice 2</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 3</p>
+<p>Fichier de test <a href="http://www.cburch.com/logisim/">Logisim</a> : <a href="../circuits_logisim/exercice3.circ">exercice3.circ</a>.</p>
+<ol>
+<li>
+<p>Compléter la table logique de la porte logique représentée par le circuit ci-dessous. Quelle porte logique peut-on ainsi représenter ?</p>
+<p><img alt="Porte NOT" src="../images/porte_not_with_nand.png"/>\</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th>B = f(A)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Compléter la table logique de la porte logique représentée par le circuit ci-dessous. Quelle fonction logique correspond à cette porte logique ?</p>
+<p><img alt="Porte OR" src="../images/porte_or_with_nand.png" width="60%"/>\</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th>B</th>
+<th>C = g(A, B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice3.mp4">Tutoriel video Logisim  : exercice 3</a></p>
+</div>
+<p><strong>Voici les représentations symboliques des portes logiques <code>AND</code> et
+<code>OR</code> :</strong></p>
+<div class="highlight"><pre><span></span><code>![Porte AND européenne](images/porte_and_european.png)\
+&amp;
+![Porte AND américaine](images/porte_and_american.png)\
+
+![Porte OR européenne](images/porte_or_european.png)\
+&amp;
+![Porte OR américaine](images/porte_or_american.png)\
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 4</p>
+<ol>
+<li>Construire un circuit représentant une porte <code>OR</code> uniquement avec des portes <code>NOR</code>.</li>
+<li>Construire un circuit représentant une porte <code>AND</code> uniquement avec des portes <code>NAND</code>.</li>
+</ol>
+<p>Ainsi chacune des portes, <code>NAND</code> ou <code>NOR</code> permet de construire les portes <code>NOT</code>, <code>OR</code>, <code>AND</code>. Toute porte logique  pouvant s'exprimer à l'aide de ces trois portes, les portes <code>NAND</code> et <code>NOR</code> sont dites <em>universelles</em>.</p>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice4.mp4">Tutoriel video Logisim  : exercice 4</a></p>
+</div>
+<h1 id="fonctions-booleennes">Fonctions booléennes<a class="headerlink" href="#fonctions-booleennes" title="Permanent link">⚓︎</a></h1>
+<h2 id="fonctions-booleennes_1">Fonctions booléennes<a class="headerlink" href="#fonctions-booleennes_1" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition 2</p>
+<ul>
+<li>Un <strong>booléen</strong> est un type de données pouvant prendre deux valeurs  <code>True</code> (Vrai)  ou <code>False</code> (Faux)  qu'on  représente  numériquement par un <strong>bit</strong> de valeur <span class="arithmatex">\(1\)</span> pour <code>True</code> ou <span class="arithmatex">\(0\)</span> pour <code>False</code>. Electroniquement, les valeurs 1 et 0 se traduisent  respectivement par des tensions haute ou basse.</li>
+<li>Une <strong>fonction booléenne</strong> <span class="arithmatex">\(f\)</span> associe un booléen à un ou plusieurs booléens. </li>
+<li>Une <strong>fonction booléenne</strong> avec <span class="arithmatex">\(n\)</span> arguments est définie sur un ensemble <span class="arithmatex">\(\{0;1\}^n\)</span> à <span class="arithmatex">\(2^n\)</span> valeurs et prend ses valeurs dans <span class="arithmatex">\(\{0;1\}\)</span> qui a <span class="arithmatex">\(2\)</span> éléments. On peut recenser les <span class="arithmatex">\(2^n\)</span> évaluations  d'une fonction booléenne à <span class="arithmatex">\(n\)</span> arguments  dans une <strong>table de vérité</strong> qui la  définit entièrement. Il existe <span class="arithmatex">\(2^{2^n}\)</span> fonctions booléennes à <span class="arithmatex">\(n\)</span> arguments.</li>
+<li>Une <strong>porte logique</strong> est la représentation sous forme de circuit d'une fonction booléenne et sa <strong>table logique</strong> est la <strong>table de vérité</strong>  de cette fonction.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 5</p>
+<ol>
+<li>
+<p>Compléter la  fonction <code>Python</code> ci-dessous pour qu'elle affiche la table de vérité d'une fonction booléenne à deux entrées. Expliquer le rôle de la fonction <code>int</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">table_verite_2bits</span><span class="p">(</span><span class="n">fonction</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'|</span><span class="si">{:^10}</span><span class="s1">|</span><span class="si">{:^10}</span><span class="s1">|</span><span class="si">{:^15}</span><span class="s1">|'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="n">fonction</span><span class="o">.</span><span class="vm">__name__</span><span class="o">+</span><span class="s1">'(a,b)'</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="o">.............</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="o">.............</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'|</span><span class="si">{:^10}</span><span class="s1">|</span><span class="si">{:^10}</span><span class="s1">|</span><span class="si">{:^15}</span><span class="s1">|'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">......</span><span class="p">,</span> <span class="o">......</span><span class="p">,</span> 
+            <span class="nb">int</span><span class="p">(</span><span class="n">fonction</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="nb">bool</span><span class="p">(</span><span class="n">b</span><span class="p">)))))</span>
+</code></pre></div>
+</li>
+<li>
+<p>Vérifier que  les tables de vérité affichées pour les fonctions <code>bool.__or__</code>, <code>bool.__and__</code>  et <code>bool.__not__</code> sont correctes.</p>
+<div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">table_verite_2bits</span><span class="p">(</span><span class="nb">bool</span><span class="o">.</span><span class="fm">__or__</span><span class="p">)</span>                                                                                                                                           
+<span class="o">|</span>    <span class="n">a</span>     <span class="o">|</span>    <span class="n">b</span>     <span class="o">|</span>  <span class="fm">__or__</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>  <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">1</span>     <span class="o">|</span>    <span class="mi">1</span>     <span class="o">|</span>       <span class="mi">1</span>       <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">1</span>     <span class="o">|</span>    <span class="mi">0</span>     <span class="o">|</span>       <span class="mi">1</span>       <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">0</span>     <span class="o">|</span>    <span class="mi">1</span>     <span class="o">|</span>       <span class="mi">1</span>       <span class="o">|</span>
+<span class="o">|</span>    <span class="mi">0</span>     <span class="o">|</span>    <span class="mi">0</span>     <span class="o">|</span>       <span class="mi">0</span>       <span class="o">|</span>
+</code></pre></div>
+</li>
+</ol>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice5.mp4">Tutoriel video : exercice 5</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Propriété 1</p>
+<p>On peut exprimer toute fonction booléenne à l'aide de trois fonctions booléennes élémentaires :</p>
+<ul>
+<li>La <em>négation</em> de <span class="arithmatex">\(x\)</span>  est une fonction à 1 bit d'entrée (unaire) notée <span class="arithmatex">\(\neg x\)</span> ou <span class="arithmatex">\(\overline{x}\)</span>.<br/>
+Si <code>x</code> est un booléen, sa <em>négation</em> est <code>not x</code> en <code>Python</code>. </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(x\)</span></th>
+<th><span class="arithmatex">\(\neg x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La <em>conjonction</em> de <span class="arithmatex">\(x\)</span> et <span class="arithmatex">\(y\)</span>  est une fonction à 2 bits d'entrée (binaire) notée <span class="arithmatex">\(x \wedge y\)</span> ou <span class="arithmatex">\(x . y\)</span>.<br/>
+Si <code>x</code> et <code>y</code> sont des booléens, leur  <em>conjonction</em> est <code>x and y</code> en <code>Python</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(x\)</span></th>
+<th><span class="arithmatex">\(y\)</span></th>
+<th><span class="arithmatex">\(x \wedge y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La <em>disconjonction</em> de <span class="arithmatex">\(x\)</span> et <span class="arithmatex">\(y\)</span>  est une fonction à 2 bits d'entrée (binaire) notée <span class="arithmatex">\(x \vee y\)</span> ou <span class="arithmatex">\(x + y\)</span>.<br/>
+Si <code>x</code> et <code>y</code> sont des booléens, leur  <em>disjonction</em> est <code>x or y</code> en <code>Python</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(x\)</span></th>
+<th><span class="arithmatex">\(y\)</span></th>
+<th><span class="arithmatex">\(x \vee y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Propriété 2</p>
+<ol>
+<li>
+<p>Les fonctions booléennes élémentaires respectent un certain nombre de règles qui permettent de simplifier les expressions booléennes complexes :</p>
+</li>
+<li>
+<p><em>opérateur involutif</em> :  <span class="arithmatex">\(\neg(\neg x) = x\)</span> et <span class="arithmatex">\(\overline{\overline{x}}=x\)</span></p>
+</li>
+<li><em>élément neutre</em> :   <span class="arithmatex">\(1 \wedge x = x\)</span> et <span class="arithmatex">\(1 . x =x\)</span>  ou  <span class="arithmatex">\(0 \vee x = x\)</span> et <span class="arithmatex">\(0 + x =x\)</span></li>
+<li><em>élément absorbant</em> :   <span class="arithmatex">\(0 \wedge x = 0\)</span> et <span class="arithmatex">\(0 . x =0\)</span>  ou  <span class="arithmatex">\(1 \vee x = x\)</span> et <span class="arithmatex">\(1 + x =1\)</span></li>
+<li><em>idempotence</em> : <span class="arithmatex">\(x \wedge x = x\)</span> et <span class="arithmatex">\(x . x =x\)</span>  ou  <span class="arithmatex">\(x \vee x = x\)</span> et <span class="arithmatex">\(x + x =x\)</span></li>
+<li><em>complément</em> : <span class="arithmatex">\(x \wedge (\neg x) = 0\)</span> et <span class="arithmatex">\(x . (\overline{x}) =0\)</span>  ou  <span class="arithmatex">\(x \vee (\neg x) = 1\)</span> et <span class="arithmatex">\(x + \overline{x} =1\)</span></li>
+<li><em>commutativité</em> :  <span class="arithmatex">\(x \wedge y = y \wedge x\)</span> et <span class="arithmatex">\(x . y = y . x\)</span>  ou  <span class="arithmatex">\(x \vee y = y \vee x\)</span> et <span class="arithmatex">\(x + y = y + x\)</span></li>
+<li><em>associativité</em> :  <span class="arithmatex">\(x \wedge ( y \wedge z) = (x \wedge  y) \wedge z\)</span> et <span class="arithmatex">\(x . (y . z) = (x . y) . z\)</span>  ou <span class="arithmatex">\(x \vee ( y \vee z) = (x \vee y) \vee z\)</span> et <span class="arithmatex">\(x + (y + z) = (x + y) + z\)</span></li>
+<li><em>distributivité</em> :  <span class="arithmatex">\(x \wedge ( y \vee z)  = (x \wedge  y) \vee (x \wedge z)\)</span> et <span class="arithmatex">\(x . (y + z) = x . y + x . z\)</span>  ou  <span class="arithmatex">\(x \vee ( y \wedge z)  = (x \vee  y) \wedge (x \vee z)\)</span> et <span class="arithmatex">\(x + (y . z) = (x + y) . (x + z)\)</span></li>
+<li>
+<p><em>loi de Morgan</em> : <span class="arithmatex">\(\neg(x \wedge y) = \neg x \vee \neg y\)</span> et   <span class="arithmatex">\(\overline{x . y} = \overline{x} + \overline{y}\)</span> ou  <span class="arithmatex">\(\neg(x \vee y) = \neg x \wedge \neg y\)</span> et   <span class="arithmatex">\(\overline{x + y} = \overline{x} . \overline{y}\)</span></p>
+</li>
+<li>
+<p>Les fonctions booléennes élémentaire respectent des règles de priorité :  la <em>négation</em> est prioritaire sur la <em>conjonction</em> qui est prioritaire sur la <em>disjonction</em>.<br/>
+<strong>Il est recommandé de mettre des parenthèses plutôt que d'appliquer les règles de priorité dans l'écriture des expressions booléennes.</strong></p>
+</li>
+</ol>
+</div>
+<h2 id="qcm-types-e3c">QCM types E3C<a class="headerlink" href="#qcm-types-e3c" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 6</p>
+<ol>
+<li>
+<p>Parmi les quatre expressions suivantes, laquelle s'évalue en True ?</p>
+</li>
+<li>
+<p><strong>Réponse A :</strong> <code>False and (True and False)</code></p>
+</li>
+<li>
+<p><strong>Réponse B :</strong> <code>False or (True and False)</code></p>
+</li>
+<li>
+<p><strong>Réponse B :</strong> <code>True and (True and False)</code></p>
+</li>
+<li>
+<p><strong>Réponse C :</strong> <code>True or (True and False)</code></p>
+</li>
+<li>
+<p>Sachant que l'expression <code>not(a or b)</code> a la valeur <code>True</code>, quelles peuvent
+être les valeurs des variables booléennes a et b ?</p>
+</li>
+<li>
+<p><strong>Réponse A :</strong> <code>True</code> et <code>True</code></p>
+</li>
+<li><strong>Réponse B :</strong> <code>False</code> et <code>True</code></li>
+<li><strong>Réponse C :</strong> <code>True</code> et <code>False</code></li>
+<li>
+<p><strong>Réponse D :</strong> <code>False</code> et <code>False</code></p>
+</li>
+<li>
+<p>Pour quelles valeurs booléennes des variables <code>a, b</code> et <code>c</code> l'expression <code>(a or b) and (not c)</code> a-t-elle pour valeur <code>True</code> </p>
+</li>
+<li>
+<p><strong>Réponse A :</strong> <code>a  = True b = False c = True</code></p>
+</li>
+<li><strong>Réponse B :</strong> <code>a  = True b = False c = False</code></li>
+<li><strong>Réponse C :</strong> <code>a  = False b = False c = True</code></li>
+<li>
+<p><strong>Réponse D :</strong> <code>a  = False b = True  c = True</code></p>
+</li>
+<li>
+<p>Si A et B sont des variables booléennes, laquelle de ces expressions booléennes est équivalente<br/>
+à <code>(not A) or B</code> ?</p>
+</li>
+<li>
+<p><strong>Réponse A :</strong> <code>(A and B) or (not A and B)</code></p>
+</li>
+<li><strong>Réponse B :</strong> <code>(A and B) or (not A and B) or (not A and not B)</code></li>
+<li><strong>Réponse C :</strong> <code>(not A and B) or (not A and not B)</code></li>
+<li>
+<p><strong>Réponse D :</strong> <code>(A and B) or (not A and not B)</code></p>
+</li>
+<li>
+<p>Choisir une expression booléenne pour la variable S qui satisfait la
+table de vérité suivante.</p>
+</li>
+</ol>
+<p>A   B   S</p>
+<hr/>
+<p>0   0   1
+0   1   0
+1   0   1
+1   1   1</p>
+<ul>
+<li><strong>Réponse A :</strong>  A ou (non B)</li>
+<li><strong>Réponse B :</strong> (non A) ou B</li>
+<li><strong>Réponse C :</strong> (non A) ou (non B)</li>
+<li>
+<p><strong>Réponse D :</strong> non (A ou B)</p>
+</li>
+<li>
+<p>On considère une formule booléenne form des variables booléennes <code>a</code> et <code>b</code> dont voici la table de vérité. </p>
+</li>
+</ul>
+<p>a     b      form
+---   ----   ----
+True  True   False 
+False True   False 
+True  False  True 
+False False  False </p>
+<p>Quelle est cette formule booléenne  ?</p>
+<ul>
+<li><strong>Réponse A :</strong> <code>a and b</code></li>
+<li><strong>Réponse B :</strong> <code>a or b</code></li>
+<li><strong>Réponse C :</strong> <code>a and not(b)</code></li>
+<li><strong>Réponse D :</strong> <code>not(a) or b</code></li>
+</ul>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice6.mp4">Tutoriel video  : exercice 6</a></p>
+</div>
+<h2 id="pour-aller-plus-loin-hors-programme-de-premiere-nsi">Pour aller plus loin (hors programme de première NSI)<a class="headerlink" href="#pour-aller-plus-loin-hors-programme-de-premiere-nsi" title="Permanent link">⚓︎</a></h2>
+<h3 id="dresser-la-table-de-verite-dune-fonction-booleenne">Dresser la table de vérité d’une fonction booléenne<a class="headerlink" href="#dresser-la-table-de-verite-dune-fonction-booleenne" title="Permanent link">⚓︎</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 7</p>
+<p>Démontrer dans chaque cas l'égalité des expressions booléennes en utilisant les deux méthodes suivantes :</p>
+<ul>
+<li>
+<p><strong>Méthode 1</strong> : en comparant les tables de vérité des deux expressions booléennes ;</p>
+</li>
+<li>
+<p><strong>Méthode 2</strong> : en utilisant les règles de simplification de la propriété 2.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(x + x . y = x\)</span></p>
+</li>
+<li><span class="arithmatex">\(x + \overline{x} . y= x + y\)</span></li>
+<li><span class="arithmatex">\(x . z + \overline{x} . y + y . z = x . z + \overline{x} . y\)</span></li>
+<li><span class="arithmatex">\(\overline{y . (x + \overline{y})} = \overline{x} + \overline{y}\)</span></li>
+<li><span class="arithmatex">\(x . ( \overline{x} + \overline{y}) . (x + y) = x . \overline{y}\)</span></li>
+</ul>
+</div>
+<h3 id="exprimer-une-fonction-booleenne-a-partir-de-sa-table-de-verite">Exprimer une fonction booléenne à partir de sa table de vérité<a class="headerlink" href="#exprimer-une-fonction-booleenne-a-partir-de-sa-table-de-verite" title="Permanent link">⚓︎</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 8</p>
+<p>On considère la fonction booléenne dont la table de vérité est :</p>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(x\)</span></th>
+<th><span class="arithmatex">\(y\)</span></th>
+<th><span class="arithmatex">\(f(x, y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Exprimer chacune des lignes où la fonction prend la valeur <span class="arithmatex">\(1\)</span> comme la <em>conjonction</em> des entrées en remplaçant chaque <span class="arithmatex">\(1\)</span> par la variable qu'il représente et chaque <span class="arithmatex">\(0\)</span> par la négation de la variable. Par exemple le <span class="arithmatex">\(1\)</span> de la deuxième ligne s'écrira <span class="arithmatex">\(\overline{x} . y\)</span>.</li>
+<li>On peut alors écrire <span class="arithmatex">\(f(x,y)\)</span> comme la <em>disjonction</em> des <em>formes conjonctives</em> obtenues à la question précédente. En déduire une expression booléenne de <span class="arithmatex">\(f(x, y)\)</span>.</li>
+<li>Ouvrir le logiciel <a href="http://www.cburch.com/logisim/">Logisim</a> et construire une porte logique représentant cette fonction booléenne.</li>
+<li>Cette fonction s'appelle <code>OU EXCLUSIF</code> ou <code>XOR</code>. Ce nom vous paraît-il bien choisi ?</li>
+</ol>
+</div>
+<p><strong>Voici les représentations symboliques de la porte logique <code>XOR</code> :</strong></p>
+<div class="highlight"><pre><span></span><code>![Porte XOR europeenne](images/porte_xor_european.png)\
+&amp;
+![Porte XOR americaine](images/porte_xor_american.png)\
+</code></pre></div>
+<h1 id="circuits-combinatoires">Circuits combinatoires<a class="headerlink" href="#circuits-combinatoires" title="Permanent link">⚓︎</a></h1>
+<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition 3</p>
+<p>Un <strong>circuit logique combinatoire</strong> permet de réaliser une ou plusieurs fonctions booléennes : ses sorties ne dépendent que de l'état actuel de ses entrées. Les portes logiques <code>NOT</code>, <code>NOR</code>, <code>NAND</code>, <code>AND</code>, <code>OR</code> et <code>XOR</code> sont des circuits combinatoires. </p>
+<p>Il existe d'autres circuits, dits séquentiels, dont les sorties se calculent non seulement à partir de leurs  valeurs d’entrée actuelles mais aussi à partir de leurs états précédents : le facteur temps intervient. Ils utilisent des circuits de mémoire pour mémoriser leurs états antérieurs.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 9</p>
+<p>On considère la fonction booléeenne <span class="arithmatex">\(f\)</span> dont la table de vérité est donnée ci-dessous :</p>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(x\)</span></th>
+<th><span class="arithmatex">\(y\)</span></th>
+<th><span class="arithmatex">\(f(x, y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>En utilisant la méthode exposée dans l'exercice 8, déterminer une expression booléenne de la fonction <span class="arithmatex">\(f\)</span>.</li>
+<li>
+<p>Ouvrir le logiciel <a href="http://www.cburch.com/logisim/">Logisim</a> et construire un circuit combinatoire  représentant cette fonction booléenne : </p>
+</li>
+<li>
+<p>En utilisant les portes logiques <code>NOT</code>, <code>NOR</code>, <code>NAND</code>, <code>AND</code>, <code>OR</code> ou <code>XOR</code>.</p>
+</li>
+<li>En n'utilisant que des portes logiques <code>NOT</code>, <code>AND</code> ou  <code>OR</code>.</li>
+<li>En n'utilisant que des portes logiques  <code>NOR</code>.</li>
+</ol>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice9.mp4">Tutoriel video  : exercice 9</a></p>
+</div>
+<h2 id="decodeur-avec-2-bits-dentrees">Décodeur avec 2 bits d’entrées<a class="headerlink" href="#decodeur-avec-2-bits-dentrees" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 10</p>
+<p>On considère un circuit combinatoire qui  possède deux entrées <span class="arithmatex">\(e_{0}\)</span> et <span class="arithmatex">\(e_{1}\)</span> et quatre sorties <span class="arithmatex">\(s_{0}\)</span>, <span class="arithmatex">\(s_{1}\)</span>, <span class="arithmatex">\(s_{2}\)</span> et <span class="arithmatex">\(s_{3}\)</span>.</p>
+<p>La sortie indexée par le nombre dont le bit de poids faible est <span class="arithmatex">\(e_{0}\)</span> et le bit de poids fort <span class="arithmatex">\(e_{1}\)</span>, est positionnée à <span class="arithmatex">\(1\)</span> et les autres sorties à <span class="arithmatex">\(0\)</span>. Ce circuit est ainsi appelé <strong>décodeur <span class="arithmatex">\(2\)</span> bits</strong>.</p>
+<ol>
+<li>Compléter la table de vérité de ce circuit combinatoire.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(e_{0}\)</span></th>
+<th><span class="arithmatex">\(e_{1}\)</span></th>
+<th><span class="arithmatex">\(s_{0}\)</span></th>
+<th><span class="arithmatex">\(s_{1}\)</span></th>
+<th><span class="arithmatex">\(s_{2}\)</span></th>
+<th><span class="arithmatex">\(s_{3}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>En utilisant la méthode exposée dans l'exercice 7, déterminer une expression booléenne de chacune des sorties <span class="arithmatex">\(s_{0}\)</span>, <span class="arithmatex">\(s_{1}\)</span>, <span class="arithmatex">\(s_{2}\)</span> et <span class="arithmatex">\(s_{3}\)</span>, en fonction des entrées <span class="arithmatex">\(e_{0}\)</span> et <span class="arithmatex">\(e_{1}\)</span>.</p>
+</li>
+<li>
+<p>Ouvrir le logiciel <a href="http://www.cburch.com/logisim/">Logisim</a> et construire un circuit combinatoire  représentant un <strong>décodeur <span class="arithmatex">\(2\)</span> bits</strong>.</p>
+</li>
+</ol>
+</div>
+<h2 id="demi-additionneur-et-additionneur-1-bit">Demi-additionneur et additionneur 1 bit<a class="headerlink" href="#demi-additionneur-et-additionneur-1-bit" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 11</p>
+<ol>
+<li>
+<p>Effectuer les additions binaires : <span class="arithmatex">\(0+0\)</span>, <span class="arithmatex">\(0+1\)</span>, <span class="arithmatex">\(1+0\)</span> et <span class="arithmatex">\(1+1\)</span>.</p>
+</li>
+<li>
+<p>Un <strong>demi-additionneur binaire 1 bit</strong>  est  un circuit combinatoire qui  possède :</p>
+<ul>
+<li>deux entrées : deux bits d'opérande <span class="arithmatex">\(e_{0}\)</span> et <span class="arithmatex">\(e_{1}\)</span> ;</li>
+<li>deux sorties : un bit de résultat  <span class="arithmatex">\(s\)</span> et un bit de retenue  sortante <span class="arithmatex">\(r\)</span>.</li>
+</ul>
+</li>
+</ol>
+<p>La sortie <span class="arithmatex">\(s\)</span> prend pour valeur le bit des unités et la sortie <span class="arithmatex">\(r\)</span> le bit de retenue sortante, lorsqu'on additionne les deux bits d'entrée <span class="arithmatex">\(e_{0}\)</span> et <span class="arithmatex">\(e_{1}\)</span>.</p>
+<ol>
+<li>Compléter la table de vérité de ce circuit combinatoire :</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(e_{0}\)</span></th>
+<th><span class="arithmatex">\(e_{1}\)</span></th>
+<th><span class="arithmatex">\(s\)</span></th>
+<th><span class="arithmatex">\(r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Justifier qu'un <strong>demi-additionneur binaire 1 bit</strong>  peut être représenté par le circuit ci-dessous.</li>
+</ol>
+<p><img alt="Demi-additionneur binaire" src="../images/demi_additionneur.png" width="50%"/>\</p>
+<ol>
+<li>Ouvrir le logiciel <a href="http://www.cburch.com/logisim/">Logisim</a> et construire un circuit combinatoire  représentant un <strong>demi-additionneur binaire 1 bit</strong>.</li>
+</ol>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice11.mp4">Tutoriel video  : exercice 11</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 12</p>
+<p>Un <strong>additionneur binaire   1 bit</strong> est  un circuit combinatoire qui  possède :</p>
+<ul>
+<li>trois entrées : deux bits d'opérande <span class="arithmatex">\(e_{0}\)</span> et <span class="arithmatex">\(e_{1}\)</span> et un bit de retenue entrante <span class="arithmatex">\(r_{0}\)</span></li>
+<li>
+<p>deux bits de sortie : un bit de résultat  <span class="arithmatex">\(s_{2}\)</span> et un bit de retenue  sortante <span class="arithmatex">\(r_{3}\)</span>.</p>
+</li>
+<li>
+<p>Compléter les colonnes de la table de vérité d'un <strong>additionneur binaire   1 bit</strong>  pour le bit de résultat <span class="arithmatex">\(s_{2}\)</span> et le bit  retenue  sortante <span class="arithmatex">\(r_{3}\)</span>.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex">\(e_{0}\)</span></th>
+<th><span class="arithmatex">\(e_{1}\)</span></th>
+<th><span class="arithmatex">\(r_{0}\)</span></th>
+<th><span class="arithmatex">\(s_{1}=\ldots \ldots\)</span></th>
+<th><span class="arithmatex">\(r_{1}=\ldots \ldots\)</span></th>
+<th><span class="arithmatex">\(s_{2}=\ldots \ldots\)</span></th>
+<th><span class="arithmatex">\(r_{2}=\ldots \ldots\)</span></th>
+<th><span class="arithmatex">\(r_{3}=\ldots \ldots\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">2. Un <strong>additionneur binaire   1 bit</strong> peut être réalisé à l'aide de deux <strong>demi-additionneurs binaires 1 bit</strong> :</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Le premier <strong>demi-additionneur binaire 1 bit</strong> prend en entrée les bits d'opérande <span class="arithmatex">\(e_{0}\)</span> et <span class="arithmatex">\(e_{1}\)</span> et retourne en sortie un bit de résultat intermédiaire <span class="arithmatex">\(s_{1}\)</span> et un bit de retenue sortante intermédiaire <span class="arithmatex">\(r_{1}\)</span>. Donner une expression booléenne de <span class="arithmatex">\(s_{1}\)</span> et <span class="arithmatex">\(r_{1}\)</span> en fonction de <span class="arithmatex">\(e_{0}\)</span> et <span class="arithmatex">\(e_{1}\)</span>.</li>
+<li>Le second <strong>demi-additionneur binaire 1 bit</strong> prend en entrée le bit de résultat <span class="arithmatex">\(s_{1}\)</span> et le bit de retenue entrante <span class="arithmatex">\(r_{0}\)</span> et retourne en sortie le bit de résultat  final <span class="arithmatex">\(s_{2}\)</span> et un bit de retenue sortante intermédiaire <span class="arithmatex">\(r_{2}\)</span>. Donner une expression booléenne de <span class="arithmatex">\(s_{2}\)</span> et <span class="arithmatex">\(r_{2}\)</span> en fonction de <span class="arithmatex">\(s_{1}\)</span> et <span class="arithmatex">\(r_{0}\)</span>.</li>
+<li>
+<p>Enfin, la retenue sortante <span class="arithmatex">\(r_{3}\)</span> s'obtient à partir  de la retenue sortante <span class="arithmatex">\(r_{1}\)</span> du premier demi-additionneur et de la retenue sortante <span class="arithmatex">\(r_{2}\)</span> du second. Donner une expression booléenne de <span class="arithmatex">\(r_{3}\)</span> en fonction de <span class="arithmatex">\(r_{1}\)</span> et <span class="arithmatex">\(r_{2}\)</span>.</p>
+<p>Compléter les colonnes <span class="arithmatex">\(s_{1}\)</span>, <span class="arithmatex">\(r_{1}\)</span> et <span class="arithmatex">\(r_{2}\)</span> puis <span class="arithmatex">\(s_{2}\)</span> et <span class="arithmatex">\(r_{3}\)</span> de la table de vérité de l'<strong>additionneur binaire à  1 bit</strong>.</p>
+</li>
+<li>
+<p>Avec le logiciel <a href="http://www.cburch.com/logisim/">Logisim</a> ouvrir le fichier contenant le demi-additionneur de l'exercice précédent.  </p>
+<ul>
+<li>Ajouter un nouveau circuit avec <code>Add a circuit</code> , le nommer <code>additionneur1bit</code> puis copier/coller dedans le circuit du <strong>demi-additionneur binaire 1 bit</strong>. Compléter le  circuit  pour obtenir  un <strong>additionneur binaire 1 bit</strong>.</li>
+<li>Ajouter un nouveau circuit avec <code>Add a circuit</code> , le nommer <code>additionneur2bits</code> puis copier/coller dedans le circuit de l' <strong>additionneur binaire 1 bit</strong>. Compléter le  circuit   pour obtenir  un <strong>additionneur binaire 2 bits</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://parc-nsi.github.io/premiere-nsi/chapitre13/videos/exercice12.mp4">Tutoriel video  : exercice 12</a></p>
+</div>
+<h1 id="operations-bit-a-bit-en-python-hors-programme-de-premiere-nsi">Opérations bit à bit en <code>Python</code> (hors programme de première NSI)<a class="headerlink" href="#operations-bit-a-bit-en-python-hors-programme-de-premiere-nsi" title="Permanent link">⚓︎</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Propriété 3</p>
+<p>Les fonctions booléennes élémentaires (<code>OR</code>, <code>AND</code>, <code>NOT</code>, <code>XOR</code>) existent en <code>Python</code> sous la forme d'opérateurs booléens mais sont également implémentés sous la forme d'opérateurs bit à bit sur les nombres. Un <em>opérateur bit  à bit</em> (<em>bitwise</em> en anglais) s'applique sur les bits de même poids des  représentations binaires de ses opérandes. </p>
+<hr/>
+<p>Opérateur booléen      Opérateur bit à bit  Exemple                                 </p>
+<hr/>
+<p><code>and</code> , ET             <code>&amp;</code> <code>&gt;&gt;&gt; bin(0b101001 &amp; 0b101010)</code></p>
+<div class="highlight"><pre><span></span><code>                                        `'0b101000'`
+</code></pre></div>
+<p><code>or</code> , OU              <code>|</code> <code>&gt;&gt;&gt; bin(0b101001 | 0b101010)</code></p>
+<div class="highlight"><pre><span></span><code>                                        `'0b101011'`
+</code></pre></div>
+<p><code>xor</code> , OU EXCLUSIF    <code>^</code> <code>&gt;&gt;&gt; bin(0b101001 ^ 0b101010)</code></p>
+<div class="highlight"><pre><span></span><code>                                        `'0b000011'`
+</code></pre></div>
+<p><code>not</code> ,  NEGATION      <code>~</code> <code>&gt;&gt;&gt; ~5 #~x retourne -x - 1</code></p>
+<div class="highlight"><pre><span></span><code>                                        `-6`
+</code></pre></div>
+<hr/>
+</div>
+<p>Exemples d’utilisation d’opérateurs bit à bit :</p>
+<ul>
+<li>On peut utiliser le <code>ET</code> bit à bit pour sélectionner uniquement
+    certains bits, par exemple les bits de rang pairs :</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">bits_pairs</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="n">bits_pairs</span><span class="p">)</span>
+<span class="s1">'0b1010101'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">183</span><span class="p">)</span>
+<span class="s1">'0b10110111'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">183</span> <span class="o">&amp;</span> <span class="n">bits_pairs</span><span class="p">)</span>
+<span class="s1">'0b10100010'</span>
+</code></pre></div>
+<ul>
+<li>Le <code>OU EXCLUSIF</code> peut servir à masquer / démasquer une partie de la
+    représentation binaire d’un nombre (on peut l’employer avec tout
+    objet codé numériquement comme une image ou un caractère).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">diego</span> <span class="o">=</span> <span class="mi">69</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">masque</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">zorro</span> <span class="o">=</span> <span class="n">diego</span> <span class="o">^</span> <span class="n">masque</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">zorro</span>
+<span class="mi">111</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">zorro</span> <span class="o">^</span> <span class="n">masque</span>
+<span class="mi">69</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 13</p>
+<p>Dans un réseau <code>IP</code> l'adresse <code>IP</code> d'une machine est constituée d'un préfixe correspondant à l'adresse du réseau (commune à toutes les machines du réseau) et à un suffixe machine, identifiant la machine sur le réseau. </p>
+<p>Le préfixe réseau s'obtient à partir de l'adresse <code>IP</code> de la  machine en faisant un <code>ET</code> bit à bit avec le masque de sous-réseau.</p>
+<p>Par exemple si l'adresse est  <code>192.168.11.12</code>  de représentation binaire <code>11000000.10101000.00001011.00001011</code> et le masque de sous-réseau est <code>255.255.252.0</code> de représentation binaire </p>
+<p><code>11111111.11111111.11111100.00000000</code> alors le préfixe réseau est <code>11000000.10101000.00001000.00000000</code>  soit <code>192.168.8.0</code>.</p>
+<p>On donne ci-dessous deux fonctions outils :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">ip2liste</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
+    <span class="s2">"Transforme une  adresse IP V4 (type str) en liste d'entiers"</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">champ</span><span class="p">)</span> <span class="k">for</span> <span class="n">champ</span> <span class="ow">in</span> <span class="n">ip</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">liste2ip</span><span class="p">(</span><span class="n">ipliste</span><span class="p">):</span>
+    <span class="s2">"Transforme une  liste d'entiers en adresse IP V4 (type str)"</span>
+    <span class="k">return</span> <span class="s1">'.'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ipliste</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>
+<p>Écrire une fonction de signature <code>prefixe_reseau(ip, masque)</code> qui retourne le préfixe réseau sous forme d'adresse IP V4 (type <code>str</code>) à partir d'une adresse IP V4 et d'un masque de sous-réseau.</p>
+</li>
+<li>
+<p>Écrire une fonction de signature <code>suffixe_machine(ip, masque)</code> qui retourne le suffixe machine sous forme d'adresse IP V4 (type <code>str</code>) à partir d'une adresse IP V4 et d'un masque de sous-réseau.</p>
+</li>
+</ol>
+<p>Voici un exemple de résultat attendu :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">prefixe_reseau</span><span class="p">(</span><span class="s1">'145.245.11.254'</span><span class="p">,</span><span class="s1">'255.255.252.0'</span><span class="p">)</span>
+<span class="s1">'145.245.8.0'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">suffixe_machine</span><span class="p">(</span><span class="s1">'145.245.11.254'</span><span class="p">,</span><span class="s1">'255.255.252.0'</span><span class="p">)</span>
+<span class="s1">'0.0.3.254'</span>
+</code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Propriété 4</p>
+<p><code>Python</code> définit également des opérateurs sur les bits d'un nombre, plus efficaces que les opérations mathématiques équivalentes :</p>
+<ul>
+<li>
+<p>Le décalage de <code>nombre</code> de  <code>n</code> bits vers la gauche multiplie <code>nombre</code> par <span class="arithmatex">\(2^{n}\)</span> et s'écrit  <code>nombre &lt;&lt; n</code>.</p>
+</li>
+<li>
+<p>Le décalage de <code>nombre</code> de  <code>n</code> bits vers la droite divise <code>nombre</code> par <span class="arithmatex">\(2^{n}\)</span> et s'écrit  <code>nombre &gt;&gt; n</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 14</p>
+<p>Dans l'algorithme de recherche dichotomique, après  division en deux de  la zone de recherche, l'algorithme  s'appelle lui-même sur l'une des deux moitiés. C'est un algorithme de type <em>Diviser pour régner</em> qui peut se programmer récursivement comme nous le verrons en terminale dans le chapitre sur la récursivité.</p>
+<p>Si on note   <em>n</em> la taille de la liste, une autre implémentation, non récursive, est la suivante : </p>
+<ul>
+<li>on commence la recherche au début de la liste et on avance avec un pas <code>pas = n // 2</code>   ou <code>pas = n &gt;&gt; 1</code> jusqu'au premier élément supérieur à l'élément cherché ;</li>
+<li>on repart de l'élément précédent le point d'arrêt  et on avance désormais avec un pas divisé par 2 soit :</li>
+</ul>
+<p><code>pas = pas &gt;&gt; 1</code> ;</p>
+<ul>
+<li>on répète en boucle ces instructions jusqu'à ce que le pas atteigne <span class="arithmatex">\(1\)</span>.</li>
+</ul>
+<p>A la fin de de la boucle, on détermine si l'élément précédent le dernier point d'arrêt est l'élément recherché.</p>
+<p>Compléter le code de la fonction <code>recherche_dicho2</code> qui implémente cet algorithme.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">recherche_dicho2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">n</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">pas</span> <span class="o">=</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">pas</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">x</span> <span class="o">+</span> <span class="n">pas</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="o">.................</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="o">..............</span>
+        <span class="n">pas</span> <span class="o">=</span> <span class="o">................</span>
+    <span class="k">return</span> <span class="o">............</span>
+</code></pre></div>
+</div>
+<script src="../../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../javascripts/config.js"></script>
+<script src="../../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

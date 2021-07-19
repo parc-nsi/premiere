@@ -1,0 +1,1850 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Site  de  première  NSI  du    Lycée  du  Parc  à Lyon " name="description"/>
+<link href="https://parc-nsi.github.io/premiere/chapitre25/tp/reseau-cours-git/" rel="canonical"/>
+<link href="../../../assets/logo-parc.png" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.1.11" name="generator"/>
+<title>Reseau cours git - Première NSI Lycée du Parc</title>
+<link href="../../../assets/stylesheets/main.3754935a.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<!-- Load CDNs : Pyodide (Python in WASM), Ace (Editor) and JQuery (Terminal) -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"></script>
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.asm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/js/jquery.terminal.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.23.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../xtra/stylesheets/pyoditeur.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#credits">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Première NSI Lycée du Parc" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Première NSI Lycée du Parc
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Reseau cours git
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Passer au mode jour" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Passer au mode jour">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"></path></svg>
+</label>
+<input aria-label="Passer au mode nuit" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Passer au mode nuit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+      Progression
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre8/">
+        Types de bases
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre6/">
+        Types construits
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre9/">
+        Architecture
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre2/">
+        Réseau / Web
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre1/">
+        Langages
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chapitre10/">
+        Algorithmique
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../seances/">
+      Séances
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../automatismes/exo1_fonctions/">
+        Automatismes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../projets/">
+      Projets
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../divers/qcm/">
+        Divers
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../sandbox/">
+      Sandbox
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Première NSI Lycée du Parc" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Première NSI Lycée du Parc">
+<img alt="logo" src="../../../assets/logo-parc.png"/>
+</a>
+    Première NSI Lycée du Parc
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/parc-nsi/premiere/" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Progression
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+        Types de bases
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types de bases" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Types de bases
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre8/">
+        Chapitre 8 représentation des entiers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre12/">
+        Chapitre 12 codage des caractères
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre16/">
+        Chapitre 15 les flottants
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Types construits
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Types construits" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Types construits
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+        Chapitre 6  tableaux à 1 dimension
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 6  tableaux à 1 dimension" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 6  tableaux à 1 dimension
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre6/Cours/tableaux-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+        Chapitre 7 tableaux à 2 dimensions
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 7 tableaux à 2 dimensions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 7 tableaux à 2 dimensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre7/">
+        Index
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+        Chapitre 15 p-uplets
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 15 p-uplets" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 15 p-uplets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre15/Cours/puplets-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+        Chapitre 18 dictionnaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 18 dictionnaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 18 dictionnaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre18/Cours/dictionnaires-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5">
+        Chapitre 19 traitement de données en tables
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 19 traitement de données en tables" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 19 traitement de données en tables
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/Cours/cours-tables-indexation-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Fusion/tp-fusion-git/">
+        TP Fusion
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre19/TP-Recherche-Tri/tp-recherche-tri-git/">
+        TP Recherche et tri
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Architecture
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Architecture" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Architecture
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Chapitre 9 système d'exploitation et ligne de commandes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 9 système d'exploitation et ligne de commandes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 9 système d'exploitation et ligne de commandes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/cours-systeme/systeme-cours-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/memento-shell/memento-shell-git/">
+        Memento Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP1/NSI-TP1-systeme-2020-git/">
+        TP1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre9/TP2/NSI-TP2-systeme-git/">
+        TP2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Chapitre 13 portes logiques et circuits combinatoires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 13 portes logiques et circuits combinatoires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 13 portes logiques et circuits combinatoires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre13/cours-circuits-logiques-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre17/">
+        Chapitre 17 architecture de Von Neumann
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Réseau / Web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Réseau / Web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Réseau / Web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre2/">
+        Chapitre 2 HTML/CSS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Chapitre 21  HTTP et formulaires
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 21  HTTP et formulaires" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 21  HTTP et formulaires
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/http-git/">
+        Cours
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre21/correction-git/">
+        Correction
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre230/">
+        Chapitre non traité  Interactions côté serveur, PHP et Flask
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
+        Chapitre 23  Interactions dans le navigateur, Javascript
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 23  Interactions dans le navigateur, Javascript" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 23  Interactions dans le navigateur, Javascript
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre23/javascript-git2/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5_5" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5">
+        Chapitre 25 Réseau TCP/IP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 25 Réseau TCP/IP" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 25 Réseau TCP/IP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reseau-cours-git/">
+        Cours
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Langages
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Langages" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Langages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre1/">
+        Chapitre 1 affectations et types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre3/">
+        Chapitre 3 boucles inconditionnelles
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+        Chapitre 4 boucles conditionnelles et tests
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Chapitre 4 boucles conditionnelles et tests" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Chapitre 4 boucles conditionnelles et tests
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/">
+        Index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre4/TestBouclesConditionnelles-Correction/">
+        Tests Boucles
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre5/">
+        Chapitre 5 fonctions, spécification et mise au point, portée d'une variable
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+        Algorithmique
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Algorithmique" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Algorithmique
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre10/">
+        Chapitre 10  recherches séquentielle et dichotomique
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre11/">
+        Chapitre 11  algorithmes de tri
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre14/">
+        Chapitre 14  complexité
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre20/">
+        Chapitre 20  correction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre22/">
+        Chapitre 22  algorithme KNN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../chapitre24/">
+        Chapitre 24  algorithmes gloutons
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../seances/">
+        Séances
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        Automatismes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Automatismes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Automatismes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1" id="__nav_9_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1">
+        Thèmes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Thèmes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_1">
+<span class="md-nav__icon md-icon"></span>
+          Thèmes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_1" id="__nav_9_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_1">
+        Tableaux
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tableaux" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Tableaux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions/">
+        Somme d'un tableau
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_fonctions_bouillot/">
+        Somme d'un tableau, Vincent Bouillot
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_9_1_2" id="__nav_9_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9_1_2">
+        Tris
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tris" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_9_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Tris
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/exo1_tris/">
+        Tri par sélection
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../automatismes/automatismes-2020-2021/">
+        Automatismes 2020/2021
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../projets/">
+        Projets
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+        Divers
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Divers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Divers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/qcm/">
+        QCM
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2">
+        Bac
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Bac" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+          Bac
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1" id="__nav_11_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1">
+        EDS 2021
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="EDS 2021" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_11_2_1">
+<span class="md-nav__icon md-icon"></span>
+          EDS 2021
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_1" id="__nav_11_2_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_1">
+        Amérique du Nord
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Amérique du Nord" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_1">
+<span class="md-nav__icon md-icon"></span>
+          Amérique du Nord
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/BACNSI2021AmNo.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/amerique_du_nord_2021_eleve/">
+        Fichier élève
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/NSI_Amerique_du_Nord_2021/">
+        Exercice 3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_2_1_2" id="__nav_11_2_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2_1_2">
+        Candidats libres
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Candidats libres" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_11_2_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Candidats libres
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf">
+        Sujet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves/">
+        Lien vers l'activité sur Capytale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres/">
+        Outils pour l'affichage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/ressources/">
+        Ressources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/outils/">
+        Outils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/capytale/">
+        Capytale
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_6" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6">
+        Notebooks
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Notebooks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Graphes/">
+        Détection de cycle eulérien
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/notebooks/Residu_Quadratique/">
+        Résidus quadratiques
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_11_7" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7">
+        Maths
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Maths" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Maths
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../divers/maths/enigmes/">
+        Énigmes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../sandbox/">
+        Sandbox
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/parc-nsi/premiere/tree/main/docs/chapitre25/tp/reseau-cours-git.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<ul>
+<li><a href="#crédits">Crédits</a></li>
+<li><a href="#réseau-informatique">Réseau informatique</a><ul>
+<li><a href="#histoire">Histoire</a></li>
+<li><a href="#terminologie-et-classification-des-réseaux">Terminologie et classification des
+    réseaux</a></li>
+</ul>
+</li>
+<li><a href="#le-modèle-en-couches">Le modèle en couches</a><ul>
+<li><a href="#découpage-des-données-en-paquets">Découpage des données en
+    paquets</a></li>
+<li><a href="#modèle-en-couches-et-encapsulation-des-données">Modèle en couches et encapsulation des
+    données</a></li>
+<li><a href="#la-couche-liaison-du-modèle-tcpip">La couche liaison du modèle
+    TCP/IP</a></li>
+<li><a href="#la-couche-réseau-ou-internet-du-modèle-tcpip">La couche réseau, ou internet, du modèle
+    TCP/IP</a></li>
+<li><a href="#la-couche-transport-du-modèle-tcpip">La couche transport du modèle
+    TCP/IP</a></li>
+<li><a href="#la-couche-application-du-modèle-tcpip">La couche application du modèle
+    TCP/IP</a></li>
+</ul>
+</li>
+<li><a href="#étude-dun-protocole-de-récupération-de-paquet">Étude d’un protocole de récupération de
+    paquet</a><ul>
+<li><a href="#le-protocole-du-bit-alterné">Le protocole du bit alterné</a></li>
+<li><a href="#applications">Applications</a></li>
+</ul>
+</li>
+</ul>
+<!-- Définition des hyperliens  -->
+<h1 id="credits">Crédits<a class="headerlink" href="#credits" title="Permanent link">⚓︎</a></h1>
+<p><em>Ce cours est largement inspiré du chapitre 26 au manuel NSI de la
+collection Tortue chez Ellipse, auteurs : Ballabonski, Conchon,
+Filliatre, N’Guyen. Ce document est aussi constitué de nombreux emprunts
+à des ressources en ligne proposées par les collègues du <a href="http://portail.lyc-la-martiniere-diderot.ac-lyon.fr/srv1/co/Div_6_Archi_OS_3.html">lycée La
+Martinière Diderot de
+Lyon</a>,
+<a href="http://archives.janviercommelemois.fr/nsi/fichiers_pdf/feuille-internet.pdf">Romain
+Janvier</a>,
+<a href="https://pixees.fr/informatiquelycee/n_site/nsi_prem.html">David Roche</a>
+ou <a href="https://sebsauvage.net/">Sébastien Sauvage</a>. Il manque des crédits
+photographiques, merci de me contacter en cas de problème.</em></p>
+<!-- Définition des hyperliens  -->
+<h1 id="reseau-informatique">Réseau informatique<a class="headerlink" href="#reseau-informatique" title="Permanent link">⚓︎</a></h1>
+<h2 id="histoire">Histoire<a class="headerlink" href="#histoire" title="Permanent link">⚓︎</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Histoire 1</p>
+<p>Il existait déjà des réseaux locaux reliant directement des ordinateurs dans les années <span class="arithmatex">\(1950\)</span>. </p>
+<p>À partir des années <span class="arithmatex">\(1960\)</span>, des chercheurs ont réfléchi à la problématique de l'interconnexion de réseaux hétérogènes. </p>
+<p>Le principe de la <strong>transmission de paquets</strong> est introduit par <a href="https://fr.wikipedia.org/wiki/Paul_Baran">Paul Baran et  Davies</a>  en 1961 : il consiste à découper les données en paquets, ce qui permet de transmettre à débit variable (un courriel nécessite l'envoi ponctuel de petits paquets alors que pour  transférer  un fichier, il faut envoyer rapidement de gros paquets). </p>
+<p><a href="https://interstices.info/une-breve-histoire-des-reseaux-de-telecommunications/">Arpanet</a>, le projet de réseau interuniversitaire financé par <em>l'Arpa</em> (agence de recherche de la défense américaine) , voit le jour en 1969 sous la direction de <a href="https://fr.wikipedia.org/wiki/Leonard_Kleinrock">Leonard Kleinrock</a> : les données sont découpées en paquets, transmis en séquence les uns à la suite des autres. </p>
+<p>Dans les années 70, <a href="https://interstices.info/louis-pouzin-la-tete-dans-les-reseaux/">Louis Pouzin</a>, après un séjour au <a href="http://www.mit.edu/">MIT</a>, développe en France le réseau <em>Cyclades</em> qui est le premier véritable réseau à <strong>commutation de paquets</strong>: les  paquets transitent de façon indépendante dans le réseau grâce à un protocole qui préfigure <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">Internet Protcol</a> puis sont remis en l'ordre à l'arrivée. Le circuit des paquets est donc variable contrairement à la <strong>commutation de circuits</strong> implémentée dans le réseau téléphonique.</p>
+<p><a href="https://interstices.info/une-breve-histoire-des-reseaux-de-telecommunications/"><img alt="Interconnexion d'Arpanet, Packet Radio Net et Satnet avec la pile de protocoles TCP/IP en 1977" src="images/internet-1977.jpg">!</img></a></p>
+<p><em>Source : Interstices</em></p>
+<p>Aux États-Unis, <a href="https://fr.wikipedia.org/wiki/Vint_Cerf">Vinton Cerf et Robert Kahn</a> s'inspirent des idées de Pouzin et inventent les protocoles <strong>IP</strong> et <strong>TCP</strong>. L'interconnexion des réseaux Arpanet et Csnet en 1983 avec <strong>TCP/IP</strong> marque la naissance d'Internet et son expansion au niveau mondial dans les sphères universitaires et de la recherche.</p>
+<p>En 1989, <a href="https://interstices.info/les-debuts-du-web-sous-loeil-du-w3c/">Tim Berners-Lee</a> invente le <strong>Web</strong>, qui est une application de documents hypertexte s'exécutant par-dessus le réseau <strong>Internet</strong>. L'ouverture des protocoles Web au grand public en 1993 connaît un succès fulgurant, d'autres services Internet comme le Mail ou le transfert de fichier de Pair à pair se popularisent aussi et le trafic  Internet explose : de quelques Megabits par secondes en 1992, on est passé à près de 100 Terabits par seconde en 2018 avec près de 3,2 milliards d'internautes en 2016.</p>
+</div>
+<p><img alt="Commutation de paquets" src="images/commutationpaquets.png"/></p>
+<h2 id="terminologie-et-classification-des-reseaux">Terminologie et classification des réseaux<a class="headerlink" href="#terminologie-et-classification-des-reseaux" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Définition 1</p>
+<ol>
+<li>Un <strong>réseau</strong> est un ensemble de <em>noeuds</em> reliés par des <em>liens</em>, qui correspond mathématiquement à un <em>graphe</em>. Dans un  <strong>réseau informatique</strong>  les <em>noeuds</em> ou <em>hôtes</em> sont des  équipements informatiques comme des ordinateurs, des routeurs ... et les <em>liens</em> peuvent être variés selon la technologie utilisée :  filaire (Ethernet, ...) ou par ondes (Wifi, ...).</li>
+<li>Une <strong>interface</strong> est le point de raccordement, matériel (carte réseau) ou logiciel, entre un <em>lien</em> et un <em>noeud</em>.</li>
+<li>Un <strong>protocole</strong> est un ensemble de règles permettant d'établir une communication entre deux noeuds du réseau et de garantir éventuellement certains services (fiabilité, confidentialité ....) </li>
+<li>Un <strong>service réseau</strong> est une <em>application</em> capable de communiquer en réseau et proposant des fonctionnalités. Par exemple, un service Web peut fournir des pages Web au   navigateur d'un client. Sur un réseau pédagogique de lycée, un service de gestion et de partage de fichiers permet aux utilisateurs d'accéder à leurs fichiers depuis n'importe quel machine cliente.</li>
+<li>Un <strong>serveur</strong> désigne un matériel ou un logiciel exécutant un <strong>service réseau</strong>. Il fournit un service à des <strong>clients</strong> selon une <strong>architecture client / serveur</strong>. 
+Pour une présentation de l'architecture client-serveur, on pourra visionner cette <a href="https://vimeo.com/138623558">video</a>.</li>
+</ol>
+</div>
+<figure>
+<img alt="Architecture client / serveur (Wikimedia Commons)" src="../images/500px-Modèle-client-serveur.svg.png" style="width:60.0%"/><figcaption aria-hidden="true">Architecture client / serveur (Wikimedia Commons)</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 1</p>
+<ul>
+<li>Les réseaux informatiques peuvent être de différentes tailles : <ul>
+<li>Les <em>réseaux locaux</em> ou <strong>Local Area Network (LAN)</strong>  limités à une zone géographique restreinte (maison, entreprise, lycée ...)</li>
+<li>Les <em>réseaux étendus</em> ou <strong>Wide Area Network (WAN)</strong>  couvrant de vastes zones géographiques (pays, continent ). Ce sont, par exemple, les réseaux des fournisseurs d'accès internet (Free, Orange, SFR...), de grandes sociétés...</li>
+<li><strong>Internet est une interconnexion  mondiale de réseaux</strong></li>
+</ul>
+</li>
+<li>Les réseaux informatiques utilisent des liens de technologies diverses  :<ul>
+<li>Des <strong>liaisons filaires</strong> :<ul>
+<li><em>câbles à paires torsadées</em>  utilisées avec le protocole de liaison Ethernet dans les <strong>LAN</strong> : sensibles aux interférences électromagnétiques même s'ils sont blindés, leur  portée maximale est  de 200 mètres avec un débit maximal de 1 Gb/s ;</li>
+<li><em>fibres optiques</em> utilisées pour les interconnexions de réseau (dont les câbles sous-marin pour les liaisons intercontinentales) avec un débit de plusieurs Gb/s et des contraintes de portée réduites (sauf pour l'hypertrading des places financières !)</li>
+</ul>
+</li>
+<li>Des <strong>liaisons par ondes</strong> : Wifi, Bluetooth, Satellite, 4G ...</li>
+</ul>
+</li>
+<li>L'interconnexion dans l'Internet de tous ces réseaux hétérogènes sur le plan matériel, a été rendu possible par le développement de <strong>protocoles logiciels</strong>.
+Pour une présentation globale d'Internet, on pourra visionner cette <a href="https://youtu.be/dCknqcjcItU">video</a>.</li>
+</ul>
+</div>
+<figure>
+<img alt="Cartes des câbles sous-marins : https://www.submarinecablemap.com/" src="../images/cable-sousmarin.png" style="width:70.0%"/><figcaption aria-hidden="true">Cartes des câbles sous-marins : <a class="uri" href="https://www.submarinecablemap.com/">https://www.submarinecablemap.com/</a></figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 1</p>
+<p><em>QCM type E3C</em></p>
+<ol>
+<li>
+<p>Un protocole est un ensemble de ...</p>
+<ul>
+<li><strong>Réponse A :</strong>  matériels connectés entre eux</li>
+<li><strong>Réponse B  :</strong>  serveurs et de clients connectés entre eux</li>
+<li><strong>Réponse C  :</strong>  règles qui régissent les échanges entre équipements informatiques</li>
+<li><strong>Réponse D  :</strong> règles qui régissent les échanges entre un système d'exploitation et les applications</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse C</strong></p>
+</details>
+</li>
+<li>
+<p>Comment s'appelle l'ensemble des règles qui régissent les échanges sur
+Internet ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  les couches</li>
+<li><strong>Réponse B  :</strong>  le wifi</li>
+<li><strong>Réponse C  :</strong>  les protocoles</li>
+<li><strong>Réponse D  :</strong> les commutateurs</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse C</strong></p>
+</details>
+</li>
+<li>
+<p>L'architecture client-serveur :</p>
+<ul>
+<li><strong>Réponse A :</strong>  est un mode de communication entre programmes</li>
+<li><strong>Réponse B  :</strong>  est une architecture matérielle de coopération entre machines</li>
+<li><strong>Réponse C  :</strong>  est un mode de communication entre routeurs</li>
+<li><strong>Réponse D  :</strong> est un mode de communication entre commutateurs</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse A</strong></p>
+</details>
+</li>
+</ol>
+</div>
+<h1 id="le-modele-en-couches">Le modèle en couches<a class="headerlink" href="#le-modele-en-couches" title="Permanent link">⚓︎</a></h1>
+<h2 id="decoupage-des-donnees-en-paquets">Découpage des données en paquets<a class="headerlink" href="#decoupage-des-donnees-en-paquets" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 2</p>
+<p>Dans un réseau informatique, si on veut transmettre une image de plusieurs Méga octets, on n'envoie pas les données en un seul bloc mais on les découpe en paquets plus petits  qui sont transmis séparément. Ainsi, il n'est pas nécessaire de tout retransmettre en cas d'erreur. De plus cela réduit les risques d'encombrement ou de blocage des liens.</p>
+<p>Ce principe de <strong>découpage des données en paquets</strong> s'appelle le <strong>multiplexage</strong>.</p>
+</div>
+<p><img alt="Réseau sans multiplexage : canal bloqué" src="images/multiplex2.gif" style="width:60.0%"/> </p>
+<p><em>Réseau sans multiplexage : canal bloqué (source : https://www.isnbreizh.fr)</em></p>
+<p><img alt="Réseau avec multiplexage" src="images/multiplex4.gif" style="width:60.0%"/> </p>
+<p><em>Réseau avec multiplexage (source : https://www.isnbreizh.fr)</em></p>
+<h2 id="modele-en-couches-et-encapsulation-des-donnees">Modèle en couches et encapsulation des données<a class="headerlink" href="#modele-en-couches-et-encapsulation-des-donnees" title="Permanent link">⚓︎</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 3</p>
+<p>L'interconnexion de réseaux hétérogènes et éloignés géographiquement nécessite de gérer des problématiques à plusieurs niveaux :</p>
+<ol>
+<li>la liaison physique entre deux <em>noeuds</em> / <em>hôtes</em>  du réseau ; </li>
+<li>l'interconnexion entre deux réseaux locaux ;</li>
+<li>la transmission fiable des données ;</li>
+<li>la communication entre une application s'exécutant sur un client et un service réseau sur un serveur.</li>
+</ol>
+<p>Les recherches et les expériences menées dans les années 60/70 sur les réseaux informatiques ont conduit au développement de solutions basées sur une <strong>architecture en pile de protocoles logiciels</strong>. Les  problèmes ont été séparés en <strong>couches</strong>. Le <a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI">modèle OSI</a>   comporte sept couches, c'est un modèle théorique et normalisé qui permet d'encadrer  la création de nouveaux protocoles. En pratique, Internet s'appuie sur le <a href="https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet">modèle TCP/IP</a> en quatre couches correspondant aux quatre niveaux de problèmes précités. De la couche la plus basse à la plus haute on distingue :</p>
+<ol>
+<li>la <em>couche liaison</em></li>
+<li>la <em>couche réseau</em></li>
+<li>la <em>couche transport</em></li>
+<li>la <em>couche application</em></li>
+</ol>
+<p>Lorsqu'un hôte A du réseau communique avec un hôte B, chaque couche de protocole sur l'émetteur communique avec la couche de même niveau chez le destinataire. </p>
+<p>Chaque couche ajoute des <em>metadonnées</em> aux données du message, qui sont encapsulées les unes dans les autres. C'est le principe d'<strong>encapsulation des données</strong>.</p>
+<p>Lors de l'émission le message par l'hôte A, les couches s'exécutent de haut en bas  pour l'encapsulation :</p>
+<ul>
+<li>un protocole de la  <em>couche application</em> encapsule le message avec un entête contenant ses <em>metadonnées</em>  et transmet   <em>application(message)</em>  à la couche inférieure</li>
+<li>puis une protocole de la  <em>couche transport</em> ajoute son entête : <em>transport(application(message))</em> </li>
+<li>puis un protocole de la <em>couche réseau</em>  fait de même : <em>réseau(transport(application(message)))</em> </li>
+<li>et enfin un protocole de la <em>couche liaison</em> transmet le message sur le support avec un dernier entête : <em>liaison(réseau(transport(application(message))))</em> </li>
+</ul>
+<p>À réception du message par l'hôte B, les couches d'exécutent en ordre inverse pour désencapsuler le message :</p>
+<ul>
+<li>un protocole de la  <em>couche liaison</em> extrait et analyse l'entête <em>liaison</em> ajouté par son homologue et transmet <em>réseau(transport(application(message)))</em>  à la couche supérieure</li>
+<li>un protocole de la  <em>couche réseau</em> extrait et analyse l'entête <em>réseau</em> ajouté par son homologue et transmet <em>transport(application(message))</em>  à la couche supérieure</li>
+<li>de même un protocole de la couche <em>transport</em> extrait un entête et transmet <em>application(message)</em> à la couche supérieure <em>application</em></li>
+<li>un protocole de la couche <em>application</em> extrait le dernier entête et transmet le <em>message</em> à l'application destinataire.</li>
+</ul>
+<p>Dans ces deux phases, on voit qu'un protocole doit pouvoir communiquer avec un protocole de couche immédiatement inférieure ou supérieure par le biais d'une <strong>interface</strong>.  </p>
+<p><strong>L'encapsulation des données</strong> permet d'isoler les fonctionnalités et de développer indépendamment les protocoles de différentes couches. </p>
+</div>
+<p><img alt="Encapsulation des données" src="images/osi_couches.gif"/></p>
+<p><img alt="Modèles en couches : OSI et TCP/IP" src="images/pileTCPIP2.png"/></p>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 2</p>
+<p><em>QCM type E3C</em></p>
+<p>Quel est le principe de l'encapsulation des données dans un réseau informatique ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  Cacher les données afin que l'on ne puisse pas les lire</li>
+<li><strong>Réponse B  :</strong>  Mettre les données les unes à la suite des autres</li>
+<li><strong>Réponse C  :</strong>  Inclure les données d'un protocole dans un autre protocole</li>
+<li><strong>Réponse D  :</strong> Chiffrer les données afin que l'on ne puisse pas les lire</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse C</strong></p>
+</details>
+</div>
+<h2 id="la-couche-liaison-du-modele-tcpip">La couche liaison du modèle TCP/IP<a class="headerlink" href="#la-couche-liaison-du-modele-tcpip" title="Permanent link">⚓︎</a></h2>
+<p><img alt="Un réseau local Ethernet avec 3 hôtes et un switch" src="images/lan2.png"/></p>
+<div class="admonition info">
+<p class="admonition-title">Activité 1</p>
+<details class="warning"><summary>Téléchargement de l'archive</summary><p><a href="ressources/materiel-filius.zip">Archive avec les fichiers Filius</a></p>
+</details>
+<ol>
+<li>
+<p>Ouvrir avec le logiciel <a href="https://www.lernsoftware-filius.de/Herunterladen">Filius</a> le fichier <code>lan2.fls</code>. Quels sont les équipements présents dans ce  réseau ?
+Sélectionner le mode <em>construction</em> <img alt="mode construction" src="images/filius-construction.png" width="10%"/> Faire un clic droit sur chacune des machines du réseau, sélectionner <em>Configurer</em> et noter leur adresse MAC. Il s'agit d'un identifiant pour chaque matériel constitué de 6 paquets de 8 bits codés en base 16, séparés par le symbole <code>:</code>.</p>
+</li>
+<li>
+<p>Compléter les fonctions Python ci-dessous pour satisfaire spécifications et tests unitaires. </p>
+<div class="highlight"><pre><span></span><code><span class="c1">#variable globale</span>
+<span class="n">chiffres_hexa</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">'ABCDEF'</span><span class="p">:</span>
+    <span class="c1">#chiffres_hexa[c] = "à compléter"</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1">#postcondition</span>
+<span class="k">assert</span> <span class="n">chiffres_hexa</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'0'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'1'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> 
+<span class="s1">'7'</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">hexa_vers_decimal</span><span class="p">(</span><span class="n">chaine_hexa</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : chaine_hexa de type str</span>
+<span class="sd">    Valeur renvoyée : decimal de type int, conversion en base dix de la représentation</span>
+<span class="sd">    heaxdécimale d'un nombre</span>
+<span class="sd">    """</span>
+    <span class="n">decimal</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="s2">"à compléter"</span>
+    <span class="k">return</span> <span class="n">decimal</span>
+
+<span class="c1">#test unitaire</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">hexa_vers_decimal</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'FF'</span><span class="p">,</span> <span class="s1">'00'</span><span class="p">,</span> <span class="s1">'0A'</span><span class="p">,</span> <span class="s1">'A9'</span><span class="p">]]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">169</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">mac_adresse_vers_decimal</span><span class="p">(</span><span class="n">mac_adresse</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : mac_adresse de type str, sous la forme '8D:A9:D5:67:E6:F3'</span>
+<span class="sd">    Valeur renvoyée : tableau de six nombres de type int, conversion en base dix de chaque champ de l'adresse MAC</span>
+<span class="sd">    """</span>
+    <span class="n">champs</span> <span class="o">=</span> <span class="n">mac_adresse</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">"à compléter"</span>
+
+<span class="c1">#test unitaire</span>
+<span class="k">assert</span> <span class="n">mac_adresse_vers_decimal</span><span class="p">(</span><span class="s1">'8D:A9:D5:67:E6:F3'</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">141</span><span class="p">,</span> <span class="mi">169</span><span class="p">,</span> <span class="mi">213</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">243</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">mac_adresse_vers_decimal</span><span class="p">(</span><span class="s1">'FF:FF:FF:FF:FF:FF'</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>
+</code></pre></div>
+<details class="help"><summary>Réponse</summary><div class="highlight"><pre><span></span><code><span class="c1">#variable globale</span>
+<span class="n">chiffres_hexa</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">'ABCDEF'</span><span class="p">:</span>
+    <span class="n">chiffres_hexa</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1">#postcondition</span>
+<span class="k">assert</span> <span class="n">chiffres_hexa</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'0'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'1'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> 
+<span class="s1">'7'</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">hexa_vers_decimal</span><span class="p">(</span><span class="n">chaine_hexa</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : chaine_hexa de type str</span>
+<span class="sd">    Valeur renvoyée : decimal de type int, conversion en base dix de la représentation</span>
+<span class="sd">    heaxdécimale d'un nombre</span>
+<span class="sd">    """</span>
+    <span class="n">decimal</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chaine_hexa</span><span class="p">:</span>
+        <span class="n">decimal</span> <span class="o">=</span> <span class="n">decimal</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span>  <span class="n">chiffres_hexa</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">decimal</span>
+
+<span class="c1">#test unitaire</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">hexa_vers_decimal</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'FF'</span><span class="p">,</span> <span class="s1">'00'</span><span class="p">,</span> <span class="s1">'0A'</span><span class="p">,</span> <span class="s1">'A9'</span><span class="p">]]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">169</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">mac_adresse_vers_decimal</span><span class="p">(</span><span class="n">mac_adresse</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Paramètre : mac_adresse de type str, sous la forme '8D:A9:D5:67:E6:F3'</span>
+<span class="sd">    Valeur renvoyée : tableau de six nombres de type int, conversion en base dix de chaque champ de l'adresse MAC</span>
+<span class="sd">    """</span>
+    <span class="n">champs</span> <span class="o">=</span> <span class="n">mac_adresse</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">hexa_vers_decimal</span><span class="p">(</span><span class="n">chaine_hexa</span><span class="p">)</span> <span class="k">for</span> <span class="n">chaine_hexa</span> <span class="ow">in</span> <span class="n">champs</span><span class="p">]</span>
+
+<span class="c1">#test unitaire</span>
+<span class="k">assert</span> <span class="n">mac_adresse_vers_decimal</span><span class="p">(</span><span class="s1">'8D:A9:D5:67:E6:F3'</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">141</span><span class="p">,</span> <span class="mi">169</span><span class="p">,</span> <span class="mi">213</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">243</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">mac_adresse_vers_decimal</span><span class="p">(</span><span class="s1">'FF:FF:FF:FF:FF:FF'</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Sélectionner le mode <em>simulation</em> <img alt="mode simulation" src="images/filius-simulation.png" width="10%"/>  Faire un clic droit sur la machine d'adresse IP <code>192.168.1.1</code> pour afficher le bureau, ouvrir une fenêtre de ligne de commandes et saisir la commande <code>ping 192.168.1.2</code> qui envoie successivement quatre paquets de données pour tester la liaison avec la machine d'adresse IP <code>192.168.1.1</code>. Sélectionner l'affichage des échanges de données avec un clic droit sur la machine <code>192.168.1.1</code>. </p>
+</li>
+<li>
+<p>Déplier le détail du premier paquet de données dans l'historique des échanges. Filius appelle <em>Réseau</em> la couche <em>liaison</em> du <a href="https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet">modèle TCP/IP</a>  et <em>internet</em> la couche <em>réseau</em>. Quel protocole a généré l'entête de la couche <em>internet</em> ? Quel message est transmis  ? Déterminer l'émetteur  et le destinataire de ce paquet de données et comment ils sont repérés.</p>
+</li>
+</ol>
+<p><img alt="arp1" src="images/arp1.png"/>\</p>
+<ol>
+<li>Déplier le détail du second paquet de données et répondre aux mêmes questions.</li>
+</ol>
+</div>
+<p><img alt="arp2" src="images/arp2.png"/> </p>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 4</p>
+<p>La  couche <em>liaison</em> du <a href="https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet">modèle TCP/IP</a> rassemble les protocoles permettant d'établir une connexion physique directe, par la même technologie, de deux hôtes d'un même réseau local (<strong>LAN</strong>).</p>
+<p>Les protocoles les plus courants de cette couche sont  <a href="https://fr.wikipedia.org/wiki/Ethernet">Ethernet</a>  pour une liaison filaire et <a href="https://fr.wikipedia.org/wiki/Wi-Fi">Wifi</a> pour une liaison par ondes.</p>
+<p>Dans les deux cas, chaque hôte est identifié  par une <a href="https://fr.wikipedia.org/wiki/Adresse_MAC">adresse MAC</a>, parfois nommée <strong>adresse physique</strong>. C'est un identifiant physique stocké dans une carte réseau ou une interface réseau similaire. À moins qu'elle n'ait été modifiée par l'utilisateur, elle est unique au monde.</p>
+<p>Elle est constitué de  <span class="arithmatex">\(48\)</span> bits réparties en <span class="arithmatex">\(6\)</span> octets représentés en notation hexadécimale et séparés par le caractère <code>:</code> comme par exemple <code>fc:f8:ae:31:cb:67</code>.</p>
+<p>Les hôtes d'un même réseau <a href="https://fr.wikipedia.org/wiki/Ethernet">Ethernet</a> (clients ou serveurs), sont reliés par une sorte de multiprise appelée  <strong>commutateur</strong> ou <strong>switch</strong>, capable d'identifier l'<a href="https://fr.wikipedia.org/wiki/Adresse_MAC">adresse MAC</a> de l'hôte relié à l'une de ses prises.</p>
+<p>Le protocole <a href="https://fr.wikipedia.org/wiki/Address_Resolution_Protocol">ARP</a> permet à un hôte émetteur de découvrir l'<a href="https://fr.wikipedia.org/wiki/Adresse_MAC">adresse MAC</a> de son destinataire, à travers la diffusion d'une demande en <a href="https://fr.wikipedia.org/wiki/Broadcast_(informatique)">brodacast</a>, dénotée par l'adresse <code>FF:FF:FF:FF:FF:FF</code>  à l'ensemble des hôtes du réseau local. </p>
+</div>
+<p><a href="images/animation-reseau-simple.svg"><img alt=" Découverte ARP dans un réseau local" src="images/animation-reseau-simple.svg"/></a></p>
+<p><em>Pour accéder à cette animation créée par Maxence Klein, cliquez sur l'image</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 3</p>
+<p><em>QCM type E3C</em></p>
+<p>Parmi les adresses suivantes, laquelle est une adresse Ethernet non valide ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  8D:A9:D5:67:E6:F3</li>
+<li><strong>Réponse B  :</strong>  8d:a9:d5:67:e6:f3</li>
+<li><strong>Réponse C  :</strong>  8H:A9:D5:67:E6:F3</li>
+<li><strong>Réponse D  :</strong> FF:A9:D5:67:E6:F3</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse C</strong>  le chiffre maximal en hexadécimal est F,  H ne représente pas un chiffre en hexadécimal</p>
+</details>
+</div>
+<h2 id="la-couche-reseau-ou-internet-du-modele-tcpip">La couche réseau, ou internet, du modèle TCP/IP<a class="headerlink" href="#la-couche-reseau-ou-internet-du-modele-tcpip" title="Permanent link">⚓︎</a></h2>
+<p><img alt="Une interconnexion de réseau avec un routeur" src="images/wlan1.png"/></p>
+<div class="admonition info">
+<p class="admonition-title">Activité 2</p>
+<details class="warning"><summary>Téléchargement de l'archive</summary><p><a href="ressources/materiel-filius.zip">Archive avec les fichiers Filius</a></p>
+</details>
+<ol>
+<li>
+<p>Ouvrir avec le logiciel <a href="https://www.lernsoftware-filius.de/Herunterladen">Filius</a> le fichier <code>wlan1.fls</code>. Quels sont les équipements présents dans ce  réseau ?
+Sélectionner le mode <em>construction</em> <img alt="mode construction" src="images/filius-construction.png" width="10%"/> Faire un clic droit sur chacune des machines du réseau, sélectionner <em>Configurer</em> et noter leurs adresse IP. Il s'agit d'un identifiant  de 32 bits constitué de quatre octets notés en base dix (valeurs entre 0 et 255) séparés par le symbole <code>.</code> </p>
+</li>
+<li>
+<p>Sélectionner le mode <em>simulation</em> <img alt="mode simulation" src="images/filius-simulation.png" width="10%"/>  Faire un clic droit sur la machine d'adresse IP <code>192.168.1.1</code> pour afficher le bureau, ouvrir une fenêtre de ligne de commandes et saisir la commande <code>ping 192.168.0.1</code> qui envoie successivement quatre paquets de données pour tester la liaison avec la machine d'adresse IP <code>192.168.0.1</code>. Sélectionner l'affichage des échanges de données avec un clic droit sur la machine <code>192.168.0.1</code>. </p>
+</li>
+<li>
+<p>Pour les quatre premiers paquets de données échangées, noter les adresses MAC et IP de l'émetteur et du destinataire et déterminer la fonction de chaque message.</p>
+</li>
+</ol>
+<!--Quel protocole de la couche **Internet** est utilisé par la commande <code>ping</code> ? -->
+<ol>
+<li>
+<p>Recommencer l'opération mais en testant la liaison entre les hôtes <code>192.168.1.1</code> et <code>192.168.1.2</code>. Quelles différences peut-on noter ? </p>
+</li>
+<li>
+<p>Dans une interconnexion de réseau, chaque interface est identifiée de façon unique par son adresse IP. Les adresses IP de la forme <code>192.168.1.X</code> correspondent à des interfaces qui sont dans le même réseau local, les adresses IP de la forme <code>192.168.0.X</code> dénotent un autre réseau local. Ces deux réseaux sont interconnectés par un <strong>routeur</strong>.  </p>
+<ul>
+<li>
+<p>Quelle est la particularité du <strong>routeur</strong> ? </p>
+</li>
+<li>
+<p>Si on compare une interconnexion de réseau comme Internet au réseau postal, quelle analogie peut-on faire pour une adresse IP ?</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Passer en mode construction et afficher les configurations des hôtes d'adresses IP <code>192.168.1.1</code> et <code>192.168.0.1</code>. Convertir en binaire les quatre entiers composant le masque et faire un ET logique bit à bit entre le masque et l'adresse IP de l'hôte. Quelle adresse IP obtient-on ?</p>
+</li>
+<li>
+<p>Échanger les machines d'adresses MAC  <code>49:7F:CC:F9:D6:A5</code>  et <code>42:92:2E:CF:47:85</code>.  En mode construction, permuter leurs configurations réseau : adresse IP et adresse de la passerelle. Tester la liaison avec la commande <code>ping</code>.</p>
+<ul>
+<li>D'après vous ,pourquoi désigne-t-on l'adresse MAC comme adresse physique et l'adresse IP comme adresse logique ?</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Configuration de 192.168.1.1" src="images/config_passerelle.png"/>\
+&amp;
+<img alt="Configuration de 192.168.0.1" src="images/config_passerelle2.png"/>\</p>
+</div>
+<p><img alt="Ping de 192.168.1.1 vers 192.168.0.1" src="images/ping_wlan.png"/></p>
+<p><img alt="Pong de 192.168.1.1 vers 192.168.0.1" src="images/pong_wlan.png"/> </p>
+<p><em>Pong de 192.168.1.1 vers 192.168.0.1</em></p>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 5</p>
+<ul>
+<li>
+<p>Dans les années 1970, <a href="https://fr.wikipedia.org/wiki/Vint_Cerf">Vinton Cerf et Robert Kahn</a> en s'inspirant des travaux de <a href="https://interstices.info/louis-pouzin-la-tete-dans-les-reseaux/">Louis Pouzin</a>, ont développé le protocole <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">Internet Protocol (IP)</a> qui permet d'interconnecter des réseaux locaux. C'est un protocole de la couche <em>réseau</em> ou  <em>internet</em> dans le <a href="https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet">modèle en couches TCP/IP</a>.</p>
+</li>
+<li>
+<p>La première fonctionnalité du protocole <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> est <em>l'adressage</em>. </p>
+<ul>
+<li>Chaque interface d'une machine  hôte de l'interconnexion de réseaux reçoit un identifiant unique appelé  <strong>adresse IP</strong>. Dans la version 4 du protocole, elle est représentée sur 32 bits par 4 octets notés en décimal séparés par des points. Selon le principe d'<strong>encapsulation des données</strong>, les adresses  <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>  de l'émetteur et du destinataire du message sont ajoutés dans <em>l'entête</em> <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>.</li>
+</ul>
+<p><a href="https://commons.wikimedia.org/wiki/File:Addresse_Ipv4.svg"><img alt="adresse IP" src="images/750px-Addresse_Ipv4_svg.png" width="60%"/></a></p>
+<ul>
+<li>L'adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>  est une <strong>adresse logique</strong>, elle n'est pas attachée définitivement à une machine, elle peut changer si la machine est déplacée dans un autre réseau. De plus une adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> dénote une interface réseau et une machine, comme un <strong>routeur</strong>, peut en posséder plusieurs.</li>
+<li>Il existe des adresses <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> spéciales comme <code>127.0.0.1</code> qui correspond à la machine elle-même.</li>
+</ul>
+</li>
+<li>
+<p>La seconde fonctionnalité du protocole <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> est <em>le routage</em> des paquets de données à travers différents réseaux locaux. </p>
+<ul>
+<li>Un <strong>routeur</strong> est un équipement situés à la frontière d'au moins deux réseaux, possédant une interface  dans   (et donc au moins deux adresses IP) et qui joue le rôle de <strong>passerelle</strong> entre les deux.</li>
+<li>En pratique un émetteur envoie un paquet de données directement à son destinataire (en passant par un <strong>switch</strong>) s'il est sur le même réseau local et sinon il le transmet à sa <strong>passerelle</strong>. Celle-ci peut le transmettre directement si elle est connectée au réseau du destinataire sinon elle l'envoie à une autre <strong>passerelle</strong>. </li>
+<li>De proche en proche et grâce à des <em>algorithmes de routage</em>, le message parvient jusqu'au destinataire. Chaque <strong>passerelle</strong> possède des <em>tables de routage</em> pour déterminer le prochain saut dans la transmission d'un message reçu.</li>
+<li>Tous les  paquets de données  transmis d'un hôte émetteur vers un destinataire ne suivent pas forcément le même chemin. Si la topologie physique de l'interconnexion de réseaux évolue (routeurs ajoutés, enlevés, en panne) ou si le trafic est trop important sur certains liens, les routeurs intermédiaires vont dynamiquement mettre à jour leurs <em>tables de routages</em> et peuvent changer le routage de paquets avec le même couple (émetteur, destinataires). C'est le principe de la <strong>commutation de paquets</strong>. </li>
+<li>Une <em>configuration réseau</em> permet à un hôte émetteur de déterminer si le destinataire d'un message fait partie du même réseau local. Cette configuration est constituée :</li>
+<li>de l'adresse  <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> de l'interface</li>
+<li>de l'adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> de sa <strong>passerelle</strong></li>
+<li>d'un <strong>masque de sous-réseau</strong> au format d'une adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> qui permet de séparer les parties <em>réseau</em> et <em>hôte</em> dans une adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>. Tous les hôtes d'un même réseau local partagent le même <em>préfixe réseau</em>. </li>
+<li>Une <em>configuration réseau</em> peut être attribuée automatiquement par le service réseau <a href="https://fr.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a> ou de façon statique dans un fichier de configuration. </li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Méthode 1</p>
+<p>Voici quelques exemples pour extraire le <em>préfixe réseau</em> à partir d'une adresse  <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> et d'un <strong>masque de sous-réseau</strong>. Il faut effectuer un <strong>ET logique</strong> entre les représentations binaires de l'adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> et du <strong>masque de sous-réseau</strong>.</p>
+<p><em>Cette méthode est hors-programme pour le bac !</em></p>
+<p><img alt="IP SUBNET" src="images/ip-subnet.png" width="50%"/>\</p>
+<ol>
+<li>Si le nombre de bits du <strong>masque de sous-réseau</strong> est un multiple de 8  : <code>255.0.0.0</code>, <code>255.255.0.0</code>, ou <code>255.255.255.0</code> il suffit de masquer la partie de l'adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>  correspondant aux <code>0</code> du masque. Le passage en binaire n'est pas nécessaire.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Adresse</th>
+<th>Binaire</th>
+<th>Décimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adresse IP</td>
+<td>00010111.10101000.00010111.00000010</td>
+<td>192.168.23.2</td>
+</tr>
+<tr>
+<td>masque</td>
+<td>11111111.11111111.11111111.00000000</td>
+<td>255.255.112.0</td>
+</tr>
+<tr>
+<td>adresse réseau</td>
+<td>11000000.10101000.00010111.00000000</td>
+<td>192.168.23.0</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Sinon, le passage en binaire est nécessaire.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Adresse</th>
+<th>Binaire</th>
+<th>Décimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adresse IP</td>
+<td>00010111.10101000.00010111.00000010</td>
+<td>192.168.23.2</td>
+</tr>
+<tr>
+<td>masque</td>
+<td>11111111.11111111.11110000.00000000</td>
+<td>255.255.112.0</td>
+</tr>
+<tr>
+<td>adresse réseau</td>
+<td>11000000.10101000.00010000.00000000</td>
+<td>192.168.16.0</td>
+</tr>
+</tbody>
+</table>
+<p>Un <strong>masque de sous-réseau</strong> peut être caractérisé par sa longueur en bits. La notation <a href="https://fr.wikipedia.org/wiki/Sous-r%C3%A9seau">CIDR</a> est une façon compacte d'ajouter cette information à la suite d'une adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> en les séparant par le symbole <code>/</code>.</p>
+<p>L'adresse du premier exemple sera ainsi notée <code>192.168.23.2/24</code> et celle du second <code>192.168.23.2/20</code>.</p>
+<p>Pour s'entraîner on pourra utilise ce <a href="https://cric.grenoble.cnrs.fr/Administrateurs/Outils/CalculMasque/">calculateur en ligne</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 4</p>
+<p>Donner les adresses réseau correspondant à ces adresses  <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>  en notation <a href="https://fr.wikipedia.org/wiki/Sous-r%C3%A9seau">CIDR</a> :  148.33.1.112/8 ,  82.30.12.18/24 et  91.198.174.3/19</p>
+<details class="help"><summary>Réponse</summary><ul>
+<li>Pour l'adresse 148.33.1.112/8, le masque est 255.0.0.0 et l'adresse réseau s'obtient par un ET logique entre l'adresse hôte  et l'adresse  réseau (en binaire) ce qui nous donne 148.0.0.0</li>
+<li>Pour l'adresse 82.30.12.18/24, le masque est 255.255.255.0 et l'adresse réseau s'obtient par un ET logique entre l'adresse hôte et l'adresse  réseau (en binaire)  ce qui nous donne 82.30.12.0 (en décimal)</li>
+<li>Pour l'adresse 91.198.174.3/19, le masque est 11111111.11111111.11100000.00000000 en binaire soit 91.198.224.0 en décimal et l'adresse réseau s'obtient par un ET logique entre l'adresse hôte et l'adresse  réseau (en binaire) ce qui nous donne 91.198.160.0 (en décimal)</li>
+</ul>
+</details>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Méthode 2</p>
+<p>Quelques commandes réseau sont à connaître.</p>
+<ol>
+<li>La commande <code>ping</code> permet de tester la liaison avec un  hôte si on connaît son adresse  <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> ou son nom de domaine. On l'interrompt avec le signal envoyé par  <code>CTRL + C</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~$ ping <span class="m">192</span>.168.1.254
+PING <span class="m">192</span>.168.1.254 <span class="o">(</span><span class="m">192</span>.168.1.254<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
+<span class="m">64</span> bytes from <span class="m">192</span>.168.1.254: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.27 ms
+<span class="m">64</span> bytes from <span class="m">192</span>.168.1.254: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">3</span>.83 ms
+<span class="m">64</span> bytes from <span class="m">192</span>.168.1.254: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.60 ms
+^C
+--- <span class="m">192</span>.168.1.254 ping statistics ---
+<span class="m">9</span> packets transmitted, <span class="m">9</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 8013ms
+rtt min/avg/max/mdev <span class="o">=</span> <span class="m">2</span>.184/3.020/4.642/0.844 ms
+</code></pre></div>
+<ol>
+<li>Les commandes <code>ifconfig</code> ou <code>ip address</code> sous Linux ou <code>ipconfig</code> sous Windows permettent d'afficher les adresses  physique (MAC) ou logiques (IP) d'une interface réseau. Par exemple l'adresse MAC de l'interface Wifi ci-dessous est <code>fc:f8:ae:31:cb:67</code> et son adresse IPV4, au moment de l'exécution, était <code>192.168.1.98</code>. On remarque un autre format  IPV6 codé sur 128 bits en hexadécimal, mis en place progressivement pour faire face à la pénurie d'adresses IPV4 sur 32 bits (soit <span class="arithmatex">\(2^{32}=4294967296\)</span> adresses).</li>
+</ol>
+<div class="highlight"><pre><span></span><code>anonymous@laptop:~$ ifconfig
+wlp2s0: <span class="nv">flags</span><span class="o">=</span><span class="m">4163</span>&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="m">1500</span>
+        inet <span class="m">192</span>.168.1.98  netmask <span class="m">255</span>.255.255.0  broadcast <span class="m">192</span>.168.1.255
+        inet6 fe80::2d0d:7c56:cc75:cadb  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+        ether fc:f8:ae:31:cb:67  txqueuelen <span class="m">1000</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+        RX packets <span class="m">50800</span>  bytes <span class="m">45120378</span> <span class="o">(</span><span class="m">45</span>.1 MB<span class="o">)</span>
+        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+        TX packets <span class="m">37659</span>  bytes <span class="m">5251257</span> <span class="o">(</span><span class="m">5</span>.2 MB<span class="o">)</span>
+</code></pre></div>
+<ol>
+<li>La commande <code>route -n</code> sous Linux permet d'afficher la passerelle et le masque de sous-réseau d'une interface. Ci-dessous l'adresse de l'hôte est <code>192.168.1.0</code>, celle de la passerelle <code>192.168.1.254</code> et le masque est <code>255.255.255.0</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>anonymous@laptop:~$ route -n
+Table de routage IP du noyau
+Destination     Passerelle      Genmask         Indic Metric Ref    Use Iface
+<span class="m">0</span>.0.0.0         <span class="m">192</span>.168.1.254   <span class="m">0</span>.0.0.0         UG    <span class="m">600</span>    <span class="m">0</span>        <span class="m">0</span> wlp2s0
+<span class="m">192</span>.168.1.0     <span class="m">0</span>.0.0.0         <span class="m">255</span>.255.255.0   U     <span class="m">600</span>    <span class="m">0</span>        <span class="m">0</span> wlp2s0
+</code></pre></div>
+<ol>
+<li>La commande <code>traceroute</code> utilise le champ <a href="https://fr.wikipedia.org/wiki/Time_to_Live">TTL</a> de l'<em>entête</em> IP pour tracer les routeurs sur le chemin entre un hôte émetteur et un destinataire dont on connaît l'adresse  <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> ou le nom de domaine. Le nombre de sauts maximum est de 30.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>anonymous@laptop:~$ traceroute qwant.com
+traceroute to qwant.com <span class="o">(</span><span class="m">194</span>.187.168.99<span class="o">)</span>, <span class="m">30</span> hops max, <span class="m">60</span> byte packets
+ <span class="m">1</span>  _gateway <span class="o">(</span><span class="m">192</span>.168.1.254<span class="o">)</span>  <span class="m">5</span>.397 ms  <span class="m">5</span>.415 ms  <span class="m">6</span>.008 ms
+ <span class="m">2</span>  <span class="m">176</span>-145-144-2.abo.bbox.fr <span class="o">(</span><span class="m">176</span>.145.144.2<span class="o">)</span>  <span class="m">29</span>.450 ms  <span class="m">29</span>.952 ms  <span class="m">31</span>.584 ms
+ <span class="m">3</span>  <span class="m">212</span>.194.170.233 <span class="o">(</span><span class="m">212</span>.194.170.233<span class="o">)</span>  <span class="m">38</span>.825 ms  <span class="m">42</span>.428 ms  <span class="m">43</span>.469 ms
+ <span class="m">4</span>  be5.cbr01-ntr.net.bbox.fr <span class="o">(</span><span class="m">212</span>.194.171.137<span class="o">)</span>  <span class="m">44</span>.712 ms  <span class="m">45</span>.358 ms  <span class="m">46</span>.831 ms
+ <span class="m">5</span>  * * *
+ <span class="m">6</span>  qwant.par.franceix.net <span class="o">(</span><span class="m">37</span>.49.236.134<span class="o">)</span>  <span class="m">48</span>.854 ms  <span class="m">25</span>.381 ms  <span class="m">25</span>.308 ms
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 5</p>
+<p><em>QCM type E3C</em></p>
+<ol>
+<li>
+<p>Laquelle de ces écritures ne désigne pas une adresse IP ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  127.0.0.1</li>
+<li><strong>Réponse B  :</strong>  207.142.131.245</li>
+<li><strong>Réponse C  :</strong>  192.168.229.48</li>
+<li><strong>Réponse D  :</strong> 296.141.2.4</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse D</strong> Chaque champ d'une adresse IP est codée sur 8 bits donc sa valeur maximale en décimal est de 255</p>
+</details>
+</li>
+<li>
+<p>Sur la configuration IP d'une machine nommée MACH01 on peut lire :</p>
+<p>adresse Ipv4 : 172.16.100.201 Masque de sous-réseau : 255.255.0.0  Passerelle : 172.16.0.254</p>
+<p>Sur la configuration IP d'une machine nommée MACH02 on peut lire :</p>
+<p>adresse Ipv4 : 172.16.100.202 Masque de sous-réseau : 255.255.0.0  Passerelle : 172.16.0.254</p>
+<p>Depuis la machine MACH02, à l'aide de quelle commande peut-on tester le
+dialogue entre ces deux machines ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  ping 172.16.100.201</li>
+<li><strong>Réponse B  :</strong>  ping 172.16.100.202</li>
+<li><strong>Réponse C  :</strong>  ping 172.16.100.254</li>
+<li><strong>Réponse D  :</strong>  ping 255.255.0.0</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse A</strong> </p>
+</details>
+</li>
+<li>
+<p>Dans un terminal sous Linux, à quoi sert la commande traceroute ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  à afficher un itinéraire routier entre deux villes</li>
+<li><strong>Réponse B  :</strong>  c'est un synonyme pour la commande ping</li>
+<li><strong>Réponse C  :</strong>  à afficher le chemin suivi par des paquets à travers un protocole IP</li>
+<li><strong>Réponse D  :</strong>  à suivre pas à pas l'exécution d'un programme</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse C</strong> </p>
+</details>
+</li>
+<li>
+<p>Quelle est l'utilité de la commande ping dans un réseau informatique ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  établir un réseau privé virtuel</li>
+<li><strong>Réponse B  :</strong>  tester si la connexion peut être établie avec une machine distante</li>
+<li><strong>Réponse C  :</strong>  obtenir la route suivie par un paquet dans le réseau</li>
+<li><strong>Réponse D  :</strong>  mesurer les performances d'une machine distante</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse B</strong> </p>
+</details>
+</li>
+<li>
+<p>Quel matériel permet d'interconnecter des <strong>réseaux</strong> entre eux :</p>
+<ul>
+<li><strong>Réponse A :</strong>  un routeur</li>
+<li><strong>Réponse B  :</strong>  un commutateur (ou <em>switch</em>)</li>
+<li><strong>Réponse C  :</strong>  un interconnecteur</li>
+<li><strong>Réponse D  :</strong>  un serveur</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse A</strong> </p>
+</details>
+</li>
+<li>
+<p>Quel protocole permet d'attribuer dynamiquement une adresse IP ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  UDP</li>
+<li><strong>Réponse B  :</strong>  HTTP</li>
+<li><strong>Réponse C  :</strong>  DHCP</li>
+<li><strong>Réponse D  :</strong>  DNS</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse C</strong> </p>
+</details>
+</li>
+</ol>
+</div>
+<h2 id="la-couche-transport-du-modele-tcpip">La couche transport du modèle TCP/IP<a class="headerlink" href="#la-couche-transport-du-modele-tcpip" title="Permanent link">⚓︎</a></h2>
+<p><img alt="Réseau avec serveur Web" src="images/wlan3.png"/></p>
+<div class="admonition info">
+<p class="admonition-title">Activité 3</p>
+<details class="warning"><summary>Téléchargement de l'archive</summary><p><a href="ressources/materiel-filius.zip">Archive avec les fichiers Filius</a></p>
+</details>
+<ol>
+<li>Ouvrir avec le logiciel <a href="https://www.lernsoftware-filius.de/Herunterladen">Filius</a> le fichier <code>wlan3.fls</code>. Il s'agit du même réseau que dans <code>wlan3.fls</code> avec un ordinateur d'adresse IP <code>192.168.0.2</code>et un switch en plus dans le réseau d'adresse <code>192.168.0.0</code>.</li>
+<li>Sélectionner le mode <em>simulation</em> <img alt="mode simulation" src="images/filius-simulation.png" width="10%"/>  Faire un clic droit sur la machine d'adresse IP <code>192.168.0.2</code>, afficher le bureau, installer un serveur Web et le démarrer.  Faire un clic droit sur la machine d'adresse IP <code>192.168.1.1</code>, , afficher le bureau, installer un navigateur  Web et saisir dans la barre d'adresse <code>http://192.168.0.2</code> pour envoyer une requête HTTP demandant la page d'accueil du serveur Web sur <code>192.168.0.2</code>. Afficher les données échangées, on devrait obtenir l'historique ci-dessous.</li>
+<li>La requête HTTP est-elle le premier paquet de données échangé ?</li>
+</ol>
+</div>
+<p><img alt="Requête HTTP avec une adresse IP" src="images/filius-tcp1.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 6</p>
+<ul>
+<li>
+<p>Le protocole <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>  de la couche <em>réseau</em> permet la transmission d'un paquet de données entre deux machines hôtes. Il s'exécute sur tous les routeurs traversés lors du chemin. Néanmoins, plusieurs services réseaux peuvent s'exécuter sur l'émetteur et le destinataire. Pour faire communiquer deux programmes, il faut donc un paramètre d'adresse supplémentaire, appelé <strong>port</strong>.  </p>
+</li>
+<li>
+<p>Les protocoles <a href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>  et <a href="https://fr.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a> de la couche <em>transport</em> encapsulent un paquet  IP à émettre avec un  <em>entête</em> contenant les numéros de <strong>port</strong> des appplications chez l'émetteur et le destinataire. 
+Ces protocoles s'exécutent de <em>bout en bout</em> sur l'émetteur et le destinataire mais pas sur les routeurs intermédiaires.</p>
+</li>
+<li>
+<p>Par principe de <strong>multiplexage</strong>, les données sont découpées en paquets qui sont transmis séparément sur le réseau et qui peuvent suivre des chemins différents et donc se perdre ou arriver dans le désordre d'après le principe de <strong>commutation de paquets</strong>. Cette souplesse du <a href="https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet">modèle TCP/IP</a> est la clef du succès d'Internet mais elle nécessite des mécanismes pour garantir la <em>fiabilité</em> des transmissions : ordonner les paquets, demander la réémission de paquets perdus ... </p>
+</li>
+<li>
+<p>Le protocole <a href="https://fr.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a> fonctionne en mode non connecté et  n'offre pas ces services car il est utilisé dans des applications avec des questions/réponses simples (<a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a> ) ou pour lesquelles les erreurs de transmission ne sont pas critiques et qui ont besoin de rapidité  (streaming video, jeu en ligne ...). </p>
+</li>
+<li>
+<p>Le protocole <a href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> établit une connexion entre l'émetteur et le destinataire  et résout les problèmes de qualité de service grâce à un système d'<em>accusés de réception</em>. </p>
+</li>
+</ul>
+<p><img alt="UDP1" src="images/UDP1.png"/>\
+&amp;
+<img alt="UDP2" src="images/UDP2.png"/>\</p>
+<p><em>Source : Sébastien Sauvage</em> </p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Méthode 3</p>
+<p>Expliquons le fonctionnement du protocole <a href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> à partir de l'historique d'échanges de la figure 12.</p>
+<p><em>La connaissance de TCP est hors-programme mais nous étudierons en dernière partie un protocole simplifié de récupération de paquets qui est au programme !</em></p>
+<ol>
+<li>Pour établir une <em>connexion TCP</em> entre un émetteur et un destinataire, les deux hôtes procèdent à un partage de numéros de séquences des paquets de données qu'ils vont transmettre lors d'une phase de trois échanges nommée <a href="https://fr.wikipedia.org/wiki/Three-way_handshake">three handshake</a> (voir figure 13).  Elle correspond aux échanges 3, 4 et 5 de la figure 12 :</li>
+<li>Le client d'IP <code>192.168.1.1</code> envoie un paquet avec le drapeau <code>SYN</code> et un numéro de séquence SEQ 3707411535 qu'il a choisi.</li>
+<li>Le serveur <code>192.168.0.2</code> lui répond avec un paquet de drapeau<code>SYN</code>   qui contient un numéro de séquence SEQ 2190171253 qu'il a choisi et un numéro d'acquittement <code>ACK</code> avec le numéro de la prochaine séquence d'octets attendu de <code>192.168.1.1</code>, soit <span class="arithmatex">\(3707411535 + 1 = 3707411536\)</span>.</li>
+<li>
+<p>Le client  <code>192.168.1.1</code> confirme avec un paquet sans drapeau qui contient le numéro de séquence <code>SEQ</code> correspondant au dernier  numéro d'acquittement  <code>ACK</code> reçu (soit 3707411536) et un  <code>ACK</code> indiquant au serveur le numéro de séquence du prochain paquet attendu, soit <span class="arithmatex">\(2190171253 + 1 = 2190171254\)</span>.</p>
+</li>
+<li>
+<p>Une fois la connexion ouverte, chaque message reçu  est suivi par l'envoi d'un <em>accusé de réception</em> (échanges de numéros impairs dans la figure 12) avec un numéro de séquence <code>SEQ</code> correspondant au dernier numéro d'acquittement  <code>ACK</code> reçu et un accusé de réception indiquant à l'interlocuteur le numéro de séquence attendu lors de son prochain envoi : il se calcule en ajoutant à l'<code>ACK</code> précédent la taille du paquet qui vient d'être reçu.  Ainsi chaque interlocuteur peut vérifier si son dernier paquet a été bien reçu (et le renvoyer éventuellement au bout d'un certain temps) et ordonner les paquets s'ils sont arrivés dans le désordre.</p>
+</li>
+<li>
+<p>Toute connexion <a href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> se termine par un <code>handshaking</code>  en quatre  temps avec un échange de paquets marqués par le drapeau <code>FIN</code> (voir figure 14)</p>
+</li>
+</ol>
+</div>
+<figure>
+<img alt="Ouverture d’une connexion TCP" src="../images/TCP1.png" style="width:80.0%"/><figcaption aria-hidden="true">Ouverture d’une connexion TCP</figcaption>
+</figure>
+<figure>
+<img alt="Fin d’une connexion TCP" src="../images/filius-tcp2.png" style="width:100.0%"/><figcaption aria-hidden="true">Fin d’une connexion TCP</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 6</p>
+<p><em>QCM type E3C</em> </p>
+<p>Dans le protocole de communication IP :</p>
+<ul>
+<li><strong>Réponse A :</strong>  Les données sont envoyées en une seule partie.</li>
+<li><strong>Réponse B  :</strong>  Les données sont envoyées en plusieurs parties qui suivent le même itinéraire au sein du réseau.</li>
+<li><strong>Réponse C  :</strong>  Les données sont envoyées en plusieurs parties qui suivent des
+itinéraires différents au sein du réseau et arrivent à destination en
+respectant l'ordre de leur envoi.</li>
+<li><strong>Réponse D  :</strong>  Les données sont envoyées en plusieurs parties qui suivent des
+itinéraires différents au sein du réseau et arrivent à destination dans
+un ordre quelconque.</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse D</strong></p>
+</details>
+</div>
+<h2 id="la-couche-application-du-modele-tcpip">La couche application du modèle TCP/IP<a class="headerlink" href="#la-couche-application-du-modele-tcpip" title="Permanent link">⚓︎</a></h2>
+<figure>
+<img alt="Réseaux avec serveur DNS" src="../images/filius-dns.png" style="width:100.0%"/><figcaption aria-hidden="true">Réseaux avec serveur DNS</figcaption>
+</figure>
+<div class="admonition info">
+<p class="admonition-title">Activité 4</p>
+<details class="warning"><summary>Téléchargement de l'archive</summary><p><a href="ressources/materiel-filius.zip">Archive avec les fichiers Filius</a></p>
+</details>
+<ol>
+<li>Ouvrir avec le logiciel <a href="https://www.lernsoftware-filius.de/Herunterladen">Filius</a> le fichier <code>wlan4.fls</code>.  Par rapport aux réseaux de <code>wlan3.fls</code>, on a rajouté une interface <code>192.168.2.10</code> sur le routeur qui est connectée à un réseau local constitué d'une seule machine hôte d'adresse <code>192.168.2.1</code>. </li>
+</ol>
+<p>En pratique, on n'interroge pas un serveur Web avec son adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> mais avec un <em>nom de domaine</em>. Pour associer l'adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> <code>192.168.0.1</code>  du serveur Web au nom de domaine <code>www.monsite.org</code>}, on va rajouter un serveur <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a> sur la machine <code>192.168.2.1</code>.</p>
+<ol>
+<li>
+<p>En mode construction, paramétrer le serveur <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a> sur la machine <code>192.168.1.1</code> avec l'adresse <code>192.168.2.1</code>.</p>
+</li>
+<li>
+<p>En mode simulation, faire un clic droit sur la machine <code>192.168.2.1</code>, installer l'application serveur DNS, ajouter la règle de résolution du nom de domaine <code>www.monsite.org</code> par l'adresse <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a> du serveur Web et démarrer le serveur <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a>.</p>
+</li>
+<li>
+<p>Toujours en mode simulation, depuis la machine <code>192.168.1.1</code>, afficher le bureau, ouvrir le navigateur Web et saisir dans la barre d'adresse l'<a href="https://fr.wikipedia.org/wiki/Uniform_Resource_Locator">URL</a> <a href="http://www.monsite.org">http://www.monsite.org</a>. Afficher les échanges de données, on doit obtenir un historique similaire à celui de la figure 16. Comparer avec l'historique de la figure 12 où le serveur Web avait été atteint à partir de son adresse IP. Quels paquets de données supplémentaires ont été echangés ? Entre quelles machines ? Quel est leur rôle ?</p>
+</li>
+</ol>
+</div>
+<p><img alt="Requête HTTP avec une URL" src="images/filius-dns4.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 7</p>
+<ul>
+<li>La <em>couche application</em> fournit des services permettant aux applications du client d'utiliser le réseau . </li>
+<li>Ces programmes et les protocoles qu'ils utilisent incluent <a href="https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a> (Web), <a href="https://fr.wikipedia.org/wiki/File_Transfer_Protocol">FTP</a> (transfert de fichiers), <a href="https://fr.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>(messagerie), <a href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a>(connexion à distance sécurisée) ou <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a> (recherche de correspondance entre noms et adresses IP) ... </li>
+<li>Ils sont souvent associés à des <strong>ports</strong> <a href="https://fr.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> particuliers : 80 pour <a href="https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>, 22 pour <a href="https://fr.wikipedia.org/wiki/Secure_Shell">SSH</a> ...</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Méthode 4</p>
+<p><em>Pour le bac il faut juste savoir que DNS est le service de résolution de noms de domaines des URL en adresses IP.</em></p>
+<ul>
+<li>
+<p>Le <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a> , pour <em>Domain Name System</em>, fait le lien entre les adresses <a href="https://fr.wikipedia.org/wiki/Internet_Protocol">IP</a>  et les noms de machine.
+Les noms de domaine figurent en particulier dans les <a href="https://fr.wikipedia.org/wiki/Uniform_Resource_Locator">URL</a> qui permettent de localiser les ressources dans l'hypertexte du Web. Par exemple dans l'<a href="https://fr.wikipedia.org/wiki/Uniform_Resource_Locator">URL</a> <a href="https://fst-mathematiques.univ-lyon1.fr/formation/">https://fst-mathematiques.univ-lyon1.fr/formation/</a>, le nom de domaine est <code>fst-mathematiques.univ-lyon1.fr</code>. Les noms de domaines sont hiérarchisés dans une structure arborescente. Dans un nom de domaine, les domaines imbriqués sont séparés par un point : dans <code>fst-mathematiques.univ-lyon1.fr</code>, on a fst-mathematiques sous-domaine de univ-lyon1 sous-domaine de domaine de <code>fr</code> qui est un domaine de premier niveau ou Top Level Domain.</p>
+</li>
+<li>
+<p>Le préfixe <code>www</code> qui apparaît souvent dans les URL du Web,  désigne un sous-domaine particulier correspondant au  répertoire public par défaut sur le serveur Web. Il n'est pas nécessaire dans l'<a href="https://fr.wikipedia.org/wiki/Uniform_Resource_Locator">URL</a>.</p>
+</li>
+<li>
+<p>Les correspondances entre noms de domaine et adresses IP sont déterminées en interrogeant des serveurs <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a>(avec le protocole <a href="https://fr.wikipedia.org/wiki/Domain_Name_System">DNS</a>...) . Chaque hôte sur internet est paramétré avec un serveur DNS par défaut. Un seul serveur DNS ne pouvant pas connaître toutes les adresses IP, DNS est un système distribué : chaque hôte possède un serveur DNS par défaut qui connaît l'adresse de serveurs racines qui eux-mêmes connaissent les adresses de serveurs DNS administrant les domaines de premier niveau. Pour résoudre un domaine, le serveur DNS de l'hôte procède par interrogations successives jusqu'à atteindre un serveur DNS détenant l'adresse IP du domaine recherché. </p>
+</li>
+<li>
+<p>Les commandes <code>host</code> ou <code>nslookup</code> permettent sous Linux de résoudre des noms de domaines  :</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>junier@fredportable:~$ host qwant.com
+qwant.com has address <span class="m">194</span>.187.168.99
+qwant.com mail is handled by <span class="m">50</span> mail1.qwant.com.
+qwant.com mail is handled by <span class="m">90</span> mail2.qwant.com.
+junier@fredportable:~$ nslookup qwant.com
+Server:     <span class="m">127</span>.0.0.53
+Address:    <span class="m">127</span>.0.0.53#53
+
+Non-authoritative answer:
+Name:   qwant.com
+Address: <span class="m">194</span>.187.168.99
+</code></pre></div>
+</div>
+<figure>
+<img alt="Requêtes DNS itératives (source Wikipedia)" src="../images/528px-DNS_iterations.svg.png" style="width:60.0%"/><figcaption aria-hidden="true">Requêtes DNS itératives (source Wikipedia)</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 7</p>
+<p><em>QCM type E3C</em></p>
+<p>L'adresse IP du site <code>www.education.gouv.fr</code> est 185.75.143.24.</p>
+<p>Quel dispositif permet d'associer l'adresse IP et l'URL <code>www.education.gouv.fr</code> ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  un routeur.</li>
+<li><strong>Réponse B  :</strong>  un serveur DNS.</li>
+<li><strong>Réponse C  :</strong>  un serveur de temps.</li>
+<li><strong>Réponse D  :</strong>  un serveur Web.</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse B</strong></p>
+</details>
+</div>
+<h1 id="etude-dun-protocole-de-recuperation-de-paquet">Étude d’un protocole de récupération de paquet<a class="headerlink" href="#etude-dun-protocole-de-recuperation-de-paquet" title="Permanent link">⚓︎</a></h1>
+<h2 id="le-protocole-du-bit-alterne">Le protocole du bit alterné<a class="headerlink" href="#le-protocole-du-bit-alterne" title="Permanent link">⚓︎</a></h2>
+<p><em>Le contenu de cette partie est directement inspiré des cours de <a href="http://archives.janviercommelemois.fr/nsi/fichiers_pdf/feuille-internet.pdf">Romain
+Janvier</a>
+ou <a href="https://pixees.fr/informatiquelycee/n_site/nsi_prem.html">David
+Roche</a>, merci
+à eux.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Point de cours 8</p>
+<ul>
+<li>
+<p>Le <strong>protocole de bit alterné</strong> était implémenté au niveau de la <em>couche liaison</em> du modèle OSI. Le principe est simple :  considérons 2 machines en réseau : une machine  A, l'émetteur et  une machine B, le destinataire.  Lors de l'émission d'un paquet de données, A y ajoute un <em>bit</em> (1 ou 0) appelé <em>bit de contrôle</em>. À réception, B  envoie un <em>accusé de réception</em> (acknowledge en anglais souvent noté <code>ACK</code>) en lui ajoutant également un <em>bit de contrôle</em> (1 ou 0).</p>
+</li>
+<li>
+<p>Pour le choix des <em>bits drapeaux</em>, la règle est la suivante  : </p>
+<ul>
+<li>le premier paquet envoyé par A aura pour bit de contrôle 0</li>
+<li>B répond avec un accusé de réception en fixant un <em>bit alterné</em> pour  son  bit de contrôle  : donc 1 s'il a reçu 0</li>
+<li>A reçoit un accusé de réception avec le bit de contrôle 1 donc il sait que son paquet précédent a été reçu et qu'il peut envoyer le paquet suivant avec le bit de contrôle 1 </li>
+<li>B reçoit un paquet avec le bit de contrôle qui correspond à celui  demandé, il renvoie un accusé de réception avec le <em>bit alterné</em> donc 0 </li>
+<li>ainsi de suite ... le bit de la trame ou de l'accusé de réception alterne de chaque côté</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Protocole du bit alterné" src="images/bit_alterne1.png"/>\</p>
+<p><em>Déroulement du protocole du bit alterné (source : Romain janvier)</em></p>
+<ul>
+<li>
+<p>Le système de bit de contrôle est complété avec un système d'horloge côté émetteur. Un "chronomètre" est déclenché à chaque envoi de paquet. Si au bout d'un certain temps (le <em>timeout</em>), l'émetteur n'a pas reçu un <em>accusé de réception</em> correct (avec le bon bit de contrôle), la trame précédemment envoyée par l'émetteur est considérée comme perdue et elle est de nouveau envoyée.</p>
+</li>
+<li>
+<p>Considérons quelques cas de perte de paquet :</p>
+<ul>
+<li>Si un paquet  (avec par exemple le bit de contrôle 0) envoyé par l'émetteur est perdu, l'accusé de réception ne lui revient pas au bout du timeout, il comprend que son paquet a été perdu et il renvoie le paquet.</li>
+<li>Si l'<em>accusé de réception</em> avec le bit de contrôle 1 est perdu, il ne parvient pas à l'émetteur au bout du <em>timeout</em> qui renvoie le paquet avec le bit de contrôle 0. Le destinataire reçoit un paquet avec le bit de contrôle 0 alors qu'il attendait le bit de contrôle 1. Il comprend que son acquittement a été perdu et il renvoie son acquittement avec le bit de contrôle 1.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Protocole du bit alterné" src="images/bit_alterne2.png"/>\</p>
+<p><em>Pertes de paquets dans le protocole du bit alterné (source : Romain janvier)</em></p>
+</div>
+<h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">⚓︎</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Exercice 8</p>
+<ol>
+<li>
+<p>Dans quel but le protocole du bit alterné peut-il être utilisé ?</p>
+<ul>
+<li><strong>Réponse A :</strong>  Pour chiffrer des données lors de transmission de données sur un
+réseau</li>
+<li><strong>Réponse B  :</strong>  Pour détecter des pertes de paquets de données lors de transmission de données sur un réseau.</li>
+<li><strong>Réponse C  :</strong>  Pour créer des paquets de données lors de transmission de données sur un réseau.</li>
+<li><strong>Réponse D  :</strong>  Pour envoyer les paquets de données à la bonne l'adresse IP de la machine de destination.</li>
+</ul>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse B</strong></p>
+</details>
+</li>
+<li>
+<p>Quelle est la réponse à envoyer quand on reçoit un paquet avec le bit de contrôle 1 ?</p>
+<details class="help"><summary>Réponse</summary><p><strong>Réponse B</strong></p>
+</details>
+</li>
+<li>
+<p>On arrive au timeout pour le paquet <span class="arithmatex">\(n\)</span> avec un bit de contrôle de 0. Quelle était la réponse attendue ?</p>
+</li>
+<li>Imaginer une ou plusieurs situations où le protocole de bit alterné est inefficace et ne permet pas de récupérer un paquet perdu.</li>
+</ol>
+</div>
+<script src="../../../js/ide.js"></script>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Sous licence CC BY-NC-SA 4.0
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="mailto:admin@frederic-junier.org" rel="noopener" target="_blank" title="Mail">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://github.com/parc-nsi/premiere" rel="noopener" target="_blank" title="Dépôt git">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://fjunier.fr/login" rel="noopener" target="_blank" title="ProfJunierMost">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg id="Layer_1" style="enable-background:new 0 0 500 500;" version="1.1" viewbox="0 0 500 500" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+<g id="XMLID_1_">
+<path d="M415,172.4c-12.1-26-29.5-47.9-52.6-66.3c0.6,12.5,2,39.2,2,39.2s1.4,1.9,2,2.7
+		c23.4,32.6,31.9,68.8,24.1,108c-15.6,78.7-92.3,126.8-170.1,107.1c-68.3-17.2-113.9-87.1-101-156.3c10.2-54.6,42.5-91,94.9-109.5
+		l1.9-0.7l1.5-1.1c6.4-9,12.6-18.1,19.2-27.7c-79.5,3.9-159.4,67.7-168.6,164.7c-8.9,93.9,54.4,177.6,144.9,195.9
+		C307.4,447.6,397.1,392,424.2,303C437.8,258.5,434.6,214.7,415,172.4z M190.7,231.1c4,37.8,36.7,63.5,74.6,59.3
+		c37.2-4.1,64.4-40.5,57.4-77.3c-5.5-28.7-11.6-57.3-17.4-85.9c-2.4-11.9-4.8-23.7-7.4-36.2c-1,0.9-1.5,1.3-1.9,1.7
+		c-12.7,12.5-25.5,25-38.2,37.5c-15.5,15.2-31,30.5-46.6,45.6C195.6,191,188.5,209.5,190.7,231.1z" id="XMLID_2_"></path>
+</g>
+</svg>
+</a>
+<a class="md-footer-social__link" href="https://lyceeduparc.fr/ldp/" rel="noopener" target="_blank" title="Lycée du Parc">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+<script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../../javascripts/config.js"></script>
+<script src="../../../javascripts/interpreter.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
