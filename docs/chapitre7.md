@@ -11,7 +11,7 @@ Cours de Frédéric Junier.
 
 ## Cours / TP
 
-* [Cours / TP en version pdf](chapitre7/NSI-Images-Tableaux2d--2020V1.pdf)
+* [Cours / TP en version pdf](chapitre7/NSI-Images-Tableaux2d--2021V1.pdf)
   
 * [Cours / TP en version notebook](https://mybinder.org/v2/gh/parc-nsi/premiere-nsi/master?filepath=chapitre7/eleves/Images-Tableaux2d-Eleves-Partie1.ipynb)
 
