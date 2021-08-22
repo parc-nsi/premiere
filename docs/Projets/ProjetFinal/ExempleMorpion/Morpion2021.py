@@ -106,7 +106,7 @@ def initialiser_plateau(plateau, case_vers_identifiant):
 def quitter():
     """Quitter proprement la fenetre"""
     fenetre.quit()
-    fenetre.destroy()
+    
 
 # Fonctions de gestion d'une partie
 

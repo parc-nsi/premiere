@@ -454,10 +454,10 @@ ymax/.store in=\ymax, ymax/.default=3, ymax=3,
 \usepackage{etoolbox}
 \usepackage{ifpdf}
 \usepackage[framemethod=tikz]{mdframed}
-\usepackage[tikz]{bclogo}
+\usepackage[tikz]{bclogo} 
 
 %\newcommand\bcpython{\includegraphics[width=17pt]{/home/fjunier/Maths/python-logo.eps}}
-\newcommand\bcpython{\includegraphics[width=17pt]{/home/junier/Maths/python-logo.png}}
+\newcommand\bcpython{\includegraphics[width=17pt]{python-logo.png}}
 %\newcommand\bcpython{\includegraphics[width=17pt]{/home/frederic/Maths/python-logo.png}}
 
 %% Framed
@@ -1556,7 +1556,7 @@ _{\substack{x \to #1 \\ x > #1 }} #2}
 \thepage/\pageref{LastPage}}
 \fancyhead[R]{{\Large NSI }}
 %\fancyhead[L]{\includegraphics[scale=0.12]{/home/frederic/Maths/logo-parc.png}}
-\fancyhead[L]{\includegraphics[scale=0.12]{/home/junier/Maths/logo-parc.png}}
+\fancyhead[L]{\includegraphics[scale=0.12]{logo-parc.png}}
 \fancyhead[C]{\textbf{Dictionnaires TP 1}}
 \fancyfoot[R]{\url{https://lyceeduparc.fr/}}
 
@@ -1978,7 +1978,23 @@ On donne des exemples d'évaluation :
 \end{lstlisting}
 
 
-\item Écrire une fonction \texttt{frequence\_echantillon\_mot\_suivant(taille, premier\_mot, freq)} qui renvoie 
+\item Écrire une fonction dont on donne la spécification ci-dessous : 
+
+\begin{lstlisting}[style=rond]
+def frequence_echantillon_mot_suivant(taille:int, premier_mot:str, freq:Dict[str,Dict[str,float]])->Dict[str, float]:
+    """Paramètres:
+    - taille de type int représentant la taille de l'échantillon
+    - premier_mot de type str
+    - freq un dictionnaire de dictionnaires  tel que freq[premier_mot] est la distribution de fréquences
+    des seconds mots dans les digrammes commençant par premier_mot 
+    Précondition : 0 <= taille et len(freq) > à et premier_mot in freq
+    Valeure renvoyée:  un dictionnaire 
+    Postcondition: renvoie un dictionnaire représentant la distribution de fréquences
+    des seconds mots parmi les digrammes commençant par premier_mot
+    sur un échantillon de taille passée en paramètre"""
+\end{lstlisting}
+
+\texttt{frequence\_echantillon\_mot\_suivant(taille, premier\_mot, freq)} qui renvoie 
 un dictionnaire représentant la distribution expérimentale de seconds mots sur un échantillon de \texttt{taille} digrammes aléatoire commençant par \texttt{premier\_mot} avec \texttt{freq} le dictionnaire de dictionnaire renvoyé par la fonction \texttt{prochain\_freq} de l'exercice 4. Voici un exemple d'exécution :
 
 \begin{lstlisting}[style=compil]
@@ -1988,24 +2004,27 @@ un dictionnaire représentant la distribution expérimentale de seconds mots sur
 {'qui': 0.50156, 'gracieuse': 0.25048, 'et': 0.24796}
 \end{lstlisting}
 
-\item Recopier et compléter le code de la fonction \texttt{autoTexte(source, debut, taille)} qui prend en paramètre un texte \texttt{source}, un premier mot \texttt{debut} et qui écrit dans un fichier un texte automatique de \texttt{taille} mots selon la chaîne de Markov décrite au début de l'exercice. Les lignes ne doivent pas contenir plus  de 60 caractères ou un mot.
+\item Recopier et compléter le code de la fonction \texttt{autoTexte} dont on donne la spécification ci-dessous. 
 
 \begin{lstlisting}
-#module pour la gestion des chemins dans un système de fichiers
-import os.path   
-
-def autoTexte(source, debut, taille):
-    freq = prochain_freq(source)
-    base, ext = os.path.splitext(source)
-    #nom du fichier de sortie
-    sortie = '-'.join([base, 'auto', str(taille)]) + ext
+def auto_texte(chemin_fichier:str, chemin_sortie:str, premier_mot:str, taille:int)->None:
+    """Paramètres :
+    - deux chemins de fichiers  de type str 
+    - premier_mot de type str un premier mot
+    - taille de type int
+    Précondition : chemins non vides et premier_mot dans prochain_fre(chemin_fichier) et taille >= 0
+    Valeur renvoyée : None
+    Postcondition : écrit dans un fichier texte, un texte généré aléatoirement à partir des distributions
+    de fréquences des seconds mots pour les digrammes du texte de source"""
+    assert chemin_fichier != '' and chemin_sortie != '' #précondition 1
+    freq = prochain_freq(chemin_fichier)
+    assert premier_mot in freq and taille >= 0 #précondition 2
     #ouverture du fichier de sortie
-    f = open(sortie, 'w')
-    mot = debut
+    f = open(chemin_sortie, 'w')
+    mot = premier_mot
     f.write(mot + ' ')
     taille_ligne = len(mot) + 1
-    for k in range(taille - 1):
-       #à compléter
+    #à compléter
     f.close()
 \end{lstlisting}
 

@@ -457,7 +457,7 @@ ymax/.store in=\ymax, ymax/.default=3, ymax=3,
 \usepackage[tikz]{bclogo}
 
 %\newcommand\bcpython{\includegraphics[width=17pt]{/home/fjunier/Maths/python-logo.eps}}
-\newcommand\bcpython{\includegraphics[width=17pt]{/home/fjunier/Maths/python-logo.png}}
+\newcommand\bcpython{\includegraphics[width=17pt]{python-logo.png}}
 %\newcommand\bcpython{\includegraphics[width=17pt]{/home/frederic/Maths/python-logo.png}}
 
 %% Framed
@@ -1625,8 +1625,8 @@ _{\substack{x \to #1 \\ x > #1 }} #2}
 \thepage/\pageref{LastPage}}
 \fancyhead[R]{{\Large Première NSI }}
 %\fancyhead[L]{\includegraphics[scale=0.12]{/home/frederic/Maths/logo-parc.png}}
-\fancyhead[L]{\includegraphics[scale=0.12]{/home/fjunier/Maths/logo-parc.png}}
-\fancyhead[C]{\textbf{Boucles}}
+\fancyhead[L]{\includegraphics[scale=0.12]{logo-parc.png}}
+\fancyhead[C]{\Large \textbf{Fonctions}}
 
 
 
@@ -1634,7 +1634,7 @@ _{\substack{x \to #1 \\ x > #1 }} #2}
 
 \author{\Large Première NSI}  % Pour spécifier l'auteur qui sera affiché sous le titre
 \title{\Large Chapitre 5: Fonctions, spécification et mise au point, portée d'une variable}  % Titre 
-\date{Année scolaire 2020/2021}
+\date{Année scolaire 2021/2022}
 
 \renewcommand{\thesection}{\Roman{section}}  % permet de numéroter les sections en chiffres romains
 
@@ -1676,13 +1676,13 @@ L'objectif de ce chapitre est d'apprendre à utiliser de manière pertinente des
 \begin{definition}{}
 Lorsqu'on a besoin de réutiliser tout un bloc  d'instructions, on peut l'encapsuler dans une \textbf{fonction}. On étend ainsi le langage avec une nouvelle instruction. Une fonction sert à factoriser et clarifier  le code, elle facilite la  maintenance et le partage. C'est un outil de \textbf{modularité}. 
 
-Pour déclarer une fonction, on définit son \textbf{en-tête} avec  son \textbf{nom} et des \textbf{paramètres formels} d'entrée. Vient ensuite le bloc d'instructions,  décalé d'une indentation et qui constitue le \textbf{le corps} de la fonction.
+Pour déclarer une fonction, on définit son \textbf{en-tête} (ou \textbf{signature}) avec  son \textbf{nom} et des \textbf{paramètres formels} d'entrée. Vient ensuite le bloc d'instructions,  décalé d'une indentation et qui constitue le \textbf{le corps} de la fonction.
 
 \begin{center}
 \textbf{Fonction avec \texttt{return}}
 
 \begin{lstlisting}[style=rond]
-def mafonction(parametre1, parametre2):
+def mafonction(parametre1, parametre2): #signature
     bloc d'instructions (optionnel)
     return valeur
 \end{lstlisting}
@@ -1691,7 +1691,7 @@ def mafonction(parametre1, parametre2):
 \textbf{Fonction sans \texttt{return}}
 
 \begin{lstlisting}[style=rond]
-def mafonction(parametre1, parametre2):
+def mafonction(parametre1, parametre2): #signature
     bloc d'instructions (non vide)
 \end{lstlisting}
 \end{center}
@@ -2059,6 +2059,10 @@ exitonclick()
 \end{entrainement}
 
 
+\newpage
+
+\section{Spécification et mise au point}
+
 \subsection{Spécifier une fonction}
 
 \begin{methode}{}
@@ -2069,11 +2073,28 @@ En Python, on peut associer à une fonction une \textbf{chaîne de documentation
 
 \begin{itemize}
  \item les paramètres attendus par la fonction en précisant leur type ;
+ \item des conditions sur les paramètres qu'on appelle \textbf{préconditions} ;
  \item le type de la valeur renvoyée (\texttt{None} s'il n'y a pas de \texttt{return}) ;
- \item la nature du traitement effectué.
+ \item ce qu'elle fait et/ou renvoie, on appelle cela une \textbf{postcondition}.
 \end{itemize}
 
-En plaçant cette \textit{docstring} juste après la signature de la fonction, elle sera accessible à travers l'attibut \verb+__doc__+ ou la fonction \texttt{help} en mode interactif. Ce mécanisme d'introspection facilite l'appropriation d'une bibliothèque, un exemple avec la documentation de la fonction \texttt{randint} du module \texttt{random} : 
+
+
+Par exemple, on peut spécifier ainsi une fonction calculant le PGCD de deux entiers naturels :
+
+\begin{lstlisting}[style=rond]
+def pgcd(a, b:):
+	"""Paramètres : a et b deux entiers
+	Préconditions : a >= 0 et b >= 0
+	Valeur renvoyée : un entier
+	Postcondition : renvoie le PGCD de a et b"""
+	while b != 0:
+		a, b = b, a % b
+	return a  
+\end{lstlisting}
+
+En plaçant cette \textit{docstring} juste après la signature de la fonction, elle sera accessible à travers l'attibut \verb+__doc__+ ou la fonction \texttt{help} en mode interactif. 
+Ce mécanisme d'introspection facilite l'appropriation d'une bibliothèque, un exemple avec la documentation de la fonction \texttt{randint} du module \texttt{random} : 
 
 \begin{lstlisting}[style=compil]
 >>> import random
@@ -2086,18 +2107,26 @@ randint(a, b) method of random.Random instance
 'Return random integer in range [a, b], including both end points.\n        '    
 \end{lstlisting}
 
-Depuis le mode interactif enrichi Ipython, on peut afficher le code source de cette fonction de bibliothèque pour avoir un exemple de \texttt{docstring} :
+Depuis le mode interactif enrichi Ipython, on peut afficher plus de détails, avec le code source  :
 
 \begin{lstlisting}[style=rond]    
-In [2]: %psource random.randint                                                 
+In [2]: random.randint??
+Signature: random.randint(a, b)
+Docstring:
+Return random integer in range [a, b], including both end points.
+        
+Source:   
     def randint(self, a, b):
         """Return random integer in range [a, b], including both end points.
         """
+
         return self.randrange(a, b+1)
+File:      ~/anaconda3/lib/python3.8/random.py
+Type:      method
 \end{lstlisting}
 
 
-Dans les dernières versions de Python, on peut préciser de façon optionnelle le type attendu et le type renvoyé avec un mécanisme d'annotations :
+À partir de  Python 3.5, on peut préciser de façon optionnelle le type attendu et le type renvoyé avec un mécanisme d'annotations. Ces \textbf{annotations de types} sont décrites dans  \url{https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html}.
 \begin{lstlisting}[style=compil]
 def greeting(name: str) -> str:
     return 'Hello ' + name
@@ -2108,7 +2137,7 @@ def greeting(name: str) -> str:
 
 
 
-\subsection{Mise au point de programme}
+\subsection{Mise au point de fonction et de programme}
 
 
 \begin{methode}{}
@@ -2132,36 +2161,35 @@ On peut utiliser des assertions comme outils de \textbf{mise au point}  du progr
 
 \begin{lstlisting}[style=rond]
 def pgcd(a:int, b:int)->int:
-	"""Paramètres : a et b deux entiers
-	Valeur renvoyée : PGCD de a et b"""
+	"""Paramètres : a et b deux entiers naturels
+	Préconditions : a >= 0 et b >= 0
+	Valeur renvoyée : un entier
+	Postcondition : renvoie le PGCD de a et b"""
+	#Vérification de précondition, programmation défensive
+	assert isinstance(a,int) and isinstance(b,int) and a>=0   and b>=0
 	while b != 0:
 		a, b = b, a % b
 	return a  
+	
+#tests unitaires, vérification de postconditions
+assert pgcd(2,2) == 2                                                   
+assert pgcd(2, 6) == 2                                                                                           
+assert pgcd(45, 60) == 15                                              
+assert pgcd(2, 0) == 2  
+assert pgcd(0, 2) == 2 
 \end{lstlisting}
 
 
 
 \begin{itemize}
- \item on peut vérifier au début du corps de la fonction des \textbf{préconditions} sur les paramètres, par exemple ici  \textit{a et b non tous nuls} peut se traduire par l'assertion \texttt{assert a != 0 or b != 0}. On parle de \textbf{programmation défensive}.
+ \item On peut vérifier au début du corps de la fonction une \textbf{précondition} sur les paramètres, par exemple la précondition \textit{a entier positif} par \texttt{assert isinstance(a,int) and a>=0}. 
  
-\begin{lstlisting}[style=compil]
-def pgcd(a, b):
-	"""Paramètres : a et b deux entiers
-	Valeur renvoyée : PGCD de a et b"""
-	assert a != 0 or b != 0    #précondition
-	while b != 0:
-		a, b = b, a % b
-	return a
-\end{lstlisting} 
-\item on peut définir hors de la fonction des \textbf{postconditions} sur les valeurs renvoyées en fonction des entrées. n peut les rassembler dans un \textbf{jeu de tests}. On parle alors de \textbf{tests unitaires} :
+On parle de \textbf{programmation défensive}.
+ 
+\item On peut définir en dehors de la fonction   \textbf{des tests unitaires} pour vérifier la \textbf{postcondition} sur quelques cas les plus couvrant possibles. On peut les rassembler dans une fonction ou un module externe pour constituer un  \textbf{jeu de tests}. 
 
 \begin{lstlisting}[style=compil]
->>> assert pgcd(2,2) == 2                                                   
->>> assert pgcd(2, 6) == 2                                                  
->>> assert pgcd(5, 15) == 5                                                
->>> assert pgcd(45, 60) == 15                                              
->>> assert pgcd(2, 0) == 2  
->>> def test_pgcd():
+>>> def test_pgcd():  #jeu de test unitaires
 ...     assert pgcd(2,2) == 2
 ...     ............
 ...     assert pgcd(2, 0) == 2
@@ -2172,7 +2200,12 @@ def pgcd(a, b):
 
 Si le programme était incorrect, un test unitaire pourrait être faux et provoquer une erreur \texttt{Assertion Error}.
 
-\bcdanger{} Pou reprendre une citation célèbre d'\href{https://fr.wikipedia.org/wiki/Edsger_Dijkstra}{Edger Dijsktraa} :
+
+
+{\itshape \bfseries Cette méthodologie de mise au point de fonction peut être étendue à des programmes complets.}
+
+
+\bcdanger{} Pour reprendre une citation célèbre d'\href{https://fr.wikipedia.org/wiki/Edsger_Dijkstra}{Edger Dijsktraa} :
 
 \begin{quote}
 {\itshape
@@ -2184,7 +2217,7 @@ Program testing can be used to show the presence of bugs, but never to show thei
 
 \end{methode}
 
-\newpage
+%\newpage
 
  \section{Portée d'une variable}
  
@@ -2343,7 +2376,7 @@ print(a)
 
 
 
-\newpage
+%\newpage
 
 
 \tableofcontents
