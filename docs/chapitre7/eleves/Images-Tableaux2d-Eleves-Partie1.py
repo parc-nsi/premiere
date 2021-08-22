@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+"""
+TP Images 
+Première NSI 2021-2022
+Lycée du Parc
+"""
 
 #%% Imports de bibliothèques
 
@@ -14,7 +19,7 @@ import matplotlib.pyplot as plt
 
 
 def dimensions(pix):
-    """Retourne les dimensions (Largeur, Hauteur) d'une matrice
+    """renvoie les dimensions (Largeur, Hauteur) d'une matrice
     de pixels"""
     return len(pix[0]), len(pix) 
 
@@ -32,14 +37,14 @@ def matrice_to_image(pix, mode = '1', fichier='image.png', res=1):
     if isinstance(pix, np.ndarray):
         pix = pix.astype(np.uint8)
     #précondition 1 : list doit être une matrice de pixels
-    precondition1 = isinstance(pix, (list, np.ndarray))                    and len(pix) > 0                 and all(isinstance(pix[k], (list, np.ndarray))                         and  len(pix[k]) == len(pix[0])                          for k in range(len(pix)))
+    precondition1 = isinstance(pix, (list, np.ndarray))  and len(pix) > 0  and all(isinstance(pix[k], (list, np.ndarray))                         and  len(pix[k]) == len(pix[0])                          for k in range(len(pix)))
     assert precondition1, "Il faut passer en paramètre une matrice de pixels"
     #dimensions de la matrice de pixels
     largeur_pix, hauteur_pix = dimensions(pix)
     #préconditions sur la matrice de pixels pour respecter les contraintes du mode de l'image 
-    precondition2 =  mode == '1' and                     all(isinstance(pix[y][x], (int, np.uint8)) and 0 <= pix[y][x] <= 1                         for y in range(hauteur_pix) for x in range(largeur_pix))
-    precondition3 =  mode == 'L' and                     all(isinstance(pix[y][x], (int, np.uint8)) and 0 <= pix[y][x] <= 255                         for y in range(hauteur_pix) for x in range(largeur_pix))
-    precondition4 = mode == 'RGB' and                     all(isinstance(pix[y][x], (list, np.ndarray))                         and len(pix[y][x]) == 3                         and  all(isinstance(pix[y][x][k], (int, np.uint8))                                  and 0 <= pix[y][x][k] <= 255                             for k in range(3))                         for y in range(hauteur_pix) for x in range(largeur_pix))
+    precondition2 =  mode == '1' and  all(isinstance(pix[y][x], (int, np.uint8)) and 0 <= pix[y][x] <= 1                         for y in range(hauteur_pix) for x in range(largeur_pix))
+    precondition3 =  mode == 'L' and  all(isinstance(pix[y][x], (int, np.uint8)) and 0 <= pix[y][x] <= 255                         for y in range(hauteur_pix) for x in range(largeur_pix))
+    precondition4 = mode == 'RGB' and all(isinstance(pix[y][x], (list, np.ndarray))                         and len(pix[y][x]) == 3                         and  all(isinstance(pix[y][x][k], (int, np.uint8))                                  and 0 <= pix[y][x][k] <= 255                             for k in range(3))                         for y in range(hauteur_pix) for x in range(largeur_pix))
     assert precondition2 or precondition3 or precondition4, "matrice de pixels et mode incompatibles !"    
     #dimensions de la matrice de pixels
     hauteur_newpix, largeur_newpix = res * hauteur_pix, res * largeur_pix
@@ -85,14 +90,6 @@ def image_to_matrice(fichier):
     pix = pix.tolist()
     return pix
 
-def matrice_vide(ncol, nlig, mode):
-    """Retourne une matrice de pixels de n lignes et m colonnes
-    représentant une image noire dans le mode  d'image choisi"""
-    assert mode in ['1', 'L', 'RGB'], "mode doit appartenir à ['1', 'L', 'RGB']"
-    if mode in ['1', 'L']:
-        "à compléter : return ...."
-    else:               
-        "à compléter : return ...."
 
 
 
@@ -170,14 +167,14 @@ parcours_tableau2d_element(t1)
 
 
 def max_tab2d(tab):
-    """Retourne le maximum d'un tableau à 2 dimensions"""
+    """Renvoie le maximum d'un tableau à 2 dimensions"""
     maxi = float('-inf')
     for y in range(len(tab)): #boucle sur les lignes
         for x in range(len(tab[y])): # boucle sur les colonnes
             "à compléter"
 
 
-# Assertions à vérifier
+# Tests unitaires
 
 
 
@@ -189,48 +186,36 @@ assert max_tab2d([[1,2],[8,0]]) == 8
 #%% Exercice 5
 
 def generer_croix(couleur):
+    """Paramètre : couleur un tableau de 3 entiers entre 0 et 255
+	Valeur renvoyée : None
+	Postcondition : enregistre sur le disque l'image d'une croix de couleur
+	sur fonds blanc"""
     blanc = [255,255,255]
     ## TO DO
-    #croix = à compléter
+    croix = "à compléter"
     matrice_to_image(croix, mode = 'RGB', res = 100, fichier='croix.png')  
 
 
 #%% Exercice 6
 
-
-def drapeau_3bandes_verticales(nlig, ncol, couleur1, couleur2, couleur3):
-    #on crée une matrice vide de bonnes dimensions
-    pix = matrice_vide(ncol, nlig, 'RGB')
-    tiers_colonne = ncol // 3
-    deux_tiers_colonne = 2 * tiers_colonne
-    for x in range(ncol): #boucle sur les colonnes
-        for y in range(nlig): #boucle sur les lignes
-            if   x < tiers_colonne:
-                pix[y][x] = couleur1
-            #à compléter !
-    return pix
-
-def transpose(pix, mode):
-    "Retourne la transposée tpix d'une matrice de pixels pix : tpix[y][x] = pix[x][y]"
-    ncol, nlig  = dimensions(pix)
-    tpix = matrice_vide(nlig, ncol, mode)
-    #à compléter
-    return tpix
-
-
-# Les assertions suivantes doivent être vérifiées par la fonction `transpose`
-
-assert transpose([[0]],'L') == [[0]]
-assert transpose([[1,2],[4,5]], 'L') == [[1,4],[2,5]]
-assert transpose([[1,2,3],[4,5,6]],'L') == [[1,4],[2,5],[3,6]]
-assert transpose([[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]],'RGB') == [[[1,2,3],[7,8,9]],[[4,5,6],[10,11,12]]]
+def matrice_vide(ncol, nlig, mode):
+    """Paramètres  : 2 entiers positifs ncol et nlig et un mode d'image de type str
+    Précondition : ncol>=0 et nlig>=0 et mode dans ['1', 'L', 'RGB']
+    Valeur renvoyée : une matrice de nlig * ncol   pixels dans le mode choisi
+    Postcondition : renvoie une matrice de  pixels nuls"""
+    assert nlig >= 0 and ncol >= 0 and mode in ['1', 'L', 'RGB']
+    #compléter par des tableaux définis en compréhension
+    if mode in ['1', 'L']:
+        return "à modifier"
+    else:               
+        return "à modifier"
 
 
 #%% Exercice 7
 
 
 def barres_horizontales(nlig, ncol):
-    """Retourne la matrice de pixels d'une image
+    """renvoie la matrice de pixels d'une image
     de dimensions ncol x nlig avec alternance 
     de lignes noires (index pair)
     ou blanches (index impair)"""
@@ -245,97 +230,60 @@ def barres_horizontales(nlig, ncol):
 
 #%% Exercice 8
 
+from typing import List
 
-def applique_filtre(pix, filtre, mode):
+# Q1
+def matrice_rgb_to_gris(pix:List[List[List[int]]])->List[List[int]]:
+    """Précondition: pix une matrice de pixels rgb
+    Valeur renvoyée: une matrice de pixels en niveaux de gris
+    Postcondition : renvoie une matrice des luminances des pixels sources"""
     ncol, nlig = dimensions(pix)
-    pix_but = matrice_vide(ncol, nlig, mode)
-    for x in range(ncol): #boucle sur les colonnes
-        for y in range(nlig): #boucle sur les lignes
-            pix_but[y][x] = filtre(pix[y][x])
+    pix_but = matrice_vide(ncol, nlig)
+    #à compléter
     return pix_but
+    
+#test
+mandrill_rgb = image_to_matrice('mandrill.png')
+mandrill_gris = matrice_rgb_to_gris(mandrill_rgb)
+matrice_to_image(mandrill_gris, mode = 'L', fichier='mandrill_gris.png', res=1)
 
 
-#%% Filtre négatif
 
+# Q2
 
-def filtre_negatif_gris(pixel):
-    """Filtre négatif pour image en niveaux de gris"""
-    return 255 - pixel
+def melange_pixel_gris(p1:int, p2:int, coef:float)->int:
+    """Précondition : 0<=p1<= 255 et 0 <= p2 <= 255 et 0 <= coef <= 1
+    Postcondition : renvoie int(p1 * coef + (1-coef) * p2)"""
+    assert  0 <= p1 <= 255 and 0 <= p2 <= 255 and 0 <= coef <= 1
+    return int(p1 * coef + (1-coef) * p2)
 
-def filtre_negatif_rgb(pixel):
-    """Filtre négatif pour image  en RGB"""
-    "à compléter"
-
-
-# ### Assertion qui doit être vérifiée
-
-
-assert filtre_negatif_rgb([255,0,100]) == [0,255,155]
-
-
-#%% Filtre de seuillage
-
-def filtre_seuillage_gris(seuil):
-    """Retourne une fonction filtre de seuillage pour une image en niveaux de gris
-    et pour le seuil choisi"""    
-    def f(pixel):
-        return fonction_seuil(pixel, seuil, 0, 255)    
-    return f
-
-def filtre_seuillage_rgb(seuil):
-    """Retourne une fonction filtre de seuillage pour une image en RGB
-    et pour le seuil choisi"""
-    def g(pixel):
-        "à compléter"
-    return g
-
-
-#%% Filtre de composante
-
-
-def filtre_rouge(pixel):
-    """Filtre un pixel RGB en le projetant sur sa composante rouge"""
+def melange_matrice_gris(pix1:List[List[int]], pix2:List[List[int]], coef:float)->List[List[int]]:
+    """Précondition : pix1 et pix2 deux matrices de pixels en niveaux de gris     de mêmes dimensions et 0 <= coef <= 1""" 
     #à compléter
 
+def melange_progressif(pix1:List[List[int]], pix2:List[List[int]], n:int)->None:
+    for k in range(n + 1):
+        matrice_to_image(melange_matrice_gris(pix1, pix2,  k/n), mode='L', fichier=f"melange{k}.png")
 
-# Assertions à vérifier
+#test  
+darwin = image_to_matrice("darwin_gris.png")
+mandrill = image_to_matrice("mandrill_gris.png")
+melange_progressif(darwin, mandrill, 10)
 
+#%% Exercice 9
 
-assert filtre_rouge([255,0,0]) == [255,0,0]
-assert filtre_rouge([255,255,0]) == [255,0,0]
-assert filtre_rouge([255,255,255]) == [255,0,0]
-assert filtre_rouge([0,255,0]) == [0,0,0]
+from  typing import List
 
+def changement_echelle(pix:List[List[int]], coef:float)->List[List[int]]:
+    """Précondition: pix une matrice de pixels rgb
+    Valeur renvoyée: une matrice de pixels en niveaux de gris
+    Postcondition : renvoie une matrice de l'image obtenue par changement d'échelle
+    de coefficient coef"""
+    ncol, nlig = dimensions(pix)
+    ncol_but, nlig_but = int(ncol * coef), int(nlig * coef)
+    #à compléter
 
-def filtre_composante_rgb(index_comp):
-    """Retourne une fonction de filtre qui projette un pixel
-    sur la composante indexée en paramètre"""    
-    "à compléter"
-
-
-
-assert filtre_composante_rgb(0)([255,200,100]) == [255,0,0]
-assert filtre_composante_rgb(1)([255,200,100]) == [0,200,0]
-assert filtre_composante_rgb(2)([255,200,100]) == [0,0,100]
-
-
-#%%  Filtre monochrome
-
-
-def filtre_monochrome(pixel_rgb):
-    """Retourne la moyenne pondérée des composantes
-    d'un pixel RGB par les coefs [0.299,0.587,0.114]"""
-    coef = [0.299,0.587,0.114]
-    pixel_gris = 0
-    somme_coef = 0
-    "à compléter"
-
-
-# Assertions qui doivent être vérifiées
-
-
-
-assert filtre_monochrome([255,100,200]) == 157
-assert filtre_monochrome([200,255,100]) == 220
-assert filtre_monochrome([100,200,255]) == 176
-
+#code client
+mandrill_gris = image_to_matrice('mandrill_gris.png')
+mandrill_gris_quart = changement_echelle(mandrill_gris, 0.25)
+matrice_to_image(mandrill_gris_quart, mode = 'L', fichier='mandrill_gris_quart.png', res=1)
