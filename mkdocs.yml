@@ -72,9 +72,11 @@ nav:
   - Séances : seances.md
   - Automatismes : 
     - Thèmes:
+      - Fonctions:
+        - Aire d'un disque: automatismes/exo1_fonctions_disque.md
       - Tableaux:
         - Somme d'un tableau: automatismes/exo1_fonctions.md
-        - Somme d'un tableau, Vincent Bouillot: automatismes/exo1_fonctions_bouillot.md
+        - Somme d'un tableau, Vincent Bouillot: automatismes/exo1_tableaux_somme_bouillot.md
       - Tris:
         - Tri par sélection: automatismes/exo1_tris.md      
     - Automatismes 2020/2021: automatismes/automatismes-2020-2021.md
@@ -187,9 +189,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
-  - mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+  #- mermaid2
+  #- mkdocs-jupyter:
+  #    include_source: True
 
   
 

@@ -1,20 +1,8 @@
 # Solution 1
 
-def somme(tab):
-    if len(tab) > 0:
-        s = 0
-        for k in range(len(tab)):
-            s = s + tab[k]
-        return s
-    return None
-    
-# Solution 2
+import math  #math.pi pour avoir pi
 
-def somme(tab):
-    if len(tab) > 0:
-        s = 0
-        for e in s:
-            s = s + e
-        return s
-    return None
+def aire_disque(r): 
+    """Signature aire_disque(r:float)->float"""       
+    return math.pi * r ** 2
 

@@ -1,5 +1,5 @@
-def somme(tab:[int])->int:
-    #votre code
-    
-assert somme([]) == None  #postcondition
-assert somme([1,2,3]) == 6  #postcondition
+import math  #math.pi pour avoir pi
+
+def aire_disque(r): 
+    """Signature aire_disque(r:float)->float"""       
+    return "à compléter"
