@@ -26,6 +26,8 @@ title:  "Ressources pour le cours de NSI"
 
 * [Site](http://www.mathinfo.ovh/Premiere_NSI/00_Progression/index.html) de Nicolas Buyle-Bodin, lycée Lacassagne à Lyon.
 
+*  [Progalgo](https://progalgo.fr/) plateforme d'entraînement de Julien de Villèle.
+
 
 ## Plateformes d'entraînement 
 

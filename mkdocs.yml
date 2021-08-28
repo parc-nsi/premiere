@@ -74,6 +74,8 @@ nav:
     - Thèmes:
       - Fonctions:
         - Aire d'un disque: automatismes/exo1_fonctions_disque.md
+        - Valeur absolue: automatismes/exo3_fonctions_valeur_absolue.md
+        - Conversion en secondes : automatismes/exo2_fonctions_secondes.md
       - Tableaux:
         - Somme d'un tableau: automatismes/exo1_fonctions.md
         - Somme d'un tableau, Vincent Bouillot: automatismes/exo1_tableaux_somme_bouillot.md
@@ -189,9 +191,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
-  - mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+  #- mermaid2
+  #- mkdocs-jupyter:
+  #    include_source: True
 
   
 
