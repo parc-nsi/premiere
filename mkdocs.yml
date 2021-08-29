@@ -72,15 +72,27 @@ nav:
   - Séances : seances.md
   - Automatismes : 
     - Thèmes:
+      - Variables:
+        - Permutation de variables: automatismes/variables/exo1_variables.md
+      - Boucle for :
+        - Range épisode 1: automatismes/bouclefor/exo1_range.md
+        - Range épisode 2: automatismes/bouclefor/exo2_range.md
+        - Range épisode 3: automatismes/bouclefor/exo3_range.md
+        - Range épisode 4: automatismes/bouclefor/exo4_range.md
+      - Boucle while :
+        - Test avec une comparaison 1: automatismes/bouclewhile/exo1_while.md
+        -  Test avec une comparaison 2: automatismes/bouclewhile/exo2_while.md
       - Fonctions:
-        - Aire d'un disque: automatismes/exo1_fonctions_disque.md
-        - Valeur absolue: automatismes/exo3_fonctions_valeur_absolue.md
-        - Conversion en secondes : automatismes/exo2_fonctions_secondes.md
+        - Aire d'un disque: automatismes/fonctions/exo1_fonctions_disque.md
+        - Valeur absolue: automatismes/fonctions/exo3_fonctions_valeur_absolue.md
+        - Conversion en secondes : automatismes/fonctions/exo2_fonctions_secondes.md
+        - Somme des entiers successifs: automatismes/fonctions/exo4_fonctions_somme_for.md
+        - Produit des entiers successifs: automatismes/fonctions/exo5_fonctions_produit_for.md
       - Tableaux:
-        - Somme d'un tableau: automatismes/exo1_fonctions.md
-        - Somme d'un tableau, Vincent Bouillot: automatismes/exo1_tableaux_somme_bouillot.md
+        - Somme d'un tableau: automatismes/tableaux/exo1_tableaux_somme.md
+        - Somme d'un tableau, Vincent Bouillot: automatismes/tableaux/exo1_tableaux_somme_bouillot.md
       - Tris:
-        - Tri par sélection: automatismes/exo1_tris.md      
+        - Tri par sélection: automatismes/tris/exo1_tris.md      
     - Automatismes 2020/2021: automatismes/automatismes-2020-2021.md
   - Projets : projets.md
   - Divers:

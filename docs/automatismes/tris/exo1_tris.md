@@ -32,4 +32,4 @@ title: Thème Tris, tri par sélection
     _Patience, attendez l'affichage "Prêt" dans la console avant de commencer ! Rafraîchissez la page si le message n'apparaît pas au bout de quelques secondes._
 
 
-{{console_perso("tris/exo1/test_exo1_tris.py", "tris/exo1/template_exo1_tris.py")}} 
+{{console_perso("exo1/test_exo1_tris.py", "exo1/template_exo1_tris.py")}} 

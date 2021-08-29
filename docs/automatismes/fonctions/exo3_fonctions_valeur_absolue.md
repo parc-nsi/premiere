@@ -16,4 +16,4 @@ title: Thème Fonctions, tests
     ~~~
 
 
-{{IDE("fonctions/exo3/exo3_fonctions")}} 
+{{IDE("exo3/exo3_fonctions")}} 

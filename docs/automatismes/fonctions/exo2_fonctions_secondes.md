@@ -26,4 +26,4 @@ Exercice tiré de  [Progalgo](https://progalgo.fr/) de Julien de Villèle.
     ~~~
 
 
-{{IDE("fonctions/exo2/exo2_fonctions")}} 
+{{IDE("exo2/exo2_fonctions")}} 
