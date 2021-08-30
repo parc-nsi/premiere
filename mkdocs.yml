@@ -74,14 +74,19 @@ nav:
     - Thèmes:
       - Variables:
         - Permutation de variables: automatismes/variables/exo1_variables.md
+      - Tests:
+        - if / else: automatismes/tests/exo1_tests.md
+        - if / elif / .. / else: automatismes/tests/exo2_tests.md
+        - Test avec opérateur logique 1: automatismes/tests/exo3_tests.md
+        - Test avec opérateur logique 2: automatismes/tests/exo4_tests.md
       - Boucle for :
         - Range épisode 1: automatismes/bouclefor/exo1_range.md
         - Range épisode 2: automatismes/bouclefor/exo2_range.md
         - Range épisode 3: automatismes/bouclefor/exo3_range.md
         - Range épisode 4: automatismes/bouclefor/exo4_range.md
       - Boucle while :
-        - Test avec une comparaison 1: automatismes/bouclewhile/exo1_while.md
-        -  Test avec une comparaison 2: automatismes/bouclewhile/exo2_while.md
+        - Test de boucle avec une comparaison 1: automatismes/bouclewhile/exo1_while.md
+        - Test de boucle avec une comparaison 2: automatismes/bouclewhile/exo2_while.md
       - Fonctions:
         - Aire d'un disque: automatismes/fonctions/exo1_fonctions_disque.md
         - Valeur absolue: automatismes/fonctions/exo3_fonctions_valeur_absolue.md
