@@ -1,6 +1,5 @@
 ---
-title:  Chapitre 5  onctions, spécification et mise au point, portée d'une variable
-layout: parc
+title:  Chapitre 5  fonctions, spécification et mise au point, portée d'une variable
 ---
 
 

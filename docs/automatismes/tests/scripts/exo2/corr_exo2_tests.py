@@ -1,41 +1,25 @@
 # Solution 1
 
-note = 5 #doit fonctionner pour toute valeur de type float de note
-if 0 <= note < 8:
-    print("Recalé")
-elif  note < 10:
-    print("Second groupe")
-elif  note < 12:
-    print("Reçu")
-elif  note < 14:
-    print("Assez bien")
-elif  note < 16:
-    print("Bien")
-elif note <= 20:
-    print("Très bien")
-else:
+age = int(input('Votre âge ?')) #doit fonctionner pour toute valeur de type float de note
+if age < 0 or age > 130:
     print("Valeur incohérente")
+elif  age < 18:
+    print("mineur")
+elif  age == 18:
+    print("Majeur dans l'année")
+else:
+    print("Majeur")
 
 # Solution 2 (à éviter)
 
-note = 5 #doit fonctionner pour toute valeur de type float de note
-if 0 <= note < 8:
-    print("Recalé")
+age = int(input('Votre âge ?')) #doit fonctionner pour toute valeur de type float de note
+if age < 0 or age > 130:
+    print("Valeur incohérente")
 else:
-    if  note < 10:
-        print("Second groupe")
+    if  age < 18:
+        print("mineur")
     else:
-        if  note < 12:
-            print("Reçu")
+        if  age == 18:
+            print("Majeur dans l'année")
         else:
-            if  note < 14:
-                print("Assez bien")
-            else:
-                if  note < 16:
-                    print("Bien")
-                else:
-                    if note <= 20:
-                        print("Très bien")
-                    else:
-                        print("Valeur incohérente")
-
+            print("Majeur")

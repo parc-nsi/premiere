@@ -5,8 +5,11 @@ layout: parc
 
 
 > Bienvenue sur le site de ressources de la classe de première NSI du [lycée du Parc à Lyon](https://lyceeduparc.fr/ldp/), l'enseignement est assuré par deux professeurs : Pierre Duclosson et Frédéric Junier.
-> 
+
+> Nous utilisons le manuel Hachette NSI version papier  de référence `978-2-01-786630-5`, accessible en ligne sur <https://mesmanuels.fr/acces-libre/3813624>
+
 >L'image `gif` ci-dessous présente  différentes étapes du déroulement d'un algorithme de rotation d'images inspiré d'un travail présenté par Laurent Abbal du lycée français de Tokyo. Le  programme assez court peut être réalisé par un élève  de terminale (récursivité, approche _diviser pour régner_).
+
 >L'image source représente l'oeuvre _Matsuri Yatai Dragon_ du peintre japonais [Hokusai](https://en.wikipedia.org/wiki/en:Hokusai). Elle est dans le domaine public et disponible sur [https://commons.wikimedia.org](https://commons.wikimedia.org/wiki/File:Hokusai_Dragon.jpg).
 
 [![Dragon](assets/rotation-dragon-2.gif "dragon-hokusai")](https://commons.wikimedia.org/wiki/File:Hokusai_Dragon.jpg)
@@ -26,10 +29,10 @@ layout: parc
 ## Progression
 
 
-* [Chapitre 1 : variables et affectations en Python](chapitre1.md)
+* [Chapitre 1 : Constructions de base d'un langage de programmation](chapitre1.md)
 * [Chapitre 2 : HTML/CSS](chapitre2.md)
-* [Chapitre 3 : boucles inconditionnelles en Python](chapitre3.md) avec en TP une approche de l'entrée du programme _IHM et périphériques d'entrée/sortie_ à travers la plateforme [Quickpi](https://amazon.quick-pi.org/) et une [synthèse de cours](IHM-peripheriques/NSI-IHM-Cours2020V1.pdf) sur la partie capteurs/actionneurs du thème IHM.
-* [Chapitre 4 : boucles conditionnelles et tests](chapitre4.md)
+* [Chapitre 3 : IHM partie 1](chapitre3.md) 
+* [Chapitre 4 : IHM partie 2](chapitre4.md) 
 * [Chapitre 5 : fonctions, spécification et mise au point, portée d'une variable](chapitre5.md)
 * [Chapitre 6 : tableaux à une dimension](chapitre6.md)
 * [Chapitre 7 : tableaux à deux dimensions](chapitre7.md)

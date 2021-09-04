@@ -10,6 +10,9 @@ site_description: "Site  de  première  NSI  du    Lycée  du  Parc  à Lyon "
 
 nav:
   - Progression: index.md
+  - Langages :
+    - Chapitre 1 constructions de base d'un langage de programmation : chapitre1.md  
+    - Chapitre 5 fonctions, spécification et mise au point, portée d'une variable : chapitre5.md  
   - Types de bases :
     - Chapitre 8 représentation des entiers : chapitre8.md
     - Chapitre 12 codage des caractères : chapitre12.md
@@ -31,6 +34,9 @@ nav:
       - Cours: chapitre19/Cours/cours-tables-indexation-git.md
       - TP Fusion : chapitre19/TP-Fusion/tp-fusion-git.md
       - TP Recherche et tri : chapitre19/TP-Recherche-Tri/tp-recherche-tri-git.md
+  - IHM:
+    - Chapitre 3: chapitre3.md
+    - Chapitre 4: chapitre4.md
   - Architecture  :
     - Chapitre 9 système d'exploitation et ligne de commandes  : 
       - Index : chapitre9.md
@@ -55,13 +61,6 @@ nav:
     - Chapitre 25 Réseau TCP/IP:
       - Index : chapitre25.md
       - Cours : chapitre25/reseau-cours-git.md
-  - Langages :
-    - Chapitre 1 affectations et types : chapitre1.md
-    - Chapitre 3 boucles inconditionnelles : chapitre3.md
-    - Chapitre 4 boucles conditionnelles et tests : 
-      - Index: chapitre4.md 
-      - Tests Boucles:  chapitre4/TestBouclesConditionnelles-Correction.md
-    - Chapitre 5 fonctions, spécification et mise au point, portée d'une variable : chapitre5.md  
   - Algorithmique:
     - Chapitre 10  recherches séquentielle et dichotomique : chapitre10.md
     - Chapitre 11  algorithmes de tri : chapitre11.md
@@ -70,7 +69,8 @@ nav:
     - Chapitre 22  algorithme KNN : chapitre22.md
     - Chapitre 24  algorithmes gloutons : chapitre24.md
   - Séances : seances.md
-  - Automatismes : 
+  - Automatismes:
+    - QCM: divers/qcm.md  
     - Thèmes:
       - Variables:
         - Permutation de variables: automatismes/variables/exo1_variables.md
@@ -100,8 +100,7 @@ nav:
         - Tri par sélection: automatismes/tris/exo1_tris.md      
     - Automatismes 2020/2021: automatismes/automatismes-2020-2021.md
   - Projets : projets.md
-  - Divers:
-    - QCM: divers/qcm.md    
+  - Divers:      
     - Bac:
       - EDS 2021:
         - Amérique du Nord : 
@@ -121,8 +120,8 @@ nav:
     - Maths:
       - Énigmes: divers/maths/enigmes.md
   - Sandbox : sandbox.md
-  #- Python file: solution_scrabble.py
-  #- Notebook : PremiereNSI-Cours-Tableaux-Corriges.ipynb
+  - Python file: solution_scrabble.py
+  - Notebook : PremiereNSI-Cours-Tableaux-Corriges.ipynb
     
     
     
@@ -208,9 +207,9 @@ plugins:
   - macros:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
-  - mermaid2
-  - mkdocs-jupyter:
-      include_source: True
+  #- mermaid2
+  #- mkdocs-jupyter:
+  #    include_source: True
 
   
 

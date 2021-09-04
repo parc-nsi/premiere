@@ -20,6 +20,8 @@ title:  "Ressources pour le cours de NSI"
 
 ## Ressources pour le cours de première NSI
 
+* Le manuel Hachette NSI version papier foruni par la région de référence `978-2-01-786630-5`, accessible en ligne sur <https://mesmanuels.fr/acces-libre/3813624>
+
 * L'excellente [chaîne peertube de Pierre Marquestaut](https://peertube.lyceeconnecte.fr/video-channels/pierre.marquestaut_channel/videos).
 
 * [Pyvert](https://diraison.github.io/Pyvert/) site de Jean Diraison comportant  des exercices avec juge en ligne.
