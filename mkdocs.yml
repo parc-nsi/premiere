@@ -100,7 +100,10 @@ nav:
         - Tri par sélection: automatismes/tris/exo1_tris.md      
     - Automatismes 2020/2021: automatismes/automatismes-2020-2021.md
   - Projets : projets.md
-  - Divers:      
+  - Divers:
+    - Ressources : divers/ressources.md
+    - Outils : divers/outils.md
+    - Capytale: divers/capytale.md   
     - Bac:
       - EDS 2021:
         - Amérique du Nord : 
@@ -110,15 +113,11 @@ nav:
         - Candidats libres:
           - Sujet: divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.pdf
           - Fichier élève: divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres_Eleves.ipynb
-          - Éléments de correction: divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.ipynb
-    - Ressources : divers/ressources.md
-    - Outils : divers/outils.md
-    - Capytale: divers/capytale.md
-    - Notebooks: 
+          - Éléments de correction: divers/bac/2021/Metropole_Specialite_NSI_Candidats_libres.ipynb    
+    - Maths:      
+      - Énigmes: divers/maths/enigmes.md
       - Graphes: divers/notebooks/Graphes.ipynb
       - Résidus quadratiques : divers/notebooks/Residu_Quadratique.ipynb
-    - Maths:
-      - Énigmes: divers/maths/enigmes.md
   - Sandbox : sandbox.md
   - Python file: solution_scrabble.py
   - Notebook : PremiereNSI-Cours-Tableaux-Corriges.ipynb
