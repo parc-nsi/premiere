@@ -144,7 +144,7 @@ theme:
       toggle:
           icon: material/weather-sunny
           name: Passer au mode nuit
-  custom_dir: overrides/
+  custom_dir: overrides
   font: false
   language: fr
   logo: assets/logo-parc.png
@@ -208,6 +208,8 @@ plugins:
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
   - mermaid2
   - mkdocs-jupyter:
+      kernel_name: python3
+      execute: False
       include_source: True
 
   
