@@ -4,7 +4,7 @@ layout: parc
 
 
 
-__[Corrigé des automatismes](automatismes/automatismes.py)__
+__[Corrigé des automatismes](https://raw.githubusercontent.com/parc-nsi/premiere/main/docs/automatismes/automatismes.py)__
 
 ## Automatisme 1
 
