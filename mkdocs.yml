@@ -118,7 +118,7 @@ nav:
       - Énigmes: divers/maths/enigmes.md
       - Graphes: divers/notebooks/Graphes.ipynb
       - Résidus quadratiques : divers/notebooks/Residu_Quadratique.ipynb
-  - Sandbox : sandbox.md
+#  - Sandbox : sandbox.md
     
     
     
