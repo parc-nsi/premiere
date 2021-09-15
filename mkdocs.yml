@@ -205,9 +205,9 @@ plugins:
       verbose: True
       include_dir: include # voir https://mkdocs-macros-plugin.readthedocs.io/en/latest/advanced/#changing-the-directory-of-the-includes
  # - mermaid2
- # - mkdocs-jupyter:
- #     kernel_name: python3
- #     execute: False
+  - mkdocs-jupyter:
+      kernel_name: python3
+      execute: False
  #     include_source: True
 
   
