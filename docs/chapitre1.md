@@ -21,6 +21,10 @@ Cours de Pierre Duclosson et Frédéric Junier.
     * [corrigé version ipynb](chapitre1/TP1/corrigé-TP1.ipynb)
 * TP2 :
     * [énoncé PDF](chapitre1/TP2/TP2.pdf)
+    * [corrigé pdf](chapitre1/TP2/correction/Correction_TP2.pdf)
+    * [corrigé .ipynb](chapitre1/TP2/correction/Correction_TP2.ipynb)
+    * [corrigé .py](https://raw.githubusercontent.com/parc-nsi/premiere/main/docs/chapitre1/chapitre1/TP2/correction/Correction_TP2.py)
+
 * QCM :
     * [QCM1 Genumsi](https://genumsi.inria.fr/qcm.php?h=e74b6446b2fb9380f06fe87ff3289bf4)
 
